@@ -11,6 +11,7 @@ import { useRoutes } from "./Router";
 // All Screens
 import Home from "./Screens/Home/Home";
 import Learning from "./Screens/Learning/Learning";
+import LearningArticleWrite from "./Screens/Learning/LearningArticleWrite/LearningArticleWrite";
 import Meetings from "./Screens/Meetings/Meetings";
 import People from "./Screens/People/People";
 import NotFound from "./Screens/Errors/404/404";
@@ -24,6 +25,7 @@ import "./App.scss";
 const routes = {
   "/": () => <Home />,
   "/learning": () => <Learning />,
+  "/learning/article/write": () => <LearningArticleWrite />,
   "/meetings": () => <Meetings />,
   "/people": () => <People />,
 };
@@ -51,10 +53,12 @@ const App = () => {
   const match = useRoutes(routes);
   const theme = useSelector((state) => state.theme);
 
+  console.log(`Body-${theme}`);
+
   return (
     <Container disableGutters maxWidth={false} className={`App-${theme}`}>
       <Header />
-      <Grid container className="Body">
+      <Grid container className={`Body-${theme}`}>
         <Menu buttonList={buttonList} />
         <Grid item className="Content" xs={true}>
           {match || <NotFound />}

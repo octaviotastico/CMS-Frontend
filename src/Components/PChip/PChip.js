@@ -10,15 +10,17 @@ import "./PChip.scss";
 const PChip = ({ text, selectable, checked, setChecked }) => {
   const { theme } = useSelector((state) => state);
   return (
-    <Grid className={`PChip-${theme}`}>
+    <Grid
+      className={`PChip-${theme}`}
+      onClick={() => selectable && setChecked(!checked)}
+    >
       {selectable && (
         <Checkbox
           className="CheckBox"
           checked={checked}
-          onClick={() => setChecked(!checked)}
         />
       )}
-      <Typography disableRipple className="CheckBoxText">
+      <Typography className="CheckBoxText">
         {text}
       </Typography>
     </Grid>

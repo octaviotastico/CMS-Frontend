@@ -1,8 +1,14 @@
+// React and Material
 import { useState, useEffect } from "react";
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Button, ButtonGroup, Container, Grid, Typography } from "@material-ui/core";
+import AddIcon from '@material-ui/icons/Add';
+import { navigate } from "../../Router";
+import axios from "axios";
+
+// Components
 import LearningCard from "../../Components/LearningCard/LearningCard";
-import { LearningData, LearningFilter } from "../../Utils/MockData";
 import PFilters from "../../Components/PFilters/PFilters";
+import { LearningFilter } from "../../Utils/MockData";
 
 // Redux
 import { useSelector } from "react-redux";
@@ -15,17 +21,36 @@ const Learning = () => {
   const [articles, setArticles] = useState([]);
   const [filters, setFilters] = useState([]);
 
-  const fetchFilters = async () => {
+  useEffect(() => {
     setFilters(LearningFilter);
-  };
+  }, []);
 
-  const fetchPeople = async () => {
-    setArticles(LearningData);
-  };
+  const groupByCategory = (articles) => {
+    const grouped = [];
+
+    articles.forEach((article) => {
+      const category = article.category;
+      const index = grouped.findIndex((item) => item.category === category);
+      if (index === -1) {
+        grouped.push({
+          category,
+          data: [article],
+        });
+      } else {
+        grouped[index].data.push(article);
+      }
+    });
+
+    return grouped;
+  }
 
   useEffect(() => {
-    fetchPeople();
-    fetchFilters();
+    const getAllArticles = async () => {
+      const res = await axios.get(`http://localhost:2424/learning/articles`);
+      setArticles(groupByCategory(res.data, "category"));
+    };
+
+    getAllArticles();
   }, []);
 
   return (
@@ -39,7 +64,7 @@ const Learning = () => {
         </Typography>
         <Grid className="BodyAndFilters">
           <Grid xs={8} className="BodyContainer">
-            {articles &&
+            {articles && articles.length &&
               articles.map((elem) => {
                 return (
                   <Grid
@@ -54,7 +79,7 @@ const Learning = () => {
                       </Typography>
                     </Grid>
                     <Grid className="LearningCardList">
-                      {elem.data.map((article) => {
+                      {elem.data && elem.data.length && elem.data.map((article) => {
                         return (
                           <LearningCard
                             title={article.title}
@@ -71,6 +96,14 @@ const Learning = () => {
               })}
           </Grid>
           <Grid xs={4} className="FiltersContainer">
+            <Grid className="CreateContainer">
+              <ButtonGroup onClick={() => navigate("/learning/article/write")}>
+                <Button className="CreateButton">
+                  <AddIcon/>
+                </Button>
+                <Button className="CreateButton">Create an article!</Button>
+              </ButtonGroup>
+            </Grid>
             <PFilters filters={filters} />
           </Grid>
         </Grid>

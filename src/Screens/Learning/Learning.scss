@@ -2,41 +2,62 @@
 @import "../../Utils/ColorVariables.scss";
 
 .Learning {
+
   .LearningTitle {
     text-align: left;
     font-weight: 200;
-    font-size: 4.5vw;
+    font-size: 3vw;
   }
+
   .LearningSubtitle {
     text-align: left;
     font-weight: 300;
-    font-size: 2vw;
+    font-size: 1.3vw;
   }
 
   .BodyAndFilters {
     display: flex;
     flex-direction: row;
     margin-top: 20px;
+    position: relative;
+
     .BodyContainer {
       display: flex;
       flex-direction: column;
+      margin-right: 5px;
+
       .Category {
         width: 100%;
         margin-bottom: 20px;
+
         .CategoryTitleContainer {
           text-align: left;
           margin-top: 30px !important;
+
           .CategoryTitle {
-            font-size: 20px !important;
-            font-weight: bold !important;
+            font-size: 2rem !important;
+            font-weight: 500 !important;
           }
         }
+
         .LearningCardList {
           display: flex;
           flex-direction: column;
         }
       }
     }
+
+    .CreateContainer {
+      @extend .GlassSurface-01;
+      border-radius: 10px;
+      height: 100px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 20px;
+      margin-top: 18px;
+    }
+
     .FiltersContainer {
       padding-top: 77px;
     }
@@ -48,6 +69,12 @@
   .LearningTitle, .LearningSubtitle {
     text-shadow: 0 0 3px $dark1;
   }
+  .Category {
+    color: $textPrimary;
+  }
+  .CreateButton {
+    @extend .GenericButton-Theme_01;
+  }
 }
 
 .Learning-Theme_02 {
@@ -56,6 +83,12 @@
     text-shadow: 0 0 3px #c3cfe2;
     color: $dark0;
   }
+  .Category {
+    color: $dark0;
+  }
+  .CreateButton {
+    @extend .GenericButton-Theme_02;
+  }
 }
 
 .Learning-Theme_03 {
@@ -63,5 +96,11 @@
   .LearningTitle, .LearningSubtitle {
     text-shadow: 0 0 3px $dark3;
     color: $textPrimary;
+  }
+  .Category {
+    color: $textPrimary;
+  }
+  .CreateButton {
+    @extend .GenericButton-Theme_03;
   }
 }

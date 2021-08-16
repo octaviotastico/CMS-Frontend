@@ -1,0 +1,178 @@
+@import "../../../Utils/StyleClasses.scss";
+@import "../../../Utils/ColorVariables.scss";
+
+.LearningArticleWrite {
+
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(207, 151, 45);
+  margin-top: 10px;
+  height: calc(92vh - 25px);
+  border-radius: 10px;
+  padding: 20px;
+
+  .EditAndPreviewContainer {
+    display: flex;
+    height: 95%;
+  }
+
+  .EditColumn {
+
+    .MarkdownInputContainer {
+      width: 100%;
+      height: 90%;
+      display: flex;
+      justify-content: center;
+
+      .MarkdownInput {
+        @extend .Text;
+        font-weight: 500;
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 1);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 1px, rgba(0, 0, 0, 0.3) 2px, rgba(0, 0, 0, 0.3) 3px);
+        border-radius: 5px;
+        overflow-y: auto;
+        font-size: clamp(10px, 0.75vw, 24px);
+        padding: 20px;
+        width: 90%;
+        height: 100%;
+        resize: none;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+
+  .PreviewColumn {
+
+    .MarkdownPreviewContainer {
+      width: 100%;
+      height: 90%;
+      display: flex;
+      justify-content: center;
+      text-align: left;
+
+      .MarkdownPreview {
+        @extend .Text;
+        font-weight: 500;
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 1);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 1px, rgba(0, 0, 0, 0.3) 2px, rgba(0, 0, 0, 0.3) 3px);
+        border-radius: 5px;
+        overflow-y: auto;
+        padding: 20px;
+        width: 90%;
+        height: 100%;
+
+        pre {
+          padding: 10px 20px;
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+          background-color: #de7df834;
+          border-radius: 5px;
+          width: fit-content;
+          min-width: calc(100% - 40px);
+          code {
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: pre-wrap;
+            font-family: monospace !important;
+            line-height: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .ButtonGroup {
+    margin: 0 10px;
+  }
+
+  .Title {
+    @extend .Text;
+    font-size: clamp(10px, 2vw, 2.3rem);
+    line-height: 1.5vw;
+    margin-bottom: 10px;
+    font-weight: 800;
+  }
+}
+
+.LearningArticleWrite-Theme_01 {
+  @extend .LearningArticleWrite;
+  border: 1px solid rgba(#3a3a3d, 1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-image: linear-gradient(-45deg, #949494, #585858);
+  .Title {
+    text-shadow: 0 0 3px $dark1;
+  }
+  .MarkdownInput, .MarkdownPreview {
+    color: white;
+
+    pre {
+      background: linear-gradient(-45deg, #949494, #7a7a7a);
+      code {
+        color: white !important;
+      }
+    }
+  }
+  .ControlButton {
+    @extend .GenericButton-Theme_01;
+  }
+  .ControlButtonTxt {
+    @extend .GenericButton-Theme_01;
+    width: 200px;
+  }
+}
+
+.LearningArticleWrite-Theme_02 {
+  @extend .LearningArticleWrite;
+  border: 1px solid rgba(#969696, 1);
+  background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
+  .Title {
+    text-shadow: 0 0 3px #c3cfe2;
+    color: $dark0;
+  }
+  .MarkdownInput, .MarkdownPreview {
+    color: $dark0;
+
+    pre {
+      background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
+      code {
+        color: $dark0 !important;
+      }
+    }
+  }
+  .ControlButton {
+    @extend .GenericButton-Theme_02;
+  }
+  .ControlButtonTxt {
+    @extend .GenericButton-Theme_02;
+    width: 200px;
+  }
+}
+
+.LearningArticleWrite-Theme_03 {
+  @extend .LearningArticleWrite;
+  border: 1px solid rgba(#c3cfe2, 1);
+  background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
+  .Title {
+    color: #383538;
+  }
+  .MarkdownInput, .MarkdownPreview {
+    color: $dark0;
+
+    pre {
+      background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
+      code {
+        color: $dark0 !important;
+      }
+    }
+  }
+  .ControlButton {
+    @extend .GenericButton-Theme_03;
+  }
+  .ControlButtonTxt {
+    @extend .GenericButton-Theme_03;
+    width: 200px;
+  }
+}
+
+

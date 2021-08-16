@@ -35,7 +35,54 @@
   // background-image: url('/Assets/images/bg2.jpg');
   background-attachment: fixed;
   background-size: cover;
+
+  ::-webkit-scrollbar {
+    width: 12px; // width of the entire scrollbar
+  }
 }
+
+.Body-Theme_01 {
+  @extend .Body;
+
+  ::-webkit-scrollbar-track {
+    background: rgb(57, 64, 66); // color of the tracking area
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(118, 128, 141);  // color of the scroll thumb
+    border: 3px solid rgb(57, 64, 66); // creates padding around scroll thumb
+    border-radius: 20px;                    // roundness of the scroll thumb
+  }
+}
+
+.Body-Theme_02 {
+  @extend .Body;
+
+  ::-webkit-scrollbar-track {
+    background: rgb(190, 195, 197); // color of the tracking area
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(95, 108, 126);  // color of the scroll thumb
+    border: 3px solid rgb(190, 195, 197); // creates padding around scroll thumb
+    border-radius: 20px;                    // roundness of the scroll thumb
+  }
+}
+
+.Body-Theme_03 {
+  @extend .Body;
+
+  ::-webkit-scrollbar-track {
+    background: rgb(230, 185, 236); // color of the tracking area
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(rgb(107, 84, 212), rgb(167, 36, 149));  // color of the scroll thumb
+    border: 3px solid rgb(230, 185, 236); // creates padding around scroll thumb
+    border-radius: 20px;                    // roundness of the scroll thumb
+  }
+}
+
 
 .Content {
   width: 80vw;

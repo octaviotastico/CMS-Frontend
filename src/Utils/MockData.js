@@ -52,43 +52,6 @@ export const SearchBarData = [
   },
 ];
 
-export const LearningData = [
-  {
-    category: "Dev",
-    data: [
-      {
-        title: "How to NOT code in React",
-        subtitle: "Learn the best practices to improve our code",
-        author: "Octavio Percivaldi",
-        description:
-          "Lorem pingo ipsum pingo pingo gopin gopin gipon nopig gipno pingo pingo pingo pingo gopin gopin gipon nopig gipno pingo pingo pingo pingo",
-        preview: "/images/mock/react.jpg",
-      },
-      {
-        title: "Web socketsss!!",
-        subtitle: "Learn how to pingo make a chat app!",
-        author: "Matup",
-        description:
-          "Lorem pingo ipsum pingo pingo gopin gopin gipon nopig gipno pingo pingo pingo pingo gopin gopin gipon nopig gipno pingo pingo pingo pingo",
-        preview: "/images/mock/socket.jpg",
-      },
-    ],
-  },
-  {
-    category: "Networks",
-    data: [
-      {
-        title: "What are DTNs and why they matter",
-        subtitle: "Understanding why we can communicate on space",
-        author: "Juan A. Fraire",
-        description:
-          "Lorem pingo ipsum pingo pingo gopin gopin gipon nopig gipno pingo pingo pingo pingo gopin gopin gipon nopig gipno pingo pingo pingo pingo",
-        preview: "/images/mock/dtn.jpg",
-      },
-    ],
-  },
-];
-
 export const LearningFilter = [
   {
     category: "Programming Language",

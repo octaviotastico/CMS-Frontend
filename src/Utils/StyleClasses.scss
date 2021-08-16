@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import "./ColorVariables.scss";
+
 .GlassSurface-01 {
   background: rgba(255, 255, 255, 0.10);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20);
@@ -22,6 +25,10 @@
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
 }
 
+.Text {
+  font-family: 'Montserrat';
+}
+
 .Pgradient {
   overflow: hidden;
   background: #f06;
@@ -40,6 +47,7 @@
   width:100%;
   height:100%;
 }
+
 .Pgradient:before{
   background: green;
   box-shadow: 0 0 140px 64px red;
@@ -48,6 +56,7 @@
   left: -72%;
   opacity: 0.8;
 }
+
 .Pgradient:after {
   background: black;
   z-index: 3;
@@ -56,4 +65,46 @@
   box-shadow: 0 0 140px 64px pink;
   opacity: 1;
   border-radius: 100%;
+}
+
+.GenericButton {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 10px;
+  width: max-content;
+  place-items: center;
+  margin-bottom: 5px;
+  flex-direction: row;
+  text-decoration: none;
+  box-shadow: 0 0 10px 0 rgba(black, 0.2);
+  font-family: 'Montserrat';
+  font-weight: 600;
+  display: flex;
+}
+
+.GenericButton-Theme_01 {
+  @extend .GenericButton;
+  border: 1px solid rgba(#c3cfe2, 1);
+  background-image: linear-gradient(-45deg, #949494, #585858);
+  color: $textPrimary;
+}
+
+.GenericButton-Theme_02 {
+  @extend .GenericButton;
+  color: $dark0;
+  border: 1px solid #7a7b7c;
+  background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
+}
+
+.GenericButton-Theme_03 {
+  @extend .GenericButton;
+  color: $dark0;
+  border: 1px solid #7a7b7c;
+  background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
+}
+
+.FilterCheck:hover {
+  background: rgba(255, 255, 255, 0.20);
+  box-shadow: 0 0 10px 0 rgba(31, 38, 135, 0.2);
+  transform: scale(1.01);
 }

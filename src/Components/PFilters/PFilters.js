@@ -30,6 +30,7 @@ const PFilters = ({ filters }) => {
                   <PChip
                     key={`${elem.name}-${j}`}
                     text={elem.name}
+                    checked={checkArray.indexOf(`${i}-${j}`) !== -1}
                     setChecked={() => handleCheck(i, j)}
                     selectable
                   />
