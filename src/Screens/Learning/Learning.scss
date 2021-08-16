@@ -1,0 +1,67 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.Learning {
+  .LearningTitle {
+    text-align: left;
+    font-weight: 200;
+    font-size: 4.5vw;
+  }
+  .LearningSubtitle {
+    text-align: left;
+    font-weight: 300;
+    font-size: 2vw;
+  }
+
+  .BodyAndFilters {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    .BodyContainer {
+      display: flex;
+      flex-direction: column;
+      .Category {
+        width: 100%;
+        margin-bottom: 20px;
+        .CategoryTitleContainer {
+          text-align: left;
+          margin-top: 30px !important;
+          .CategoryTitle {
+            font-size: 20px !important;
+            font-weight: bold !important;
+          }
+        }
+        .LearningCardList {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+    .FiltersContainer {
+      padding-top: 77px;
+    }
+  }
+}
+
+.Learning-Theme_01 {
+  @extend .Learning;
+  .LearningTitle, .LearningSubtitle {
+    text-shadow: 0 0 3px $dark1;
+  }
+}
+
+.Learning-Theme_02 {
+  @extend .Learning;
+  .LearningTitle, .LearningSubtitle {
+    text-shadow: 0 0 3px #c3cfe2;
+    color: $dark0;
+  }
+}
+
+.Learning-Theme_03 {
+  @extend .Learning;
+  .LearningTitle, .LearningSubtitle {
+    text-shadow: 0 0 3px $dark3;
+    color: $textPrimary;
+  }
+}

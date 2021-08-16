@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from 'prop-types';
 import { Grid } from "@material-ui/core";
 import Select from "react-select";
 import "./PSelect.scss";
@@ -18,7 +17,7 @@ const PSelect = ({
   containerStyles,
 }) => {
   return (
-    <Grid container item xs={12} className="PSelect">
+    <Grid container item className="PSelect">
       <Grid item xs={12} style={containerStyles}>
         <Select
           className={className}
@@ -66,19 +65,5 @@ const PSelect = ({
     </Grid>
   );
 };
-
-// PSelect.propTypes = {
-// 	className: PropTypes.string,
-// 	defaultValue: PropTypes.object,
-// 	options: PropTypes.arrayOf(PropTypes.object),
-// 	setChosenOption: PropTypes.func,
-// 	placeholder: PropTypes.string,
-// 	inputChange: PropTypes.func,
-// 	customFilter: PropTypes.func,
-// 	chosenOptions: PropTypes.oneOf([ PropTypes.object, PropTypes.array ]),
-// 	multiple: PropTypes.bool,
-// 	isClearable: PropTypes.bool,
-// 	containerStyles: PropTypes.object
-// };
 
 export default PSelect;

@@ -18,16 +18,12 @@
     background-position-x: 13px;
     background-size: 25px;
     padding-left: 50px;
-  }
-
-  .show {
-    display: block !important;
+    outline: none;
   }
 
   .DropdownContent {
-    display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: $dark4;
     min-width: 160px;
     max-width: 600px;
     margin-top: 10px;
@@ -47,19 +43,26 @@
       }
 
       .ListItem {
-        padding: 0 20px;
+        padding: 10px 20px;
         background-color: $dark1;
         display: flex;
         flex-direction: row;
         align-items: center;
+        cursor: pointer;
 
         .Thumbnails {
-          width: 30px;
-          height: 30px;
+          width: 40px;
+          height: 40px;
           border-radius: 100px;
         }
 
+        .ImageContainer {
+          display: flex;
+          width: 80px;
+        }
+
         .TextContainer {
+          text-align: left;
           display: flex;
           flex-direction: column;
           font-weight: 100;

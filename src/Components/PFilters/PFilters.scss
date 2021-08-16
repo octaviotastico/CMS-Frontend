@@ -1,0 +1,24 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.PFilters {
+  border-radius: 10px;
+  min-height: 500px;
+  padding: 10px;
+
+  .Divider {
+    background-color: rgba(255, 255, 255, 0.15);
+    margin: 10px 0;
+  }
+
+  .FilterTitle {
+    margin: 10px 0;
+  }
+
+  .FilterCheckContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+}

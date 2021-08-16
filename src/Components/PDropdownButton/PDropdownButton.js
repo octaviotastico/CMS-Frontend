@@ -1,8 +1,16 @@
 import { useState } from "react";
+
+// Material
 import { Button, ClickAwayListener, Grid } from "@material-ui/core";
+
+// Redux
+import { useSelector } from "react-redux";
+
+// Styles
 import "./PDropdownButton.scss";
 
-const PDropdownButton = ({ id, image, dropdown, theme = "Theme_03" }) => {
+const PDropdownButton = ({ id, image, dropdown }) => {
+  const { theme } = useSelector((state) => state);
   const [open, setOpen] = useState(false);
 
   return (

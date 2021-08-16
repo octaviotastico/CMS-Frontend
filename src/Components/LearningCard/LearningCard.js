@@ -1,20 +1,25 @@
+// Material
 import { Grid, Typography } from "@material-ui/core";
 
+// Redux
+import { useSelector } from "react-redux";
+
+// Styles
 import "./LearningCard.scss";
 
-const LearningCard = ({ title, subtitle, description, preview, theme = "Theme_03" }) => {
+const LearningCard = ({ title, subtitle, author, description, preview }) => {
+  const { theme } = useSelector((state) => state);
   return (
-    <Grid className="MainContainer">
-      <Grid className={`LearningCard-${theme}`}>
-        <img src={preview} alt={title} className="LearningCardPreview" />
-        <Grid container>
-          <Grid item xs={6} className="LearningCardTitles">
-            <Typography className="Title">{title}</Typography>
-            <Typography className="Subtitle">{subtitle}</Typography>
-          </Grid>
-          <Grid item xs={6} className="LearningCardDescription">
-            <Typography>{description}</Typography>
-          </Grid>
+    <Grid className={`LearningCard-${theme}`}>
+      <img src={preview} alt={title} className="LearningCardPreview" />
+      <Grid container>
+        <Grid item xs={7} className="LearningCardTitles">
+          <Typography className="Title">{title}</Typography>
+          <Typography className="Subtitle">{subtitle}</Typography>
+          <Typography className="Author">By: {author}</Typography>
+        </Grid>
+        <Grid item xs={5} className="LearningCardDescription">
+          <Typography className="Description">{description}</Typography>
         </Grid>
       </Grid>
     </Grid>

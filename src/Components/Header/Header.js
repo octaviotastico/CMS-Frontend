@@ -2,12 +2,22 @@
 import { useEffect, useState } from "react";
 
 // Material
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Button, Container, Grid, Typography } from "@material-ui/core";
 
 // Components
 import UserSmallCard from "../UserSmallCard/UserSmallCard";
 import PSearchBar from "../PSearchBar/PSearchBar";
-import PDropdownButton from "../PDropdownButton";
+import PDropdownButton from "../PDropdownButton/PDropdownButton";
+
+// Store
+import { useDispatch } from "react-redux";
+import { changeTheme } from "../../Redux/ThemeReducer";
+
+// Mocked Data
+import { SearchBarData } from "../../Utils/MockData";
+
+// Router
+import { navigate } from "../../Router";
 
 // Styles
 import "./Header.scss";
@@ -15,15 +25,22 @@ import "./Header.scss";
 const Header = () => {
   const [textInput, setTextInput] = useState("");
   const [searchList, setSearchList] = useState([]);
+
+  const dispatch = useDispatch();
+
+  const fetchSearchBarData = () => {
+    setSearchList(SearchBarData);
+  };
+
   useEffect(() => {
-    setSearchList([]);
+    fetchSearchBarData();
   }, []);
 
   const themeList = [
     {
       id: "Theme_01",
       title: "Dark Theme",
-      select: () => console.log("Theme_01"),
+      select: () => dispatch(changeTheme("Theme_01")),
       gradient: {
         backgroundImage: "linear-gradient(-45deg, #434343, #000000)",
       },
@@ -31,7 +48,7 @@ const Header = () => {
     {
       id: "Theme_02",
       title: "White Theme",
-      select: () => console.log("Theme_02"),
+      select: () => dispatch(changeTheme("Theme_02")),
       gradient: {
         backgroundImage: "linear-gradient(-45deg, #c3cfe2, #fdfbfb)",
       },
@@ -39,7 +56,7 @@ const Header = () => {
     {
       id: "Theme_03",
       title: "Violet Theme",
-      select: () => console.log("Theme_03"),
+      select: () => dispatch(changeTheme("Theme_03")),
       gradient: {
         backgroundImage: "linear-gradient(-45deg, #8EC5FC, #E0C3FC)",
       },
@@ -50,9 +67,9 @@ const Header = () => {
     <Container disableGutters maxWidth={false} className="Header">
       <Grid container className="Header">
         <Grid item xs={8} className="HeaderContainer">
-          <Typography variant="h1" className="EpicCMS">
+          <Button className="EpicCMS" disableRipple onClick={() => navigate("/")}>
             EpicCMS!
-          </Typography>
+          </Button>
           <PSearchBar
             textInput={textInput}
             setTextInput={setTextInput}
@@ -75,11 +92,12 @@ const Header = () => {
                     onClick={elem.select}
                   >
                     <Grid
+                      item
                       xs={2}
                       className="GradientPreview"
                       style={elem.gradient}
                     />
-                    <Grid xs={10} container className="TextContainer">
+                    <Grid item xs={10} className="TextContainer">
                       <Typography className="Title">{elem.title}</Typography>
                     </Grid>
                   </Grid>

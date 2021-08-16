@@ -25,23 +25,25 @@ const PSearchBar = ({ textInput, setTextInput, options, placeholder }) => {
                     <Typography className="ListTitle">
                       {elem.category}
                     </Typography>
-                    {elem.data.map((elem) => {
+                    {elem.data.map((val) => {
                       return (
-                        <Grid className="ListItem" key={`${elem.title}`}>
-                          <img
-                            src={elem.image}
-                            alt="alt-text"
-                            className="Thumbnails"
-                          />
+                        <Grid className="ListItem" key={`${val.title}`}>
+                          <Grid container className="ImageContainer">
+                            <img
+                              src={val.image}
+                              alt="alt-text"
+                              className="Thumbnails"
+                            />
+                          </Grid>
                           <Grid container className="TextContainer">
                             <Typography className="Title">
-                              {elem.title}
+                              {val.title}
                             </Typography>
                             <Typography className="Subtitle">
-                              {elem.subtitle}
+                              {val.subtitle}
                             </Typography>
                             <Typography className="Description">
-                              {elem.description}
+                              {val.description}
                             </Typography>
                           </Grid>
                         </Grid>

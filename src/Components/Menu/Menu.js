@@ -5,60 +5,35 @@ import PCollapsableButton from "../PCollapsableButton/PCollapsableButton";
 import BugReportIcon from "@material-ui/icons/BugReport";
 import "./Menu.scss";
 
-const Menu = () => {
+const Menu = ({ buttonList }) => {
   const [open, setOpen] = useState(true);
-
-  const navigateTo = (screen) => {
-    navigate(screen);
-  };
 
   return (
     <Grid
       item
       className="Menu GlassSurface-02"
-      style={open ? { width: "20vw" } : { width: 70 }}
+      style={open
+        ? { maxWidth: "390px", minWidth: "190px", width: "20vw" }
+        : { width: 70 }
+      }
     >
       <Grid className="MenuButtons">
-        <PCollapsableButton
-          text="Home"
-          open={open}
-          transition={1}
-          action={() => {
-            navigateTo("/");
-          }}
-        />
-        <PCollapsableButton
-          text="Learning"
-          open={open}
-          transition={1}
-          action={() => {
-            navigateTo("/learning");
-          }}
-        />
-        <PCollapsableButton
-          text="Meetings"
-          open={open}
-          transition={1}
-          action={() => {
-            navigateTo("/meetings");
-          }}
-        />
-        <PCollapsableButton
-          text="People"
-          open={open}
-          transition={1}
-          action={() => {
-            navigateTo("/people");
-          }}
-        />
+        {buttonList.map((button, index) => (
+          <PCollapsableButton
+            key={index}
+            open={open}
+            transition={1}
+            text={button.text}
+            action={() => navigate(button.screen)}
+          />
+        ))}
       </Grid>
-      {/* <Divider variant="middle" className="Divider" /> */}
       <Grid
         className="MenuFooter"
         style={open ? { flexDirection: "row" } : { flexDirection: "column" }}
       >
         <BugReportIcon style={{ width: 50, height: 50 }} />
-        {open && <Typography>Left menu xDD</Typography>}
+        {open && <Typography>Epic CMS!!!</Typography>}
         <Button
           disableRipple
           className={`ArrowButton ${!open && " close"}`}
