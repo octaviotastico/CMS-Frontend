@@ -1,0 +1,23 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.PButton {
+  position: relative;
+  // background-color: $dark3 !important;
+  text-transform: none !important;
+  border-radius: 3px !important;
+  color: white !important;
+  text-shadow: 0 0 3px $dark1;
+  font-size: 15px !important;
+  box-shadow: inset 0 0 0.01px 0 $dark3, inset 5px 0 $primary !important;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+
+.PButton:hover {
+  -webkit-transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
+  -moz-transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
+  transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
+  box-shadow: inset 20vw 0 0 0 $gradient1 !important;
+  font-weight: bold;
+}

@@ -1,0 +1,76 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.Home {
+  color: white;
+  text-align: left;
+
+  .MainTitle {
+    text-align: left;
+    font-weight: 300;
+    font-size: 3vw;
+    margin-left: 20px;
+    text-shadow: 0 0 3px $dark1;
+  }
+
+  .MainContainer {
+    display: flex;
+    flex-direction: row;
+
+    .FirstColumn {
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px;
+
+      .Titles {
+        text-align: left;
+        font-weight: 200;
+        font-size: 2.5vw;
+        text-shadow: 0 0 3px $dark1;
+      }
+
+      .NewContainer, .RewardsContainer, .BirthdayContainer {
+        margin: 10px 0;
+        border-radius: 10px;
+        padding: 10px;
+
+        .TitleAndDate {
+          display: flex;
+          flex-direction: row;
+          text-shadow: 0 0 3px $darkOP0;
+          margin-bottom: 10px;
+
+          .TextDivider {
+            margin: 0 10px;
+          }
+        }
+
+        .Description {
+          text-shadow: 0 0 3px $darkOP0;
+        }
+      }
+    }
+
+    .SecondColumn {
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px;
+
+      .BirthdayTodayContainer, .BirthdayWeekContainer {
+        border-radius: 10px;
+        .Birthday {
+          border-radius: 10px;
+          padding: 10px 10px;
+
+          .Divider {
+            margin: 15px 0;
+            background-color: white;
+          }
+        }
+      }
+      .BirthdayWeekContainer {
+        margin-top: 20px;
+      }
+    }
+  }
+}

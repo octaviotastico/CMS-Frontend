@@ -1,0 +1,99 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.PSelect {
+  // PSelect
+  .css-14xso26-control {
+    background-color: $dark1;
+    border-radius: 100px;
+    border-style: none;
+    color: #939cae;
+    font-weight: 600;
+    padding-left: 10px;
+  }
+
+  // PSelect when oppened
+  .css-8u9l93-control {
+    border-style: none;
+    border-radius: 100px;
+    background-color: $dark2;
+  }
+
+  // PSelect placeholder
+  .css-oh6odz-placeholder {
+    color: #7987a4;
+  }
+
+  // PSelect Arrow
+  .css-6q0nyr-Svg {
+    fill: $primary;
+    margin-right: 5px;
+  }
+
+  // PSelect Separator
+  .css-1okebmr-indicatorSeparator {
+    display: none;
+  }
+
+  // Dropdown menu
+  .css-1sql6lh-menu {
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+
+  .css-4ljt47-MenuList {
+    border-radius: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  // PSelect Chips
+  .css-1rhbuit-multiValue {
+    background-color: white;
+    border-radius: 100px;
+    display: flex;
+    margin: 2px;
+    min-width: 100px;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  // PSelect Chip Text
+  .css-12jo7m5 {
+    border-radius: 2px;
+    color: hsl(0, 0%, 20%);
+    padding: 3px;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  // PSelect Chip Icon
+  .css-xb97g8 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 2px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 4px;
+    padding-right: 0px;
+    box-sizing: border-box;
+  }
+
+  // Hovered option
+  .css-1n7v3ny-option {
+    // background-color: green;
+    border-radius: 8px;
+  }
+
+  // Option
+  .css-yt9ioa-option {
+    // background-color: violet;
+    border-radius: 8px;
+  }
+}

@@ -1,0 +1,55 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.PChip {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 10px;
+  width: max-content;
+  place-items: center;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  flex-direction: row;
+  box-shadow: 0 0 10px 0 rgba(black, 0.2);
+  display: flex;
+
+  .CheckBox {
+    margin-right: 10px;
+    padding: 0;
+  }
+}
+
+.PChip-Theme_01 {
+  @extend .PChip;
+  border: 1px solid rgba(#3a3a3d, 1);
+  background-image: linear-gradient(-45deg, #949494, #585858);
+  .CheckBox {
+    color: rgba(#c3cfe2, 0.85);
+  }
+}
+
+.PChip-Theme_02 {
+  @extend .PChip;
+  color: $dark0;
+  border: 1px solid rgba(#c3cfe2, 1);
+  background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
+  .CheckBox {
+    color: rgba($dark0, 1);
+  }
+}
+
+.PChip-Theme_03 {
+  @extend .PChip;
+  color: $dark0;
+  border: 1px solid rgba(#c3cfe2, 1);
+  background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
+  .CheckBox {
+    color: rgba($dark0, 0.7);
+  }
+}
+
+.FilterCheck:hover {
+  background: rgba(255, 255, 255, 0.20);
+  box-shadow: 0 0 10px 0 rgba(31, 38, 135, 0.2);
+  transform: scale(1.01);
+}

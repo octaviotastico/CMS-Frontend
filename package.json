@@ -1,11 +1,16 @@
 {
-  "name": "my-app",
+  "name": "cms-backend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "sass": "^1.37.5",
+    "vanilla-tilt": "^1.7.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

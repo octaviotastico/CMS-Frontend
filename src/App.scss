@@ -1,0 +1,46 @@
+@import "./Utils/ColorVariables.scss";
+
+.App {
+  text-align: center;
+  // background-color: #282c34;
+  background: linear-gradient(to bottom right, #8400ff, #396afc, #8400ff) !important;
+  min-height: 100vh;
+  flex-direction: column;
+  display: flex;
+  color: white;
+}
+
+.App-Theme_01 {
+  @extend .App;
+  background: linear-gradient(to bottom right, #3c3c41, #4b4c50) !important;
+}
+
+.App-Theme_02 {
+  @extend .App;
+  background: linear-gradient(to bottom right, #e4eaf1, #b6b9c2) !important;
+}
+
+.App-Theme_03 {
+  @extend .App;
+  background: linear-gradient(to bottom right, #8400ff, #396afc, #8400ff) !important;
+}
+
+.Body {
+  flex-direction: row;
+  position: relative;
+  min-height: calc(92vh - 5px);
+  display: flex;
+  padding-top: calc(8vh + 5px);
+
+  // background-image: url('/Assets/images/bg2.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.Content {
+  width: 80vw;
+}
+
+.Link {
+  color: #61dafb;
+}

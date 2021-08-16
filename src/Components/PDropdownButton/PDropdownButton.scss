@@ -1,0 +1,45 @@
+@import '../../Utils/ColorVariables.scss';
+@import '../../Utils//StyleClasses.scss';
+
+.PDropdownButton {
+
+  position: relative;
+  border-radius: 5px;
+  margin: 0 10px;
+
+  .ButtonBase {
+    width: 50px !important;
+    height: 50px !important;
+
+    .ButtonImage {
+      width: 35px !important;
+      height: 35px !important;
+    }
+  }
+
+  .DropdownContent {
+    right: 0;
+    position: absolute;
+    overflow: auto;
+    min-width: 175px;
+    text-align: left;
+    margin-top: 15px;
+    border-radius: 10px 0 10px 10px;
+    box-shadow: 0 0 8px 2px rgba(black, 0.25);
+  }
+}
+
+.PDropdownButton-Theme_01 {
+  @extend .PDropdownButton;
+  background-image: linear-gradient(-45deg, #4a4e57, #5f636d);
+}
+
+.PDropdownButton-Theme_02 {
+  @extend .PDropdownButton;
+  background-image: linear-gradient(-45deg, #eeeef0, #c5c7ce);
+}
+
+.PDropdownButton-Theme_03 {
+  @extend .PDropdownButton;
+  background-image: linear-gradient(-45deg, #e594f0, #5183ce);
+}

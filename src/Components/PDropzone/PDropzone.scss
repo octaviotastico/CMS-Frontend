@@ -1,0 +1,32 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.PDropzone {
+
+  position: relative;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+    border-radius: 20px;
+    text-align: center;
+    padding: 30px;
+  }
+  .inside {
+    background-color: #FEB940;
+
+  }
+  .outside {
+    background-color: #EDEFF9;
+  }
+  .previewImg {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+  }
+  .hideImg {
+    display: none;
+  }
+}

@@ -1,0 +1,29 @@
+@import "../../../Utils/StyleClasses.scss";
+@import "../../../Utils/ColorVariables.scss";
+
+.ErrorContainer {
+  display: flex;
+  flex-direction: column;
+
+  .ErrorCode {
+    font-weight: 800;
+    font-size: 13vw;
+    text-shadow: 2px 5px $dark0;
+  }
+  .Subtitle {
+    font-weight: 300;
+    font-size: 4vw;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+  }
+  .ButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .Buttons {
+      margin: 0 20px;
+      border: 1px white;
+      text-decoration: none;
+    }
+  }
+}

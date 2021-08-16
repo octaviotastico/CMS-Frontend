@@ -1,0 +1,105 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+$easing: cubic-bezier(.25,1.7,.35,.8);
+$duration: 0.5s;
+
+.Menu {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $dark1;
+  color: $textPrimary;
+  height: calc(92vh - 25px);
+  margin: 10px !important;
+  border-radius: 10px;
+  transition: all 1s;
+  position: fixed;
+  position: sticky;
+  top: calc(8vh + 15px);
+
+  .MenuButtons {
+    display: flex;
+    flex-direction: column;
+  }
+  .Divider {
+    background-color: rgba(255, 255, 255, 1);
+    margin: 10px 0;
+  }
+  .MenuFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .ArrowButton {
+      height: 50px;
+      width: 50px;
+      position: relative;
+      cursor: pointer;
+      border-radius: 100px;
+      transform: scale(0.5) rotate(90deg) translateY(15px);
+
+      .left-bar {
+        position: absolute;
+        background-color: transparent;
+        top: 0;
+        left:0;
+        width: 40px;
+        height: 10px;
+        display: block;
+        transform: rotate(35deg);
+        float: right;
+        border-radius: 2px;
+        &:after {
+          content:"";
+          background-color: white;
+          width: 40px;
+          height: 10px;
+          display: block;
+          float: right;
+          border-radius: 6px 10px 10px 6px;
+          transition: all $duration $easing;
+          z-index: -1;
+        }
+      }
+
+      .right-bar {
+        position: absolute;
+        background-color: transparent;
+        top: 0px;
+        left:26px;
+        width: 40px;
+        height: 10px;
+        display: block;
+        transform: rotate(-35deg);
+        float: right;
+        border-radius: 2px;
+        &:after {
+          content:"";
+          background-color: white;
+          width: 40px;
+          height: 10px;
+          display: block;
+          float: right;
+          border-radius: 10px 6px 6px 10px;
+          transition: all $duration $easing;
+          z-index: -1;
+        }
+      }
+    }
+    .close {
+      // transform: translateX(-10px);
+      .left-bar:after {
+        // transform-origin: center center;
+        transform: rotate(-70deg);
+      }
+      .right-bar:after {
+        // transform-origin: center center;
+        transform: rotate(70deg);
+      }
+    }
+    .ArrowButton:hover {
+      background: none;
+    }
+  }
+}

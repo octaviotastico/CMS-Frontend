@@ -1,0 +1,67 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.UserCard {
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  align-items: center;
+  border-radius: 10px;
+
+  .Text {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  .UserName {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    width: 100%;
+  }
+
+  .Subtitle {
+    font-size: 14px;
+    color: $textSecondary;
+  }
+
+  .SkillChipsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5px;
+    .SkillChip {
+      font-size: 13px;
+      border-radius: 100px;
+      padding: 5px 10px;
+      margin: 0 5px;
+    }
+  }
+
+  .ProfilePic {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    width: 200px;
+  }
+
+  .arrow-right {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  .arrow-right:hover {
+    transform: scale(110%);
+  }
+}
+
+.UserCard:hover {
+  background: rgba(255, 255, 255, 0.20);
+  box-shadow: 0 0 10px 0 rgba(31, 38, 135, 0.2);
+  transform: scale(1.01);
+}

@@ -1,0 +1,79 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.PSearchBar {
+  .Input {
+    width: 400px;
+    background-color: $dark1;
+    border-radius: 10px;
+    height: 30px;
+    padding: 0.5rem;
+    border: none;
+    position: relative;
+    display: inline-block;
+    color: $textPrimary !important;
+    background-image: url("/Assets/icons/loupe.svg");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 13px;
+    background-size: 25px;
+    padding-left: 50px;
+  }
+
+  .show {
+    display: block !important;
+  }
+
+  .DropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    max-width: 600px;
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: auto;
+    box-shadow: 0 0 7px 2px $dark0;
+    z-index: 1;
+
+    .ListCategory {
+      background-color: $dark4;
+
+      .ListTitle {
+        font-size: 20px;
+        text-align: left;
+        font-weight: 100;
+        padding: 0 20px;
+      }
+
+      .ListItem {
+        padding: 0 20px;
+        background-color: $dark1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .Thumbnails {
+          width: 30px;
+          height: 30px;
+          border-radius: 100px;
+        }
+
+        .TextContainer {
+          display: flex;
+          flex-direction: column;
+          font-weight: 100;
+          .Title,
+          .Subtitle,
+          .Description {
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+
+    .ListItem:hover {
+      background-color: $dark3;
+    }
+  }
+}

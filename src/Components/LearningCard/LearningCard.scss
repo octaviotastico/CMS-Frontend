@@ -1,0 +1,62 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.LearningCard {
+  position: relative;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  height: 180px;
+  margin: 5px 0;
+
+  .LearningCardPreview {
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .LearningCardTitles, .LearningCardDescription {
+    text-align: left;
+  }
+
+  .LearningCardTitles {
+    padding-left: 20px;
+  }
+  .Title {
+    font-size: 2vw;
+  }
+  .Subtitle {
+    font-size: 1vw;
+  }
+}
+
+.LearningCard-Theme_01 {
+  @extend .LearningCard;
+  border: 1px solid rgba(#3a3a3d, 1);
+  background-image: linear-gradient(-45deg, #949494, #585858);
+  .Title, .Subtitle {
+    text-shadow: 0 0 3px $dark1;
+  }
+}
+
+.LearningCard-Theme_02 {
+  @extend .LearningCard;
+  border: 1px solid rgba(#c3cfe2, 1);
+  background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
+  .Title, .Subtitle {
+    text-shadow: 0 0 3px #c3cfe2;
+    color: $dark0;
+  }
+}
+
+.LearningCard-Theme_03 {
+  @extend .LearningCard;
+  border: 1px solid rgba(#c3cfe2, 1);
+  background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
+  .Title, .Subtitle {
+    text-shadow: 0 0 3px #c3cfe2;
+    color: $dark0;
+  }
+}

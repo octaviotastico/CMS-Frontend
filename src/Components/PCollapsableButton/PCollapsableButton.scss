@@ -1,0 +1,37 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.PCollapsableButton {
+  cursor: pointer;
+  position: relative;
+  text-shadow: 0 0 3px $dark1;
+  color: white !important;
+  font-size: 15px !important;
+  transition: background-color 0s width 1s;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($dark3, 0.5);
+}
+
+.Open {
+  border-radius: 3px !important;
+  min-height: 50px;
+  min-width: 300px;
+}
+
+.Close {
+  border-radius: 100px !important;
+  height: 20px;
+  width: 20px;
+}
+
+.PCollapsableButton:hover {
+  background-color: $dark3;
+  // box-shadow: inset 20vw 0 0 0 $gradient1 !important;
+  font-weight: bold;
+}
