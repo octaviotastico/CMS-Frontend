@@ -4,7 +4,7 @@ import "./UserCard.scss";
 
 const UserCard = ({ name, position, profilePic, skills }) => {
   return (
-    <PTilt options={{ speed: 250, perspective: 1500, reverse: true, max: 5 }}>
+    <PTilt options={{ speed: 250, perspective: 500, reverse: true, max: 5 }}>
       <Grid className="UserCard GlassSurface-01">
         <Grid item className="Picture">
           <img

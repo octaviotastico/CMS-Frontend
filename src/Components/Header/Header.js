@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 // Material
 import { Button, Container, Grid, Typography } from "@material-ui/core";
+import PaletteTwoToneIcon from '@material-ui/icons/PaletteTwoTone';
 
 // Components
 import UserSmallCard from "../UserSmallCard/UserSmallCard";
@@ -81,7 +82,7 @@ const Header = () => {
         <Grid item xs={4} className="HeaderContainer">
           <PDropdownButton
             id="ThemeSelector"
-            image="/icons/palette.svg"
+            icon={<PaletteTwoToneIcon />}
             dropdown={
               themeList &&
               themeList.map((elem) => {

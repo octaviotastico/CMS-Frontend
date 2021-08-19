@@ -2,8 +2,6 @@
 
 .App {
   text-align: center;
-  // background-color: #282c34;
-  background: linear-gradient(to bottom right, #8400ff, #396afc, #8400ff) !important;
   min-height: 100vh;
   flex-direction: column;
   display: flex;
@@ -12,17 +10,18 @@
 
 .App-Theme_01 {
   @extend .App;
-  background: linear-gradient(to bottom right, #3c3c41, #4b4c50) !important;
+  background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+  background-blend-mode: multiply;
 }
 
 .App-Theme_02 {
   @extend .App;
-  background: linear-gradient(to bottom right, #e4eaf1, #b6b9c2) !important;
+  background-image: linear-gradient(-25deg, #E3FDF5 0%, #e8e3f1 100%);
 }
 
 .App-Theme_03 {
   @extend .App;
-  background: linear-gradient(to bottom right, #8400ff, #396afc, #8400ff) !important;
+  background: linear-gradient(to bottom right, #8400ff, #396afc, #8400ff);
 }
 
 .Body {

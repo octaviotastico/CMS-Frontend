@@ -4,10 +4,9 @@
 .PCollapsableButton {
   cursor: pointer;
   position: relative;
-  text-shadow: 0 0 3px $dark1;
-  color: white !important;
+  // text-shadow: 0 0 3px $dark1;
   font-size: 15px !important;
-  transition: background-color 0s width 1s;
+  transition: all 1s;
   margin-bottom: 5px;
   margin-top: 5px;
   height: 50px;
@@ -15,23 +14,48 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: rgba($dark3, 0.5);
+  border-radius: 10px;
+
+  .IconContainer {
+    width: 40%;
+  }
+  .IconClose {
+    width: 100%;
+  }
+
+  .TextContainer {
+    width: 60%;
+    text-align: left;
+    opacity: 1;
+    .CollapsableButtonText {
+      @extend .Text;
+      font-weight: 600;
+    }
+  }
+  .TextClose {
+    display: none;
+  }
 }
 
 .Open {
-  border-radius: 3px !important;
-  min-height: 50px;
-  min-width: 300px;
+  width: 100%;
 }
-
-.Close {
+.Closed {
   border-radius: 100px !important;
-  height: 20px;
-  width: 20px;
 }
 
-.PCollapsableButton:hover {
-  background-color: $dark3;
-  // box-shadow: inset 20vw 0 0 0 $gradient1 !important;
-  font-weight: bold;
+.PCollapsableButton-Theme_01 {
+  @extend .PCollapsableButton, .ButtonSurface-Theme_01;
 }
+
+.PCollapsableButton-Theme_02 {
+  @extend .PCollapsableButton, .ButtonSurface-Theme_02;
+}
+
+.PCollapsableButton-Theme_03 {
+  @extend .PCollapsableButton, .ButtonSurface-Theme_03;
+}
+
+// .PCollapsableButton:hover {
+//   @extend .ButtonSurface-Theme_03;
+// }

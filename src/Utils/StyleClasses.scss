@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import "./ColorVariables.scss";
 
+////////////////////
+// GLASS SURFACES //
+////////////////////
+
 .GlassSurface-01 {
   background: rgba(255, 255, 255, 0.10);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20);
@@ -19,53 +23,15 @@
 
 .GlassButton-01 {
   background: rgba(210, 210, 210, 0.20) !important;
-  // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20) !important;
+  //box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20) !important;
   -webkit-backdrop-filter: blur(10.0px) !important;
   backdrop-filter: blur(10.0px) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
 }
 
-.Text {
-  font-family: 'Montserrat';
-}
-
-.Pgradient {
-  overflow: hidden;
-  background: #f06;
-  background: linear-gradient(45deg, #ea34c4, #0468f1);
-  min-height: 100%;
-  width: 256px;
-  height: 256px;
-  position: relative;
-  z-index: 1;
-  box-shadow: inset -20px 0 38px -18px #0468f1,inset -3px -13px 65px -18px violet;
-}
-
-.Pgradient:before, .Pgradient:after{
-  content:'';
-  position:absolute;
-  width:100%;
-  height:100%;
-}
-
-.Pgradient:before{
-  background: green;
-  box-shadow: 0 0 140px 64px red;
-  z-index:2;
-  top: -100%;
-  left: -72%;
-  opacity: 0.8;
-}
-
-.Pgradient:after {
-  background: black;
-  z-index: 3;
-  bottom: -96%;
-  right: -72%;
-  box-shadow: 0 0 140px 64px pink;
-  opacity: 1;
-  border-radius: 100%;
-}
+/////////////////////
+// GENERIC BUTTONS //
+/////////////////////
 
 .GenericButton {
   cursor: pointer;
@@ -101,6 +67,79 @@
   color: $dark0;
   border: 1px solid #7a7b7c;
   background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
+}
+
+/////////////////////
+// BUTTON SURFACES //
+/////////////////////
+
+.ButtonSurface-Theme_01 {
+  color: white;
+  text-shadow: 0 0 3px $dark1;
+  transition: border 10s !important;
+  &:hover {
+    background: linear-gradient(to bottom, rgb(59, 59, 61), rgba(0, 0, 0, 0.596)), radial-gradient(at top center, rgb(188, 192, 201) 0%, rgba(0, 0, 0, 0.514) 120%) #818286;
+    background-blend-mode: multiply,multiply;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+    border: 1px solid rgba(184, 198, 218, 0.9);
+    box-sizing: border-box;
+  }
+}
+
+.ButtonSurface-Theme_02 {
+  color: $dark0 !important;
+  &:hover {
+    background: linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%);
+    background-blend-mode: screen;
+    background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+    background-image: linear-gradient(45deg, #bccaec 0%, #e4efe9 100%);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.58);
+    box-sizing: border-box;
+  }
+}
+
+.ButtonSurface-Theme_03 {
+  color: white;
+  text-shadow: 0 0 3px $dark1;
+  &:hover {
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    color: $dark0 !important;
+    text-shadow: none;
+  }
+}
+
+////////////////////////
+// COMPONENT SURFACES //
+////////////////////////
+
+.ComponentSurface-Theme_01 {
+  background: linear-gradient(to bottom, rgb(167, 167, 172), rgba(0, 0, 0, 0.151)), radial-gradient(at top center, rgb(188, 192, 201) 0%, rgba(0, 0, 0, 0.514) 120%) #818286;
+  background-blend-mode: multiply,multiply;
+  box-shadow: 0 0 20px 0 rgba(16, 16, 19, 0.719);
+}
+
+.ComponentSurface-Theme_02 {
+  background-image: linear-gradient(183deg, #e6ebf3, #E9F1F4);
+  box-shadow: 0 0 20px 0 rgba(67, 58, 92, 0.315);
+  border: 1px solid rgba(37, 37, 39, 0.58);
+}
+
+.ComponentSurface-Theme_03 {
+  background: linear-gradient(150deg, #9647F1 -5%, #6D80EF 80%);
+  // background: linear-gradient(150deg, #4F73FA -5%, #783CFE 120%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(#c3cfe2, 1);
+}
+
+/////////////////////////
+// REUTILIZABLE STYLES //
+/////////////////////////
+
+.Text {
+  font-family: 'Montserrat' !important;
 }
 
 .FilterCheck:hover {

@@ -9,13 +9,10 @@ $duration: 0.5s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: $dark1;
-  color: $textPrimary;
   height: calc(92vh - 25px);
   margin: 10px !important;
   border-radius: 10px;
   transition: all 1s;
-  position: fixed;
   position: sticky;
   top: calc(8vh + 15px);
 
@@ -31,76 +28,54 @@ $duration: 0.5s;
   .MenuFooter {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
-    .ArrowButton {
-      height: 50px;
+
+    .ArrowButton, .BugButton {
       width: 50px;
-      position: relative;
-      cursor: pointer;
+      height: 50px;
       border-radius: 100px;
-      transform: scale(0.5) rotate(90deg) translateY(15px);
-
-      .left-bar {
-        position: absolute;
-        background-color: transparent;
-        top: 0;
-        left:0;
-        width: 40px;
-        height: 10px;
-        display: block;
-        transform: rotate(35deg);
-        float: right;
-        border-radius: 2px;
-        &:after {
-          content:"";
-          background-color: white;
-          width: 40px;
-          height: 10px;
-          display: block;
-          float: right;
-          border-radius: 6px 10px 10px 6px;
-          transition: all $duration $easing;
-          z-index: -1;
-        }
-      }
-
-      .right-bar {
-        position: absolute;
-        background-color: transparent;
-        top: 0px;
-        left:26px;
-        width: 40px;
-        height: 10px;
-        display: block;
-        transform: rotate(-35deg);
-        float: right;
-        border-radius: 2px;
-        &:after {
-          content:"";
-          background-color: white;
-          width: 40px;
-          height: 10px;
-          display: block;
-          float: right;
-          border-radius: 10px 6px 6px 10px;
-          transition: all $duration $easing;
-          z-index: -1;
-        }
-      }
-    }
-    .close {
-      // transform: translateX(-10px);
-      .left-bar:after {
-        // transform-origin: center center;
-        transform: rotate(-70deg);
-      }
-      .right-bar:after {
-        // transform-origin: center center;
-        transform: rotate(70deg);
-      }
-    }
-    .ArrowButton:hover {
+      cursor: pointer;
       background: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      padding: 0;
+      margin: 0;
+
+      .Arrow {
+        transition: transform 1s ease-in-out;
+      }
+      .Rotate {
+        transform: rotate(180deg);
+      }
+      .BugIcon {
+        width: 100% !important;
+      }
+    }
+
+    .ArrowButton-Theme_01, .BugButton-Theme_01 {
+      @extend .ArrowButton, .ButtonSurface-Theme_01;
+    }
+    .ArrowButton-Theme_02, .BugButton-Theme_02 {
+      @extend .ArrowButton, .ButtonSurface-Theme_02;
+    }
+    .ArrowButton-Theme_03, .BugButton-Theme_03 {
+      @extend .ArrowButton, .ButtonSurface-Theme_03;
     }
   }
 }
+
+.Menu-Theme_01 {
+  @extend .Menu, .ComponentSurface-Theme_01;
+}
+
+.Menu-Theme_02 {
+  @extend .Menu, .ComponentSurface-Theme_02;
+}
+
+.Menu-Theme_03 {
+  @extend .Menu, .ComponentSurface-Theme_03;
+}
+

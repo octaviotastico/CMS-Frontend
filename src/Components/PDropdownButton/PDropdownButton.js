@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 // Material
 import { Button, ClickAwayListener, Grid } from "@material-ui/core";
@@ -9,9 +9,10 @@ import { useSelector } from "react-redux";
 // Styles
 import "./PDropdownButton.scss";
 
-const PDropdownButton = ({ id, image, dropdown }) => {
+const PDropdownButton = ({ id, icon, dropdown }) => {
   const { theme } = useSelector((state) => state);
   const [open, setOpen] = useState(false);
+  const IconComponent = React.cloneElement(icon, { className: `DropdownIcon-${theme}` });
 
   return (
     <ClickAwayListener onClickAway={() => setOpen(false)}>
@@ -21,7 +22,7 @@ const PDropdownButton = ({ id, image, dropdown }) => {
           className="ButtonBase"
           onClick={() => setOpen(!open)}
         >
-          <img src={image} alt="Button" className="ButtonImage" />
+          {IconComponent}
         </Button>
 
         {open && (

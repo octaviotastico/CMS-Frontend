@@ -1,5 +1,12 @@
 // Material
 import { Container, Grid } from "@material-ui/core";
+import HomeTwoToneIcon from '@material-ui/icons/HomeTwoTone';
+// import MenuBookTwoToneIcon from '@material-ui/icons/MenuBookTwoTone';
+import ChromeReaderModeTwoToneIcon from '@material-ui/icons/ChromeReaderModeTwoTone';
+import VideoCallTwoToneIcon from '@material-ui/icons/VideoCallTwoTone';
+// import PeopleAltTwoToneIcon from '@material-ui/icons/PeopleAltTwoTone';
+import CommentTwoToneIcon from '@material-ui/icons/CommentTwoTone';
+
 
 // Components
 import Header from "./Components/Header/Header";
@@ -34,18 +41,22 @@ const buttonList = [
   {
     text: "Home",
     screen: "/",
+    icon: () => <HomeTwoToneIcon />,
   },
   {
     text: "Learning",
     screen: "/learning",
+    icon: () => <ChromeReaderModeTwoToneIcon />,
   },
   {
     text: "Meetings",
     screen: "/meetings",
+    icon: () => <VideoCallTwoToneIcon />,
   },
   {
     text: "People",
     screen: "/people",
+    icon: () => <CommentTwoToneIcon />,
   },
 ];
 

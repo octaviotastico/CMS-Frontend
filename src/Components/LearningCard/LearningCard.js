@@ -16,7 +16,7 @@ const LearningCard = ({ title, subtitle, author, description, preview }) => {
         <Grid item xs={7} className="LearningCardTitles">
           <Typography className="Title">{title}</Typography>
           <Typography className="Subtitle">{subtitle}</Typography>
-          <Typography className="Author">By: {author}</Typography>
+          <Typography className="By">By: <span className="Author">{author}</span></Typography>
         </Grid>
         <Grid item xs={5} className="LearningCardDescription">
           <Typography className="Description">{description}</Typography>

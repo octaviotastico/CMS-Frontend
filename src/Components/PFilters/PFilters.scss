@@ -5,14 +5,20 @@
   border-radius: 10px;
   min-height: 500px;
   padding: 10px;
+  font-weight: 500;
 
   .Divider {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(70, 68, 68, 0.349);
     margin: 10px 0;
   }
 
-  .FilterTitle {
-    margin: 10px 0;
+  .TableTitle, .FiltersTitle {
+    @extend .Text;
+    font-weight: 700;
+  }
+
+  .FiltersTitle {
+    margin: 15px 0;
   }
 
   .FilterCheckContainer {
@@ -20,5 +26,20 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
+}
+
+.PFilters-Theme_01 {
+  @extend .PFilters, .ComponentSurface-Theme_01;
+}
+
+.PFilters-Theme_02 {
+  @extend .PFilters, .ComponentSurface-Theme_02;
+  color: #3a393f;
+
+}
+
+.PFilters-Theme_03 {
+  // TODO: Delete the glass surface
+  @extend .PFilters, .GlassSurface-01;
 
 }

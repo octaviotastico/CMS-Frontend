@@ -1,31 +1,22 @@
 import { Grid, Typography } from "@material-ui/core";
 import "./PCollapsableButton.scss";
 
-const PCollapsableButton = ({ text, action, icon, open, transition }) => {
+const PCollapsableButton = ({ text, action, icon, open, closeTransition, openTransition, theme }) => {
+  console.log(icon)
   return (
     <Grid
-      className="PCollapsableButton"
+      className={`PCollapsableButton-${theme} ${open ? "Open" : "Closed"}`}
+      style={{ transition: `width ${open ? openTransition : closeTransition}s` }}
       onClick={() => action()}
-      style={
-        open
-          ? {
-              width: "100%",
-              borderRadius: 3,
-              transition: `width ${transition}s`,
-            }
-          : {
-              width: 50,
-              borderRadius: 100,
-              transition: "all 0.5s",
-            }
-      }
     >
-      {icon ? (
-        <img src={icon.src} alt={icon.alt} />
-      ) : (
-        !open && <Typography>{text[0]}</Typography>
-      )}
-      {open ? <Typography>{text}</Typography> : null}
+      <Grid className={`IconContainer ${!open && "IconClose"}`}>
+        {icon && icon()}
+      </Grid>
+      <Grid className={`TextContainer ${!open && "TextClose"}`}>
+        <Typography className="CollapsableButtonText">
+          {text}
+        </Typography>
+      </Grid>
     </Grid>
   );
 };

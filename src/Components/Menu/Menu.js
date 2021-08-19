@@ -1,19 +1,29 @@
+// React and Material
 import { useState } from "react";
-import { Button, Grid, Typography } from "@material-ui/core";
-import { navigate } from "../../Router";
+import { Grid } from "@material-ui/core";
+import BugReportTwoToneIcon from '@material-ui/icons/BugReportTwoTone';
+import ArrowBackIosTwoToneIcon from '@material-ui/icons/ArrowBackIosTwoTone';
+
+// Components and Functions
 import PCollapsableButton from "../PCollapsableButton/PCollapsableButton";
-import BugReportIcon from "@material-ui/icons/BugReport";
+import { useSelector } from "react-redux";
+import { navigate } from "../../Router";
+
+// Styles
 import "./Menu.scss";
 
 const Menu = ({ buttonList }) => {
+  const theme = useSelector((state) => state.theme);
   const [open, setOpen] = useState(true);
 
   return (
     <Grid
       item
-      className="Menu GlassSurface-02"
+      className={`Menu-${theme}`}
+      // TODO: Background images with glass surfaces
+      //className="Menu GlassSurface-02"
       style={open
-        ? { maxWidth: "390px", minWidth: "190px", width: "20vw" }
+        ? { maxWidth: "340px", minWidth: "190px", width: "20vw" }
         : { width: 70 }
       }
     >
@@ -22,27 +32,23 @@ const Menu = ({ buttonList }) => {
           <PCollapsableButton
             key={index}
             open={open}
-            transition={1}
+            closeTransition={1}
+            openTransition={0.5}
             text={button.text}
+            icon={button.icon}
             action={() => navigate(button.screen)}
+            theme={theme}
           />
         ))}
       </Grid>
-      <Grid
-        className="MenuFooter"
-        style={open ? { flexDirection: "row" } : { flexDirection: "column" }}
-      >
-        <BugReportIcon style={{ width: 50, height: 50 }} />
-        {open && <Typography>Epic CMS!!!</Typography>}
-        <Button
-          disableRipple
-          className={`ArrowButton ${!open && " close"}`}
-          style={{ backgroundColor: "transparent" }}
-          onClick={() => setOpen(!open)}
-        >
-          <span className="left-bar" />
-          <span className="right-bar" />
-        </Button>
+      <Grid className="MenuFooter">
+        <button className={`BugButton-${theme}`}>
+          <BugReportTwoToneIcon className="BugIcon" />
+        </button>
+
+        <button className={`ArrowButton-${theme}`} onClick={() => setOpen(!open)}>
+          <ArrowBackIosTwoToneIcon className={`Arrow ${!open && "Rotate"}`} />
+        </button>
       </Grid>
     </Grid>
   );
