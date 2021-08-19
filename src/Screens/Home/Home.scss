@@ -6,8 +6,9 @@
   text-align: left;
 
   .MainTitle {
+    @extend .Text;
     text-align: left;
-    font-weight: 300;
+    font-weight: 600;
     font-size: 3vw;
     margin-left: 20px;
     text-shadow: 0 0 3px $dark1;
@@ -72,5 +73,33 @@
         margin-top: 20px;
       }
     }
+  }
+}
+
+.Home-Theme_01 {
+  @extend .Home;
+
+  .MainTitle-Theme_01 {
+    @extend .MainTitle;
+    color: white;
+  }
+}
+
+.Home-Theme_02 {
+  @extend .Home;
+
+  .MainTitle-Theme_02 {
+    @extend .MainTitle;
+    color: $dark1;
+    text-shadow: none;
+  }
+}
+
+.Home-Theme_03 {
+  @extend .Home;
+
+  .MainTitle-Theme_03 {
+    @extend .MainTitle;
+    color: white;
   }
 }
