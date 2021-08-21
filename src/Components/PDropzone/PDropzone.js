@@ -1,11 +1,14 @@
+// React and Material UI
 import React, { useState, useRef } from "react";
 import { Button, Grid, Typography } from "@material-ui/core";
+
+// Styles
 import "./PDropzone.scss";
 
 const PDropzone = ({ validTypes }) => {
   const [isInside, setIsInside] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [error, setError] = useState(null);
   const fileButton = useRef(null);
 
   const onButtonClick = () => {
@@ -29,6 +32,9 @@ const PDropzone = ({ validTypes }) => {
   };
 
   const handleFiles = (f) => {
+    console.log("f", f);
+    console.log("f.length", f.length);
+    console.log("validateFile(f[0])", validateFile(f[0]));
     if (f.length === 1 && validateFile(f[0])) {
       setSelectedFile(f[0]);
 
@@ -43,8 +49,14 @@ const PDropzone = ({ validTypes }) => {
 
       reader.readAsDataURL(f[0]);
       output.src = dataURL;
+    } else if (f.length > 1) {
+      setError("Cannot select multiple files");
+    } else if (!validateFile(f[0])) {
+      setError("Invalid file type");
     }
   };
+
+  console.log("selectedFile", selectedFile);
 
   return (
     <Grid className="PDropzone">
@@ -55,11 +67,13 @@ const PDropzone = ({ validTypes }) => {
         onDragOver={(e) => e.preventDefault()}
         onDrop={fileDrop}
       >
-        <Typography style={{ pointerEvents: "none" }}>
-          Drag and drop here an image :D
+        <Typography style={{ pointerEvents: "none", userSelect: "none", color: "black" }}>
+          Drag and drop your file here
         </Typography>
 
-        <Typography style={{ pointerEvents: "none" }}>or...</Typography>
+        <Typography style={{ pointerEvents: "none", userSelect: "none", color: "black" }}>
+          or...
+        </Typography>
 
         <input
           type="file"
@@ -74,10 +88,17 @@ const PDropzone = ({ validTypes }) => {
 
         <img
           id="output"
+          alt="user_selection"
           className={`${selectedFile ? "previewImg" : "hideImg"}`}
           src={null}
         />
       </Grid>
+      {error && (
+        <Typography className="ErrorText">
+          {error}
+        </Typography>
+      )}
+
     </Grid>
   );
 };

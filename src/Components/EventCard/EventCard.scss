@@ -12,6 +12,7 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
+    min-width: 272px;
     width: fit-content;
     padding: 10px;
     margin: 0;
@@ -55,8 +56,14 @@
     text-align: left;
     border-radius: 10px;
     padding: 10px;
-    min-width: 800px;
+    min-width: min(1000px, 50vw);
     margin: 0 10px;
+
+    .EventInfoContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     .EventPreviewContainer {
       width: 120px;
@@ -68,6 +75,26 @@
         border-radius: 7px;
       }
     }
+
+    .EventDateContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 175px;
+      .EventDate {
+        @extend .Text;
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 4rem;
+      }
+      .EventMonth {
+        @extend .Text;
+        font-size: 1.3rem;
+        font-weight: 700;
+        line-height: 1.3rem;
+      }
+    }
+
     .EventTextContainer {
       display: flex;
       flex-direction: column;
@@ -75,14 +102,18 @@
       .EventTitle {
         @extend .Titles;
         font-size: 1.8rem;
+        line-height: 1.8rem;
+        margin-bottom: 10px;
         font-weight: 500;
       }
       .EventDesc {
         @extend .Titles;
         font-size: 1rem;
+        line-height: 1rem;
         font-weight: 400;
       }
     }
+
     .EventActions {
       display: flex;
       flex-direction: row;
@@ -108,6 +139,7 @@
     @extend .EventInfo, .ComponentSurface-Theme_01;
   }
 
+  // User Info
   .UserName-Theme_01 {
     @extend .UserName;
     color: lavenderblush;
@@ -116,6 +148,18 @@
     @extend .UserDesc;
     color: lavenderblush;
   }
+
+  // Event Dates
+  .EventDate-Theme_01 {
+    @extend .EventDate;
+    color: lavenderblush;
+  }
+  .EventMonth-Theme_01 {
+    @extend .EventMonth;
+    color: lavenderblush;
+  }
+
+  // Event Info
   .MainTitle-Theme_01 {
     color: lavenderblush;
   }
@@ -128,6 +172,7 @@
     color: lavenderblush;
   }
 
+  // Event Actions
   .SocialMediaButton-Theme_01 {
     @extend .SocialMediaButton;
     color: lavenderblush;
@@ -150,6 +195,7 @@
     border: 1px solid rgba(133, 133, 133, 0.5);
   }
 
+  // User Info
   .UserName-Theme_02 {
     @extend .UserName;
     color: $dark0;
@@ -158,6 +204,18 @@
     @extend .UserDesc;
     color: $dark0;
   }
+
+  // Event Dates
+  .EventDate-Theme_02 {
+    @extend .EventDate;
+    color: $dark0;
+  }
+  .EventMonth-Theme_02 {
+    @extend .EventMonth;
+    color: $dark0;
+  }
+
+  // Event Info
   .MainTitle-Theme_02 {
     color: $dark0;
   }
@@ -170,6 +228,7 @@
     color: $dark0;
   }
 
+  // Event Actions
   .SocialMediaButton-Theme_02 {
     @extend .SocialMediaButton;
     color: $dark0;
@@ -190,6 +249,7 @@
     @extend .EventInfo, .ComponentSurface-Theme_03_2;
   }
 
+  // User Info
   .UserName-Theme_03 {
     @extend .UserName;
     color: lavenderblush;
@@ -198,6 +258,18 @@
     @extend .UserDesc;
     color: lavenderblush;
   }
+
+  // Event Dates
+  .EventDate-Theme_03 {
+    @extend .EventDate;
+    color: lavenderblush;
+  }
+  .EventMonth-Theme_03 {
+    @extend .EventMonth;
+    color: lavenderblush;
+  }
+
+  // Event Info
   .MainTitle-Theme_03 {
     color: lavenderblush;
   }
@@ -209,6 +281,8 @@
     @extend .EventDesc;
     color: lavenderblush;
   }
+
+  // Event Actions
   .SocialMediaButton-Theme_03 {
     @extend .SocialMediaButton;
     color: lavenderblush;

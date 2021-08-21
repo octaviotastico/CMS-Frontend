@@ -19,11 +19,25 @@
     font-size: 2vw;
     font-weight: 500;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
+  .PastEvent {
+    margin-left: 10px;
+    font-size: 2vw;
+  }
+  .UpcomingEvent {
+    margin-left: 10px;
+    font-size: 2vw;
+  }
   .LiveEvent {
+    margin-left: 10px;
     color: #e44a4a;
     animation: LiveAnimation 1s infinite alternate;
+    display: flex;
+    place-items: center;
   }
 
   @keyframes LiveAnimation {
