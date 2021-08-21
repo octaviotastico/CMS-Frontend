@@ -1,5 +1,12 @@
 // React and Material UI
-import { Container, Typography } from "@material-ui/core";
+import { useEffect, useState } from "react";
+import { Container, Grid, Typography } from "@material-ui/core";
+
+// Components
+import EventCard from "../../Components/EventCard/EventCard";
+
+// API
+import { getCurrentEvents, getPastEvents, getUpcomingEvents } from "../../API/calendar";
 
 // Redux
 import { useSelector } from "react-redux";
@@ -8,11 +15,79 @@ import { useSelector } from "react-redux";
 import "./Home.scss";
 
 const Home = () => {
+  const [currentEvents, setCurrentEvents] = useState([]);
+  const [pastEvents, setPastEvents] = useState([]);
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+
+  useEffect(() => {
+    getCurrentEvents().then(data => {
+      setCurrentEvents(data);
+    });
+    getUpcomingEvents().then(data => {
+      setUpcomingEvents(data);
+    });
+    getPastEvents().then(data => {
+      setPastEvents(data);
+    });
+  }, []);
+
   const { theme } = useSelector((state) => state);
-  const user = "Octa"
+
   return (
     <Container disableGutters maxWidth={false} className={`Home-${theme}`}>
-      <Typography className={`MainTitle-${theme}`}>Wellcome again, {user}</Typography>
+      <Typography className={`MainTitle-${theme}`}>Wellcome again, Octavio</Typography>
+
+      <Typography className={`Subtitles-${theme}`}>Current Events - <span className="LiveEvent">LIVE</span></Typography>
+      <Grid className="EventList">
+        {currentEvents.map((event, i) => (
+
+          <EventCard
+            key={i}
+            theme={theme}
+            title={event.title}
+            description={event.description}
+            startDate={event.startDate}
+            endDate={event.endDate}
+            tags={event.tags}
+          />
+
+        ))}
+      </Grid>
+
+      <Typography className={`Subtitles-${theme}`}>Upcoming Events</Typography>
+      <Grid className="EventList">
+        {upcomingEvents.map((event, i) => (
+
+          <EventCard
+            key={i}
+            theme={theme}
+            title={event.title}
+            description={event.description}
+            startDate={event.startDate}
+            endDate={event.endDate}
+            tags={event.tags}
+          />
+
+        ))}
+      </Grid>
+
+      <Typography className={`Subtitles-${theme}`}>Past Events</Typography>
+      <Grid className="EventList">
+        {pastEvents.map((event, i) => (
+
+          <EventCard
+            key={i}
+            theme={theme}
+            title={event.title}
+            description={event.description}
+            startDate={event.startDate}
+            endDate={event.endDate}
+            tags={event.tags}
+          />
+
+        ))}
+      </Grid>
+
     </Container>
   );
 };

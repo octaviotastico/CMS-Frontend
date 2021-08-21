@@ -2,7 +2,6 @@ import { Grid, Typography } from "@material-ui/core";
 import "./PCollapsableButton.scss";
 
 const PCollapsableButton = ({ text, action, icon, open, closeTransition, openTransition, theme }) => {
-  console.log(icon)
   return (
     <Grid
       className={`PCollapsableButton-${theme} ${open ? "Open" : "Closed"}`}

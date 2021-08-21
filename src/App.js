@@ -64,8 +64,6 @@ const App = () => {
   const match = useRoutes(routes);
   const theme = useSelector((state) => state.theme);
 
-  console.log(`Body-${theme}`);
-
   return (
     <Container disableGutters maxWidth={false} className={`App-${theme}`}>
       <Header />

@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import { Button, ButtonGroup, Container, Grid, Typography } from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
 import { navigate } from "../../Router";
-import axios from "axios";
+
+// API
+import { getArticles } from "../../API/learning";
 
 // Components
 import LearningCard from "../../Components/LearningCard/LearningCard";
@@ -45,12 +47,9 @@ const Learning = () => {
   }
 
   useEffect(() => {
-    const getAllArticles = async () => {
-      const res = await axios.get(`http://localhost:2424/learning/articles`);
-      setArticles(groupByCategory(res.data, "category"));
-    };
-
-    getAllArticles();
+    getArticles().then((res) => {
+      setArticles(groupByCategory(res));
+    });
   }, []);
 
   return (
@@ -65,13 +64,13 @@ const Learning = () => {
         <Grid className="BodyAndFilters">
           <Grid xs={8} className="BodyContainer">
             {articles && articles.length &&
-              articles.map((elem) => {
+              articles.map((elem, i) => {
                 return (
                   <Grid
                     container
                     spacing={3}
                     className="Category"
-                    key={`Learning-${elem.category}`}
+                    key={`Learning-${elem.category}-${i}`}
                   >
                     <Grid item xs={12} className="CategoryTitleContainer">
                       <Typography className="CategoryTitle">
@@ -79,7 +78,7 @@ const Learning = () => {
                       </Typography>
                     </Grid>
                     <Grid className="LearningCardList">
-                      {elem.data && elem.data.length && elem.data.map((article) => {
+                      {elem?.data?.map((article, i) => {
                         return (
                           <LearningCard
                             title={article.title}
@@ -87,6 +86,7 @@ const Learning = () => {
                             description={article.description}
                             author={article.author}
                             preview={article.preview}
+                            key={`Article-${article.title}-${i}`}
                           />
                         );
                       })}

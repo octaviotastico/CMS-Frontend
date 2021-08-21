@@ -1,0 +1,220 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.EventCard {
+  color: white;
+  display: flex;
+  margin-bottom: 10px;
+
+  .ExpositorInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 10px;
+    margin: 0;
+
+    .UserPhotoAndName {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .UserPhoto {
+        width: 40px;
+        border-radius: 100px;
+      }
+      .UserName {
+        @extend .Titles;
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-left: 5px;
+      }
+    }
+    .UserDesc {
+      @extend .Titles;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+    .UserSocialMedia {
+      display: flex;
+      flex-direction: row;
+      .SocialMediaButton {
+        width: 50px;
+        min-width: 0;
+      }
+    }
+  }
+
+  .EventInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 800px;
+    margin: 0 10px;
+
+    .EventPreviewContainer {
+      width: 120px;
+      height: 120px;
+      .EventPreview {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 7px;
+      }
+    }
+    .EventTextContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .EventTitle {
+        @extend .Titles;
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+      .EventDesc {
+        @extend .Titles;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+    .EventActions {
+      display: flex;
+      flex-direction: row;
+      height: 120px;
+      width: 120px;
+      .EventButton {
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+      }
+    }
+  }
+}
+
+
+.EventCard-Theme_01 {
+  @extend .EventCard;
+
+  .ExpositorInfo-Theme_01 {
+    @extend .ExpositorInfo, .ComponentSurface-Theme_01;
+  }
+  .EventInfo-Theme_01 {
+    @extend .EventInfo, .ComponentSurface-Theme_01;
+  }
+
+  .UserName-Theme_01 {
+    @extend .UserName;
+    color: lavenderblush;
+  }
+  .UserDesc-Theme_01 {
+    @extend .UserDesc;
+    color: lavenderblush;
+  }
+  .MainTitle-Theme_01 {
+    color: lavenderblush;
+  }
+  .EventTitle-Theme_01 {
+    @extend .EventTitle;
+    color: lavenderblush;
+  }
+  .EventDesc-Theme_01 {
+    @extend .EventDesc;
+    color: lavenderblush;
+  }
+
+  .SocialMediaButton-Theme_01 {
+    @extend .SocialMediaButton;
+    color: lavenderblush;
+  }
+  .EventButton-Theme_01 {
+    @extend .EventButton;
+    color: lavenderblush;
+  }
+}
+
+.EventCard-Theme_02 {
+  @extend .EventCard;
+
+  .ExpositorInfo-Theme_02 {
+    @extend .ExpositorInfo, .ComponentSurface-Theme_02;
+    border: 1px solid rgba(133, 133, 133, 0.5);
+  }
+  .EventInfo-Theme_02 {
+    @extend .EventInfo, .ComponentSurface-Theme_02;
+    border: 1px solid rgba(133, 133, 133, 0.5);
+  }
+
+  .UserName-Theme_02 {
+    @extend .UserName;
+    color: $dark0;
+  }
+  .UserDesc-Theme_02 {
+    @extend .UserDesc;
+    color: $dark0;
+  }
+  .MainTitle-Theme_02 {
+    color: $dark0;
+  }
+  .EventTitle-Theme_02 {
+    @extend .EventTitle;
+    color: $dark0;
+  }
+  .EventDesc-Theme_02 {
+    @extend .EventDesc;
+    color: $dark0;
+  }
+
+  .SocialMediaButton-Theme_02 {
+    @extend .SocialMediaButton;
+    color: $dark0;
+  }
+  .EventButton-Theme_02 {
+    @extend .EventButton;
+    color: $dark0;
+  }
+}
+
+.EventCard-Theme_03 {
+  @extend .EventCard;
+
+  .ExpositorInfo-Theme_03 {
+    @extend .ExpositorInfo, .ComponentSurface-Theme_03_2;
+  }
+  .EventInfo-Theme_03 {
+    @extend .EventInfo, .ComponentSurface-Theme_03_2;
+  }
+
+  .UserName-Theme_03 {
+    @extend .UserName;
+    color: lavenderblush;
+  }
+  .UserDesc-Theme_03 {
+    @extend .UserDesc;
+    color: lavenderblush;
+  }
+  .MainTitle-Theme_03 {
+    color: lavenderblush;
+  }
+  .EventTitle-Theme_03 {
+    @extend .EventTitle;
+    color: lavenderblush;
+  }
+  .EventDesc-Theme_03 {
+    @extend .EventDesc;
+    color: lavenderblush;
+  }
+  .SocialMediaButton-Theme_03 {
+    @extend .SocialMediaButton;
+    color: lavenderblush;
+  }
+  .EventButton-Theme_03 {
+    @extend .EventButton;
+    color: lavenderblush;
+  }
+}

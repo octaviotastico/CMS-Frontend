@@ -5,73 +5,53 @@
   color: white;
   text-align: left;
 
-  .MainTitle {
-    @extend .Text;
+  .MainTitle, .Subtitles {
+    @extend .Titles;
     text-align: left;
     font-weight: 600;
     font-size: 3vw;
     margin-left: 20px;
     text-shadow: 0 0 3px $dark1;
+    margin-bottom: 20px;
   }
 
-  .MainContainer {
-    display: flex;
-    flex-direction: row;
+  .Subtitles {
+    font-size: 2vw;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
 
-    .FirstColumn {
-      display: flex;
-      flex-direction: column;
-      padding: 0 20px;
+  .LiveEvent {
+    color: #e44a4a;
+    animation: LiveAnimation 1s infinite alternate;
+  }
 
-      .Titles {
-        text-align: left;
-        font-weight: 200;
-        font-size: 2.5vw;
-        text-shadow: 0 0 3px $dark1;
-      }
-
-      .NewContainer, .RewardsContainer, .BirthdayContainer {
-        margin: 10px 0;
-        border-radius: 10px;
-        padding: 10px;
-
-        .TitleAndDate {
-          display: flex;
-          flex-direction: row;
-          text-shadow: 0 0 3px $darkOP0;
-          margin-bottom: 10px;
-
-          .TextDivider {
-            margin: 0 10px;
-          }
-        }
-
-        .Description {
-          text-shadow: 0 0 3px $darkOP0;
-        }
-      }
+  @keyframes LiveAnimation {
+    0% {
+      color: #e44a4a;
     }
+    100% {
+      color: #ce1616;
+      text-shadow: 0 0 10px #7e1717;
+    }
+  }
 
-    .SecondColumn {
-      display: flex;
-      flex-direction: column;
-      padding: 0 20px;
+  .EventList {
+    margin-bottom: 35px;
+    margin-left: 20px;
+  }
 
-      .BirthdayTodayContainer, .BirthdayWeekContainer {
-        border-radius: 10px;
-        .Birthday {
-          border-radius: 10px;
-          padding: 10px 10px;
+  .Event {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(230, 99, 99);
+    margin: 0 20px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
 
-          .Divider {
-            margin: 15px 0;
-            background-color: white;
-          }
-        }
-      }
-      .BirthdayWeekContainer {
-        margin-top: 20px;
-      }
+    .EventTitle {
+      @extend .Titles;
     }
   }
 }
@@ -81,6 +61,10 @@
 
   .MainTitle-Theme_01 {
     @extend .MainTitle;
+    color: white;
+  }
+  .Subtitles-Theme_01 {
+    @extend .Subtitles;
     color: white;
   }
 }
@@ -93,6 +77,11 @@
     color: $dark1;
     text-shadow: none;
   }
+  .Subtitles-Theme_02 {
+    @extend .Subtitles;
+    color: $dark1;
+    text-shadow: none;
+  }
 }
 
 .Home-Theme_03 {
@@ -100,6 +89,10 @@
 
   .MainTitle-Theme_03 {
     @extend .MainTitle;
+    color: white;
+  }
+  .Subtitles-Theme_03 {
+    @extend .Subtitles;
     color: white;
   }
 }
