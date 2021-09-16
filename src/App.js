@@ -42,21 +42,29 @@ const buttonList = [
     text: "Home",
     screen: "/",
     icon: () => <HomeTwoToneIcon />,
+    tooltipOpen: "News, events, and more!",
+    tooltipClosed: "Home Screen",
   },
   {
     text: "Learning",
     screen: "/learning",
     icon: () => <ChromeReaderModeTwoToneIcon />,
+    tooltipOpen: "Learn something new by reading articles, or teach people writting your own :)",
+    tooltipClosed: "Learning Screen",
   },
   {
     text: "Meetings",
     screen: "/meetings",
     icon: () => <VideoCallTwoToneIcon />,
+    tooltipOpen: "Connect with people by making videocalls with them",
+    tooltipClosed: "Meetings Screen",
   },
   {
     text: "People",
     screen: "/people",
     icon: () => <CommentTwoToneIcon />,
+    tooltipOpen: "Discover new people!",
+    tooltipClosed: "People Screen",
   },
 ];
 

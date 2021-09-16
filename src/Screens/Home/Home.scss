@@ -68,6 +68,30 @@
       @extend .Titles;
     }
   }
+
+  .BodyAndFilters {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    position: relative;
+
+    .BodyContainer {
+      display: flex;
+      flex-direction: column;
+      margin-right: 5px;
+    }
+
+    .CreateContainer {
+      @extend .GlassSurface-01;
+      border-radius: 10px;
+      height: 100px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 20px;
+      margin-top: 18px;
+    }
+  }
 }
 
 .Home-Theme_01 {

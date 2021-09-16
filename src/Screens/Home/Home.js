@@ -19,6 +19,7 @@ import { useSelector } from "react-redux";
 
 // Styles
 import "./Home.scss";
+import { navigate } from "../../Router";
 
 const Home = () => {
   const [currentEvents, setCurrentEvents] = useState([]);
@@ -52,61 +53,68 @@ const Home = () => {
         </Button>
       </Grid>
 
-      <Typography className={`Subtitles-${theme}`}>
-        Current Events <span className="LiveEvent"><FiberManualRecord />LIVE</span>
-      </Typography>
-      <Grid className="EventList">
-        {currentEvents.map((event, i) => (
+      <Grid className="BodyAndFilters">
+        <Grid xs={8} className="BodyContainer">
+          <Typography className={`Subtitles-${theme}`}>
+            Current Events <span className="LiveEvent"><FiberManualRecord />LIVE</span>
+          </Typography>
+          <Grid className="EventList">
+            {currentEvents.map((event, i) => (
+              <EventCard
+                key={i}
+                theme={theme}
+                title={event.title}
+                description={event.description}
+                startDate={new Date(event.startDate)}
+                endDate={new Date(event.endDate)}
+                tags={event.tags}
+              />
+            ))}
+          </Grid>
 
-          <EventCard
-            key={i}
-            theme={theme}
-            title={event.title}
-            description={event.description}
-            startDate={new Date(event.startDate)}
-            endDate={new Date(event.endDate)}
-            tags={event.tags}
-          />
+          <Typography className={`Subtitles-${theme}`}>
+            Upcoming Events <EventNoteTwoTone className="UpcomingEvent" />
+          </Typography>
+          <Grid className="EventList">
+            {upcomingEvents.map((event, i) => (
+              <EventCard
+                key={i}
+                theme={theme}
+                title={event.title}
+                description={event.description}
+                startDate={new Date(event.startDate)}
+                endDate={new Date(event.endDate)}
+                tags={event.tags}
+              />
+            ))}
+          </Grid>
 
-        ))}
-      </Grid>
+          <Typography className={`Subtitles-${theme}`}>
+            Past Events <HistoryRounded className="PastEvent" />
+          </Typography>
+          <Grid className="EventList">
+            {pastEvents.map((event, i) => (
+              <EventCard
+                key={i}
+                theme={theme}
+                title={event.title}
+                description={event.description}
+                startDate={new Date(event.startDate)}
+                endDate={new Date(event.endDate)}
+                tags={event.tags}
+              />
+            ))}
+          </Grid>
+        </Grid>
 
-      <Typography className={`Subtitles-${theme}`}>
-        Upcoming Events <EventNoteTwoTone className="UpcomingEvent" />
-      </Typography>
-      <Grid className="EventList">
-        {upcomingEvents.map((event, i) => (
-
-          <EventCard
-            key={i}
-            theme={theme}
-            title={event.title}
-            description={event.description}
-            startDate={new Date(event.startDate)}
-            endDate={new Date(event.endDate)}
-            tags={event.tags}
-          />
-
-        ))}
-      </Grid>
-
-      <Typography className={`Subtitles-${theme}`}>
-        Past Events <HistoryRounded className="PastEvent" />
-      </Typography>
-      <Grid className="EventList">
-        {pastEvents.map((event, i) => (
-
-          <EventCard
-            key={i}
-            theme={theme}
-            title={event.title}
-            description={event.description}
-            startDate={new Date(event.startDate)}
-            endDate={new Date(event.endDate)}
-            tags={event.tags}
-          />
-
-        ))}
+        <Grid xs={4} className="FiltersContainer">
+          <Grid className="CreateContainer">
+            <Button onClick={() => navigate("/learning/article/write")}>
+              Create New Event
+              <EventTwoTone />
+            </Button>
+          </Grid>
+        </Grid>
       </Grid>
 
     </Container>

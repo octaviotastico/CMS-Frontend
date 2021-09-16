@@ -1,6 +1,6 @@
 // React and Material
 import { useState } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Tooltip } from "@material-ui/core";
 import BugReportTwoToneIcon from '@material-ui/icons/BugReportTwoTone';
 import ArrowBackIosTwoToneIcon from '@material-ui/icons/ArrowBackIosTwoTone';
 
@@ -20,8 +20,6 @@ const Menu = ({ buttonList }) => {
     <Grid
       item
       className={`Menu-${theme}`}
-      // TODO: Background images with glass surfaces
-      //className="Menu GlassSurface-02"
       style={open
         ? { maxWidth: "340px", minWidth: "190px", width: "20vw" }
         : { width: 70 }
@@ -35,6 +33,8 @@ const Menu = ({ buttonList }) => {
             closeTransition={1}
             openTransition={0.5}
             text={button.text}
+            tooltipOpen={button.tooltipOpen}
+            tooltipClosed={button.tooltipClosed}
             icon={button.icon}
             action={() => navigate(button.screen)}
             theme={theme}
@@ -42,13 +42,17 @@ const Menu = ({ buttonList }) => {
         ))}
       </Grid>
       <Grid className="MenuFooter">
-        <button className={`BugButton-${theme}`}>
-          <BugReportTwoToneIcon className="BugIcon" />
-        </button>
+        <Tooltip title="Report a bug!" placement="right" arrow>
+          <button className={`BugButton-${theme}`}>
+            <BugReportTwoToneIcon className="BugIcon" />
+          </button>
+        </Tooltip>
 
-        <button className={`ArrowButton-${theme}`} onClick={() => setOpen(!open)}>
-          <ArrowBackIosTwoToneIcon className={`Arrow ${!open && "Rotate"}`} />
-        </button>
+        <Tooltip title={`${open ? "Close" : "Open"} the menu`} placement="right" arrow>
+          <button className={`ArrowButton-${theme}`} onClick={() => setOpen(!open)}>
+            <ArrowBackIosTwoToneIcon className={`Arrow ${!open && "Rotate"}`} />
+          </button>
+        </Tooltip>
       </Grid>
     </Grid>
   );

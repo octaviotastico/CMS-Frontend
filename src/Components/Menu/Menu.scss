@@ -79,3 +79,13 @@ $duration: 0.5s;
   @extend .Menu, .ComponentSurface-Theme_03;
 }
 
+.MuiTooltip-tooltip {
+  background-color: rgb(216, 81, 182) !important;
+  font-weight: bold !important;
+  font-size: 12px !important;
+  padding: 10px !important;
+}
+
+.MuiTooltip-arrow {
+  color: rgb(216, 81, 182) !important;
+}
