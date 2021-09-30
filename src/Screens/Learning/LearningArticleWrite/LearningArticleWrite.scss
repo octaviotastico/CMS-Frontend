@@ -1,6 +1,33 @@
 @import "../../../Utils/StyleClasses.scss";
 @import "../../../Utils/ColorVariables.scss";
 
+
+.ArticleInfo {
+  .InputSubtitle, .InputTitle {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background: none;
+    position: relative;
+    display: inline-block;
+    color: #FCFCFD;
+    font-weight: 600;
+    font-size: 15px;
+    border-bottom: 2px solid #E5E7F3;
+    outline: none;
+    &::placeholder {
+      color: #E5E7F3;
+      font-weight: 600;
+      font-size: 15px;
+    }
+  }
+  // .InputSubtitle::placeholder, .InputTitle::placeholder {
+  //   color: #FCFCFD;
+  //   font-weight: 600;
+  //   font-size: 15px;
+  // }
+}
+
 .LearningArticleWrite {
 
   display: flex !important;
