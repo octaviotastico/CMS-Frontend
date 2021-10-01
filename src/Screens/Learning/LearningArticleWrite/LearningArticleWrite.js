@@ -32,8 +32,8 @@ const LearningArticleWrite = () => {
   const md = new MarkdownIt();
 
   return (
-    <Container maxWidth={false} style={{paddingTop: 13}}>
-      <Grid className="ArticleInfo">
+    <Container maxWidth={false} style={{paddingTop: 13}} className={`LearningArticleWriteScreen-${theme}`}>
+      <Grid className="ArticleInfoContainer">
         <Grid style={{ display: "flex", justifyContent: "space-between" }}>
           <Grid style={{
             display: "flex",
@@ -95,58 +95,58 @@ const LearningArticleWrite = () => {
           />
         </Grid>
       </Grid>
-      <Grid maxWidth={false} className={`LearningArticleWrite-${theme}`}>
-        <Grid className="EditAndPreviewContainer">
-          <Grid item xs={6} className="EditColumn">
-            <Typography className="Title">Edit</Typography>
-            <Grid className="MarkdownInputContainer">
-              <textarea
-                id="markdown-input"
-                className="MarkdownInput"
-                onChange={(e) => setArticle(e.target.value)}
-                value={article}
-              />
-            </Grid>
-          </Grid>
-          <hr className="Divider" />
-          <Grid item xs={6} className="PreviewColumn">
-            <Typography className="Title">Preview</Typography>
-            <Grid className="MarkdownPreviewContainer">
-              <div
-                dangerouslySetInnerHTML={{ __html: md.render(article) }}
-                className="MarkdownPreview"
-              />
-            </Grid>
+
+      <Grid maxWidth={false} className="EditPreviewContainer">
+        <Grid item xs={6} className="EditColumn">
+          <Typography className="Title">Edit</Typography>
+          <Grid className="MarkdownInputContainer">
+            <textarea
+              id="markdown-input"
+              className="MarkdownInput"
+              onChange={(e) => setArticle(e.target.value)}
+              value={article}
+            />
           </Grid>
         </Grid>
-        <Grid>
-          <ButtonGroup className="ButtonGroup" onClick={() => navigate("/learning")}>
-            <Button className="ControlButton"><Cancel /></Button>
-            <Button className="ControlButtonTxt">Cancel</Button>
-          </ButtonGroup>
-          <ButtonGroup className="ButtonGroup">
-            <Button className="ControlButton"><CloudUpload /></Button>
-            <Button
-              className="ControlButtonTxt"
-              onClick={() => {
-                postArticle({
-                  title,
-                  subtitle,
-                  author: "TODO",
-                  content: article,
-                  category: "TODO",
-                  description: "TODO",
-                  preview: "TODO",
-                  tags: selectedTags.map(elem => elem.value),
-                }).then(() => {
-                  navigate("/learning");
-                });
-              }}
-            >
-              Upload Article
-            </Button>
-          </ButtonGroup>
+        <hr className="Divider" />
+        <Grid item xs={6} className="PreviewColumn">
+          <Typography className="Title">Preview</Typography>
+          <Grid className="MarkdownPreviewContainer">
+            <div
+              dangerouslySetInnerHTML={{ __html: md.render(article) }}
+              className="MarkdownPreview"
+            />
+          </Grid>
         </Grid>
+      </Grid>
+
+      <Grid className="ActionButtons">
+        <ButtonGroup className="ButtonGroup" onClick={() => navigate("/learning")}>
+          <Button className="ControlButton"><Cancel /></Button>
+          <Button className="ControlButtonTxt">Cancel</Button>
+        </ButtonGroup>
+        <ButtonGroup className="ButtonGroup">
+          <Button className="ControlButton"><CloudUpload /></Button>
+          <Button
+            className="ControlButtonTxt"
+            onClick={() => {
+              postArticle({
+                title,
+                subtitle,
+                author: "TODO",
+                content: article,
+                category: "TODO",
+                description: "TODO",
+                preview: "TODO",
+                tags: selectedTags.map(elem => elem.value),
+              }).then(() => {
+                navigate("/learning");
+              });
+            }}
+          >
+            Upload Article
+          </Button>
+        </ButtonGroup>
       </Grid>
     </Container>
   );
