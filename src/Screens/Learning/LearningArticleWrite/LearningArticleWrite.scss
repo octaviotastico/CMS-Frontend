@@ -12,6 +12,21 @@
     margin-bottom: 10px;
   }
 
+  .TextInputContainer {
+    width: calc(50% - 5px);
+  }
+
+  .ArticleTagTitle,
+  .ArticlePreviewTitle {
+    @extend .Text;
+    font-weight: 600;
+    font-size: 1rem;
+    color: black;
+    letter-spacing: 0.5px;
+    text-align: left;
+    margin-top: 10px;
+  }
+
   .EditPreviewContainer {
     display: flex !important;
     flex-direction: row;

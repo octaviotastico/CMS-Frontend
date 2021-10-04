@@ -43,22 +43,26 @@ const LearningArticleWrite = () => {
       <Grid className="ArticleInfoContainer">
 
         <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <PTextInput
-            fieldName="Title"
-            placeholder="A complete guide to CSS Grid"
-            value={title}
-            setValue={setTitle}
-          />
-          <PTextInput
-            fieldName="Subtitle"
-            placeholder="Just kidding bro, use display flex on everything"
-            value={subtitle}
-            setValue={setSubtitle}
-          />
+          <Grid className="TextInputContainer">
+            <PTextInput
+              fieldName="Title"
+              placeholder="A complete guide to CSS Grid"
+              value={title}
+              setValue={setTitle}
+            />
+          </Grid>
+          <Grid className="TextInputContainer">
+            <PTextInput
+              fieldName="Subtitle"
+              placeholder="Just kidding bro, use display flex on everything"
+              value={subtitle}
+              setValue={setSubtitle}
+            />
+          </Grid>
         </Grid>
 
         <Grid>
-          <Typography style={{ textAlign: 'left' }}>Article Tags</Typography>
+          <Typography className="ArticleTagTitle">Article Tags</Typography>
           <PSelect
             multiple
             isClearable
@@ -69,7 +73,7 @@ const LearningArticleWrite = () => {
         </Grid>
 
         <Grid>
-          <Typography style={{ textAlign: 'left' }}>Article Preview</Typography>
+          <Typography className="ArticlePreviewTitle">Article Preview</Typography>
           <PDropzone images />
         </Grid>
       </Grid>

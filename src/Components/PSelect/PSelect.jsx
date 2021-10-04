@@ -16,17 +16,27 @@ const PSelect = ({
     control: () => ({
       display: 'flex',
       backgroundColor: '#FCFCFD',
-      borderRadius: 10,
+      boxShadow: 'inset 0px 0px 5px rgba(0, 0, 0, 0.5)',
+      background: `linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3) 1px,
+        rgba(0, 0, 0, 0.3) 2px,
+        rgba(0, 0, 0, 0.3) 3px
+      )`,
+      borderRadius: 5,
       borderStyle: 'none',
       fontWeight: 600,
       minHeight: 40,
     }),
     menu: () => ({
       backgroundColor: '#FCFCFD',
-      borderRadius: 10,
+      borderRadius: 5,
       borderStyle: 'none',
       color: '#CDD1D9',
       marginTop: 10,
+      paddingLeft: 3,
+      paddingRight: 3,
     }),
     option: (_, state) => ({
       backgroundColor: state.isFocused ? '#E5E7F3' : '#FCFCFD',
@@ -37,7 +47,7 @@ const PSelect = ({
       justifyContent: 'center',
       alignSelf: 'center',
       justifySelf: 'center',
-      borderRadius: 10,
+      borderRadius: 5,
     }),
     dropdownIndicator: () => ({
       color: '#35353b',
@@ -61,7 +71,7 @@ const PSelect = ({
       marginTop: 3,
       marginBottom: 3,
       marginRight: 3,
-      borderRadius: 10,
+      borderRadius: 5,
       display: 'flex',
       minWidth: 100,
       padding: 10,
