@@ -1,5 +1,8 @@
-import axios from "axios";
-import { API_URL } from "../Utils/constants";
+// Libraries
+import axios from 'axios';
+
+// Constants
+import { API_URL } from '../Utils/constants';
 
 export const getEvents = async (page, amount) => {
   if (page !== undefined && amount !== undefined) {

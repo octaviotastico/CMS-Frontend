@@ -2,7 +2,6 @@
 @import "../../Utils/ColorVariables.scss";
 
 .PDropzone {
-
   position: relative;
 
   .content {
@@ -15,10 +14,10 @@
     padding: 30px;
   }
   .inside {
-    background-color: #FEB940;
+    background-color: #feb940;
   }
   .outside {
-    background-color: #EDEFF9;
+    background-color: #edeff9;
   }
   .previewImg {
     width: 200px;
@@ -34,5 +33,32 @@
     font-weight: 700;
     color: #e93b3b;
     text-shadow: 0 0 3px #000000;
+  }
+
+  .Placeholder {
+    width: 100px;
+    margin-bottom: 25px;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  .HelpText {
+    @extend .Text;
+    font-weight: 600;
+    pointer-events: none;
+    user-select: none;
+    color: black;
+  }
+
+  .FileSelectionButton {
+    @extend .Text;
+    font-weight: 600;
+    text-transform: none;
+    color: black;
+    background-color: #feb940;
   }
 }

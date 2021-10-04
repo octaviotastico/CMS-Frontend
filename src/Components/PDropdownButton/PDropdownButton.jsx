@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+// React
+import React, { useState } from 'react';
 
 // Material
-import { Button, ClickAwayListener, Grid } from "@material-ui/core";
+import { Button, ClickAwayListener, Grid } from '@material-ui/core';
 
 // Redux
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 // Styles
-import "./PDropdownButton.scss";
+import './PDropdownButton.scss';
 
 const PDropdownButton = ({ id, icon, dropdown }) => {
   const { theme } = useSelector((state) => state);

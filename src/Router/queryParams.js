@@ -1,12 +1,20 @@
-import React from "react";
-import isNode from "./isNode";
+import React from 'react';
+import isNode from './isNode';
 
 const queryParamListeners = [];
 let queryParamObject = {};
 
+const objectToQueryString = (inObj) => {
+  const qs = new URLSearchParams();
+  Object.entries(inObj).forEach(
+    ([key, value]) => (value !== undefined ? qs.append(key, value) : null),
+  );
+  return qs.toString();
+};
+
 export const setQueryParams = (inObj, replace = false) => {
   if (!(inObj instanceof Object)) {
-    throw new Error("Object required");
+    throw new Error('Object required');
   }
   if (replace) {
     queryParamObject = inObj;
@@ -16,35 +24,29 @@ export const setQueryParams = (inObj, replace = false) => {
   const now = Date.now();
   queryParamListeners.forEach((cb) => cb(now));
   if (!isNode()) {
-    const qs = "?" + objectToQueryString(queryParamObject);
+    const qs = `?${objectToQueryString(queryParamObject)}`;
     if (qs === window.location.search) {
       return;
     }
     window.history.replaceState(
       null,
       null,
-      window.location.pathname + (qs !== "?" ? qs : "")
+      window.location.pathname + (qs !== '?' ? qs : ''),
     );
   }
 };
 
-export const getQueryParams = () => Object.assign({}, queryParamObject);
+export const getQueryParams = () => ({ ...queryParamObject });
 
 const queryStringToObject = (inStr) => {
   const p = new URLSearchParams(inStr);
-  let result = {};
-  for (let param of p) {
-    result[param[0]] = param[1];
+  const result = {};
+  for (const param of p) {
+    const query = param[0];
+    const value = param[1];
+    result[query] = value;
   }
   return result;
-};
-
-const objectToQueryString = (inObj) => {
-  const qs = new URLSearchParams();
-  Object.entries(inObj).forEach(([key, value]) =>
-    value !== undefined ? qs.append(key, value) : null
-  );
-  return qs.toString();
 };
 
 if (!isNode()) {

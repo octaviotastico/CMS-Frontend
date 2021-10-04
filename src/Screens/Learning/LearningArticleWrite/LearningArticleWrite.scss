@@ -1,40 +1,25 @@
 @import "../../../Utils/StyleClasses.scss";
 @import "../../../Utils/ColorVariables.scss";
 
-
 .LearningArticleWriteScreen {
-
-  .ArticleInfoContainer {
+  .ArticleInfoContainer,
+  .ActionButtons {
     border-radius: 10px;
-    .InputSubtitle, .InputTitle {
-      width: 100%;
-      height: 40px;
-      border: none;
-      background: none;
-      position: relative;
-      display: inline-block;
-      color: #FCFCFD;
-      font-weight: 600;
-      font-size: 15px;
-      border-bottom: 2px solid #E5E7F3;
-      outline: none;
-      &::placeholder {
-        color: #E5E7F3;
-        font-weight: 600;
-        font-size: 15px;
-      }
-    }
+    padding: 35px;
+  }
+
+  .ActionButtons {
+    margin-bottom: 10px;
   }
 
   .EditPreviewContainer {
     display: flex !important;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 10px;
+    margin: 10px 0;
     height: calc(92vh - 25px);
     border-radius: 10px;
     padding: 20px;
-
 
     .EditColumn {
       .MarkdownInputContainer {
@@ -45,12 +30,19 @@
 
         .MarkdownInput {
           @extend .Text;
+          line-height: 1.5;
           font-weight: 500;
           box-shadow: inset 0px 0px 5px rgb(0, 0, 0);
-          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 1px, rgba(0, 0, 0, 0.3) 2px, rgba(0, 0, 0, 0.3) 3px);
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3) 1px,
+            rgba(0, 0, 0, 0.3) 2px,
+            rgba(0, 0, 0, 0.3) 3px
+          );
           border-radius: 5px;
           overflow-y: auto;
-          font-size: clamp(10px, 0.75vw, 24px);
+          font-size: 1rem;
           padding: 20px;
           width: 90%;
           height: 100%;
@@ -73,7 +65,13 @@
           @extend .Text;
           font-weight: 500;
           box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 1);
-          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 1px, rgba(0, 0, 0, 0.3) 2px, rgba(0, 0, 0, 0.3) 3px);
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3) 1px,
+            rgba(0, 0, 0, 0.3) 2px,
+            rgba(0, 0, 0, 0.3) 3px
+          );
           border-radius: 5px;
           overflow-y: auto;
           padding: 20px;
@@ -118,14 +116,20 @@
 .LearningArticleWriteScreen-Theme_01 {
   @extend .LearningArticleWriteScreen;
 
+  .ArticleInfoContainer,
+  .ActionButtons {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-image: linear-gradient(-45deg, #949494, #585858);
+  }
+
   .EditPreviewContainer {
-    border: 1px solid rgba(#3a3a3d, 1);
     border: 1px solid rgba(255, 255, 255, 0.18);
     background-image: linear-gradient(-45deg, #949494, #585858);
     .Title {
       text-shadow: 0 0 3px $dark1;
     }
-    .MarkdownInput, .MarkdownPreview {
+    .MarkdownInput,
+    .MarkdownPreview {
       color: white;
       pre {
         background: linear-gradient(-45deg, #949494, #7a7a7a);
@@ -149,9 +153,14 @@
   }
 }
 
-
 .LearningArticleWriteScreen-Theme_02 {
   @extend .LearningArticleWriteScreen;
+
+  .ArticleInfoContainer,
+  .ActionButtons {
+    border: 1px solid rgba(#969696, 1);
+    background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
+  }
 
   .EditPreviewContainer {
     border: 1px solid rgba(#969696, 1);
@@ -160,7 +169,8 @@
       text-shadow: 0 0 3px #c3cfe2;
       color: $dark0;
     }
-    .MarkdownInput, .MarkdownPreview {
+    .MarkdownInput,
+    .MarkdownPreview {
       color: $dark0;
       pre {
         background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
@@ -184,32 +194,32 @@
   }
 }
 
-
 .LearningArticleWriteScreen-Theme_03 {
   @extend .LearningArticleWriteScreen;
 
-  .ArticleInfoContainer {
+  .ArticleInfoContainer,
+  .ActionButtons {
     border: 1px solid rgba(#c3cfe2, 1);
-    background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
+    background-image: linear-gradient(-45deg, #8ec5fc, #e0c3fc);
   }
 
   .EditPreviewContainer {
     border: 1px solid rgba(#c3cfe2, 1);
-    background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
+    background-image: linear-gradient(-45deg, #8ec5fc, #e0c3fc);
     .Title {
       color: #2c2d36;
     }
-    .MarkdownInput, .MarkdownPreview {
+    .MarkdownInput,
+    .MarkdownPreview {
       color: $dark0;
       pre {
-        background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
+        background-image: linear-gradient(-45deg, #8ec5fc, #e0c3fc);
         code {
           color: $dark0 !important;
         }
       }
     }
   }
-
 
   .ActionButtons {
     .ButtonGroup {
@@ -223,5 +233,3 @@
     }
   }
 }
-
-

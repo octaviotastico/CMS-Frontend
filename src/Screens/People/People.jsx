@@ -1,9 +1,18 @@
-import { useState, useEffect } from "react";
-import { Container, Grid, Typography } from "@material-ui/core";
-import { PeopleData, PeopleFilter } from "../../Utils/MockData";
-import UserCard from "../../Components/UserCard/UserCard";
-import PFilters from "../../Components/PFilters/PFilters";
-import "./People.scss";
+// React
+import React, { useState, useEffect } from 'react';
+
+// Material
+import { Container, Grid, Typography } from '@material-ui/core';
+
+// Mocked data
+import { PeopleData, PeopleFilter } from '../../Utils/MockData';
+
+// Components
+import UserCard from '../../Components/UserCard/UserCard';
+import PFilters from '../../Components/PFilters/PFilters';
+
+// Styles
+import './People.scss';
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -27,14 +36,14 @@ const People = () => {
       <Grid className="TitleContainer">
         <Typography className="Title">Meet your team!</Typography>
         <Typography className="Title">
-          They're awesome people just like you.
+          They&apos;re awesome people just like you.
         </Typography>
       </Grid>
 
       <Grid className="BodyAndFilters">
         <Grid className="BodyContainer">
-          {people &&
-            people.map((elem) => (
+          {people
+            && people.map((elem) => (
               <Grid
                 container
                 spacing={3}
@@ -47,13 +56,13 @@ const People = () => {
                   </Typography>
                 </Grid>
                 <Grid className="CardHorizontalList">
-                  {elem.data.map((elem, i) => (
-                    <Grid key={i} className="CardContainer">
+                  {elem.data.map((person) => (
+                    <Grid key={person.name} className="CardContainer">
                       <UserCard
-                        name={elem.name}
-                        position={elem.position}
-                        profilePic={elem.profilePic}
-                        skills={elem.skills}
+                        name={person.name}
+                        position={person.position}
+                        profilePic={person.profilePic}
+                        skills={person.skills}
                       />
                     </Grid>
                   ))}

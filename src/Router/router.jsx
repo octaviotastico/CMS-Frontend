@@ -1,33 +1,40 @@
-import isNode from "./isNode";
-import {
+/* eslint-disable no-undef */
+/* eslint-disable no-continue */
+/* eslint-disable no-use-before-define */
+/* eslint-disable consistent-return */
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable prefer-rest-params */
+/* eslint-disable global-require */
+import React, {
   createContext,
   useState,
   useEffect,
   useContext,
   useDebugValue,
   isValidElement,
-} from "react";
-import { interceptRoute } from "./interceptor";
-import { setQueryParams } from "./queryParams";
+} from 'react';
+import isNode from './isNode';
+import { interceptRoute } from './interceptor';
+import { setQueryParams } from './queryParams';
 
-let preparedRoutes = {};
-let stack = {};
+const preparedRoutes = {};
+const stack = {};
 let componentId = 1;
-let currentPath = isNode() ? "" : window.location.pathname;
-let basePath = "";
+let currentPath = isNode() ? '' : window.location.pathname;
+let basePath = '';
 let basePathRegEx = null;
 const pathUpdaters = [];
 
 export const setBasepath = (inBasepath) => {
   basePath = inBasepath;
-  basePathRegEx = new RegExp("^" + basePath);
+  basePathRegEx = new RegExp(`^${basePath}`);
 };
 
 export const getBasepath = () => basePath;
 
 const resolvePath = (inPath) => {
   if (isNode()) {
-    const url = require("url");
+    const url = require('url');
     return url.resolve(currentPath, inPath);
   }
 
@@ -45,62 +52,25 @@ const prepareRoute = (inRoute) => {
 
   const preparedRoute = [
     new RegExp(
-      `${inRoute.substr(0, 1) === "*" ? "" : "^"}${inRoute
-        .replace(/:[a-zA-Z]+/g, "([^/]+)")
-        .replace(/\*/g, "")}${inRoute.substr(-1) === "*" ? "" : "$"}`
+      `${inRoute.substr(0, 1) === '*' ? '' : '^'}${inRoute
+        .replace(/:[a-zA-Z]+/g, '([^/]+)')
+        .replace(/\*/g, '')}${inRoute.substr(-1) === '*' ? '' : '$'}`,
     ),
   ];
 
   const propList = inRoute.match(/:[a-zA-Z]+/g);
   preparedRoute.push(
-    propList ? propList.map((paramName) => paramName.substr(1)) : []
+    propList ? propList.map((paramName) => paramName.substr(1)) : [],
   );
 
   preparedRoutes[inRoute] = preparedRoute;
   return preparedRoute;
 };
 
-export const navigate = (
-  url,
-  replace = false,
-  queryParams = null,
-  replaceQueryParams = true
-) => {
-  url = interceptRoute(currentPath, resolvePath(url));
-
-  if (!url || url === currentPath) {
-    return;
-  }
-
-  currentPath = url;
-
-  if (isNode()) {
-    setPath(url);
-    processStack();
-    updatePathHooks();
-    return;
-  }
-
-  const finalURL = basePathRegEx
-    ? url.match(basePathRegEx)
-      ? url
-      : basePath + url
-    : url;
-
-  window.history[`${replace ? "replace" : "push"}State`](null, null, finalURL);
-
-  processStack();
-  updatePathHooks();
-
-  if (queryParams) {
-    setQueryParams(queryParams, replaceQueryParams);
-  }
-};
-
-let customPath = "/";
+let customPath = '/';
 
 export const setPath = (inPath) => {
-  const url = require("url");
+  const url = require('url');
   customPath = url.resolve(customPath, inPath);
 };
 
@@ -123,7 +93,7 @@ export const usePath = (active = true, withBasepath = false) => {
     };
   }, [setUpdate, active]);
 
-  return withBasepath ? currentPath : currentPath.replace(basePathRegEx, "");
+  return withBasepath ? currentPath : currentPath.replace(basePathRegEx, '');
 };
 
 const updatePathHooks = () => {
@@ -135,15 +105,15 @@ export const getWorkingPath = (parentRouterId) => {
   if (!parentRouterId) {
     return isNode()
       ? customPath
-      : window.location.pathname.replace(basePathRegEx, "") || "/";
+      : window.location.pathname.replace(basePathRegEx, '') || '/';
   }
   const stackEntry = stack[parentRouterId];
   if (!stackEntry) {
-    throw new Error("what?");
+    throw new Error('what?');
   }
 
   return stackEntry.reducedPath !== null
-    ? stackEntry.reducedPath || "/"
+    ? stackEntry.reducedPath || '/'
     : window.location.pathname;
 };
 
@@ -153,14 +123,13 @@ const objectsEqual = (objA, objB) => {
   const objAKeys = Object.keys(objA);
   const objBKeys = Object.keys(objB);
 
-  const valueIsEqual = (key) =>
-    objB.hasOwnProperty(key) && objA[key] === objB[key];
+  const valueIsEqual = (key) => objB.hasOwnProperty(key) && objA[key] === objB[key];
 
   return objAKeys.length === objBKeys.length && objAKeys.every(valueIsEqual);
 };
 
 if (!isNode()) {
-  window.addEventListener("popstate", (e) => {
+  window.addEventListener('popstate', (e) => {
     const nextPath = interceptRoute(currentPath, window.location.pathname);
 
     if (!nextPath || nextPath === currentPath) {
@@ -180,6 +149,42 @@ if (!isNode()) {
   });
 }
 
+export const navigate = (
+  url,
+  replace = false,
+  queryParams = null,
+  replaceQueryParams = true,
+) => {
+  url = interceptRoute(currentPath, resolvePath(url));
+
+  if (!url || url === currentPath) {
+    return;
+  }
+
+  currentPath = url;
+
+  if (isNode()) {
+    setPath(url);
+    processStack();
+    updatePathHooks();
+    return;
+  }
+
+  let finalURL = url;
+  if (basePathRegEx && !url.match(basePathRegEx)) {
+    finalURL = `${basePath}${url}`;
+  }
+
+  window.history[`${replace ? 'replace' : 'push'}State`](null, null, finalURL);
+
+  processStack();
+  updatePathHooks();
+
+  if (queryParams) {
+    setQueryParams(queryParams, replaceQueryParams);
+  }
+};
+
 const emptyFunc = () => null;
 
 const process = (stackObj, directCall) => {
@@ -193,7 +198,7 @@ const process = (stackObj, directCall) => {
     reducedPath: previousReducedPath,
   } = stackObj;
 
-  const currentPath = getWorkingPath(parentRouterId);
+  const currPath = getWorkingPath(parentRouterId);
   let route = null;
   let targetFunction = null;
   let targetProps = null;
@@ -206,7 +211,7 @@ const process = (stackObj, directCall) => {
       ? preparedRoutes[route]
       : prepareRoute(route);
 
-    const result = currentPath.match(regex);
+    const result = currPath.match(regex);
     if (!result) {
       targetFunction = emptyFunc;
       continue;
@@ -219,7 +224,7 @@ const process = (stackObj, directCall) => {
       }
     }
 
-    reducedPath = currentPath.replace(result[0], "");
+    reducedPath = currPath.replace(result[0], '');
     anyMatched = true;
     break;
   }
@@ -244,9 +249,9 @@ const process = (stackObj, directCall) => {
       propsDiffer = false;
     } else {
       propsDiffer = !(
-        resultProps &&
-        targetProps &&
-        objectsEqual(resultProps, targetProps) === true
+        resultProps
+        && targetProps
+        && objectsEqual(resultProps, targetProps) === true
       );
     }
 
@@ -257,18 +262,19 @@ const process = (stackObj, directCall) => {
     }
   }
 
-  const result =
-    funcsDiffer || propsDiffer
-      ? targetFunction
-        ? targetFunction(targetProps)
-        : null
-      : stackObj.result;
+  let result = null;
+
+  if ((funcsDiffer || propsDiffer) && targetFunction) {
+    result = targetFunction(targetProps);
+  } else if (!(funcsDiffer || propsDiffer)) {
+    result = stackObj.result;
+  }
 
   Object.assign(stack[routerId], {
     result,
     reducedPath,
     matchedRoute: route,
-    passContext: route ? route.substr(-1) === "*" : false,
+    passContext: route ? route.substr(-1) === '*' : false,
   });
 
   if (directCall && (funcsDiffer || propsDiffer || route === null)) {
@@ -276,14 +282,11 @@ const process = (stackObj, directCall) => {
   }
 };
 
-const wrapperFunction = (RouteContext, originalResult) =>
-  function () {
-    return (
-      <RouteContext>
-        {originalResult.apply(originalResult, arguments)}
-      </RouteContext>
-    );
-  };
+const wrapperFunction = (RouteContext, originalResult) => () => (
+  <RouteContext>
+    {originalResult.apply(originalResult, arguments)}
+  </RouteContext>
+);
 
 export const useRoutes = (routeObj) => {
   // Each router gets an internal id to look them up again.
@@ -298,9 +301,7 @@ export const useRoutes = (routeObj) => {
   }
 
   // Removes the router from the stack after component unmount - it won't be processed anymore.
-  useEffect(() => {
-    return () => delete stack[routerId];
-  }, [routerId]);
+  useEffect(() => () => delete stack[routerId], [routerId]);
 
   let stackObj = stack[routerId];
 
@@ -332,25 +333,24 @@ export const useRoutes = (routeObj) => {
     return null;
   }
 
-  let result = stackObj.result;
+  const { result } = stackObj;
 
   if (!stackObj.passContext) {
     return result;
-  } else {
-    const RouteContext = ({ children }) => (
-      <ParentContext.Provider value={routerId}>
-        {children}
-      </ParentContext.Provider>
-    );
-
-    if (typeof result === "function") {
-      return wrapperFunction(RouteContext, result);
-    }
-
-    return isValidElement(result) && result.type !== RouteContext ? (
-      <RouteContext>{result}</RouteContext>
-    ) : (
-      result
-    );
   }
+  const RouteContext = ({ children }) => (
+    <ParentContext.Provider value={routerId}>
+      {children}
+    </ParentContext.Provider>
+  );
+
+  if (typeof result === 'function') {
+    return wrapperFunction(RouteContext, result);
+  }
+
+  return isValidElement(result) && result.type !== RouteContext ? (
+    <RouteContext>{result}</RouteContext>
+  ) : (
+    result
+  );
 };

@@ -1,5 +1,6 @@
 // React and Material UI
-import { Button, Grid, Typography } from "@material-ui/core";
+import React from 'react';
+import { Button, Grid, Typography } from '@material-ui/core';
 import {
   ConfirmationNumberTwoTone,
   LanguageTwoTone,
@@ -7,17 +8,19 @@ import {
   LinkedIn,
   GitHub,
   Facebook,
-  Twitter
+  Twitter,
 } from '@material-ui/icons';
 
 // Utils
 import { monthShort } from '../../Utils/constants';
 
 // Styles
-import "./EventCard.scss";
+import './EventCard.scss';
 
-const EventCard = ({ title, description, startDate, endDate, theme }) => {
-  console.log("start", startDate, typeof startDate);
+const EventCard = ({
+  title, description, startDate, theme, // endDate
+}) => {
+  console.log('start', startDate, typeof startDate);
   return (
     <Grid className={`EventCard-${theme}`}>
 
@@ -55,10 +58,13 @@ const EventCard = ({ title, description, startDate, endDate, theme }) => {
 
           <Grid className="EventDateContainer">
             <Typography className={`EventDate-${theme}`}>
-              {startDate.getDate() < 10 && "0"}{startDate.getDate()}
+              {startDate.getDate() < 10 && '0'}
+              {startDate.getDate()}
             </Typography>
             <Typography className={`EventMonth-${theme}`}>
-              {monthShort[startDate.getMonth()]} {startDate.getFullYear()}
+              {monthShort[startDate.getMonth()]}
+              {' '}
+              {startDate.getFullYear()}
             </Typography>
           </Grid>
 

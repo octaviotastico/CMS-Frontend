@@ -1,25 +1,31 @@
-// React and Material UI
-import { useEffect, useState } from "react";
-import { Button, Container, Grid, Typography } from "@material-ui/core";
+// React
+import React, { useEffect, useState } from 'react';
+
+// Material
+import {
+  Button, Container, Grid, Typography,
+} from '@material-ui/core';
 import {
   EventTwoTone,
   EventNoteTwoTone,
   FiberManualRecord,
-  HistoryRounded
+  HistoryRounded,
 } from '@material-ui/icons';
 
+// Redux
+import { useSelector } from 'react-redux';
+
+// Router
+import { navigate } from '../../Router';
+
 // Components
-import EventCard from "../../Components/EventCard/EventCard";
+import EventCard from '../../Components/EventCard/EventCard';
 
 // API
-import { getCurrentEvents, getPastEvents, getUpcomingEvents } from "../../API/calendar";
-
-// Redux
-import { useSelector } from "react-redux";
+import { getCurrentEvents, getPastEvents, getUpcomingEvents } from '../../API/calendar';
 
 // Styles
-import "./Home.scss";
-import { navigate } from "../../Router";
+import './Home.scss';
 
 const Home = () => {
   const [currentEvents, setCurrentEvents] = useState([]);
@@ -27,13 +33,13 @@ const Home = () => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
 
   useEffect(() => {
-    getCurrentEvents().then(data => {
+    getCurrentEvents().then((data) => {
       setCurrentEvents(data);
     });
-    getUpcomingEvents().then(data => {
+    getUpcomingEvents().then((data) => {
       setUpcomingEvents(data);
     });
-    getPastEvents().then(data => {
+    getPastEvents().then((data) => {
       setPastEvents(data);
     });
   }, []);
@@ -56,12 +62,17 @@ const Home = () => {
       <Grid className="BodyAndFilters">
         <Grid xs={8} className="BodyContainer">
           <Typography className={`Subtitles-${theme}`}>
-            Current Events <span className="LiveEvent"><FiberManualRecord />LIVE</span>
+            Current Events
+            {' '}
+            <span className="LiveEvent">
+              <FiberManualRecord />
+              LIVE
+            </span>
           </Typography>
           <Grid className="EventList">
-            {currentEvents.map((event, i) => (
+            {currentEvents.map((event) => (
               <EventCard
-                key={i}
+                key={event.title}
                 theme={theme}
                 title={event.title}
                 description={event.description}
@@ -73,12 +84,14 @@ const Home = () => {
           </Grid>
 
           <Typography className={`Subtitles-${theme}`}>
-            Upcoming Events <EventNoteTwoTone className="UpcomingEvent" />
+            Upcoming Events
+            {' '}
+            <EventNoteTwoTone className="UpcomingEvent" />
           </Typography>
           <Grid className="EventList">
-            {upcomingEvents.map((event, i) => (
+            {upcomingEvents.map((event) => (
               <EventCard
-                key={i}
+                key={event.title}
                 theme={theme}
                 title={event.title}
                 description={event.description}
@@ -90,12 +103,14 @@ const Home = () => {
           </Grid>
 
           <Typography className={`Subtitles-${theme}`}>
-            Past Events <HistoryRounded className="PastEvent" />
+            Past Events
+            {' '}
+            <HistoryRounded className="PastEvent" />
           </Typography>
           <Grid className="EventList">
-            {pastEvents.map((event, i) => (
+            {pastEvents.map((event) => (
               <EventCard
-                key={i}
+                key={event.title}
                 theme={theme}
                 title={event.title}
                 description={event.description}
@@ -109,7 +124,7 @@ const Home = () => {
 
         <Grid xs={4} className="FiltersContainer">
           <Grid className="CreateContainer">
-            <Button onClick={() => navigate("/learning/article/write")}>
+            <Button onClick={() => navigate('/learning/article/write')}>
               Create New Event
               <EventTwoTone />
             </Button>
