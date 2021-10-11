@@ -12,7 +12,7 @@ const Meetings = () => {
     <Container disableGutters maxWidth={false} className="Meetings">
       Screen Content Meetings
       <Grid style={{width: 500}} >
-        <PDropzone validTypes={["image/jpg", "image/jpeg", "image/png"]} />
+        <PDropzone validTypes={["image/jpg", "image/jpeg", "image/png", "image/gif", "image/bmp"]} />
       </Grid>
     </Container>
   );

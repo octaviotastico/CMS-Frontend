@@ -1,7 +1,7 @@
 // React and Material
 import { useEffect, useState } from "react";
 import { Button, ButtonGroup, Container, Grid, Typography } from "@material-ui/core";
-import PSelect from "../../../Components/PSelect/PSelect";
+import PSelectCreatable from "../../../Components/PSelectCreatable/PSelectCreatable";
 import MarkdownIt from "markdown-it";
 
 // Redux
@@ -19,7 +19,7 @@ const LearningArticleWrite = () => {
   const { theme } = useSelector((state) => state);
   const [title, setTitle] = useState("");
   const [subtitle, setSubtitle] = useState("");
-  const [article, setArticle] = useState("");
+  const [content, setContent] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
   const [tags, setTags] = useState([]);
 
@@ -84,15 +84,37 @@ const LearningArticleWrite = () => {
           </Grid>
         </Grid>
 
-        <Grid>
-          <Typography style={{textAlign: "left"}}>Article Tags</Typography>
-          <PSelect
-            multiple
-            isClearable
-            chosenOptions={selectedTags}
-            setChosenOption={setSelectedTags}
-            options={tags}
-          />
+        <Grid style={{ display: "flex", justifyContent: "space-between", margin: "10px 0" }}>
+          <Grid style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            width: "49.5%"
+          }}>
+            <Typography style={{textAlign: "left"}}>Category</Typography>
+            <PSelectCreatable
+              multiple
+              isClearable
+              chosenOptions={selectedTags}
+              setChosenOption={setSelectedTags}
+              options={tags}
+            />
+          </Grid>
+          <Grid style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            width: "49.5%"
+          }}>
+            <Typography style={{textAlign: "left"}}>Article Tags</Typography>
+            <PSelectCreatable
+              multiple
+              isClearable
+              chosenOptions={selectedTags}
+              setChosenOption={setSelectedTags}
+              options={tags}
+            />
+          </Grid>
         </Grid>
       </Grid>
       <Grid maxWidth={false} className={`LearningArticleWrite-${theme}`}>
@@ -103,8 +125,8 @@ const LearningArticleWrite = () => {
               <textarea
                 id="markdown-input"
                 className="MarkdownInput"
-                onChange={(e) => setArticle(e.target.value)}
-                value={article}
+                onChange={(e) => setContent(e.target.value)}
+                value={content}
               />
             </Grid>
           </Grid>
@@ -113,7 +135,7 @@ const LearningArticleWrite = () => {
             <Typography className="Title">Preview</Typography>
             <Grid className="MarkdownPreviewContainer">
               <div
-                dangerouslySetInnerHTML={{ __html: md.render(article) }}
+                dangerouslySetInnerHTML={{ __html: md.render(content) }}
                 className="MarkdownPreview"
               />
             </Grid>
@@ -132,8 +154,8 @@ const LearningArticleWrite = () => {
                 postArticle({
                   title,
                   subtitle,
+                  content,
                   author: "TODO",
-                  content: article,
                   category: "TODO",
                   description: "TODO",
                   preview: "TODO",

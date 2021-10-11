@@ -31,7 +31,15 @@ export const getArticlesByCategories = async (category) => {
 };
 
 export const postArticle = async (article) => {
-  const response = await axios.post(`${API_URL}/learning/articles`, article);
+  const response = await axios({
+    method: "post",
+    url: `${API_URL}/learning/articles`,
+    data: article,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Accept': 'application/json'
+    }
+  });
   return response.data;
 };
 
