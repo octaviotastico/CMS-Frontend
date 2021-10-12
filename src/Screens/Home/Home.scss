@@ -28,10 +28,12 @@
     margin-left: 10px;
     font-size: 2vw;
   }
+
   .UpcomingEvent {
     margin-left: 10px;
     font-size: 2vw;
   }
+
   .LiveEvent {
     margin-left: 10px;
     color: #e44a4a;
@@ -53,6 +55,26 @@
   .EventList {
     margin-bottom: 35px;
     margin-left: 20px;
+
+    .NoEventsContainer {
+      display: flex;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      align-items: center;
+
+      .NoEventText {
+        @extend .Text;
+        font-size: 2rem;
+        font-weight: 500;
+        margin-left: 10px;
+      }
+
+      .NoEventIcon {
+        width: 50px;
+        height: 50px;
+        margin-left: 50px;
+      }
+    }
   }
 
   .Event {
@@ -105,6 +127,14 @@
     @extend .Subtitles;
     color: white;
   }
+  .NoEventText-Theme_01 {
+    @extend .NoEventText;
+    color: white;
+  }
+  .NoEventIcon-Theme_01 {
+    @extend .NoEventIcon;
+    filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(329deg) brightness(107%) contrast(101%);
+  }
 }
 
 .Home-Theme_02 {
@@ -112,13 +142,21 @@
 
   .MainTitle-Theme_02 {
     @extend .MainTitle;
-    color: $dark1;
     text-shadow: none;
   }
   .Subtitles-Theme_02 {
     @extend .Subtitles;
-    color: $dark1;
+    color: #323236;
     text-shadow: none;
+  }
+  .NoEventText-Theme_02 {
+    @extend .NoEventText;
+    color: #323236;
+    text-shadow: none;
+  }
+  .NoEventIcon-Theme_02 {
+    @extend .NoEventIcon;
+    color: #323236;
   }
 }
 
@@ -132,5 +170,13 @@
   .Subtitles-Theme_03 {
     @extend .Subtitles;
     color: white;
+  }
+  .NoEventText-Theme_03 {
+    @extend .NoEventText;
+    color: white;
+  }
+  .NoEventIcon-Theme_03 {
+    @extend .NoEventIcon;
+    filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(329deg) brightness(107%) contrast(101%);
   }
 }

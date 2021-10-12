@@ -52,13 +52,6 @@ const Home = () => {
         Wellcome again, Octavio
       </Typography>
 
-      <Grid className="Controls">
-        <Button>
-          Create New Event
-          <EventTwoTone />
-        </Button>
-      </Grid>
-
       <Grid className="BodyAndFilters">
         <Grid item xs={8} className="BodyContainer">
           <Typography className={`Subtitles-${theme}`}>
@@ -70,6 +63,14 @@ const Home = () => {
             </span>
           </Typography>
           <Grid className="EventList">
+            {!currentEvents.length && (
+              <Grid className="NoEventsContainer">
+                <img src="/icons/404.svg" alt="404" className={`NoEventIcon-${theme}`} />
+                <Typography className={`NoEventText-${theme}`}>
+                  No current events
+                </Typography>
+              </Grid>
+            )}
             {currentEvents.map((event) => (
               <EventCard
                 key={event.title}
@@ -89,6 +90,14 @@ const Home = () => {
             <EventNoteTwoTone className="UpcomingEvent" />
           </Typography>
           <Grid className="EventList">
+            {!upcomingEvents.length && (
+            <Grid className="NoEventsContainer">
+              <img src="/icons/404.svg" alt="404" className={`NoEventIcon-${theme}`} />
+              <Typography className={`NoEventText-${theme}`}>
+                No upcoming events
+              </Typography>
+            </Grid>
+            )}
             {upcomingEvents.map((event) => (
               <EventCard
                 key={event.title}
@@ -108,6 +117,14 @@ const Home = () => {
             <HistoryRounded className="PastEvent" />
           </Typography>
           <Grid className="EventList">
+            {!pastEvents.length && (
+            <Grid className="NoEventsContainer">
+              <img src="/icons/404.svg" alt="404" className={`NoEventIcon-${theme}`} />
+              <Typography className={`NoEventText-${theme}`}>
+                No past events
+              </Typography>
+            </Grid>
+            )}
             {pastEvents.map((event) => (
               <EventCard
                 key={event.title}
