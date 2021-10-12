@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+/* eslint-disable no-return-assign */
+/* eslint-disable consistent-return */
+import { useEffect } from 'react';
 
-import isNode from "./isNode";
+import isNode from './isNode';
 
 let currentTitle;
 
@@ -11,7 +13,9 @@ export const useTitle = (inTitle) => {
     if (isNode()) return;
     const previousTitle = document.title;
     document.title = inTitle;
-    return () => (document.title = previousTitle);
+    return () => (
+      document.title = previousTitle
+    );
   });
 };
 

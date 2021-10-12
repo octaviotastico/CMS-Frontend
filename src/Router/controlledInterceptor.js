@@ -1,8 +1,8 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState } from 'react';
 
-import { useInterceptor } from "./interceptor";
+import { useInterceptor } from './interceptor';
 
-import { navigate } from "./router";
+import { navigate } from './router';
 
 export const useControlledInterceptor = () => {
   const [interceptedPath, setInterceptedPath] = useState(null);
@@ -12,7 +12,7 @@ export const useControlledInterceptor = () => {
       setInterceptedPath(nextPath);
       return currentPath;
     },
-    [setInterceptedPath]
+    [setInterceptedPath],
   );
 
   const stopInterception = useInterceptor(interceptorFunction);
@@ -22,7 +22,7 @@ export const useControlledInterceptor = () => {
       stopInterception();
       navigate(interceptedPath);
     },
-    [stopInterception, interceptedPath]
+    [stopInterception, interceptedPath],
   );
 
   const resetPath = useMemo(() => () => setInterceptedPath(null), [

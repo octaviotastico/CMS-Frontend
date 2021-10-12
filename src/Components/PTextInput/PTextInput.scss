@@ -1,0 +1,43 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.PTextInput {
+  width: 100%;
+  position: relative;
+
+  .Title {
+    @extend .Text;
+    font-weight: 600;
+    font-size: 1rem;
+    color: black;
+    letter-spacing: 0.5px;
+  }
+
+  .InputBox {
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3) 1px,
+      rgba(0, 0, 0, 0.3) 2px,
+      rgba(0, 0, 0, 0.3) 3px
+    );
+    outline: none;
+    border: none;
+    padding: 0 10px;
+    border-radius: 5px;
+    height: 40px;
+    width: calc(100% - 20px);
+
+    @extend .Text;
+    color: #fcfcfd;
+    font-size: 1rem;
+    font-weight: 500;
+
+    &::placeholder {
+      color: #fcfcfd;
+      font-weight: 600;
+      font-size: 15px;
+    }
+  }
+}

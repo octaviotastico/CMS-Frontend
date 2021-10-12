@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { navigate, ParentContext, getWorkingPath } from "./router";
+import { useContext } from 'react';
+import { navigate, ParentContext, getWorkingPath } from './router';
 
 const useRedirect = (fromURL, toURL, queryParams = null, replace = true) => {
   const parentRouterId = useContext(ParentContext);
