@@ -11,7 +11,7 @@
     font-weight: 600;
     font-size: 3vw;
     margin-left: 20px;
-    text-shadow: 0 0 3px $dark1;
+    text-shadow: 0 0 3px #323236;
     margin-bottom: 20px;
   }
 
@@ -142,6 +142,7 @@
 
   .MainTitle-Theme_02 {
     @extend .MainTitle;
+    color: #323236;
     text-shadow: none;
   }
   .Subtitles-Theme_02 {

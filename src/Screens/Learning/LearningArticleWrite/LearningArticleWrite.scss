@@ -141,7 +141,7 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
     background-image: linear-gradient(-45deg, #949494, #585858);
     .Title {
-      text-shadow: 0 0 3px $dark1;
+      text-shadow: 0 0 3px #323236;
     }
     .MarkdownInput,
     .MarkdownPreview {
@@ -182,15 +182,15 @@
     background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
     .Title {
       text-shadow: 0 0 3px #c3cfe2;
-      color: $dark0;
+      color: #323236;
     }
     .MarkdownInput,
     .MarkdownPreview {
-      color: $dark0;
+      color: #323236;
       pre {
         background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
         code {
-          color: $dark0 !important;
+          color: #323236 !important;
         }
       }
     }
@@ -226,11 +226,11 @@
     }
     .MarkdownInput,
     .MarkdownPreview {
-      color: $dark0;
+      color: #323236;
       pre {
         background-image: linear-gradient(-45deg, #8ec5fc, #e0c3fc);
         code {
-          color: $dark0 !important;
+          color: #323236 !important;
         }
       }
     }

@@ -35,15 +35,16 @@ const LearningArticleWrite = () => {
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [preview, setPreview] = useState(null);
 
+  // Dropdown states
   const [categories, setCategories] = useState({});
   const [tags, setTags] = useState([]);
 
   useEffect(() => {
-    getArticleCategories().then((res) => {
+    getArticleTags().then((res) => {
       setTags(res?.map((tag) => ({ label: tag, value: tag })));
     });
 
-    getArticleTags().then((res) => {
+    getArticleCategories().then((res) => {
       setCategories(res?.map((category) => ({ label: category, value: category })));
     });
   }, []);
@@ -145,12 +146,12 @@ const LearningArticleWrite = () => {
                 preview,
                 author: 'TODO',
                 description: 'TODO',
-                category: selectedCategory.value,
+                category: selectedCategory[0].value,
                 tags: selectedTags.map((elem) => elem.value),
               }).then(() => {
-                // setTimeout(() => {
-                //   navigate('/learning');
-                // }, 5000);
+                setTimeout(() => {
+                  navigate('/learning');
+                }, 1000);
               });
             }}
           >

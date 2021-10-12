@@ -3,9 +3,10 @@ const CHANGE_THEME = 'change_theme';
 const ThemeReducer = (theme = 'Theme_02', action) => {
   switch (action.type) {
     case CHANGE_THEME:
+      localStorage.setItem('theme', action.theme);
       return action.theme;
     default:
-      return theme;
+      return localStorage.getItem('theme') || theme;
   }
 };
 

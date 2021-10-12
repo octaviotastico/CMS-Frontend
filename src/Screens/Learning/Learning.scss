@@ -67,7 +67,7 @@
 .Learning-Theme_01 {
   @extend .Learning;
   .LearningTitle, .LearningSubtitle {
-    text-shadow: 0 0 3px $dark1;
+    text-shadow: 0 0 3px #323236;
   }
   .Category {
     color: $textPrimary;
@@ -81,10 +81,10 @@
   @extend .Learning;
   .LearningTitle, .LearningSubtitle {
     text-shadow: 0 0 3px #c3cfe2;
-    color: $dark0;
+    color: #323236;
   }
   .Category {
-    color: $dark0;
+    color: #323236;
   }
   .CreateButton {
     @extend .GenericButton-Theme_02;
@@ -94,7 +94,7 @@
 .Learning-Theme_03 {
   @extend .Learning;
   .LearningTitle, .LearningSubtitle {
-    text-shadow: 0 0 3px $dark3;
+    text-shadow: 0 0 3px #323236;
     color: $textPrimary;
   }
   .Category {

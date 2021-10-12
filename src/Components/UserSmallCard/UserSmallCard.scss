@@ -43,7 +43,7 @@
 
   .Button-Theme_01 {
     @extend .Button;
-    background-color: $dark4;
+    background-color: #323236;
   }
 
   .Button-Theme_03 {
@@ -54,7 +54,7 @@
   .Button:hover {
     background: linear-gradient(to bottom right, $glassTopLeft, $glassBotRight);
     .UserName {
-      color: $dark0;
+      color: #323236;
     }
   }
 

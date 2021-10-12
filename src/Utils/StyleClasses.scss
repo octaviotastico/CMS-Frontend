@@ -58,14 +58,14 @@
 
 .GenericButton-Theme_02 {
   @extend .GenericButton;
-  color: $dark0;
+  color: #323236;
   border: 1px solid #7a7b7c;
   background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
 }
 
 .GenericButton-Theme_03 {
   @extend .GenericButton;
-  color: $dark0;
+  color: #323236;
   border: 1px solid #7a7b7c;
   background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
 }
@@ -76,7 +76,7 @@
 
 .ButtonSurface-Theme_01 {
   color: white;
-  text-shadow: 0 0 3px $dark1;
+  text-shadow: 0 0 3px #323236;
   transition: border 10s !important;
   &:hover {
     background: linear-gradient(to bottom, rgb(59, 59, 61), rgba(0, 0, 0, 0.596)), radial-gradient(at top center, rgb(188, 192, 201) 0%, rgba(0, 0, 0, 0.514) 120%) #818286;
@@ -88,7 +88,7 @@
 }
 
 .ButtonSurface-Theme_02 {
-  color: $dark0 !important;
+  color: #323236 !important;
   &:hover {
     background: linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%);
     background-blend-mode: screen;
@@ -102,11 +102,11 @@
 
 .ButtonSurface-Theme_03 {
   color: white;
-  text-shadow: 0 0 3px $dark1;
+  text-shadow: 0 0 3px #323236;
   &:hover {
     background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    color: $dark0 !important;
+    color: #323236 !important;
     text-shadow: none;
   }
 }

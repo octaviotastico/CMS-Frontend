@@ -68,7 +68,7 @@
 .LearningCard-Theme_01 {
   @extend .LearningCard, .ComponentSurface-Theme_01;
   .Title, .Subtitle, .Description, .By, .Author {
-    text-shadow: 0 0 3px $dark1;
+    text-shadow: 0 0 3px #323236;
   }
 }
 
@@ -76,7 +76,7 @@
   @extend .LearningCard, .ComponentSurface-Theme_02;
   .Title, .Subtitle, .Description, .By, .Author {
     text-shadow: 0 0 3px #c3cfe2;
-    color: $dark0;
+    color: #323236;
   }
 }
 

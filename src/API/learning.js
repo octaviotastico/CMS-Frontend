@@ -23,8 +23,8 @@ export const getArticleCategories = async () => {
   return response.data;
 };
 
-export const getArticleTags = async () => { // TODO
-  const response = await axios.get(`${API_URL}/learning/articles/categories`);
+export const getArticleTags = async () => {
+  const response = await axios.get(`${API_URL}/learning/articles/tags`);
   return response.data;
 };
 
@@ -42,14 +42,8 @@ export const postArticle = async (article) => {
   const fd = new FormData();
 
   Object.keys(article).forEach((key) => {
-    console.log('key', key);
-    console.log('article[key]', article[key]);
     fd.append(key, article[key]);
   });
-
-  console.log(Object.keys(article));
-  console.log(article);
-  console.log(fd);
 
   const response = axios.post(`${API_URL}/learning/articles`, fd, {
     headers: {
@@ -58,17 +52,6 @@ export const postArticle = async (article) => {
     },
   });
   return response.data;
-
-  // const response = await axios({
-  //   method: 'post',
-  //   url: `${API_URL}/learning/articles`,
-  //   data: article,
-  //   headers: {
-  //     'Content-Type': 'multipart/form-data',
-  //     Accept: 'application/json',
-  //   },
-  // });
-  // return response.data;
 };
 
 export const editArticle = async (id, article) => {
