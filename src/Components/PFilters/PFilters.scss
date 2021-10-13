@@ -25,21 +25,28 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding: 0 10px;
   }
 }
 
 .PFilters-Theme_01 {
   @extend .PFilters, .ComponentSurface-Theme_01;
+  .Divider {
+    background-color: #b8b8b859;
+  }
 }
 
 .PFilters-Theme_02 {
   @extend .PFilters, .ComponentSurface-Theme_02;
   color: #3a393f;
-
+  .Divider {
+    background-color: #57565c;
+  }
 }
 
 .PFilters-Theme_03 {
-  // TODO: Delete the glass surface
-  @extend .PFilters, .GlassSurface-01;
-
+  @extend .PFilters, .ComponentSurface-Theme_03;
+  .Divider {
+    background-color: #dbdbdb;
+  }
 }

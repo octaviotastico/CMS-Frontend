@@ -4,14 +4,16 @@
 .Learning {
 
   .LearningTitle {
+    @extend .Text;
     text-align: left;
-    font-weight: 200;
+    font-weight: 600;
     font-size: 3vw;
   }
 
   .LearningSubtitle {
+    @extend .Text;
     text-align: left;
-    font-weight: 300;
+    font-weight: 500;
     font-size: 1.3vw;
   }
 
@@ -35,6 +37,7 @@
           margin-top: 30px !important;
 
           .CategoryTitle {
+            @extend .Text;
             font-size: 2rem !important;
             font-weight: 500 !important;
           }
@@ -47,19 +50,17 @@
       }
     }
 
-    .CreateContainer {
-      @extend .GlassSurface-01;
-      border-radius: 10px;
-      height: 100px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      margin-bottom: 20px;
-      margin-top: 18px;
-    }
-
     .FiltersContainer {
       padding-top: 77px;
+
+      .CreateContainer {
+        display: flex;
+        justify-content: space-around;
+        border-radius: 10px;
+        height: 100px;
+        align-items: center;
+        margin-bottom: 10px;
+      }
     }
   }
 }
@@ -74,6 +75,11 @@
   }
   .CreateButton {
     @extend .GenericButton-Theme_01;
+    @extend .ComponentSurface-Theme_01;
+  }
+  .CreateContainer-Theme_01 {
+    @extend .CreateContainer;
+    @extend .ComponentSurface-Theme_01;
   }
 }
 
@@ -88,6 +94,11 @@
   }
   .CreateButton {
     @extend .GenericButton-Theme_02;
+    @extend .ComponentSurface-Theme_02;
+  }
+  .CreateContainer-Theme_02 {
+    @extend .CreateContainer;
+    @extend .ComponentSurface-Theme_02;
   }
 }
 
@@ -102,5 +113,10 @@
   }
   .CreateButton {
     @extend .GenericButton-Theme_03;
+    @extend .ComponentSurface-Theme_03;
+  }
+  .CreateContainer-Theme_03 {
+    @extend .CreateContainer;
+    @extend .ComponentSurface-Theme_03;
   }
 }

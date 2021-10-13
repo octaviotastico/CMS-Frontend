@@ -60,56 +60,60 @@ const Learning = () => {
     });
   }, []);
 
+  // TODO: Instead of grouping manually, use the
+  // endpoint getArticleCategories, and then use
+  // the response to call getArticlesByCategories.
+
+  // TODO 2: Add a carousel with all the categories.
+
   return (
-    <Container maxWidth={false} className={`Learning-${theme}`}>
-      <Grid>
-        <Typography className="LearningTitle">
-          Learn Something New Today!
-        </Typography>
-        <Typography className="LearningSubtitle">
-          Getting better is always a fun thing to do :)
-        </Typography>
-        <Grid className="BodyAndFilters">
-          <Grid item xs={8} className="BodyContainer">
-            {articles && articles.length
-              && articles.map((elem) => (
-                <Grid
-                  container
-                  spacing={3}
-                  className="Category"
-                  key={elem.category}
-                >
-                  <Grid item xs={12} className="CategoryTitleContainer">
-                    <Typography className="CategoryTitle">
-                      {elem.category}
-                    </Typography>
-                  </Grid>
-                  <Grid className="LearningCardList">
-                    {elem?.data?.map((article) => (
-                      <LearningCard
-                        title={article.title}
-                        subtitle={article.subtitle}
-                        description={article.description}
-                        author={article.author}
-                        preview={article.preview}
-                        key={article.title}
-                      />
-                    ))}
-                  </Grid>
-                </Grid>
-              ))}
-          </Grid>
-          <Grid item xs={4} className="FiltersContainer">
-            <Grid className="CreateContainer">
-              <ButtonGroup onClick={() => navigate('/learning/article/write')}>
-                <Button className="CreateButton">
-                  <AddIcon />
-                </Button>
-                <Button className="CreateButton">Create an article!</Button>
-              </ButtonGroup>
+    <Container disableGutters maxWidth={false} className={`Learning-${theme}`}>
+      <Typography className="LearningTitle">
+        Learn Something New Today!
+      </Typography>
+      <Typography className="LearningSubtitle">
+        Getting better is always a fun thing to do :)
+      </Typography>
+      <Grid className="BodyAndFilters">
+        <Grid item xs={8} className="BodyContainer">
+          {articles && articles.map((elem) => (
+            <Grid
+              container
+              spacing={3}
+              className="Category"
+              key={elem.category}
+            >
+              <Grid item xs={12} className="CategoryTitleContainer">
+                <Typography className="CategoryTitle">
+                  {elem.category}
+                </Typography>
+              </Grid>
+              <Grid className="LearningCardList">
+                {elem?.data?.map((article) => (
+                  <LearningCard
+                    title={article.title}
+                    subtitle={article.subtitle}
+                    content={article.content}
+                    preview={article.preview}
+                    author={article.author}
+                    tags={article.tags}
+                    key={article.title}
+                  />
+                ))}
+              </Grid>
             </Grid>
-            <PFilters filters={filters} />
+          ))}
+        </Grid>
+        <Grid item xs={4} className="FiltersContainer">
+          <Grid className={`CreateContainer-${theme}`}>
+            <ButtonGroup onClick={() => navigate('/learning/article/write')}>
+              <Button className="CreateButton">
+                <AddIcon />
+              </Button>
+              <Button className="CreateButton">Create an article!</Button>
+            </ButtonGroup>
           </Grid>
+          <PFilters filters={filters} />
         </Grid>
       </Grid>
     </Container>

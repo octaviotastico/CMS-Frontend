@@ -146,7 +146,7 @@ const LearningArticleWrite = () => {
                 preview,
                 author: 'TODO',
                 description: 'TODO',
-                category: selectedCategory[0].value,
+                category: selectedCategory.value,
                 tags: selectedTags.map((elem) => elem.value),
               }).then(() => {
                 setTimeout(() => {

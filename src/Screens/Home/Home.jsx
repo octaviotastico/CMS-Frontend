@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 // Material
 import {
-  Button, Container, Grid, Typography,
+  Button, ButtonGroup, Container, Grid, Typography,
 } from '@material-ui/core';
 import {
   EventTwoTone,
@@ -139,14 +139,15 @@ const Home = () => {
           </Grid>
         </Grid>
 
-        <Grid item xs={4} className="FiltersContainer">
-          <Grid className="CreateContainer">
-            <Button onClick={() => navigate('/learning/article/write')}>
-              Create New Event
+        <Grid item xs={4} className={`CreateContainer-${theme}`}>
+          <ButtonGroup onClick={() => navigate('/learning/article/write')}>
+            <Button className="CreateButton">
               <EventTwoTone />
             </Button>
-          </Grid>
+            <Button className="CreateButton">Create A New Event</Button>
+          </ButtonGroup>
         </Grid>
+
       </Grid>
 
     </Container>

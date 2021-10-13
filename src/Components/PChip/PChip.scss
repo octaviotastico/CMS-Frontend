@@ -4,18 +4,22 @@
 .PChip {
   cursor: pointer;
   border-radius: 10px;
-  padding: 10px 10px;
+  padding: 10px 15px;
   width: max-content;
   place-items: center;
   margin-bottom: 5px;
   margin-right: 5px;
   flex-direction: row;
-  box-shadow: 0 0 10px 0 rgba(black, 0.2);
   display: flex;
 
   .CheckBox {
     margin-right: 10px;
     padding: 0;
+  }
+
+  .CheckBoxText {
+    @extend .Text;
+    font-weight: 500;
   }
 }
 
@@ -26,26 +30,25 @@
   .CheckBox {
     color: rgba(#c3cfe2, 0.85);
   }
+  @extend .ComponentSurface-Theme_01;
 }
 
 .PChip-Theme_02 {
   @extend .PChip;
   color: #323236;
-  border: 1px solid rgba(#c3cfe2, 1);
-  background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
   .CheckBox {
     color: rgba(#323236, 1);
   }
+  @extend .ComponentSurface-Theme_02;
 }
 
 .PChip-Theme_03 {
   @extend .PChip;
-  color: #323236;
-  border: 1px solid rgba(#c3cfe2, 1);
-  background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
+  color: white;
   .CheckBox {
     color: rgba(#323236, 0.7);
   }
+  @extend .ComponentSurface-Theme_03;
 }
 
 .FilterCheck:hover {

@@ -2,12 +2,13 @@
 @import "../../Utils/ColorVariables.scss";
 
 .LearningCard {
-  position: relative;
-  border-radius: 10px;
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+  border-radius: 10px;
   padding: 10px;
-  height: 180px;
+  min-height: 180px;
   margin: 5px 0;
   cursor: pointer;
   min-width: 45vw;
@@ -15,42 +16,86 @@
   .LearningCardPreview {
     width: 180px;
     height: 180px;
+    align-self: center;
     border-radius: 10px;
     object-fit: cover;
   }
 
-  .LearningCardTitles, .LearningCardDescription {
+  .LearningCardInfo, .LearningCardDescription {
     text-align: left;
   }
 
-  .LearningCardTitles {
-    padding-left: 20px;
+  .CardTextContent {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-wrap: nowrap;
   }
 
-  .Title, .Subtitle, .Description, .By, .Author {
+  .LearningCardInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  .LearningCardDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35%;
+  }
+
+  .LearningCardInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    padding-left: 17px;
+    padding-top: 10px;
+
+  }
+
+  .Title, .Subtitle, .Description, .ReadMore, .By, .Author {
     @extend .Text;
   }
 
   .Title {
-    font-size: min(max(10px, 2vw), 2.3rem);
-    line-height: 1.5vw;
+    font-size: clamp(10px, 2vw, 2rem);
+    line-height: clamp(10px, 2vw, 2rem);
     margin-bottom: 10px;
     font-weight: 800;
   }
 
   .Subtitle {
     font-weight: 500;
-    padding-right: 10px;
-    font-size: 1.2vw;
-    line-height: 1.2vw;
+    font-size: clamp(8px, 1.3vw, 1.5rem);
+    line-height: clamp(8px, 1.3vw, 1.5rem);
   }
 
-  .Description {
+  .Description, .ReadMore {
     font-weight: 500;
     font-size: 0.8vw;
+    width: fit-content;
+  }
+
+  .ReadMore {
+    margin: 5px 0;
+  }
+
+  .TagsContainer {
+    display: flex;
+    justify-content: flex-start;
+
+    .Tag {
+      width: fit-content;
+      padding: 1px 5px;
+      border-radius: 5px;
+      margin-right: 5px;
+      margin-top: 5px;
+
+      .TagText {
+        font-weight: 600;
+      }
+    }
   }
 
   .By, .Author {
@@ -63,12 +108,37 @@
   .By {
     text-decoration: none;
   }
+
+  .LearningCardDivider {
+    width: 1px;
+    height: 100%;
+    margin: 0 25px;
+    border: none;
+  }
 }
 
 .LearningCard-Theme_01 {
   @extend .LearningCard, .ComponentSurface-Theme_01;
   .Title, .Subtitle, .Description, .By, .Author {
     text-shadow: 0 0 3px #323236;
+    color: white;
+  }
+  .LearningCardDivider-Theme_01 {
+    @extend .LearningCardDivider;
+    background-color: #b8b8b859;
+    box-shadow: 0 0 10px #1c1c1d;
+  }
+  .Tag-Theme_01 {
+    @extend .Tag;
+    @extend .ComponentSurface-Theme_01;
+    @extend .GenericButton-Theme_01;
+  }
+  .ReadMore-Theme_01 {
+    @extend .ReadMore;
+    color: white;
+    &:hover {
+      border-bottom: 1px solid white;
+    }
   }
 }
 
@@ -78,6 +148,22 @@
     text-shadow: 0 0 3px #c3cfe2;
     color: #323236;
   }
+  .LearningCardDivider-Theme_02 {
+    @extend .LearningCardDivider;
+    background-color: #323236;
+  }
+  .Tag-Theme_02 {
+    @extend .Tag;
+    @extend .ComponentSurface-Theme_02;
+    @extend .GenericButton-Theme_02;
+  }
+  .ReadMore-Theme_02 {
+    @extend .ReadMore;
+    color: #323236;
+    &:hover {
+      border-bottom: 1px solid #323236;
+    }
+  }
 }
 
 .LearningCard-Theme_03 {
@@ -86,5 +172,22 @@
   .Title, .Subtitle, .Description, .By, .Author {
     text-shadow: 0 0 2px #000000;
     color: white;
+  }
+  .LearningCardDivider-Theme_03 {
+    @extend .LearningCardDivider;
+    background-color: #bbbbbb;
+    box-shadow: 0 0 10px #1c1c1d;
+  }
+  .Tag-Theme_03 {
+    @extend .Tag;
+    @extend .ComponentSurface-Theme_03;
+    @extend .GenericButton-Theme_03;
+  }
+  .ReadMore-Theme_03 {
+    @extend .ReadMore;
+    color: white;
+    &:hover {
+      border-bottom: 1px solid white;
+    }
   }
 }
