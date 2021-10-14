@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux';
 import { navigate } from '../../Router';
 
 // API
-import { getArticles } from '../../API/learning';
+import { getArticleCategories, getArticlesByCategories } from '../../API/learning';
 
 // Mocked data
 import { LearningFilter } from '../../Utils/MockData';
@@ -32,40 +32,30 @@ const Learning = () => {
   const [filters, setFilters] = useState([]);
 
   useEffect(() => {
+    // TODO: Get filters from API
     setFilters(LearningFilter);
   }, []);
 
-  const groupByCategory = (articleList) => {
-    const grouped = [];
-
-    articleList.forEach((article) => {
-      const { category } = article;
-      const index = grouped.findIndex((item) => item.category === category);
-      if (index === -1) {
-        grouped.push({
-          category,
-          data: [article],
-        });
-      } else {
-        grouped[index].data.push(article);
-      }
-    });
-
-    return grouped;
+  const handleGetArticles = async () => {
+    const categories = await getArticleCategories();
+    const articleListGrouped = await Promise.all(categories.map(async (category) => {
+      const data = await getArticlesByCategories(category);
+      return {
+        category,
+        data,
+      };
+    }));
+    console.log('setting articles');
+    setArticles(articleListGrouped || []);
   };
 
   useEffect(() => {
-    getArticles().then((res) => {
-      setArticles(groupByCategory(res));
-    });
+    handleGetArticles();
   }, []);
 
-  // TODO: Instead of grouping manually, use the
-  // endpoint getArticleCategories, and then use
-  // the response to call getArticlesByCategories.
+  console.log(articles);
 
-  // TODO 2: Add a carousel with all the categories.
-
+  // TODO: Add a carousel with all the categories.
   return (
     <Container disableGutters maxWidth={false} className={`Learning-${theme}`}>
       <Typography className="LearningTitle">
@@ -76,7 +66,7 @@ const Learning = () => {
       </Typography>
       <Grid className="BodyAndFilters">
         <Grid item xs={8} className="BodyContainer">
-          {articles && articles.map((elem) => (
+          {articles.map((elem) => (
             <Grid
               container
               spacing={3}
@@ -89,15 +79,16 @@ const Learning = () => {
                 </Typography>
               </Grid>
               <Grid className="LearningCardList">
-                {elem?.data?.map((article) => (
+                {elem.data.map((article) => (
                   <LearningCard
+                    key={article.id}
                     title={article.title}
                     subtitle={article.subtitle}
                     content={article.content}
                     preview={article.preview}
                     author={article.author}
                     tags={article.tags}
-                    key={article.title}
+                    id={article.id}
                   />
                 ))}
               </Grid>

@@ -20,11 +20,9 @@
   .ArticlePreviewTitle {
     @extend .Text;
     font-weight: 600;
-    font-size: 1rem;
-    color: black;
-    letter-spacing: 0.5px;
+    font-size: 1.2rem;
     text-align: left;
-    margin-top: 10px;
+    margin-top: 15px;
   }
 
   .EditPreviewContainer {
@@ -131,15 +129,13 @@
 .LearningArticleWriteScreen-Theme_01 {
   @extend .LearningArticleWriteScreen;
 
-  .ArticleInfoContainer,
-  .ActionButtons {
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background-image: linear-gradient(-45deg, #949494, #585858);
+  .ArticleInfoContainer, .ActionButtons {
+    @extend .ComponentSurface-Theme_01;
   }
 
   .EditPreviewContainer {
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background-image: linear-gradient(-45deg, #949494, #585858);
+    @extend .ComponentSurface-Theme_01;
+
     .Title {
       text-shadow: 0 0 3px #323236;
     }
@@ -206,6 +202,10 @@
         width: 200px;
       }
     }
+  }
+
+  .ArticlePreviewTitle {
+    color: white;
   }
 }
 

@@ -1,6 +1,7 @@
-/* eslint-disable react/no-danger */
-// React and Material
+// React
 import React, { useEffect, useState } from 'react';
+
+// Material
 import {
   Button, ButtonGroup, Container, Grid, Typography,
 } from '@material-ui/core';
@@ -52,13 +53,13 @@ const LearningArticleWrite = () => {
   const md = new MarkdownIt();
 
   return (
-    <Container maxWidth={false} style={{ marginTop: 13 }} className={`LearningArticleWriteScreen-${theme}`}>
+    <Container maxWidth={false} className={`LearningArticleWriteScreen-${theme}`}>
       <Grid className="ArticleInfoContainer">
 
         <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Grid className="TextInputContainer">
             <PTextInput
-              fieldName="Title"
+              fieldName="Article Title"
               placeholder="A complete guide to CSS Grid"
               value={title}
               setValue={setTitle}
@@ -66,7 +67,7 @@ const LearningArticleWrite = () => {
           </Grid>
           <Grid className="TextInputContainer">
             <PTextInput
-              fieldName="Subtitle"
+              fieldName="Article Subtitle"
               placeholder="Just kidding bro, use display flex on everything"
               value={subtitle}
               setValue={setSubtitle}

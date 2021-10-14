@@ -7,16 +7,21 @@ import { Grid, Typography } from '@material-ui/core';
 // Redux
 import { useSelector } from 'react-redux';
 
+// Router
+import { navigate } from '../../Router';
+
 // Styles
 import './LearningCard.scss';
 
 const LearningCard = ({
-  title, subtitle, content, author, tags, preview,
+  title, subtitle, content, author, tags, preview, id,
 }) => {
   const { theme } = useSelector((state) => state);
 
+  console.log('ids are', id);
+
   return (
-    <Grid className={`LearningCard-${theme}`}>
+    <Grid className={`LearningCard-${theme}`} onClick={() => navigate('/learning/article/read', true, { id })}>
       {typeof preview === 'string' ? (
         <img
           src={`http://localhost:2424/${preview.replaceAll('\\', '/')}`}

@@ -1,0 +1,83 @@
+@import "../../../Utils/StyleClasses.scss";
+@import "../../../Utils/ColorVariables.scss";
+
+.LearningArticleRead {
+  display: flex;
+  flex-direction: column;
+
+  .TitlesAndPreviewContainer {
+    display: flex;
+    flex-direction: row;
+
+    .Preview {
+      width: 250px;
+      height: 250px;
+      border-radius: 5px;
+      margin-right: 30px;
+    }
+
+    .RightTextContainer {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      justify-content: space-between;
+
+      .Title {
+        @extend .Text;
+        font-size: 3rem;
+      }
+      .Subtitle {
+        @extend .Text;
+        font-size: 1.75rem;
+      }
+    }
+
+    .CategoryContainer,
+    .TagsListContainer,
+    .CreatedAtContainer,
+    .ModifiedAtContainer {
+      display: flex;
+      .CategoryTitle,
+      .TagTitle,
+      .CreatedAtTitle,
+      .ModifiedAtTitle {
+        @extend .Text;
+        font-weight: 600;
+        margin-right: 5px;
+      }
+      .Category,
+      .Tag,
+      .CreatedAt,
+      .ModifiedAt {
+        @extend .Text;
+        cursor: pointer;
+        &:hover {
+          border-bottom: 1px solid white;
+        }
+      }
+    }
+
+    .MarkdownPreviewContainer {
+      display: flex;
+      flex-direction: column;
+      margin-top: 500px;
+      height: 100%;
+      padding: 20px;
+      border-radius: 5px;
+      font-size: 1.5rem;
+    }
+  }
+
+}
+
+.LearningArticleRead-Theme_01 {
+  @extend .LearningArticleRead;
+}
+
+.LearningArticleRead-Theme_02 {
+  @extend .LearningArticleRead;
+}
+
+.LearningArticleRead-Theme_03 {
+  @extend .LearningArticleRead;
+}

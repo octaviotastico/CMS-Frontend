@@ -21,6 +21,7 @@ import { useRoutes } from './Router';
 // Screens
 import Home from './Screens/Home/Home';
 import Learning from './Screens/Learning/Learning';
+import LearningArticleRead from './Screens/Learning/LearningArticleRead/LearningArticleRead';
 import LearningArticleWrite from './Screens/Learning/LearningArticleWrite/LearningArticleWrite';
 import Meetings from './Screens/Meetings/Meetings';
 import People from './Screens/People/People';
@@ -33,6 +34,7 @@ const routes = {
   '/': () => <Home />,
   '/learning': () => <Learning />,
   '/learning/article/write': () => <LearningArticleWrite />,
+  '/learning/article/read': () => <LearningArticleRead />,
   '/meetings': () => <Meetings />,
   '/people': () => <People />,
 };

@@ -8,9 +8,7 @@
   .Title {
     @extend .Text;
     font-weight: 600;
-    font-size: 1rem;
-    color: black;
-    letter-spacing: 0.5px;
+    font-size: 1.3rem;
   }
 
   .InputBox {
@@ -30,14 +28,52 @@
     width: calc(100% - 20px);
 
     @extend .Text;
-    color: #fcfcfd;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
+  }
+}
 
+.PTextInput-Theme_01 {
+  @extend .PTextInput;
+  .Title {
+    @extend .Title;
+    color: white;
+  }
+  .InputBox {
+    @extend .InputBox;
+    color: white;
     &::placeholder {
-      color: #fcfcfd;
-      font-weight: 600;
-      font-size: 15px;
+      color: #a3a3ac;
+    }
+  }
+}
+
+.PTextInput-Theme_02 {
+  @extend .PTextInput;
+  .Title {
+    @extend .Title;
+    color: #2c2d36;
+  }
+  .InputBox {
+    @extend .InputBox;
+    color: #2c2d36;
+    &::placeholder {
+      color: #3d3d42;
+    }
+  }
+}
+
+.PTextInput-Theme_03 {
+  @extend .PTextInput;
+  .Title {
+    @extend .Title;
+    color: #2c2d36;
+  }
+  .InputBox {
+    @extend .InputBox;
+    color: #2c2d36;
+    &::placeholder {
+      color: #3d3d42;
     }
   }
 }

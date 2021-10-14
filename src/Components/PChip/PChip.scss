@@ -25,30 +25,31 @@
 
 .PChip-Theme_01 {
   @extend .PChip;
-  border: 1px solid rgba(#3a3a3d, 1);
-  background-image: linear-gradient(-45deg, #949494, #585858);
+  @extend .ComponentSurface-Theme_01;
+  @extend .GenericButton-Theme_01;
   .CheckBox {
     color: rgba(#c3cfe2, 0.85);
   }
-  @extend .ComponentSurface-Theme_01;
 }
 
 .PChip-Theme_02 {
   @extend .PChip;
+  @extend .ComponentSurface-Theme_02;
+  @extend .GenericButton-Theme_02;
   color: #323236;
   .CheckBox {
     color: rgba(#323236, 1);
   }
-  @extend .ComponentSurface-Theme_02;
 }
 
 .PChip-Theme_03 {
   @extend .PChip;
+  @extend .ComponentSurface-Theme_03;
+  @extend .GenericButton-Theme_03;
   color: white;
   .CheckBox {
     color: rgba(#323236, 0.7);
   }
-  @extend .ComponentSurface-Theme_03;
 }
 
 .FilterCheck:hover {

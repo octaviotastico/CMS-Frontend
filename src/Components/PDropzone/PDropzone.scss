@@ -17,7 +17,6 @@
     background-color: #feb940;
   }
   .outside {
-    // background-color: #edeff9;
     box-shadow: inset 0px 0px 5px rgb(0 0 0 / 50%);
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 1px, rgba(0, 0, 0, 0.3) 2px, rgba(0, 0, 0, 0.3) 3px);
   }
@@ -50,17 +49,53 @@
 
   .HelpText {
     @extend .Text;
+    font-size: 1.2rem;
     font-weight: 600;
     pointer-events: none;
     user-select: none;
-    color: black;
   }
 
   .FileSelectionButton {
     @extend .Text;
-    font-weight: 600;
     text-transform: none;
-    color: black;
-    background-color: #feb940;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-top: 10px;
+  }
+}
+
+.PDropzone-Theme_01 {
+  @extend .PDropzone;
+  .HelpText {
+    color: white;
+  }
+  .FileSelectionButton {
+    color: white;
+    @extend .GenericButton-Theme_01;
+    @extend .ComponentSurface-Theme_01;
+  }
+}
+
+.PDropzone-Theme_02 {
+  @extend .PDropzone;
+  .HelpText {
+    color: #2c2d36;
+  }
+  .FileSelectionButton {
+    color: #2c2d36;
+    @extend .GenericButton-Theme_02;
+  }
+}
+
+.PDropzone-Theme_03 {
+  @extend .PDropzone;
+  .HelpText {
+    color: #2c2d36;
+  }
+  .FileSelectionButton {
+    color: #2c2d36;
+    @extend .GenericButton-Theme_03;
   }
 }

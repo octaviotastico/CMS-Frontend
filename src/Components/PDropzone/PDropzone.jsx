@@ -4,6 +4,9 @@ import React, { useState, useRef } from 'react';
 // Material
 import { Button, Grid, Typography } from '@material-ui/core';
 
+// Redux
+import { useSelector } from 'react-redux';
+
 // Styles
 import './PDropzone.scss';
 
@@ -15,6 +18,8 @@ const PDropzone = ({
   const [isInside, setIsInside] = useState(false);
   const [error, setError] = useState(null);
   const fileButton = useRef(null);
+
+  const { theme } = useSelector((state) => state);
 
   if (acceptImages) {
     validTypes = [...validTypes, 'image/jpg', 'image/png', 'image/jpeg', 'image/gif', 'image/svg', 'image/webp', 'image/bmp'];
@@ -66,7 +71,7 @@ const PDropzone = ({
   };
 
   return (
-    <Grid className="PDropzone">
+    <Grid className={`PDropzone-${theme}`}>
       <Grid
         className={`content ${isInside ? 'inside' : 'outside'}`}
         onDragEnter={() => setIsInside(true)}

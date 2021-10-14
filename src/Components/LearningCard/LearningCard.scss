@@ -25,10 +25,6 @@
     text-align: left;
   }
 
-  .CardTextContent {
-    display: flex;
-    flex-wrap: nowrap;
-  }
 
   .LearningCardInfo {
     display: flex;
@@ -51,7 +47,6 @@
     padding-bottom: 10px;
     padding-left: 17px;
     padding-top: 10px;
-
   }
 
   .Title, .Subtitle, .Description, .ReadMore, .By, .Author {

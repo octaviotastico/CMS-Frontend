@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     'import/prefer-default-export': 'off',
     'react/prop-types': 0,
+    'react/no-danger': 0,
     'no-plusplus': 'off',
     'no-console': 'off',
     'no-restricted-syntax': 'off',
