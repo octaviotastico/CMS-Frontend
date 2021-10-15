@@ -16,7 +16,7 @@ import Header from './Components/Header/Header';
 import Menu from './Components/Menu/Menu';
 
 // React Router
-import { useRoutes } from './Router';
+import { useRoutes, getWorkingPath } from './Router';
 
 // Screens
 import Home from './Screens/Home/Home';
@@ -26,12 +26,16 @@ import LearningArticleWrite from './Screens/Learning/LearningArticleWrite/Learni
 import Meetings from './Screens/Meetings/Meetings';
 import People from './Screens/People/People';
 import NotFound from './Screens/Errors/404/404';
+import Login from './Screens/Login/Login';
+import Signup from './Screens/Signup/Signup';
 
 // Styles
 import './App.scss';
 
 const routes = {
-  '/': () => <Home />,
+  '/': () => <Login />,
+  '/signup': () => <Signup />,
+  '/home': () => <Home />,
   '/learning': () => <Learning />,
   '/learning/article/write': () => <LearningArticleWrite />,
   '/learning/article/read': () => <LearningArticleRead />,
@@ -42,7 +46,7 @@ const routes = {
 const buttonList = [
   {
     text: 'Home',
-    screen: '/',
+    screen: '/home',
     icon: () => <HomeTwoToneIcon />,
     tooltipOpen: 'News, events, and more!',
     tooltipClosed: 'Home Screen',
@@ -72,7 +76,17 @@ const buttonList = [
 
 const App = () => {
   const match = useRoutes(routes);
+  const workingPath = getWorkingPath();
   const theme = useSelector((state) => state.theme);
+
+  // If because we don't want neither header nor menu
+  if (workingPath === '/') {
+    return match;
+  }
+
+  if (workingPath === '/signup') {
+    return match;
+  }
 
   return (
     <Container disableGutters maxWidth={false} className={`App-${theme}`}>

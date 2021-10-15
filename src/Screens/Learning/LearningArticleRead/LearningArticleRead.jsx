@@ -35,8 +35,6 @@ const LearningArticleRead = () => {
     handleGetArticle(id);
   }, []);
 
-  console.log('article', article);
-
   if (article === null) {
     return <div>Loading...</div>;
   }

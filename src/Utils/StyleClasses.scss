@@ -154,3 +154,32 @@
   box-shadow: 0 0 10px 0 rgba(31, 38, 135, 0.2);
   transform: scale(1.01);
 }
+
+//////////////////////
+// Neumorphic Style //
+//////////////////////
+
+$fg: #e3e4e8;
+$shade1: #23252a;
+$shade2: #3e424c;
+$shade3: #4a4e5a;
+$shade4: #686e7e;
+
+.NeumorphicSurface {
+  border-radius: 10px;
+  box-shadow:
+    0.15em 0.15em 0.15em $shade4 inset,
+    -0.15em -0.15em 0.15em $shade1 inset,
+    1em 1em 2em $shade1,
+    -1em -1em 2em $shade4;
+}
+
+.NaumorphicItem {
+  border-radius: 0.5em;
+  box-shadow:
+    0.15em 0.15em 0.15em $shade4 inset,
+    -0.15em -0.15em 0.15em $shade1 inset,
+    0.25em 0.25em 0.5em $shade1,
+    -0.25em -0.25em 0.5em $shade4;
+}
+

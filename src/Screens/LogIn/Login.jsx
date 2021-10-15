@@ -2,15 +2,29 @@
 import React from 'react';
 
 // Material
-import { Container } from '@material-ui/core';
+import { Container, Grid, Typography } from '@material-ui/core';
 
 // Styles
-import './LogIn.scss';
+import './Login.scss';
 
-const LogIn = () => (
-  <Container disableGutters maxWidth={false} className="LogIn">
-    Screen Content Login
+const Login = () => (
+  <Container disableGutters maxWidth={false} className="Login">
+    <Grid className="LeftGrid">
+      <Grid className="LoginBox">
+        <Typography className="LoginTitle">
+          Login
+        </Typography>
+      </Grid>
+      <Typography>
+        If you don&apos;t have an account, you can SignUp.
+      </Typography>
+    </Grid>
+    <Grid className="RightGrid">
+      <Typography className="WellcomeTitle">
+        Wellcome to EpicCMS! :)
+      </Typography>
+    </Grid>
   </Container>
 );
 
-export default LogIn;
+export default Login;

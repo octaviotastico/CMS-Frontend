@@ -70,7 +70,7 @@ const Header = () => {
     <Container disableGutters maxWidth={false} className="Header">
       <Grid container className="Header">
         <Grid item xs={8} className="HeaderContainer">
-          <Button className="EpicCMS" disableRipple onClick={() => navigate('/')}>
+          <Button className="EpicCMS" disableRipple onClick={() => navigate('/home')}>
             EpicCMS!
           </Button>
           <PSearchBar

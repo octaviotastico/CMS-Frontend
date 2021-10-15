@@ -45,15 +45,12 @@ const Learning = () => {
         data,
       };
     }));
-    console.log('setting articles');
     setArticles(articleListGrouped || []);
   };
 
   useEffect(() => {
     handleGetArticles();
   }, []);
-
-  console.log(articles);
 
   // TODO: Add a carousel with all the categories.
   return (

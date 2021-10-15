@@ -1,0 +1,54 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+
+.Login {
+  display: flex !important;
+  flex-direction: row !important;
+  min-height: 100vh;
+  text-align: center;
+
+  .LoginBox {
+    @extend .NeumorphicSurface;
+    margin-bottom: 2.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 15%;
+    height: 70%;
+    width: 60%;
+
+    .LoginTitle {
+      @extend .Text;
+      font-size: 2rem;
+      color: #e3e4e8;
+      text-shadow: 0 0 10px $shade1;
+      margin: 50px;
+    }
+
+  }
+
+  .LeftGrid {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(145deg, $shade3, $shade2);
+    position: relative;
+    height: 100vh;
+    width: 40%;
+    left: 0;
+  }
+
+  .RightGrid {
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    background: linear-gradient(45deg, #B717DF, #D42AA7);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    width: calc(60% - 90px);
+    height: 100%;
+    right: 0;
+  }
+}

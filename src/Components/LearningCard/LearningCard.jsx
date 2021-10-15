@@ -18,8 +18,6 @@ const LearningCard = ({
 }) => {
   const { theme } = useSelector((state) => state);
 
-  console.log('ids are', id);
-
   return (
     <Grid className={`LearningCard-${theme}`} onClick={() => navigate('/learning/article/read', true, { id })}>
       {typeof preview === 'string' ? (
