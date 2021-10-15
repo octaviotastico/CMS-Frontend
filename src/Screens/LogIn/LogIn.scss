@@ -137,7 +137,7 @@
     position: absolute;
     width: calc(60% - 90px);
     height: 100%;
-    right: 0;
+    transition: left 1s ease-in-out, right 1s ease-in-out;
 
     .WellcomeTitle {
       @extend .Text;
@@ -147,4 +147,21 @@
       margin: 50px;
     }
   }
+
+  .RightGridLogin {
+    @extend .RightGrid;
+    left: auto;
+    right: 0;
+  }
+
+  .RightGridSignup {
+    @extend .RightGrid;
+    // transform: translateX(0);
+    right: auto;
+    left: 0;
+  }
+
+  // .RightGridSignup.active {
+  //   transform: translateX(0);
+  // }
 }

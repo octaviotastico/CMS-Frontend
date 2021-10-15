@@ -12,70 +12,95 @@ import { navigate } from '../../Router';
 
 // Styles
 import './Login.scss';
+import { login } from '../../API/user';
 
-const Login = () => (
-  <Container disableGutters maxWidth={false} className="Login">
-    <Grid className="LeftGrid">
+const Login = () => {
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [isLogin, setIsLogin] = React.useState(true);
 
-      <Grid className="LoginBox">
-        <Typography className="LoginTitle">
-          Login
-        </Typography>
+  const handleLogin = async () => {
+    const response = await login(username, password);
+    console.log({ response });
+    if (response) {
+      // localStorage.setItem('token', data.token);
+      navigate('/home');
+    }
+  };
 
-        <Grid className="InputsContainer">
+  return (
+    <Container disableGutters maxWidth={false} className="Login">
+      <Grid className="LeftGrid">
 
-          <Grid className="InputWrapper">
-            <Grid className="IconContainer">
-              <AccountBox className="UsernameIcon" />
+        <Grid className="LoginBox">
+          <Typography className="LoginTitle">
+            Login
+          </Typography>
+
+          <Grid className="InputsContainer">
+
+            <Grid className="InputWrapper">
+              <Grid className="IconContainer">
+                <AccountBox className="UsernameIcon" />
+              </Grid>
+              <input
+                className="Input"
+                placeholder="Username"
+                autoComplete={false}
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                type="text"
+              />
             </Grid>
-            <input
-              className="Input"
-              placeholder="Username"
-              autoComplete={false}
-              type="text"
-            />
+
+            <Grid className="InputWrapper">
+              <Grid className="IconContainer">
+                <Lock className="PasswordIcon" />
+              </Grid>
+              <input
+                className="Input"
+                placeholder="Password"
+                autoComplete={false}
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                type="password"
+              />
+            </Grid>
           </Grid>
 
-          <Grid className="InputWrapper">
-            <Grid className="IconContainer">
-              <Lock className="PasswordIcon" />
-            </Grid>
-            <input
-              className="Input"
-              placeholder="Password"
-              autoComplete={false}
-              type="password"
-            />
-          </Grid>
+          <Button
+            className="LoginButton"
+            onClick={() => handleLogin()}
+          >
+            Login
+          </Button>
         </Grid>
 
-        <Button className="LoginButton">
-          Login
-        </Button>
+        <Typography className="HelpText">
+          If you don&apos;t have an account, you can
+          {' '}
+          <span
+            role="button"
+            tabIndex={0}
+            className="SignUp"
+            // onClick={() => navigate('/signup')}
+            // onKeyDown={() => navigate('/signup')}
+            onClick={() => setIsLogin((prev) => !prev)}
+            onKeyDown={() => setIsLogin((prev) => !prev)}
+          >
+            SignUp
+          </span>
+          .
+        </Typography>
       </Grid>
 
-      <Typography className="HelpText">
-        If you don&apos;t have an account, you can
-        {' '}
-        <span
-          role="button"
-          tabIndex={0}
-          className="SignUp"
-          onClick={() => navigate('/signup')}
-          onKeyDown={() => navigate('/signup')}
-        >
-          SignUp
-        </span>
-        .
-      </Typography>
-    </Grid>
-
-    <Grid className="RightGrid">
-      <Typography className="WellcomeTitle">
-        Wellcome to EpicCMS! :)
-      </Typography>
-    </Grid>
-  </Container>
-);
+      <Grid className={isLogin ? 'RightGridLogin' : 'RightGridSignup'}>
+        <Typography className="WellcomeTitle">
+          Wellcome to EpicCMS! :)
+        </Typography>
+      </Grid>
+    </Container>
+  );
+};
 
 export default Login;
