@@ -15,13 +15,28 @@ import './Login.scss';
 import { login } from '../../API/user';
 
 const Login = () => {
+  // Form States
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [isLogin, setIsLogin] = React.useState(true);
+  // const [firstName, setFirstName] = React.useState('');
+  // const [lastName, setLastName] = React.useState('');
+  // const [email, setEmail] = React.useState('');
+
+  // Form Handlers
+  const [showLoginForm, setShowLoginForm] = React.useState(true);
+  const [error, setError] = React.useState('');
 
   const handleLogin = async () => {
-    const response = await login(username, password);
-    console.log({ response });
+    setError('');
+    let response = null;
+    try {
+      response = await login(username, password);
+    } catch (err) {
+      console.log('err', err);
+    }
+
+    console.log('response', response);
+
     if (response) {
       // localStorage.setItem('token', data.token);
       navigate('/home');
@@ -46,7 +61,7 @@ const Login = () => {
               <input
                 className="Input"
                 placeholder="Username"
-                autoComplete={false}
+                autoComplete="false"
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
                 type="text"
@@ -60,12 +75,17 @@ const Login = () => {
               <input
                 className="Input"
                 placeholder="Password"
-                autoComplete={false}
+                autoComplete="false"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
                 type="password"
               />
             </Grid>
+            {error && (
+              <Typography className="Error">
+                {error}
+              </Typography>
+            )}
           </Grid>
 
           <Button
@@ -83,10 +103,8 @@ const Login = () => {
             role="button"
             tabIndex={0}
             className="SignUp"
-            // onClick={() => navigate('/signup')}
-            // onKeyDown={() => navigate('/signup')}
-            onClick={() => setIsLogin((prev) => !prev)}
-            onKeyDown={() => setIsLogin((prev) => !prev)}
+            onClick={() => setShowLoginForm((prev) => !prev)}
+            onKeyDown={() => setShowLoginForm((prev) => !prev)}
           >
             SignUp
           </span>
@@ -94,7 +112,7 @@ const Login = () => {
         </Typography>
       </Grid>
 
-      <Grid className={isLogin ? 'RightGridLogin' : 'RightGridSignup'}>
+      <Grid className={showLoginForm ? 'RightGridLogin' : 'RightGridSignup'}>
         <Typography className="WellcomeTitle">
           Wellcome to EpicCMS! :)
         </Typography>

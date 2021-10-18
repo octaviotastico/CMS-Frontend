@@ -23,10 +23,10 @@ import Home from './Screens/Home/Home';
 import Learning from './Screens/Learning/Learning';
 import LearningArticleRead from './Screens/Learning/LearningArticleRead/LearningArticleRead';
 import LearningArticleWrite from './Screens/Learning/LearningArticleWrite/LearningArticleWrite';
-import Meetings from './Screens/Meetings/Meetings';
-import People from './Screens/People/People';
-import NotFound from './Screens/Errors/404/404';
 import Login from './Screens/Login/Login';
+import Meetings from './Screens/Meetings/Meetings';
+import NotFound from './Screens/Errors/404/404';
+import People from './Screens/People/People';
 import Signup from './Screens/Signup/Signup';
 
 // Styles
