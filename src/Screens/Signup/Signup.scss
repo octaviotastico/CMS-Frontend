@@ -1,0 +1,191 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+
+.Signup {
+  display: flex !important;
+  flex-direction: row !important;
+  min-height: 100vh;
+  text-align: center;
+
+  .LeftGrid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(145deg, $shade3, $shade2);
+    position: absolute;
+    height: 100vh;
+    width: 40%;
+    right: 0;
+
+    .SignupBox {
+      @extend .NeumorphicSurface;
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 425px;
+      min-width: 400px;
+      height: 40%;
+      width: 60%;
+
+      .SignupTitle {
+        @extend .Text;
+        font-size: 2rem;
+        color: #e3e4e8;
+        text-shadow: 0 0 5px $shade1;
+        margin-bottom: 30px;
+      }
+
+      .InputsContainer {
+        display: flex;
+        flex-direction: column;
+
+        .InputWrapper {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          justify-content: center;
+          margin: 5px 0;
+
+          .Input {
+            margin: 0;
+            border: none;
+            outline: none;
+            min-width: 250px;
+            width: 85%;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            background-color: $inputshade !important;
+            padding-left: 10px;
+            color: #e3e4e8 !important;
+            font-size: 1.3rem;
+            font-weight: 500;
+            @extend .Text;
+          }
+
+          .LastNameInput {
+            min-width: 0;
+            width: calc(37.5% - 4px);
+            @extend .Input;
+          }
+
+          .FirstNameInput {
+            @extend .LastNameInput;
+            margin-right: 10px;
+          }
+
+          .IconContainer {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            background-color: $inputshade;
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            .UsernameIcon {
+              width: 90%;
+              height: 90%;
+              color: #f11fb9;
+            }
+            .PasswordIcon {
+              width: 80%;
+              height: 80%;
+              color: #f11fb9;
+            }
+            .NameIcon {
+              width: 85%;
+              height: 85%;
+              color: #f11fb9;
+            }
+            .EmailIcon {
+              width: 75%;
+              height: 75%;
+              color: #f11fb9;
+            }
+          }
+        }
+      }
+
+      .SignupButton {
+        @extend .Text;
+        @extend .NaumorphicItem;
+        color: #ced0da;
+        text-transform: none;
+        background-color: $inputshade;
+        margin-top: 30px;
+        width: 110px;
+        height: 45px;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: 5px;
+        background-color: $shade2;
+      }
+    }
+
+    .HelpText {
+      @extend .Text;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #e3e4e8;
+      text-shadow: 0 0 5px $shade1;
+
+      .SignUp {
+        color: #f11fb9;
+        cursor: pointer;
+        transition: text-shadow 0.5s ease-in-out;
+
+        &:hover {
+          text-decoration: underline;
+          text-shadow: 0 0 30px #a30d7b,
+                       0 0 30px #a30d7b,
+                       0 0 30px #a30d7b;
+        }
+      }
+    }
+  }
+
+  .RightGrid {
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    z-index: 1;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: calc(60% - 90px);
+    min-height: 100vh;
+    height: 100%;
+
+    background: radial-gradient(50% 123.47% at 50% 50%, #00FF94 0%, #D42AA7 100%),
+                linear-gradient(121.28deg, #213100 0%, #FF0000 100%),
+                linear-gradient(360deg, #0029FF 0%, #8FFF00 100%),
+                linear-gradient(114.9deg, #00C6A2 0%, #B717DF 100%),
+                radial-gradient(100% 148.07% at 0% 0%, #FFFFFF 0%, #1DCD00 100%);
+
+    background-blend-mode: screen,
+                           color-dodge,
+                           overlay,
+                           difference,
+                           normal;
+
+    .WellcomeTitle {
+      @extend .Titles;
+      font-size: 5rem;
+      text-shadow: 0 0 3px $shade3;
+      font-weight: 700;
+      color: #0d004d;
+      margin: 50px;
+    }
+  }
+
+  .RightGridSignup {
+    @extend .RightGrid;
+    right: auto;
+    left: 0;
+  }
+}

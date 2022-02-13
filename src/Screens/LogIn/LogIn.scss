@@ -58,9 +58,9 @@
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
             background-color: $inputshade !important;
-            padding-left: 20px;
+            padding-left: 10px;
             color: #e3e4e8 !important;
-            font-size: 0.9rem;
+            font-size: 1.3rem;
             font-weight: 500;
             @extend .Text;
           }
@@ -78,12 +78,12 @@
             .UsernameIcon {
               width: 90%;
               height: 90%;
-              color: #D42AA7;
+              color: #f11fb9;
             }
             .PasswordIcon {
               width: 80%;
               height: 80%;
-              color: #D42AA7;
+              color: #f11fb9;
             }
           }
         }
@@ -131,19 +131,31 @@
     display: flex;
     flex-direction: column;
     padding: 0 50px;
-    background: linear-gradient(45deg, #B717DF, #D42AA7);
+
+    background: radial-gradient(50% 123.47% at 50% 50%, #00FF94 0%, #D42AA7 100%),
+                linear-gradient(121.28deg, #213100 0%, #FF0000 100%),
+                linear-gradient(360deg, #0029FF 0%, #8FFF00 100%),
+                linear-gradient(114.9deg, #00C6A2 0%, #B717DF 100%),
+                radial-gradient(100% 148.07% at 0% 0%, #FFFFFF 0%, #1DCD00 100%);
+
+    background-blend-mode: screen,
+                           color-dodge,
+                           overlay,
+                           difference,
+                           normal;
+
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     position: absolute;
     width: calc(60% - 90px);
     height: 100%;
-    transition: left 1s ease-in-out, right 1s ease-in-out;
 
     .WellcomeTitle {
-      @extend .Text;
-      font-size: 2rem;
-      color: #e3e4e8;
+      @extend .Titles;
+      font-size: 5rem;
       text-shadow: 0 0 3px $shade3;
+      font-weight: 700;
+      color: #0d004d;
       margin: 50px;
     }
   }
@@ -153,15 +165,4 @@
     left: auto;
     right: 0;
   }
-
-  .RightGridSignup {
-    @extend .RightGrid;
-    // transform: translateX(0);
-    right: auto;
-    left: 0;
-  }
-
-  // .RightGridSignup.active {
-  //   transform: translateX(0);
-  // }
 }

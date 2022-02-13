@@ -18,12 +18,8 @@ const Login = () => {
   // Form States
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-  // const [firstName, setFirstName] = React.useState('');
-  // const [lastName, setLastName] = React.useState('');
-  // const [email, setEmail] = React.useState('');
 
   // Form Handlers
-  const [showLoginForm, setShowLoginForm] = React.useState(true);
   const [error, setError] = React.useState('');
 
   const handleLogin = async () => {
@@ -32,14 +28,22 @@ const Login = () => {
     try {
       response = await login(username, password);
     } catch (err) {
-      console.log('err', err);
+      setError('Invalid credentials, try again');
     }
 
     console.log('response', response);
 
     if (response) {
-      // localStorage.setItem('token', data.token);
-      navigate('/home');
+      localStorage.setItem('token', response.token);
+      sessionStorage.setItem('token', response.token);
+      console.log('setting session storage to: ', response.token);
+      // navigate('/home');
+    }
+  };
+
+  const keyPressHandler = (e) => {
+    if (e.key === 'Enter') {
+      handleLogin();
     }
   };
 
@@ -63,6 +67,7 @@ const Login = () => {
                 placeholder="Username"
                 autoComplete="false"
                 onChange={(e) => setUsername(e.target.value)}
+                onKeyPress={keyPressHandler}
                 value={username}
                 type="text"
               />
@@ -77,6 +82,7 @@ const Login = () => {
                 placeholder="Password"
                 autoComplete="false"
                 onChange={(e) => setPassword(e.target.value)}
+                onKeyPress={keyPressHandler}
                 value={password}
                 type="password"
               />
@@ -103,8 +109,8 @@ const Login = () => {
             role="button"
             tabIndex={0}
             className="SignUp"
-            onClick={() => setShowLoginForm((prev) => !prev)}
-            onKeyDown={() => setShowLoginForm((prev) => !prev)}
+            onClick={() => navigate('/signup')}
+            onKeyDown={() => navigate('/signup')}
           >
             SignUp
           </span>
@@ -112,9 +118,9 @@ const Login = () => {
         </Typography>
       </Grid>
 
-      <Grid className={showLoginForm ? 'RightGridLogin' : 'RightGridSignup'}>
+      <Grid className="RightGridLogin">
         <Typography className="WellcomeTitle">
-          Wellcome to EpicCMS! :)
+          Wellcome back! :)
         </Typography>
       </Grid>
     </Container>

@@ -34,6 +34,7 @@ import './App.scss';
 
 const routes = {
   '/': () => <Login />,
+  '/login': () => <Login />,
   '/signup': () => <Signup />,
   '/home': () => <Home />,
   '/learning': () => <Learning />,
@@ -80,11 +81,9 @@ const App = () => {
   const theme = useSelector((state) => state.theme);
 
   // If because we don't want neither header nor menu
-  if (workingPath === '/') {
-    return match;
-  }
+  const outsideAppRoutes = ['/', '/login', '/signup'];
 
-  if (workingPath === '/signup') {
+  if (outsideAppRoutes.includes(workingPath)) {
     return match;
   }
 
