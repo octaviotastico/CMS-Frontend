@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 
 import {
-  AccountBox, Email, Lock, Person,
+  AccountBox, Email, Error, Lock, Person,
 } from '@material-ui/icons';
 
 // Router
@@ -37,10 +37,10 @@ const Signup = () => {
       setError('Invalid credentials, try again');
     }
 
-    console.log('response', response);
+    console.log('Signup response', response);
 
     if (response) {
-      // localStorage.setItem('token', data.token);
+      sessionStorage.setItem('token', response.token);
       navigate('/home');
     }
   };
@@ -142,11 +142,13 @@ const Signup = () => {
             </Grid>
 
             {error && (
-              <Typography className="Error">
-                {error}
-              </Typography>
+              <Grid className="ErrorContainer">
+                <Error className="ErrorIcon" />
+                <Typography className="Error">
+                  {error}
+                </Typography>
+              </Grid>
             )}
-
           </Grid>
 
           <Button

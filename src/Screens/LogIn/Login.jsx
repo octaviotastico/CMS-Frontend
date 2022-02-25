@@ -5,7 +5,10 @@ import React from 'react';
 import {
   Button, Container, Grid, Typography,
 } from '@material-ui/core';
-import { AccountBox, Lock } from '@material-ui/icons';
+
+import {
+  AccountBox, Error, Lock,
+} from '@material-ui/icons';
 
 // Router
 import { navigate } from '../../Router';
@@ -31,13 +34,11 @@ const Login = () => {
       setError('Invalid credentials, try again');
     }
 
-    console.log('response', response);
+    console.log('Login response', response);
 
     if (response) {
-      localStorage.setItem('token', response.token);
       sessionStorage.setItem('token', response.token);
-      console.log('setting session storage to: ', response.token);
-      // navigate('/home');
+      navigate('/home');
     }
   };
 
@@ -88,9 +89,12 @@ const Login = () => {
               />
             </Grid>
             {error && (
-              <Typography className="Error">
-                {error}
-              </Typography>
+              <Grid className="ErrorContainer">
+                <Error className="ErrorIcon" />
+                <Typography className="Error">
+                  {error}
+                </Typography>
+              </Grid>
             )}
           </Grid>
 

@@ -82,6 +82,13 @@
       animation: LiveAnimation 1s infinite alternate;
       display: flex;
       place-items: center;
+
+      .LiveEvent-Info {
+        display: flex;
+        align-self: flex-start;
+        color: #e44a4a;
+        margin-top: 10px;
+      }
     }
   }
 }

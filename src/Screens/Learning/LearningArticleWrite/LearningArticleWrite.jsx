@@ -77,7 +77,7 @@ const LearningArticleWrite = () => {
 
         <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Grid className="TextInputContainer">
-            <Typography className="ArticleTagTitle">Article Category</Typography>
+            <Typography className={`ArticleCategoryTitle-${theme}`}>Article Category</Typography>
             <PSelectCreatable
               isClearable
               chosenOptions={selectedCategory}
@@ -86,7 +86,7 @@ const LearningArticleWrite = () => {
             />
           </Grid>
           <Grid className="TextInputContainer">
-            <Typography className="ArticleTagTitle">Article Tags</Typography>
+            <Typography className={`ArticleTagTitle-${theme}`}>Article Tags</Typography>
             <PSelectCreatable
               multiple
               isClearable
@@ -98,7 +98,7 @@ const LearningArticleWrite = () => {
         </Grid>
 
         <Grid>
-          <Typography className="ArticlePreviewTitle">Article Preview</Typography>
+          <Typography className={`ArticlePreviewTitle-${theme}`}>Article Preview</Typography>
           <PDropzone
             setSelectedFile={setPreview}
             acceptImages

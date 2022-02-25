@@ -87,6 +87,29 @@
             }
           }
         }
+
+        .ErrorContainer {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          margin: 5px 0;
+
+          .ErrorIcon {
+            width: 20px;
+            height: 20px;
+            color: #f11f42;
+            margin-right: 5px;
+          }
+
+          .Error {
+            @extend .Text;
+            color: #f11f42;
+            font-size: 1.2rem;
+            text-align: center;
+          }
+        }
       }
 
       .LoginButton {

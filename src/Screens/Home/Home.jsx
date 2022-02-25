@@ -3,13 +3,20 @@ import React, { useEffect, useState } from 'react';
 
 // Material
 import {
-  Button, ButtonGroup, Container, Grid, Typography,
+  Button,
+  ButtonGroup,
+  Container,
+  Grid,
+  Tooltip,
+  Typography,
 } from '@material-ui/core';
+
 import {
   EventTwoTone,
   EventNoteTwoTone,
   FiberManualRecord,
   HistoryRounded,
+  Info,
 } from '@material-ui/icons';
 
 // Redux
@@ -60,6 +67,9 @@ const Home = () => {
             <span className="LiveEvent">
               <FiberManualRecord />
               LIVE
+              <Tooltip title="These events may not be broadcasting right now (so technically they may not be live), but this is the time when the broadcasting data is coming in." placement="right" arrow>
+                <Info className="LiveEvent-Info" />
+              </Tooltip>
             </span>
           </Typography>
           <Grid className="EventList">
