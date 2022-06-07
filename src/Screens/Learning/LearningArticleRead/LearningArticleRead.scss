@@ -4,10 +4,13 @@
 .LearningArticleRead {
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   .TitlesAndPreviewContainer {
     display: flex;
     flex-direction: row;
+    padding: 20px;
+    border-radius: 10px;
 
     .Preview {
       width: 250px;
@@ -44,40 +47,79 @@
         @extend .Text;
         font-weight: 600;
         margin-right: 5px;
+        font-size: 1.25rem;
       }
       .Category,
       .Tag,
       .CreatedAt,
       .ModifiedAt {
         @extend .Text;
+        font-size: 1.25rem;
         cursor: pointer;
+        border-bottom: 1px solid transparent;
         &:hover {
           border-bottom: 1px solid white;
         }
       }
+      .Tag {
+        margin-right: 10px;
+      }
     }
+  }
 
-    .MarkdownPreviewContainer {
-      display: flex;
-      flex-direction: column;
-      margin-top: 500px;
-      height: 100%;
-      padding: 20px;
-      border-radius: 5px;
-      font-size: 1.5rem;
-    }
+  .MarkdownPreviewContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    min-height: 60vh;
+    padding: 25px;
+    font-size: 1.5rem;
+    border-radius: 10px;
   }
 
 }
 
 .LearningArticleRead-Theme_01 {
   @extend .LearningArticleRead;
+  @extend .TextColor-Theme_01;
+
+  .TitlesAndPreviewContainer-Theme_01 {
+    @extend .TitlesAndPreviewContainer;
+    @extend .ComponentSurface-Theme_01;
+  }
+
+  .MarkdownPreviewContainer-Theme_01 {
+    @extend .MarkdownPreviewContainer;
+    @extend .ComponentSurface-Theme_01;
+  }
 }
 
 .LearningArticleRead-Theme_02 {
   @extend .LearningArticleRead;
+  @extend .TextColor-Theme_02;
+
+  .TitlesAndPreviewContainer-Theme_02 {
+    @extend .TitlesAndPreviewContainer;
+    @extend .ComponentSurface-Theme_02;
+  }
+
+  .MarkdownPreviewContainer-Theme_02 {
+    @extend .MarkdownPreviewContainer;
+    @extend .ComponentSurface-Theme_02;
+  }
 }
 
 .LearningArticleRead-Theme_03 {
   @extend .LearningArticleRead;
+  @extend .TextColor-Theme_03;
+
+  .TitlesAndPreviewContainer-Theme_03 {
+    @extend .TitlesAndPreviewContainer;
+    @extend .ComponentSurface-Theme_03;
+  }
+
+  .MarkdownPreviewContainer-Theme_03 {
+    @extend .MarkdownPreviewContainer;
+    @extend .ComponentSurface-Theme_03;
+  }
 }
