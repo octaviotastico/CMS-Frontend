@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 let incrementalId = 1;
 
@@ -10,17 +10,15 @@ export const interceptRoute = (previousRoute, nextRoute) => {
   }
 
   return interceptors.reduceRight(
-    (nxtRoute, interceptor) => (nxtRoute === previousRoute
-      ? nxtRoute : interceptor.handlerFunction(previousRoute, nxtRoute)),
+    (nxtRoute, interceptor) =>
+      nxtRoute === previousRoute ? nxtRoute : interceptor.handlerFunction(previousRoute, nxtRoute),
     nextRoute,
   );
 };
 
 const get = (componentId) => interceptors.find((obj) => obj.componentId === componentId) || null;
 const remove = (componentId) => {
-  const index = interceptors.findIndex(
-    (obj) => obj.componentId === componentId,
-  );
+  const index = interceptors.findIndex((obj) => obj.componentId === componentId);
   if (index !== -1) {
     interceptors.splice(index, 1);
   }

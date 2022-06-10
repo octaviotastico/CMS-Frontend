@@ -1,33 +1,21 @@
 // React
-import React from 'react';
+import React from "react";
 
 // Material
-import { Checkbox, Grid, Typography } from '@material-ui/core';
+import { Checkbox, Grid, Typography } from "@material-ui/core";
 
 // Redux
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 // Styles
-import './PChip.scss';
+import "./PChip.scss";
 
-const PChip = ({
-  text, selectable, checked, setChecked,
-}) => {
+const PChip = ({ text, selectable, checked, setChecked }) => {
   const { theme } = useSelector((state) => state);
   return (
-    <Grid
-      className={`PChip-${theme}`}
-      onClick={() => selectable && setChecked(!checked)}
-    >
-      {selectable && (
-        <Checkbox
-          className="CheckBox"
-          checked={checked}
-        />
-      )}
-      <Typography className="CheckBoxText">
-        {text}
-      </Typography>
+    <Grid className={`PChip-${theme}`} onClick={() => selectable && setChecked(!checked)}>
+      {selectable && <Checkbox className="CheckBox" checked={checked} />}
+      <Typography className="CheckBoxText">{text}</Typography>
     </Grid>
   );
 };

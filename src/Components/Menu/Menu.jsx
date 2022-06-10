@@ -1,20 +1,20 @@
 // React
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 // Material
-import { Grid, Tooltip } from '@material-ui/core';
-import BugReportTwoToneIcon from '@material-ui/icons/BugReportTwoTone';
-import ArrowBackIosTwoToneIcon from '@material-ui/icons/ArrowBackIosTwoTone';
+import { Grid, Tooltip } from "@material-ui/core";
+import BugReportTwoToneIcon from "@material-ui/icons/BugReportTwoTone";
+import ArrowBackIosTwoToneIcon from "@material-ui/icons/ArrowBackIosTwoTone";
 
 // Redux
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 // Components and Functions
-import PCollapsableButton from '../PCollapsableButton/PCollapsableButton';
-import { navigate } from '../../Router';
+import PCollapsableButton from "../PCollapsableButton/PCollapsableButton";
+import { navigate } from "../../Router";
 
 // Styles
-import './Menu.scss';
+import "./Menu.scss";
 
 const Menu = ({ buttonList }) => {
   const theme = useSelector((state) => state.theme);
@@ -24,9 +24,7 @@ const Menu = ({ buttonList }) => {
     <Grid
       item
       className={`Menu-${theme}`}
-      style={open
-        ? { maxWidth: '340px', minWidth: '190px', width: '20vw' }
-        : { width: 70 }}
+      style={open ? { maxWidth: "340px", minWidth: "190px", width: "20vw" } : { width: 70 }}
     >
       <Grid className="MenuButtons">
         {buttonList.map((button) => (
@@ -51,9 +49,9 @@ const Menu = ({ buttonList }) => {
           </button>
         </Tooltip>
 
-        <Tooltip title={`${open ? 'Close' : 'Open'} the menu`} placement="right" arrow>
+        <Tooltip title={`${open ? "Close" : "Open"} the menu`} placement="right" arrow>
           <button type="button" className={`ArrowButton-${theme}`} onClick={() => setOpen(!open)}>
-            <ArrowBackIosTwoToneIcon className={`Arrow ${!open && 'Rotate'}`} />
+            <ArrowBackIosTwoToneIcon className={`Arrow ${!open && "Rotate"}`} />
           </button>
         </Tooltip>
       </Grid>

@@ -1,5 +1,5 @@
 // React
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 // Material
 import {
@@ -9,13 +9,13 @@ import {
   Input,
   InputAdornment,
   Typography,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
 // Styles
-import './UserSmallCard.scss';
+import "./UserSmallCard.scss";
 
 const UserSmallCard = ({ name, profilePic }) => {
-  const [username, setUsername] = useState('Octaviotastico');
+  const [username, setUsername] = useState("Octaviotastico");
   const [usernameEdit, setUsernameEdit] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -45,18 +45,16 @@ const UserSmallCard = ({ name, profilePic }) => {
                 onChange={(e) => {
                   if (usernameEdit) setUsername(e.target.value);
                 }}
-                endAdornment={(
+                endAdornment={
                   <InputAdornment position="end">
                     <IconButton
                       onClick={() => setUsernameEdit(!usernameEdit)}
-                      style={
-                        usernameEdit ? { backgroundColor: '#AAAAAA' } : null
-                      }
+                      style={usernameEdit ? { backgroundColor: "#AAAAAA" } : null}
                     >
                       <img src="/icons/edit.svg" alt="Edit" />
                     </IconButton>
                   </InputAdornment>
-                )}
+                }
               />
             </Grid>
 

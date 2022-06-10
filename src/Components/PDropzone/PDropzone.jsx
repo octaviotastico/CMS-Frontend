@@ -1,20 +1,16 @@
 // React
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 
 // Material
-import { Button, Grid, Typography } from '@material-ui/core';
+import { Button, Grid, Typography } from "@material-ui/core";
 
 // Redux
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 // Styles
-import './PDropzone.scss';
+import "./PDropzone.scss";
 
-const PDropzone = ({
-  setSelectedFile = null,
-  validTypes = [],
-  acceptImages = false,
-}) => {
+const PDropzone = ({ setSelectedFile = null, validTypes = [], acceptImages = false }) => {
   const [isInside, setIsInside] = useState(false);
   const [error, setError] = useState(null);
   const fileButton = useRef(null);
@@ -22,7 +18,16 @@ const PDropzone = ({
   const { theme } = useSelector((state) => state);
 
   if (acceptImages) {
-    validTypes = [...validTypes, 'image/jpg', 'image/png', 'image/jpeg', 'image/gif', 'image/svg', 'image/webp', 'image/bmp'];
+    validTypes = [
+      ...validTypes,
+      "image/jpg",
+      "image/png",
+      "image/jpeg",
+      "image/gif",
+      "image/svg",
+      "image/webp",
+      "image/bmp",
+    ];
   }
 
   const fileSelectionButton = () => {
@@ -40,9 +45,9 @@ const PDropzone = ({
     if (f.length === 1 && validateFile(f[0])) {
       setSelectedFile(f[0]);
 
-      let dataURL = '';
+      let dataURL = "";
       const reader = new FileReader();
-      const output = document.getElementById('output');
+      const output = document.getElementById("output");
 
       reader.onload = () => {
         dataURL = reader.result;
@@ -52,9 +57,9 @@ const PDropzone = ({
       reader.readAsDataURL(f[0]);
       output.src = dataURL;
     } else if (f.length > 1) {
-      setError('Cannot select multiple files');
+      setError("Cannot select multiple files");
     } else if (!validateFile(f[0])) {
-      setError('Invalid file type');
+      setError("Invalid file type");
     }
   };
 
@@ -73,45 +78,25 @@ const PDropzone = ({
   return (
     <Grid className={`PDropzone-${theme}`}>
       <Grid
-        className={`content ${isInside ? 'inside' : 'outside'}`}
+        className={`content ${isInside ? "inside" : "outside"}`}
         onDragEnter={() => setIsInside(true)}
         onDragLeave={() => setIsInside(false)}
         onDragOver={(e) => e.preventDefault()}
         onDrop={fileDrop}
       >
-        <img
-          id="output"
-          src="/icons/image-preview.svg"
-          className="Placeholder"
-          alt="Preview"
-        />
+        <img id="output" src="/icons/image-preview.svg" className="Placeholder" alt="Preview" />
 
-        <Typography className="HelpText">
-          Drag and drop your file here
-        </Typography>
+        <Typography className="HelpText">Drag and drop your file here</Typography>
 
-        <Typography className="HelpText">
-          or...
-        </Typography>
+        <Typography className="HelpText">or...</Typography>
 
-        <input
-          type="file"
-          ref={fileButton}
-          style={{ display: 'none' }}
-          onChange={inputTagFiles}
-        />
+        <input type="file" ref={fileButton} style={{ display: "none" }} onChange={inputTagFiles} />
 
         <Button onClick={fileSelectionButton} className="FileSelectionButton">
           Select a file from your device
         </Button>
-
       </Grid>
-      {error && (
-        <Typography className="ErrorText">
-          {error}
-        </Typography>
-      )}
-
+      {error && <Typography className="ErrorText">{error}</Typography>}
     </Grid>
   );
 };

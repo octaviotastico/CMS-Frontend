@@ -1,6 +1,6 @@
 // React and Material UI
-import React from 'react';
-import { Button, Grid, Typography } from '@material-ui/core';
+import React from "react";
+import { Button, Grid, Typography } from "@material-ui/core";
 import {
   ConfirmationNumberTwoTone,
   LanguageTwoTone,
@@ -9,19 +9,21 @@ import {
   GitHub,
   Facebook,
   Twitter,
-} from '@material-ui/icons';
+} from "@material-ui/icons";
 
 // Utils
-import { monthShort } from '../../Utils/constants';
+import { monthShort } from "../../Utils/constants";
 
 // Styles
-import './EventCard.scss';
+import "./EventCard.scss";
 
 const EventCard = ({
-  title, description, startDate, theme, // endDate
+  title,
+  description,
+  startDate,
+  theme, // endDate
 }) => (
   <Grid className={`EventCard-${theme}`}>
-
     <Grid className={`ExpositorInfo-${theme}`}>
       <Grid className="UserPhotoAndName">
         <img className="UserPhoto" src="/images/mock/user.jpg" alt="User_photo" />
@@ -48,7 +50,6 @@ const EventCard = ({
     </Grid>
 
     <Grid className={`EventInfo-${theme}`}>
-
       <Grid className="EventInfoContainer">
         <Grid className="EventPreviewContainer">
           <img className="EventPreview" src="/images/mock/dtn.jpg" alt="Event_photo" />
@@ -56,13 +57,11 @@ const EventCard = ({
 
         <Grid className="EventDateContainer">
           <Typography className={`EventDate-${theme}`}>
-            {startDate.getDate() < 10 && '0'}
+            {startDate.getDate() < 10 && "0"}
             {startDate.getDate()}
           </Typography>
           <Typography className={`EventMonth-${theme}`}>
-            {monthShort[startDate.getMonth()]}
-            {' '}
-            {startDate.getFullYear()}
+            {monthShort[startDate.getMonth()]} {startDate.getFullYear()}
           </Typography>
         </Grid>
 
@@ -80,9 +79,7 @@ const EventCard = ({
           <LaunchRounded />
         </Button>
       </Grid>
-
     </Grid>
-
   </Grid>
 );
 

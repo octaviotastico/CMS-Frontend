@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 // React
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 // Libraries
-import VanillaTilt from 'vanilla-tilt';
+import VanillaTilt from "vanilla-tilt";
 
 // PROPS OBJECT:
 

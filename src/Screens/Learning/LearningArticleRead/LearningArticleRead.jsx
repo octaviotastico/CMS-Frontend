@@ -1,23 +1,23 @@
 // React
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 // Material
-import { Container, Grid, Typography } from '@material-ui/core';
+import { Container, Grid, Typography } from "@material-ui/core";
 
 // Components
-import MarkdownIt from 'markdown-it';
+import MarkdownIt from "markdown-it";
 
 // Redux
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 // API
-import { getArticle } from '../../../API/learning';
+import { getArticle } from "../../../API/learning";
 
 // Router
-import { getQueryParams } from '../../../Router';
+import { getQueryParams } from "../../../Router";
 
 // Styles
-import './LearningArticleRead.scss';
+import "./LearningArticleRead.scss";
 
 const LearningArticleRead = () => {
   const { theme } = useSelector((state) => state);
@@ -43,10 +43,9 @@ const LearningArticleRead = () => {
 
   return (
     <Container maxWidth={false} className={`LearningArticleRead-${theme}`}>
-
       <Grid className={`TitlesAndPreviewContainer-${theme}`}>
         <img
-          src={`http://localhost:2424/${article.preview.replaceAll('\\', '/')}`}
+          src={`http://localhost:2424/${article.preview.replaceAll("\\", "/")}`}
           className="Preview"
           alt={article.title}
         />
@@ -58,28 +57,19 @@ const LearningArticleRead = () => {
 
           <Grid>
             <Grid className="CreatedAtContainer">
-              <Typography className="CreatedAtTitle">
-                Created at:
-              </Typography>
+              <Typography className="CreatedAtTitle">Created at:</Typography>
               <Typography className="CreatedAt">
-                {new Date(article.createdAt).toISOString().replace(/T/, ' ').replace(/\..+/, '')}
+                {new Date(article.createdAt).toISOString().replace(/T/, " ").replace(/\..+/, "")}
               </Typography>
             </Grid>
 
             <Grid className="CategoryContainer">
-              <Typography className="CategoryTitle">
-                Category:
-                {' '}
-              </Typography>
-              <Typography className="Category">
-                {article.category}
-              </Typography>
+              <Typography className="CategoryTitle">Category: </Typography>
+              <Typography className="Category">{article.category}</Typography>
             </Grid>
 
             <Grid className="TagsListContainer">
-              <Typography className="TagTitle">
-                Tags:
-              </Typography>
+              <Typography className="TagTitle">Tags:</Typography>
               {article.tags.map((tag) => (
                 <Typography key={tag} className="Tag">
                   {tag}
@@ -87,13 +77,11 @@ const LearningArticleRead = () => {
               ))}
             </Grid>
 
-            {(article.modifiedAt !== article.createdAt) && (
+            {article.modifiedAt !== article.createdAt && (
               <Grid className="ModifiedAtContainer">
-                <Typography className="ModifiedAtTitle">
-                  Modified at:
-                </Typography>
+                <Typography className="ModifiedAtTitle">Modified at:</Typography>
                 <Typography className="ModifiedAt">
-                  {new Date(article.modifiedAt).toISOString().replace(/T/, ' ').replace(/\..+/, '')}
+                  {new Date(article.modifiedAt).toISOString().replace(/T/, " ").replace(/\..+/, "")}
                 </Typography>
               </Grid>
             )}

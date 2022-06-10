@@ -1,11 +1,11 @@
 // React
-import React from 'react';
+import React from "react";
 
 // Material
-import { Grid, Tooltip, Typography } from '@material-ui/core';
+import { Grid, Tooltip, Typography } from "@material-ui/core";
 
 // Styles
-import './PCollapsableButton.scss';
+import "./PCollapsableButton.scss";
 
 const PCollapsableButton = ({
   text,
@@ -20,17 +20,15 @@ const PCollapsableButton = ({
 }) => (
   <Tooltip title={open ? tooltipOpen : tooltipClosed} placement="right" arrow>
     <Grid
-      className={`PCollapsableButton-${theme} ${open ? 'Open' : 'Closed'}`}
-      style={{ transition: `width ${open ? openTransition : closeTransition}s` }}
+      className={`PCollapsableButton-${theme} ${open ? "Open" : "Closed"}`}
+      style={{
+        transition: `width ${open ? openTransition : closeTransition}s`,
+      }}
       onClick={() => action()}
     >
-      <Grid className={`IconContainer ${!open && 'IconClose'}`}>
-        {icon && icon()}
-      </Grid>
-      <Grid className={`TextContainer ${!open && 'TextClose'}`}>
-        <Typography className="CollapsableButtonText">
-          {text}
-        </Typography>
+      <Grid className={`IconContainer ${!open && "IconClose"}`}>{icon && icon()}</Grid>
+      <Grid className={`TextContainer ${!open && "TextClose"}`}>
+        <Typography className="CollapsableButtonText">{text}</Typography>
       </Grid>
     </Grid>
   </Tooltip>

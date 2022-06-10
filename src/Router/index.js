@@ -1,8 +1,8 @@
-import useRedirect from './redirect';
-import { useQueryParams, setQueryParams, getQueryParams } from './queryParams';
-import { useInterceptor } from './interceptor';
-import { useControlledInterceptor } from './controlledInterceptor';
-import { useTitle, getTitle } from './title';
+import useRedirect from "./redirect";
+import { useQueryParams, setQueryParams, getQueryParams } from "./queryParams";
+import { useInterceptor } from "./interceptor";
+import { useControlledInterceptor } from "./controlledInterceptor";
+import { useTitle, getTitle } from "./title";
 import {
   navigate,
   useRoutes,
@@ -12,7 +12,7 @@ import {
   setBasepath,
   getBasepath,
   usePath,
-} from './router';
+} from "./router";
 
 export {
   useRedirect,
