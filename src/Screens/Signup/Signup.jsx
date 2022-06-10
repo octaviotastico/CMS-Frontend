@@ -1,73 +1,63 @@
 // React
-import React from 'react';
+import React from "react";
 
 // Material UI
-import {
-  Button, Container, Grid, Typography,
-} from '@material-ui/core';
+import { Button, Container, Grid, Typography } from "@material-ui/core";
 
-import {
-  AccountBox, Email, Error, Lock, Person,
-} from '@material-ui/icons';
+import { AccountBox, Email, Error, Lock, Person } from "@material-ui/icons";
 
 // Router
-import { navigate } from '../../Router';
+import { navigate } from "../../Router";
 
 // Styles
-import './Signup.scss';
-import { signup } from '../../API/user';
+import "./Signup.scss";
+import { signup } from "../../API/user";
 
 const Signup = () => {
   // Form States
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [firstName, setFirstName] = React.useState('');
-  const [lastName, setLastName] = React.useState('');
-  const [email, setEmail] = React.useState('');
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [email, setEmail] = React.useState("");
 
   // Form Handlers
-  const [error, setError] = React.useState('');
+  const [error, setError] = React.useState("");
 
   const handleSignup = async () => {
-    setError('');
+    setError("");
     let response = null;
     try {
       response = await signup(username, password, firstName, lastName, email);
     } catch (err) {
-      setError('Invalid credentials, try again');
+      setError("Invalid credentials, try again");
     }
 
-    console.log('Signup response', response);
+    console.log("Signup response", response);
 
     if (response) {
-      sessionStorage.setItem('token', response.token);
-      navigate('/home');
+      sessionStorage.setItem("token", response.token);
+      navigate("/home");
     }
   };
 
   const keyPressHandler = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleSignup();
     }
   };
 
   return (
     <Container disableGutters maxWidth={false} className="Signup">
-
       <Grid className="RightGridSignup">
-        <Typography className="WellcomeTitle">
-          Wellcome to the CMS! :)
-        </Typography>
+        <Typography className="WellcomeTitle">Wellcome to the CMS! :)</Typography>
       </Grid>
 
       <Grid className="LeftGrid">
         <Grid className="SignupBox">
-          <Typography className="SignupTitle">
-            Sign Up
-          </Typography>
+          <Typography className="SignupTitle">Sign Up</Typography>
 
           <Grid className="InputsContainer">
-
             <Grid className="InputWrapper">
               <Grid className="IconContainer">
                 <AccountBox className="UsernameIcon" />
@@ -144,30 +134,24 @@ const Signup = () => {
             {error && (
               <Grid className="ErrorContainer">
                 <Error className="ErrorIcon" />
-                <Typography className="Error">
-                  {error}
-                </Typography>
+                <Typography className="Error">{error}</Typography>
               </Grid>
             )}
           </Grid>
 
-          <Button
-            className="SignupButton"
-            onClick={() => handleSignup()}
-          >
+          <Button className="SignupButton" onClick={() => handleSignup()}>
             Sign Up
           </Button>
         </Grid>
 
         <Typography className="HelpText">
-          If you already have an account, you can
-          {' '}
+          If you already have an account, you can{" "}
           <span
             role="button"
             tabIndex={0}
             className="SignUp"
-            onClick={() => navigate('/login')}
-            onKeyDown={() => navigate('/login')}
+            onClick={() => navigate("/login")}
+            onKeyDown={() => navigate("/login")}
           >
             Log In
           </span>

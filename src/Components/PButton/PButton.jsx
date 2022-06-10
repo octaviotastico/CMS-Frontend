@@ -1,11 +1,11 @@
 // React
-import React from 'react';
+import React from "react";
 
 // Material
-import { Button } from '@material-ui/core';
+import { Button } from "@material-ui/core";
 
 // Styles
-import './PButton.scss';
+import "./PButton.scss";
 
 const PButton = ({ text, action, extraStyle }) => (
   <Button

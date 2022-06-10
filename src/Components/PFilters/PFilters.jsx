@@ -1,17 +1,17 @@
 // React
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 // Material
-import { Divider, Grid, Typography } from '@material-ui/core';
+import { Divider, Grid, Typography } from "@material-ui/core";
 
 // Redux
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 // Components
-import PChip from '../PChip/PChip';
+import PChip from "../PChip/PChip";
 
 // Styles
-import './PFilters.scss';
+import "./PFilters.scss";
 
 const PFilters = ({ filters }) => {
   const { theme } = useSelector((state) => state);

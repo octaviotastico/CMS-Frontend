@@ -1,37 +1,35 @@
 // React
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 // Material
-import {
-  Button, ButtonGroup, Container, Grid, Typography,
-} from '@material-ui/core';
-import { Cancel, CloudUpload } from '@material-ui/icons';
+import { Button, ButtonGroup, Container, Grid, Typography } from "@material-ui/core";
+import { Cancel, CloudUpload } from "@material-ui/icons";
 
 // Redux
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 // Components
-import MarkdownIt from 'markdown-it';
-import PSelectCreatable from '../../../Components/PSelectCreatable/PSelectCreatable';
-import PDropzone from '../../../Components/PDropzone/PDropzone';
-import PTextInput from '../../../Components/PTextInput/PTextInput';
+import MarkdownIt from "markdown-it";
+import PSelectCreatable from "../../../Components/PSelectCreatable/PSelectCreatable";
+import PDropzone from "../../../Components/PDropzone/PDropzone";
+import PTextInput from "../../../Components/PTextInput/PTextInput";
 
 // Router
-import { navigate } from '../../../Router';
+import { navigate } from "../../../Router";
 
 // Api
-import { getArticleCategories, getArticleTags, postArticle } from '../../../API/learning';
+import { getArticleCategories, getArticleTags, postArticle } from "../../../API/learning";
 
 // Styles
-import './LearningArticleWrite.scss';
+import "./LearningArticleWrite.scss";
 
 const LearningArticleWrite = () => {
   const { theme } = useSelector((state) => state);
 
   // Article states
-  const [title, setTitle] = useState('');
-  const [subtitle, setSubtitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
+  const [content, setContent] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [preview, setPreview] = useState(null);
@@ -55,8 +53,7 @@ const LearningArticleWrite = () => {
   return (
     <Container maxWidth={false} className={`LearningArticleWriteScreen-${theme}`}>
       <Grid className="ArticleInfoContainer">
-
-        <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Grid style={{ display: "flex", justifyContent: "space-between" }}>
           <Grid className="TextInputContainer">
             <PTextInput
               fieldName="Article Title"
@@ -75,7 +72,7 @@ const LearningArticleWrite = () => {
           </Grid>
         </Grid>
 
-        <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Grid style={{ display: "flex", justifyContent: "space-between" }}>
           <Grid className="TextInputContainer">
             <Typography className={`ArticleCategoryTitle-${theme}`}>Article Category</Typography>
             <PSelectCreatable
@@ -99,10 +96,7 @@ const LearningArticleWrite = () => {
 
         <Grid>
           <Typography className={`ArticlePreviewTitle-${theme}`}>Article Preview</Typography>
-          <PDropzone
-            setSelectedFile={setPreview}
-            acceptImages
-          />
+          <PDropzone setSelectedFile={setPreview} acceptImages />
         </Grid>
       </Grid>
 
@@ -131,12 +125,16 @@ const LearningArticleWrite = () => {
       </Grid>
 
       <Grid className="ActionButtons">
-        <ButtonGroup className="ButtonGroup" onClick={() => navigate('/learning')}>
-          <Button className="ControlButton"><Cancel /></Button>
+        <ButtonGroup className="ButtonGroup" onClick={() => navigate("/learning")}>
+          <Button className="ControlButton">
+            <Cancel />
+          </Button>
           <Button className="ControlButtonTxt">Cancel</Button>
         </ButtonGroup>
         <ButtonGroup className="ButtonGroup">
-          <Button className="ControlButton"><CloudUpload /></Button>
+          <Button className="ControlButton">
+            <CloudUpload />
+          </Button>
           <Button
             className="ControlButtonTxt"
             onClick={() => {
@@ -145,13 +143,13 @@ const LearningArticleWrite = () => {
                 subtitle,
                 content,
                 preview,
-                author: 'TODO',
-                description: 'TODO',
+                author: "TODO",
+                description: "TODO",
                 category: selectedCategory.value,
                 tags: selectedTags.map((elem) => elem.value),
               }).then(() => {
                 setTimeout(() => {
-                  navigate('/learning');
+                  navigate("/learning");
                 }, 1000);
               });
             }}

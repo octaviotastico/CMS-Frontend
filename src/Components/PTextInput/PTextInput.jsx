@@ -1,18 +1,16 @@
 // React
-import React from 'react';
+import React from "react";
 
 // Material
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from "@material-ui/core";
 
 // Redux
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 // Styles
-import './PTextInput.scss';
+import "./PTextInput.scss";
 
-const PTextInput = ({
-  fieldName, placeholder, value, setValue,
-}) => {
+const PTextInput = ({ fieldName, placeholder, value, setValue }) => {
   const { theme } = useSelector((state) => state);
 
   return (
@@ -20,8 +18,8 @@ const PTextInput = ({
       <Typography
         className="Title"
         style={{
-          textAlign: 'left',
-          transition: 'opacity 0.3s',
+          textAlign: "left",
+          transition: "opacity 0.3s",
         }}
       >
         {fieldName}

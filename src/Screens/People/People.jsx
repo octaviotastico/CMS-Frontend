@@ -1,18 +1,18 @@
 // React
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 // Material
-import { Container, Grid, Typography } from '@material-ui/core';
+import { Container, Grid, Typography } from "@material-ui/core";
 
 // Mocked data
-import { PeopleData, PeopleFilter } from '../../Utils/MockData';
+import { PeopleData, PeopleFilter } from "../../Utils/MockData";
 
 // Components
-import UserCard from '../../Components/UserCard/UserCard';
-import PFilters from '../../Components/PFilters/PFilters';
+import UserCard from "../../Components/UserCard/UserCard";
+import PFilters from "../../Components/PFilters/PFilters";
 
 // Styles
-import './People.scss';
+import "./People.scss";
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -35,25 +35,16 @@ const People = () => {
     <Container disableGutters maxWidth={false} className="People">
       <Grid className="TitleContainer">
         <Typography className="Title">Meet your team!</Typography>
-        <Typography className="Title">
-          They&apos;re awesome people just like you.
-        </Typography>
+        <Typography className="Title">They&apos;re awesome people just like you.</Typography>
       </Grid>
 
       <Grid className="BodyAndFilters">
         <Grid className="BodyContainer">
-          {people
-            && people.map((elem) => (
-              <Grid
-                container
-                spacing={3}
-                className="Category"
-                key={`People-${elem.category}`}
-              >
+          {people &&
+            people.map((elem) => (
+              <Grid container spacing={3} className="Category" key={`People-${elem.category}`}>
                 <Grid item xs={12} className="CategoryTitleContainer">
-                  <Typography className="CategoryTitle">
-                    {elem.category}
-                  </Typography>
+                  <Typography className="CategoryTitle">{elem.category}</Typography>
                 </Grid>
                 <Grid className="CardHorizontalList">
                   {elem.data.map((person) => (

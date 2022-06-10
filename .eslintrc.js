@@ -4,23 +4,35 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended',
-    'airbnb',
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/react",
+    "airbnb/base",
+    "prettier",
   ],
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: "module",
   },
-  plugins: [
-    'react',
-  ],
+  plugins: ["prettier"],
   rules: {
-    'import/prefer-default-export': 'off',
-    'react/prop-types': 0,
-    'react/no-danger': 0,
-    'no-plusplus': 'off',
-    'no-console': 'off',
-    'no-restricted-syntax': 'off',
-    'no-param-reassign': 'off',
+    "prettier/prettier": "warn",
+    "import/prefer-default-export": "off",
+    "react/prop-types": 0,
+    "react/no-danger": 0,
+    "no-plusplus": "off",
+    "no-console": "off",
+    "no-restricted-syntax": "off",
+    "no-param-reassign": "off",
+    "comma-dangle": ["off", "always-multiline"],
+    quotes: [2, "double"],
+    "import/extensions": ["off", "never"],
+  },
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx"],
+      },
+    },
   },
 };

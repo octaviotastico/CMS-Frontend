@@ -1,8 +1,8 @@
 // Libraries
-import axios from 'axios';
+import axios from "axios";
 
 // Constants
-import { API_URL } from '../Utils/constants';
+import { API_URL } from "../Utils/constants";
 
 export const getArticles = async (page, amount) => {
   if (page !== undefined && amount !== undefined) {
@@ -47,8 +47,8 @@ export const postArticle = async (article) => {
 
   const response = axios.post(`${API_URL}/learning/articles`, fd, {
     headers: {
-      'Content-Type': 'multipart/form-data',
-      Accept: 'application/json',
+      "Content-Type": "multipart/form-data",
+      Accept: "application/json",
     },
   });
   return response.data;

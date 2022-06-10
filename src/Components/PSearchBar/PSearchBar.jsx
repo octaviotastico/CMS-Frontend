@@ -1,15 +1,13 @@
 // React
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 // Material
-import { ClickAwayListener, Grid, Typography } from '@material-ui/core';
+import { ClickAwayListener, Grid, Typography } from "@material-ui/core";
 
 // Styles
-import './PSearchBar.scss';
+import "./PSearchBar.scss";
 
-const PSearchBar = ({
-  textInput, setTextInput, options, placeholder,
-}) => {
+const PSearchBar = ({ textInput, setTextInput, options, placeholder }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -25,31 +23,19 @@ const PSearchBar = ({
         />
         {open && (
           <Grid id="Dropdown" className="DropdownContent">
-            {options
-              && options.map((elem) => (
+            {options &&
+              options.map((elem) => (
                 <Grid className="ListCategory" key={`${elem.category}`}>
-                  <Typography className="ListTitle">
-                    {elem.category}
-                  </Typography>
+                  <Typography className="ListTitle">{elem.category}</Typography>
                   {elem.data.map((val) => (
                     <Grid className="ListItem" key={`${val.title}`}>
                       <Grid container className="ImageContainer">
-                        <img
-                          src={val.image}
-                          alt="alt-text"
-                          className="Thumbnails"
-                        />
+                        <img src={val.image} alt="alt-text" className="Thumbnails" />
                       </Grid>
                       <Grid container className="TextContainer">
-                        <Typography className="Title">
-                          {val.title}
-                        </Typography>
-                        <Typography className="Subtitle">
-                          {val.subtitle}
-                        </Typography>
-                        <Typography className="Description">
-                          {val.description}
-                        </Typography>
+                        <Typography className="Title">{val.title}</Typography>
+                        <Typography className="Subtitle">{val.subtitle}</Typography>
+                        <Typography className="Description">{val.description}</Typography>
                       </Grid>
                     </Grid>
                   ))}

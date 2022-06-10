@@ -1,20 +1,20 @@
-import React from 'react';
-import isNode from './isNode';
+import React from "react";
+import isNode from "./isNode";
 
 const queryParamListeners = [];
 let queryParamObject = {};
 
 const objectToQueryString = (inObj) => {
   const qs = new URLSearchParams();
-  Object.entries(inObj).forEach(
-    ([key, value]) => (value !== undefined ? qs.append(key, value) : null),
+  Object.entries(inObj).forEach(([key, value]) =>
+    value !== undefined ? qs.append(key, value) : null,
   );
   return qs.toString();
 };
 
 export const setQueryParams = (inObj, replace = false) => {
   if (!(inObj instanceof Object)) {
-    throw new Error('Object required');
+    throw new Error("Object required");
   }
   if (replace) {
     queryParamObject = inObj;
@@ -28,11 +28,7 @@ export const setQueryParams = (inObj, replace = false) => {
     if (qs === window.location.search) {
       return;
     }
-    window.history.replaceState(
-      null,
-      null,
-      window.location.pathname + (qs !== '?' ? qs : ''),
-    );
+    window.history.replaceState(null, null, window.location.pathname + (qs !== "?" ? qs : ""));
   }
 };
 

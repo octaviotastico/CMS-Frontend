@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 /* eslint-disable no-undef */
 /* eslint-disable no-continue */
 /* eslint-disable no-use-before-define */
@@ -12,16 +13,16 @@ import React, {
   useContext,
   useDebugValue,
   isValidElement,
-} from 'react';
-import isNode from './isNode';
-import { interceptRoute } from './interceptor';
-import { setQueryParams } from './queryParams';
+} from "react";
+import isNode from "./isNode";
+import { interceptRoute } from "./interceptor";
+import { setQueryParams } from "./queryParams";
 
 const preparedRoutes = {};
 const stack = {};
 let componentId = 1;
-let currentPath = isNode() ? '' : window.location.pathname;
-let basePath = '';
+let currentPath = isNode() ? "" : window.location.pathname;
+let basePath = "";
 let basePathRegEx = null;
 const pathUpdaters = [];
 
@@ -34,7 +35,7 @@ export const getBasepath = () => basePath;
 
 const resolvePath = (inPath) => {
   if (isNode()) {
-    const url = require('url');
+    const url = require("url");
     return url.resolve(currentPath, inPath);
   }
 
@@ -52,25 +53,23 @@ const prepareRoute = (inRoute) => {
 
   const preparedRoute = [
     new RegExp(
-      `${inRoute.substr(0, 1) === '*' ? '' : '^'}${inRoute
-        .replace(/:[a-zA-Z]+/g, '([^/]+)')
-        .replace(/\*/g, '')}${inRoute.substr(-1) === '*' ? '' : '$'}`,
+      `${inRoute.substr(0, 1) === "*" ? "" : "^"}${inRoute
+        .replace(/:[a-zA-Z]+/g, "([^/]+)")
+        .replace(/\*/g, "")}${inRoute.substr(-1) === "*" ? "" : "$"}`,
     ),
   ];
 
   const propList = inRoute.match(/:[a-zA-Z]+/g);
-  preparedRoute.push(
-    propList ? propList.map((paramName) => paramName.substr(1)) : [],
-  );
+  preparedRoute.push(propList ? propList.map((paramName) => paramName.substr(1)) : []);
 
   preparedRoutes[inRoute] = preparedRoute;
   return preparedRoute;
 };
 
-let customPath = '/';
+let customPath = "/";
 
 export const setPath = (inPath) => {
-  const url = require('url');
+  const url = require("url");
   customPath = url.resolve(customPath, inPath);
 };
 
@@ -93,7 +92,7 @@ export const usePath = (active = true, withBasepath = false) => {
     };
   }, [setUpdate, active]);
 
-  return withBasepath ? currentPath : currentPath.replace(basePathRegEx, '');
+  return withBasepath ? currentPath : currentPath.replace(basePathRegEx, "");
 };
 
 const updatePathHooks = () => {
@@ -103,18 +102,14 @@ const updatePathHooks = () => {
 
 export const getWorkingPath = (parentRouterId) => {
   if (!parentRouterId) {
-    return isNode()
-      ? customPath
-      : window.location.pathname.replace(basePathRegEx, '') || '/';
+    return isNode() ? customPath : window.location.pathname.replace(basePathRegEx, "") || "/";
   }
   const stackEntry = stack[parentRouterId];
   if (!stackEntry) {
-    throw new Error('what?');
+    throw new Error("what?");
   }
 
-  return stackEntry.reducedPath !== null
-    ? stackEntry.reducedPath || '/'
-    : window.location.pathname;
+  return stackEntry.reducedPath !== null ? stackEntry.reducedPath || "/" : window.location.pathname;
 };
 
 const processStack = () => Object.values(stack).forEach(process);
@@ -129,7 +124,7 @@ const objectsEqual = (objA, objB) => {
 };
 
 if (!isNode()) {
-  window.addEventListener('popstate', (e) => {
+  window.addEventListener("popstate", (e) => {
     const nextPath = interceptRoute(currentPath, window.location.pathname);
 
     if (!nextPath || nextPath === currentPath) {
@@ -149,12 +144,7 @@ if (!isNode()) {
   });
 }
 
-export const navigate = (
-  url,
-  replace = false,
-  queryParams = null,
-  replaceQueryParams = true,
-) => {
+export const navigate = (url, replace = false, queryParams = null, replaceQueryParams = true) => {
   url = interceptRoute(currentPath, resolvePath(url));
 
   if (!url || url === currentPath) {
@@ -175,7 +165,7 @@ export const navigate = (
     finalURL = `${basePath}${url}`;
   }
 
-  window.history[`${replace ? 'replace' : 'push'}State`](null, null, finalURL);
+  window.history[`${replace ? "replace" : "push"}State`](null, null, finalURL);
 
   processStack();
   updatePathHooks();
@@ -207,9 +197,7 @@ const process = (stackObj, directCall) => {
 
   for (let i = 0; i < routes.length; i++) {
     [route, targetFunction] = routes[i];
-    const [regex, groupNames] = preparedRoutes[route]
-      ? preparedRoutes[route]
-      : prepareRoute(route);
+    const [regex, groupNames] = preparedRoutes[route] ? preparedRoutes[route] : prepareRoute(route);
 
     const result = currPath.match(regex);
     if (!result) {
@@ -224,7 +212,7 @@ const process = (stackObj, directCall) => {
       }
     }
 
-    reducedPath = currPath.replace(result[0], '');
+    reducedPath = currPath.replace(result[0], "");
     anyMatched = true;
     break;
   }
@@ -249,9 +237,9 @@ const process = (stackObj, directCall) => {
       propsDiffer = false;
     } else {
       propsDiffer = !(
-        resultProps
-        && targetProps
-        && objectsEqual(resultProps, targetProps) === true
+        resultProps &&
+        targetProps &&
+        objectsEqual(resultProps, targetProps) === true
       );
     }
 
@@ -274,7 +262,7 @@ const process = (stackObj, directCall) => {
     result,
     reducedPath,
     matchedRoute: route,
-    passContext: route ? route.substr(-1) === '*' : false,
+    passContext: route ? route.substr(-1) === "*" : false,
   });
 
   if (directCall && (funcsDiffer || propsDiffer || route === null)) {
@@ -282,11 +270,8 @@ const process = (stackObj, directCall) => {
   }
 };
 
-const wrapperFunction = (RouteContext, originalResult) => () => (
-  <RouteContext>
-    {originalResult.apply(originalResult, arguments)}
-  </RouteContext>
-);
+const wrapperFunction = (RouteContext, originalResult) => () =>
+  <RouteContext>{originalResult.apply(originalResult, arguments)}</RouteContext>;
 
 export const useRoutes = (routeObj) => {
   // Each router gets an internal id to look them up again.
@@ -339,12 +324,10 @@ export const useRoutes = (routeObj) => {
     return result;
   }
   const RouteContext = ({ children }) => (
-    <ParentContext.Provider value={routerId}>
-      {children}
-    </ParentContext.Provider>
+    <ParentContext.Provider value={routerId}>{children}</ParentContext.Provider>
   );
 
-  if (typeof result === 'function') {
+  if (typeof result === "function") {
     return wrapperFunction(RouteContext, result);
   }
 

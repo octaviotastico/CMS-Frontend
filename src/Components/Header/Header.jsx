@@ -1,32 +1,30 @@
 // React
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 // Material
-import {
-  Button, Container, Grid, Typography,
-} from '@material-ui/core';
-import PaletteTwoToneIcon from '@material-ui/icons/PaletteTwoTone';
+import { Button, Container, Grid, Typography } from "@material-ui/core";
+import PaletteTwoToneIcon from "@material-ui/icons/PaletteTwoTone";
 
 // Redux
-import { useDispatch } from 'react-redux';
-import { changeTheme } from '../../Redux/ThemeReducer';
+import { useDispatch } from "react-redux";
+import { changeTheme } from "../../Redux/ThemeReducer";
 
 // Components
-import UserSmallCard from '../UserSmallCard/UserSmallCard';
-import PSearchBar from '../PSearchBar/PSearchBar';
-import PDropdownButton from '../PDropdownButton/PDropdownButton';
+import UserSmallCard from "../UserSmallCard/UserSmallCard";
+import PSearchBar from "../PSearchBar/PSearchBar";
+import PDropdownButton from "../PDropdownButton/PDropdownButton";
 
 // Mocked Data
-import { SearchBarData } from '../../Utils/MockData';
+import { SearchBarData } from "../../Utils/MockData";
 
 // Router
-import { navigate } from '../../Router';
+import { navigate } from "../../Router";
 
 // Styles
-import './Header.scss';
+import "./Header.scss";
 
 const Header = () => {
-  const [textInput, setTextInput] = useState('');
+  const [textInput, setTextInput] = useState("");
   const [searchList, setSearchList] = useState([]);
 
   const dispatch = useDispatch();
@@ -41,27 +39,27 @@ const Header = () => {
 
   const themeList = [
     {
-      id: 'Theme_01',
-      title: 'Dark Theme',
-      select: () => dispatch(changeTheme('Theme_01')),
+      id: "Theme_01",
+      title: "Dark Theme",
+      select: () => dispatch(changeTheme("Theme_01")),
       gradient: {
-        backgroundImage: 'linear-gradient(-45deg, #434343, #000000)',
+        backgroundImage: "linear-gradient(-45deg, #434343, #000000)",
       },
     },
     {
-      id: 'Theme_02',
-      title: 'White Theme',
-      select: () => dispatch(changeTheme('Theme_02')),
+      id: "Theme_02",
+      title: "White Theme",
+      select: () => dispatch(changeTheme("Theme_02")),
       gradient: {
-        backgroundImage: 'linear-gradient(-45deg, #c3cfe2, #fdfbfb)',
+        backgroundImage: "linear-gradient(-45deg, #c3cfe2, #fdfbfb)",
       },
     },
     {
-      id: 'Theme_03',
-      title: 'Violet Theme',
-      select: () => dispatch(changeTheme('Theme_03')),
+      id: "Theme_03",
+      title: "Violet Theme",
+      select: () => dispatch(changeTheme("Theme_03")),
       gradient: {
-        backgroundImage: 'linear-gradient(-45deg, #8EC5FC, #E0C3FC)',
+        backgroundImage: "linear-gradient(-45deg, #8EC5FC, #E0C3FC)",
       },
     },
   ];
@@ -70,7 +68,7 @@ const Header = () => {
     <Container disableGutters maxWidth={false} className="Header">
       <Grid container className="Header">
         <Grid item xs={8} className="HeaderContainer">
-          <Button className="DT_CMS" disableRipple onClick={() => navigate('/home')}>
+          <Button className="DT_CMS" disableRipple onClick={() => navigate("/home")}>
             DT_CMS
           </Button>
           <PSearchBar
@@ -86,19 +84,10 @@ const Header = () => {
             id="ThemeSelector"
             icon={<PaletteTwoToneIcon />}
             dropdown={
-              themeList
-              && themeList.map((elem) => (
-                <Grid
-                  className="ListItem"
-                  key={`${elem.title}`}
-                  onClick={elem.select}
-                >
-                  <Grid
-                    item
-                    xs={2}
-                    className="GradientPreview"
-                    style={elem.gradient}
-                  />
+              themeList &&
+              themeList.map((elem) => (
+                <Grid className="ListItem" key={`${elem.title}`} onClick={elem.select}>
+                  <Grid item xs={2} className="GradientPreview" style={elem.gradient} />
                   <Grid item xs={10} className="TextContainer">
                     <Typography className="Title">{elem.title}</Typography>
                   </Grid>
@@ -106,10 +95,7 @@ const Header = () => {
               ))
             }
           />
-          <UserSmallCard
-            name="Octaviotastico"
-            profilePic="/images/mock/user.jpg"
-          />
+          <UserSmallCard name="Octaviotastico" profilePic="/images/mock/user.jpg" />
         </Grid>
       </Grid>
     </Container>
