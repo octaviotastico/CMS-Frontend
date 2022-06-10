@@ -32,7 +32,6 @@
     "prettier": "^2.6.2"
   },
   "scripts": {
-    "asd": "react-scripts start",
     "start": "env-cmd -f ./environments/.env.backendA react-scripts start",
     "start:backendA": "env-cmd -f ./environments/.env.backendA react-scripts start",
     "start:backendB": "env-cmd -f ./environments/.env.backendB react-scripts start",
