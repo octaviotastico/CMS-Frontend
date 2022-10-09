@@ -59,7 +59,10 @@ const LearningArticleRead = () => {
             <Grid className="CreatedAtContainer">
               <Typography className="CreatedAtTitle">Created at:</Typography>
               <Typography className="CreatedAt">
-                {new Date(article.createdAt).toISOString().replace(/T/, " ").replace(/\..+/, "")}
+                {new Date(article.createdAt || null)
+                  .toISOString()
+                  .replace(/T/, " ")
+                  .replace(/\..+/, "")}
               </Typography>
             </Grid>
 
@@ -81,7 +84,10 @@ const LearningArticleRead = () => {
               <Grid className="ModifiedAtContainer">
                 <Typography className="ModifiedAtTitle">Modified at:</Typography>
                 <Typography className="ModifiedAt">
-                  {new Date(article.modifiedAt).toISOString().replace(/T/, " ").replace(/\..+/, "")}
+                  {new Date(article.updatedAt || null)
+                    .toISOString()
+                    .replace(/T/, " ")
+                    .replace(/\..+/, "")}
                 </Typography>
               </Grid>
             )}
@@ -97,13 +103,7 @@ const LearningArticleRead = () => {
       </Grid>
 
       {/* <Grid>
-        <Typography>
-          Read more
-          {' '}
-          {article.category}
-          {' '}
-          articles
-        </Typography>
+        <Typography>Read more {article.category} articles</Typography>
       </Grid> */}
     </Container>
   );

@@ -1,0 +1,25 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.PSelectCreatableTitle {
+  @extend .Text;
+  text-align: left !important;
+  font-weight: 600 !important;
+  font-size: 1.3rem !important;
+  margin-top: 1rem !important;
+}
+
+.PSelectCreatableTitle-Theme_01 {
+  @extend .PSelectCreatableTitle;
+  color: white;
+}
+
+.PSelectCreatableTitle-Theme_02 {
+  @extend .PSelectCreatableTitle;
+  color: #2c2d36;
+}
+
+.PSelectCreatableTitle-Theme_03 {
+  @extend .PSelectCreatableTitle;
+  color: white;
+}

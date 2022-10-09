@@ -95,7 +95,7 @@ const Header = () => {
               ))
             }
           />
-          <UserSmallCard name="Octaviotastico" profilePic="/images/mock/user.jpg" />
+          <UserSmallCard profilePic="/images/mock/user.jpg" />
         </Grid>
       </Grid>
     </Container>

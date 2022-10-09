@@ -1,7 +1,20 @@
+// React
 import React from "react";
+
+// Libraries
 import Select from "react-select/creatable";
 
+// Material
+import { Grid, Typography } from "@material-ui/core";
+
+// Redux
+import { useSelector } from "react-redux";
+
+// Styles
+import "./PSelectCreatable.scss";
+
 const PSelectCreatable = ({
+  fieldName,
   options,
   chosenOptions,
   setChosenOption,
@@ -12,6 +25,8 @@ const PSelectCreatable = ({
   multiple = false,
   isClearable = false,
 }) => {
+  const { theme } = useSelector((state) => state);
+
   const customStyles = {
     control: () => ({
       display: "flex",
@@ -85,49 +100,59 @@ const PSelectCreatable = ({
     menuPortal: () => ({
       backgroundColor: "green",
     }),
+    input: () => ({
+      color: ["Theme_01", "Theme_03"].includes(theme) ? "white" : "#2c2d36",
+      fontFamily: "Montserrat",
+      fontWeight: 600,
+    }),
   };
 
   return (
-    <Select
-      styles={customStyles}
-      filterOption={customFilter}
-      onInputChange={inputChange}
-      isClearable={isClearable}
-      hideSelectedOptions
-      options={options}
-      isMulti={multiple}
-      placeholder={placeholder || ""}
-      value={chosenOptions}
-      noOptionsMessage={() => "No more options"}
-      defaultValue={defaultValue || ""}
-      onChange={(item, selectAction) => {
-        // Get action type
-        const { action } = selectAction;
-        // If no function provided, return
-        if (!setChosenOption) return;
+    <Grid>
+      {fieldName && (
+        <Typography className={`PSelectCreatableTitle-${theme}`}>{fieldName}</Typography>
+      )}
+      <Select
+        styles={customStyles}
+        filterOption={customFilter}
+        onInputChange={inputChange}
+        isClearable={isClearable}
+        hideSelectedOptions
+        options={options}
+        isMulti={multiple}
+        placeholder={placeholder || ""}
+        value={chosenOptions}
+        noOptionsMessage={() => "No more options"}
+        defaultValue={defaultValue || ""}
+        onChange={(item, selectAction) => {
+          // Get action type
+          const { action } = selectAction;
+          // If no function provided, return
+          if (!setChosenOption) return;
 
-        switch (action) {
-          case "clear":
-            setChosenOption(item);
-            break;
+          switch (action) {
+            case "clear":
+              setChosenOption(item);
+              break;
 
-          case "select-option":
-            setChosenOption(item);
-            break;
+            case "select-option":
+              setChosenOption(item);
+              break;
 
-          case "remove-value":
-            setChosenOption(item);
-            break;
+            case "remove-value":
+              setChosenOption(item);
+              break;
 
-          case "create-option":
-            setChosenOption(item);
-            break;
+            case "create-option":
+              setChosenOption(item);
+              break;
 
-          default:
-            break;
-        }
-      }}
-    />
+            default:
+              break;
+          }
+        }}
+      />
+    </Grid>
   );
 };
 

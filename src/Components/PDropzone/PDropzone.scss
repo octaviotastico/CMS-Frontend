@@ -92,10 +92,10 @@
 .PDropzone-Theme_03 {
   @extend .PDropzone;
   .HelpText {
-    color: #2c2d36;
+    color: white;
   }
   .FileSelectionButton {
-    color: #2c2d36;
+    color: white;
     @extend .GenericButton-Theme_03;
   }
 }

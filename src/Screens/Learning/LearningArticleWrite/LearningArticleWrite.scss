@@ -1,6 +1,11 @@
 @import "../../../Utils/StyleClasses.scss";
 @import "../../../Utils/ColorVariables.scss";
 
+.MuiContainer-root {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .LearningArticleWriteScreen {
   .ArticleInfoContainer,
   .ActionButtons {
@@ -9,6 +14,7 @@
   }
 
   .ActionButtons {
+    margin-top: 15px;
     margin-bottom: 10px;
   }
 
@@ -16,11 +22,10 @@
     width: calc(50% - 5px);
   }
 
-  .ArticleTagTitle,
   .ArticlePreviewTitle {
     @extend .Text;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-align: left;
     margin-top: 15px;
   }
@@ -29,9 +34,9 @@
     display: flex !important;
     flex-direction: row;
     justify-content: space-between;
-    margin: 10px 0;
     height: calc(92vh - 25px);
     border-radius: 10px;
+    margin-top: 15px;
     padding: 20px;
 
     .EditColumn {
@@ -133,16 +138,10 @@
     @extend .ComponentSurface-Theme_01;
   }
 
-  // TODO: Fix this mess please
-  .ArticleCategoryTitle-Theme_01,
-  .ArticleTagTitle-Theme_01,
   .ArticlePreviewTitle-Theme_01 {
+    @extend .ArticlePreviewTitle;
     @extend .Titles;
-    text-align: left;
-    font-weight: 600;
-    font-size: 1.3rem;
     color: white;
-    margin-top: 1.3rem;
   }
 
   .EditPreviewContainer {
@@ -167,9 +166,13 @@
     .ButtonGroup {
       .ControlButton {
         @extend .GenericButton-Theme_01;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
       .ControlButtonTxt {
         @extend .GenericButton-Theme_01;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
         width: 200px;
       }
     }
@@ -185,15 +188,10 @@
     background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
   }
 
-  .ArticleCategoryTitle-Theme_02,
-  .ArticleTagTitle-Theme_02,
   .ArticlePreviewTitle-Theme_02 {
+    @extend .ArticlePreviewTitle;
     @extend .Titles;
-    text-align: left;
-    font-weight: 600;
-    font-size: 1.3rem;
     color: #2c2d36;
-    margin-top: 1.3rem;
   }
 
   .EditPreviewContainer {
@@ -219,52 +217,44 @@
     .ButtonGroup {
       .ControlButton {
         @extend .GenericButton-Theme_02;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
       .ControlButtonTxt {
         @extend .GenericButton-Theme_02;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
         width: 200px;
       }
     }
-  }
-
-  .ArticlePreviewTitle {
-    color: white;
   }
 }
 
 .LearningArticleWriteScreen-Theme_03 {
   @extend .LearningArticleWriteScreen;
 
-  .ArticleInfoContainer,
-  .ActionButtons {
-    border: 1px solid rgba(#c3cfe2, 1);
-    background-image: linear-gradient(-45deg, #8ec5fc, #e0c3fc);
+  .ArticleInfoContainer, .ActionButtons {
+    @extend .ComponentSurface-Theme_03;
   }
 
-  .ArticleCategoryTitle-Theme_03,
-  .ArticleTagTitle-Theme_03,
   .ArticlePreviewTitle-Theme_03 {
+    @extend .ArticlePreviewTitle;
     @extend .Titles;
-    text-align: left;
-    font-weight: 600;
-    font-size: 1.3rem;
-    color: #2c2d36;
-    margin-top: 1.3rem;
+    color: white;
   }
 
   .EditPreviewContainer {
-    border: 1px solid rgba(#c3cfe2, 1);
-    background-image: linear-gradient(-45deg, #8ec5fc, #e0c3fc);
+    @extend .ComponentSurface-Theme_03;
     .Title {
-      color: #2c2d36;
+      color: white;
     }
     .MarkdownInput,
     .MarkdownPreview {
-      color: #323236;
+      color: white;
       pre {
         background-image: linear-gradient(-45deg, #8ec5fc, #e0c3fc);
         code {
-          color: #323236 !important;
+          color: white !important;
         }
       }
     }
@@ -274,9 +264,13 @@
     .ButtonGroup {
       .ControlButton {
         @extend .GenericButton-Theme_03;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
       .ControlButtonTxt {
         @extend .GenericButton-Theme_03;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
         width: 200px;
       }
     }

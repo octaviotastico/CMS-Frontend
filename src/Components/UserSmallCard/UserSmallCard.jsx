@@ -1,30 +1,35 @@
 // React
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+// Libraries
+import jwt from "jwt-decode";
 
 // Material
-import {
-  ClickAwayListener,
-  Grid,
-  IconButton,
-  Input,
-  InputAdornment,
-  Typography,
-} from "@material-ui/core";
+import { ClickAwayListener, Grid, Typography } from "@material-ui/core";
 
 // Styles
 import "./UserSmallCard.scss";
 
-const UserSmallCard = ({ name, profilePic }) => {
-  const [username, setUsername] = useState("Octaviotastico");
-  const [usernameEdit, setUsernameEdit] = useState(false);
+const UserSmallCard = ({ profilePic }) => {
+  const [username, setUsername] = useState("");
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    try {
+      const userData = jwt(sessionStorage.getItem("token"));
+      setUsername(userData.username);
+    } catch (error) {
+      console.log({ error });
+      setUsername("");
+    }
+  }, []);
 
   return (
     <ClickAwayListener onClickAway={() => setOpen(false)}>
       <Grid className="UserSmallCard">
         <Grid className="Button" onClick={() => setOpen(!open)}>
           <Grid item xs={8} className="Text">
-            <Typography className="UserName">{name}</Typography>
+            <Typography className="UserName">{username}</Typography>
             <Typography className="Subtitle">Profile</Typography>
           </Grid>
           <Grid item xs={4} className="Picture">
@@ -33,39 +38,20 @@ const UserSmallCard = ({ name, profilePic }) => {
         </Grid>
 
         {open && (
-          <Grid className="SmallCardContent">
+          <Grid className="FloatingMenu">
             <Grid className="TitleContainer">
-              <img src="/icons/configs.svg" className="Icons" alt="Configs" />
-              <Typography className="Title">Account</Typography>
-            </Grid>
-            <Grid>
-              <Input
-                label="Username"
-                value={username}
-                onChange={(e) => {
-                  if (usernameEdit) setUsername(e.target.value);
-                }}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      onClick={() => setUsernameEdit(!usernameEdit)}
-                      style={usernameEdit ? { backgroundColor: "#AAAAAA" } : null}
-                    >
-                      <img src="/icons/edit.svg" alt="Edit" />
-                    </IconButton>
-                  </InputAdornment>
-                }
-              />
+              <img src="/icons/profile.svg" className="Icons" alt="Profile" />
+              <Typography className="Title">Profile</Typography>
             </Grid>
 
             <Grid className="TitleContainer">
-              <img src="/icons/settings.svg" className="Icons" alt="Configs" />
+              <img src="/icons/settings.svg" className="Icons" alt="Settings" />
               <Typography className="Title">Settings</Typography>
             </Grid>
 
             <Grid className="TitleContainer">
-              <img src="/icons/logout.svg" className="Icons" alt="Configs" />
-              <Typography className="Title">Logout</Typography>
+              <img src="/icons/logout.svg" className="Icons" alt="Logout" />
+              <Typography className="Title">Log out</Typography>
             </Grid>
           </Grid>
         )}

@@ -82,6 +82,16 @@ const Learning = () => {
               </Grid>
             </Grid>
           ))}
+          {!articles.length && (
+            <Grid className="NoArticlesContainer">
+              <img className="NoArticlesIcon" src="/icons/search_off.svg" alt="No articles found" />
+              <Typography className="NoArticles">
+                There are no articles yet.
+                <br />
+                Please try again later, or write the first one yourself!
+              </Typography>
+            </Grid>
+          )}
         </Grid>
         <Grid item xs={4} className="FiltersContainer">
           <Grid className={`CreateContainer-${theme}`}>

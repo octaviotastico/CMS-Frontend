@@ -19,7 +19,7 @@ const LearningCard = ({ title, subtitle, content, author, tags, preview, id }) =
   return (
     <Grid
       className={`LearningCard-${theme}`}
-      onClick={() => navigate("/learning/article/read", true, { id })}
+      onClick={() => navigate("/learning/article/read", false, { id })}
     >
       {typeof preview === "string" ? (
         <img
@@ -35,10 +35,17 @@ const LearningCard = ({ title, subtitle, content, author, tags, preview, id }) =
           <Grid>
             <Typography className="Title">{title}</Typography>
             <Typography className="Subtitle">{subtitle}</Typography>
+            <Typography className="By">
+              By: <span className="Author">{author}</span>
+            </Typography>
           </Grid>
-          <Typography className="By">
-            By: <span className="Author">{author}</span>
-          </Typography>
+          <Grid container className="TagsContainer">
+            {tags.map((tag) => (
+              <Grid item className={`Tag-${theme}`} key={tag}>
+                <Typography className="TagText">{tag}</Typography>
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
 
         <hr className={`LearningCardDivider-${theme}`} />
@@ -46,18 +53,10 @@ const LearningCard = ({ title, subtitle, content, author, tags, preview, id }) =
         <Grid item className="LearningCardDescription">
           <Grid>
             <Typography className="Description">
-              {content}
+              {content.replaceAll("#", "")}
               ...
             </Typography>
             <Typography className={`ReadMore-${theme}`}>Read more</Typography>
-          </Grid>
-
-          <Grid container className="TagsContainer">
-            {tags.map((tag) => (
-              <Grid item className={`Tag-${theme}`} key={tag}>
-                <Typography className="TagText">{tag}</Typography>
-              </Grid>
-            ))}
           </Grid>
         </Grid>
       </Grid>

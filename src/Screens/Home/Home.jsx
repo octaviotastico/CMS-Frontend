@@ -51,7 +51,7 @@ const Home = () => {
       <Typography className={`MainTitle-${theme}`}>Wellcome again, Octavio</Typography>
 
       <Grid className="BodyAndFilters">
-        <Grid item xs={8} className="BodyContainer">
+        <Grid item xs={12} className="BodyContainer">
           <Typography className={`Subtitles-${theme}`}>
             Current Events{" "}
             <span className="LiveEvent">
@@ -132,15 +132,14 @@ const Home = () => {
             ))}
           </Grid>
         </Grid>
-
-        <Grid item xs={4} className={`CreateContainer-${theme}`}>
-          <ButtonGroup onClick={() => navigate("/learning/article/write")}>
-            <Button className="CreateButton">
-              <EventTwoTone />
-            </Button>
-            <Button className="CreateButton">Create A New Event</Button>
-          </ButtonGroup>
-        </Grid>
+      </Grid>
+      <Grid item xs={4} className={`CreateContainer-${theme}`}>
+        <ButtonGroup onClick={() => navigate("/calendar/create")}>
+          <Button className="CreateButton">
+            <EventTwoTone />
+          </Button>
+          <Button className="CreateButton">Create A New Event</Button>
+        </ButtonGroup>
       </Grid>
     </Container>
   );

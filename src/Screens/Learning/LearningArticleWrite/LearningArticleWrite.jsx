@@ -74,19 +74,19 @@ const LearningArticleWrite = () => {
 
         <Grid style={{ display: "flex", justifyContent: "space-between" }}>
           <Grid className="TextInputContainer">
-            <Typography className={`ArticleCategoryTitle-${theme}`}>Article Category</Typography>
             <PSelectCreatable
               isClearable
+              fieldName="Article Category"
               chosenOptions={selectedCategory}
               setChosenOption={setSelectedCategory}
               options={categories}
             />
           </Grid>
           <Grid className="TextInputContainer">
-            <Typography className={`ArticleTagTitle-${theme}`}>Article Tags</Typography>
             <PSelectCreatable
               multiple
               isClearable
+              fieldName="Article Tags"
               chosenOptions={selectedTags}
               setChosenOption={setSelectedTags}
               options={tags}
@@ -94,6 +94,7 @@ const LearningArticleWrite = () => {
           </Grid>
         </Grid>
 
+        {console.log({ preview })}
         <Grid>
           <Typography className={`ArticlePreviewTitle-${theme}`}>Article Preview</Typography>
           <PDropzone setSelectedFile={setPreview} acceptImages />
@@ -143,8 +144,6 @@ const LearningArticleWrite = () => {
                 subtitle,
                 content,
                 preview,
-                author: "TODO",
-                description: "TODO",
                 category: selectedCategory.value,
                 tags: selectedTags.map((elem) => elem.value),
               }).then(() => {

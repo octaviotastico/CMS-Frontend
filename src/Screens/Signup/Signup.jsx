@@ -30,7 +30,7 @@ const Signup = () => {
     try {
       response = await signup(username, password, firstName, lastName, email);
     } catch (err) {
-      setError("Invalid credentials, try again");
+      setError("An error has ocurred, please try again");
     }
 
     console.log("Signup response", response);

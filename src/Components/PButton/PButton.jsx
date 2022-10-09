@@ -8,11 +8,7 @@ import { Button } from "@material-ui/core";
 import "./PButton.scss";
 
 const PButton = ({ text, action, extraStyle }) => (
-  <Button
-    className="GlassButton-01 PButton"
-    onClick={() => action()}
-    style={extraStyle}
-  >
+  <Button className="GlassButton-01 PButton" onClick={() => action()} style={extraStyle}>
     {text}
   </Button>
 );

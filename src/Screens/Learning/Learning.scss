@@ -26,15 +26,34 @@
     .BodyContainer {
       display: flex;
       flex-direction: column;
-      margin-right: 5px;
+      padding-right: 15px;
+
+      .NoArticlesContainer {
+        display: flex;
+        align-items: center;
+        margin-top: 50px;
+
+        .NoArticlesIcon {
+          margin-right: 10px;
+          width: 50px;
+        }
+        .NoArticles {
+          @extend .Text;
+          text-align: left;
+          font-weight: 500;
+          font-size: 1.3vw;
+        }
+      }
+
 
       .Category {
         width: 100%;
         margin-bottom: 20px;
+        margin-left: 0 !important;
 
         .CategoryTitleContainer {
           text-align: left;
-          margin-top: 30px !important;
+          padding-left: 0;
 
           .CategoryTitle {
             @extend .Text;
@@ -52,7 +71,7 @@
     }
 
     .FiltersContainer {
-      padding-top: 77px;
+      padding-top: 64px;
 
       .CreateContainer {
         display: flex;
@@ -60,7 +79,7 @@
         border-radius: 10px;
         height: 100px;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
     }
   }
@@ -71,7 +90,7 @@
   .LearningTitle, .LearningSubtitle {
     text-shadow: 0 0 3px #323236;
   }
-  .Category {
+  .Category, .NoArticles {
     color: $textPrimary;
   }
   .CreateButton {
@@ -90,7 +109,7 @@
     text-shadow: 0 0 3px #c3cfe2;
     color: #323236;
   }
-  .Category {
+  .Category, .NoArticles {
     color: #323236;
   }
   .CreateButton {
@@ -109,7 +128,7 @@
     text-shadow: 0 0 3px #323236;
     color: $textPrimary;
   }
-  .Category {
+  .Category, .NoArticles {
     color: $textPrimary;
   }
   .CreateButton {
