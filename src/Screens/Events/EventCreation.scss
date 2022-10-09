@@ -1,0 +1,148 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.MuiContainer-root {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.EventCreationScreen {
+  .EventInfoContainer,
+  .ActionButtons {
+    border-radius: 10px;
+    padding: 35px;
+  }
+
+  .ActionButtons {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .TextInputContainer {
+    width: calc(50% - 5px);
+  }
+
+  .EventTagTitle,
+  .EventPreviewTitle {
+    @extend .Text;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: left;
+    margin-top: 15px;
+  }
+
+  .ActionButtons {
+    .ButtonGroup {
+      margin: 0 10px;
+    }
+  }
+}
+
+.EventCreationScreen-Theme_01 {
+  @extend .EventCreationScreen;
+
+  .EventInfoContainer, .ActionButtons {
+    @extend .ComponentSurface-Theme_01;
+  }
+
+  .EventCategoryTitle-Theme_01,
+  .EventTagTitle-Theme_01,
+  .EventPreviewTitle-Theme_01 {
+    @extend .Titles;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: white;
+    margin-top: 1.3rem;
+  }
+
+  .ActionButtons {
+    .ButtonGroup {
+      .ControlButton {
+        @extend .GenericButton-Theme_01;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .ControlButtonTxt {
+        @extend .GenericButton-Theme_01;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        width: 200px;
+      }
+    }
+  }
+}
+
+.EventCreationScreen-Theme_02 {
+  @extend .EventCreationScreen;
+
+  .EventInfoContainer, .ActionButtons {
+    @extend .ComponentSurface-Theme_02;
+  }
+
+  .EventCategoryTitle-Theme_02,
+  .EventTagTitle-Theme_02,
+  .EventPreviewTitle-Theme_02 {
+    @extend .Titles;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #2c2d36;
+    margin-top: 1.3rem;
+  }
+
+  .ActionButtons {
+    .ButtonGroup {
+      .ControlButton {
+        @extend .GenericButton-Theme_02;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .ControlButtonTxt {
+        @extend .GenericButton-Theme_02;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        width: 200px;
+      }
+    }
+  }
+
+  .EventPreviewTitle {
+    color: white;
+  }
+}
+
+.EventCreationScreen-Theme_03 {
+  @extend .EventCreationScreen;
+
+  .EventInfoContainer, .ActionButtons {
+    @extend .ComponentSurface-Theme_03;
+  }
+
+  .EventCategoryTitle-Theme_03,
+  .EventTagTitle-Theme_03,
+  .EventPreviewTitle-Theme_03 {
+    @extend .Titles;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: white;
+    margin-top: 1.3rem;
+  }
+
+  .ActionButtons {
+    .ButtonGroup {
+      .ControlButton {
+        @extend .GenericButton-Theme_03;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .ControlButtonTxt {
+        @extend .GenericButton-Theme_03;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        width: 200px;
+      }
+    }
+  }
+}

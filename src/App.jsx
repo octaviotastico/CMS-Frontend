@@ -23,6 +23,7 @@ import Home from "./Screens/Home/Home";
 import Learning from "./Screens/Learning/Learning";
 import LearningArticleRead from "./Screens/Learning/LearningArticleRead/LearningArticleRead";
 import LearningArticleWrite from "./Screens/Learning/LearningArticleWrite/LearningArticleWrite";
+import EventCreation from "./Screens/Events/EventCreation";
 import Login from "./Screens/LogIn/Login";
 import Meetings from "./Screens/Meetings/Meetings";
 import NotFound from "./Screens/Errors/404/404";
@@ -40,6 +41,7 @@ const routes = {
   "/learning": () => <Learning />,
   "/learning/article/write": () => <LearningArticleWrite />,
   "/learning/article/read": () => <LearningArticleRead />,
+  "/calendar/create": () => <EventCreation />,
   "/meetings": () => <Meetings />,
   "/people": () => <People />,
 };
@@ -80,7 +82,7 @@ const App = () => {
   const workingPath = getWorkingPath();
   const theme = useSelector((state) => state.theme);
 
-  // If because we don't want neither header nor menu
+  // We don't want neither header nor menu
   const outsideAppRoutes = ["/", "/login", "/signup"];
 
   if (outsideAppRoutes.includes(workingPath)) {
