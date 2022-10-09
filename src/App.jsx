@@ -82,7 +82,7 @@ const App = () => {
   const workingPath = getWorkingPath();
   const theme = useSelector((state) => state.theme);
 
-  // We don't want neither header nor menu
+  // We don't want neither header nor menu.
   const outsideAppRoutes = ["/", "/login", "/signup"];
 
   if (outsideAppRoutes.includes(workingPath)) {

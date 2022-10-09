@@ -1,9 +1,11 @@
 // React
 import React, { useEffect, useState } from "react";
 
+// Libraries
+import jwt from "jwt-decode";
+
 // Material
 import { Button, ButtonGroup, Container, Grid, Tooltip, Typography } from "@material-ui/core";
-
 import {
   EventTwoTone,
   EventNoteTwoTone,
@@ -31,8 +33,17 @@ const Home = () => {
   const [currentEvents, setCurrentEvents] = useState([]);
   const [pastEvents, setPastEvents] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
+    try {
+      const tokenData = jwt(sessionStorage.getItem("token"));
+      setUserData(tokenData);
+    } catch (error) {
+      console.log({ error });
+      setUserData("");
+    }
+
     getCurrentEvents().then((data) => {
       setCurrentEvents(data);
     });
@@ -48,10 +59,12 @@ const Home = () => {
 
   return (
     <Container disableGutters maxWidth={false} className={`Home-${theme}`}>
-      <Typography className={`MainTitle-${theme}`}>Wellcome again, Octavio</Typography>
+      <Typography className={`MainTitle-${theme}`}>
+        Wellcome again, {userData.firstName} {userData.lastName} :)
+      </Typography>
 
       <Grid className="BodyAndFilters">
-        <Grid item xs={12} className="BodyContainer">
+        <Grid className="BodyContainer">
           <Typography className={`Subtitles-${theme}`}>
             Current Events{" "}
             <span className="LiveEvent">
@@ -131,15 +144,17 @@ const Home = () => {
               />
             ))}
           </Grid>
+
+          <Typography className={`Subtitles-${theme}`}>
+            Create a new event! <HistoryRounded className="PastEvent" />
+          </Typography>
+          <ButtonGroup onClick={() => navigate("/calendar/create")}>
+            <Button className="CreateButton">
+              <EventTwoTone />
+            </Button>
+            <Button className="CreateButton">Create A New Event</Button>
+          </ButtonGroup>
         </Grid>
-      </Grid>
-      <Grid item xs={4} className={`CreateContainer-${theme}`}>
-        <ButtonGroup onClick={() => navigate("/calendar/create")}>
-          <Button className="CreateButton">
-            <EventTwoTone />
-          </Button>
-          <Button className="CreateButton">Create A New Event</Button>
-        </ButtonGroup>
       </Grid>
     </Container>
   );
