@@ -3,10 +3,12 @@ import React from "react";
 
 // Material
 import { Container, Grid } from "@material-ui/core";
-import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
-import ChromeReaderModeTwoToneIcon from "@material-ui/icons/ChromeReaderModeTwoTone";
-import VideoCallTwoToneIcon from "@material-ui/icons/VideoCallTwoTone";
-import CommentTwoToneIcon from "@material-ui/icons/CommentTwoTone";
+import {
+  HomeTwoTone,
+  ChromeReaderModeTwoTone,
+  VideoCallTwoTone,
+  CommentTwoTone,
+} from "@mui/icons-material";
 
 // Redux
 import { useSelector } from "react-redux";
@@ -25,10 +27,11 @@ import LearningArticleRead from "./Screens/Learning/LearningArticleRead/Learning
 import LearningArticleWrite from "./Screens/Learning/LearningArticleWrite/LearningArticleWrite";
 import EventCreation from "./Screens/Events/EventCreation";
 import Login from "./Screens/LogIn/Login";
+import Signup from "./Screens/Signup/Signup";
 import Meetings from "./Screens/Meetings/Meetings";
 import NotFound from "./Screens/Errors/404/404";
 import People from "./Screens/People/People";
-import Signup from "./Screens/Signup/Signup";
+import Profile from "./Screens/Profile/Profile";
 
 // Styles
 import "./App.scss";
@@ -38,6 +41,7 @@ const routes = {
   "/login": () => <Login />,
   "/signup": () => <Signup />,
   "/home": () => <Home />,
+  "/profile": () => <Profile />,
   "/learning": () => <Learning />,
   "/learning/article/write": () => <LearningArticleWrite />,
   "/learning/article/read": () => <LearningArticleRead />,
@@ -50,28 +54,28 @@ const buttonList = [
   {
     text: "Home",
     screen: "/home",
-    icon: () => <HomeTwoToneIcon />,
+    icon: () => <HomeTwoTone />,
     tooltipOpen: "News, events, and more!",
     tooltipClosed: "Home Screen",
   },
   {
     text: "Learning",
     screen: "/learning",
-    icon: () => <ChromeReaderModeTwoToneIcon />,
+    icon: () => <ChromeReaderModeTwoTone />,
     tooltipOpen: "Learn something new by reading articles, or teach people writting your own :)",
     tooltipClosed: "Learning Screen",
   },
   {
     text: "Meetings",
     screen: "/meetings",
-    icon: () => <VideoCallTwoToneIcon />,
+    icon: () => <VideoCallTwoTone />,
     tooltipOpen: "Connect with people by making videocalls with them",
     tooltipClosed: "Meetings Screen",
   },
   {
     text: "People",
     screen: "/people",
-    icon: () => <CommentTwoToneIcon />,
+    icon: () => <CommentTwoTone />,
     tooltipOpen: "Discover new people!",
     tooltipClosed: "People Screen",
   },
