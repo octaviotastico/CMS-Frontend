@@ -60,9 +60,9 @@ export const postArticle = async (article) => {
   const token = sessionStorage.getItem("token");
   const response = axios.post(`${API_URL}/learning/articles`, fd, {
     headers: {
-      "Content-Type": "multipart/form-data",
       Accept: "application/json",
       Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
     },
   });
   return response.data;
