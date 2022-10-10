@@ -7,12 +7,13 @@ import jwt from "jwt-decode";
 // Material
 import { Button, ButtonGroup, Container, Grid, Tooltip, Typography } from "@material-ui/core";
 import {
+  AddTwoTone,
   EventTwoTone,
   EventNoteTwoTone,
   FiberManualRecord,
   HistoryRounded,
   Info,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 
 // Redux
 import { useSelector } from "react-redux";
@@ -71,7 +72,7 @@ const Home = () => {
               <FiberManualRecord />
               LIVE
               <Tooltip
-                title="These events may not be broadcasting right now (so technically they may not be live), but this is the time when the broadcasting data is coming in."
+                title='Perhaps these events are not being transmitted at the moment, thanks to the delay that exists due to the long distances, but this is the moment in which the signal is reaching us "live".'
                 placement="right"
                 arrow
               >
@@ -146,7 +147,7 @@ const Home = () => {
           </Grid>
 
           <Typography className={`Subtitles-${theme}`}>
-            Create a new event! <HistoryRounded className="PastEvent" />
+            Create a new event! <AddTwoTone className="NewEvent" />
           </Typography>
           <ButtonGroup onClick={() => navigate("/calendar/create")}>
             <Button className="CreateButton">

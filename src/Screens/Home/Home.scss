@@ -5,7 +5,8 @@
   color: white;
   text-align: left;
 
-  .MainTitle, .Subtitles {
+  .MainTitle,
+  .Subtitles {
     @extend .Titles;
     text-align: left;
     font-weight: 600;
@@ -29,6 +30,11 @@
   }
 
   .UpcomingEvent {
+    margin-left: 10px;
+    font-size: 2vw;
+  }
+
+  .NewEvent {
     margin-left: 10px;
     font-size: 2vw;
   }
@@ -87,7 +93,7 @@
         display: flex;
         align-self: flex-start;
         color: #e44a4a;
-        margin-top: 10px;
+        width: 15px;
       }
     }
   }
@@ -190,4 +196,5 @@
   .CreateContainer-Theme_03 {
     @extend .CreateContainer;
     @extend .ComponentSurface-Theme_03;
-  }}
+  }
+}

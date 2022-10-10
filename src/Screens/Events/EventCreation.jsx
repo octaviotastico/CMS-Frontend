@@ -72,7 +72,6 @@ const EventCreation = () => {
           </Grid>
         </Grid>
 
-        {console.log({ preview })}
         <Grid>
           <Typography className={`EventPreviewTitle-${theme}`}>Event Preview</Typography>
           <PDropzone setSelectedFile={setPreview} acceptImages />

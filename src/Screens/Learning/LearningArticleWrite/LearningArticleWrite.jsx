@@ -94,7 +94,6 @@ const LearningArticleWrite = () => {
           </Grid>
         </Grid>
 
-        {console.log({ preview })}
         <Grid>
           <Typography className={`ArticlePreviewTitle-${theme}`}>Article Preview</Typography>
           <PDropzone setSelectedFile={setPreview} acceptImages />

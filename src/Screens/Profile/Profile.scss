@@ -1,0 +1,181 @@
+@import "../../Utils/StyleClasses.scss";
+@import "../../Utils/ColorVariables.scss";
+
+.ProfileScreen {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-radius: 10px;
+  padding: 24px;
+
+  .ProfilePictureContainer {
+    width: 25%;
+    height: auto;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    .ProfilePicture {
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .ProfilePictureOverlay {
+      top: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      text-align: center;
+      box-sizing: border-box;
+      transition: 0.5s ease;
+      opacity: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .ProfilePictureOverlay:hover {
+    opacity: 1;
+  }
+
+  .SectionTitle {
+    @extend .Titles;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .ProfileText {
+    @extend .Text;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ProfileSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 90%;
+    padding: 1rem 5rem;
+    border-radius: 10px;
+  }
+
+  .ModalButtons {
+    @extend .Text;
+    text-transform: none !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    border-radius: 5px !important;
+    padding: 5px 15px !important;
+    margin-top: 10px !important;
+  }
+}
+
+.ProfileScreen-Theme_01 {
+  @extend .ProfileScreen;
+  @extend .ComponentSurface-Theme_01;
+
+  .SectionTitle {
+    @extend .SectionTitle;
+    color: white;
+  }
+
+  .ProfileText {
+    @extend .ProfileText;
+    color: white;
+  }
+
+  .ProfilePicture {
+    @extend .ProfilePicture;
+    @extend .ComponentSurface-Theme_01;
+  }
+
+  .ProfileSection {
+    @extend .ProfileSection;
+    @extend .ComponentSurface-Theme_01;
+  }
+
+  .ModalButtons {
+    @extend .ModalButtons;
+    @extend .GenericButton-Theme_01;
+    @extend .ComponentSurface-Theme_01;
+    color: white;
+  }
+}
+
+.ProfileScreen-Theme_02 {
+  @extend .ProfileScreen;
+  @extend .ComponentSurface-Theme_02;
+
+  .SectionTitle {
+    @extend .SectionTitle;
+    color: #2c2d36;
+  }
+
+  .ProfileText {
+    @extend .ProfileText;
+    color: #2c2d36;
+  }
+
+  .ProfilePicture {
+    @extend .ProfilePicture;
+    @extend .ComponentSurface-Theme_02;
+  }
+
+  .ProfileSection {
+    @extend .ProfileSection;
+    @extend .ComponentSurface-Theme_02;
+  }
+
+  .ModalButtons {
+    @extend .ModalButtons;
+    @extend .GenericButton-Theme_02;
+    @extend .ComponentSurface-Theme_02;
+    color: #2c2d36;
+  }
+}
+
+.ProfileScreen-Theme_03 {
+  @extend .ProfileScreen;
+  @extend .ComponentSurface-Theme_03;
+
+  .SectionTitle {
+    @extend .SectionTitle;
+    color: white;
+  }
+
+  .ProfileText {
+    @extend .ProfileText;
+    color: white;
+  }
+
+  .ProfilePicture {
+    @extend .ProfilePicture;
+    @extend .ComponentSurface-Theme_03;
+  }
+
+  .ProfileSection {
+    @extend .ProfileSection;
+    @extend .ComponentSurface-Theme_03;
+  }
+
+  .ModalButtons {
+    @extend .ModalButtons;
+    @extend .GenericButton-Theme_03;
+    @extend .ComponentSurface-Theme_03;
+    color: white;
+  }
+}
