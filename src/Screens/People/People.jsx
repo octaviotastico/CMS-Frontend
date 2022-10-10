@@ -34,7 +34,6 @@ const People = () => {
   return (
     <Container disableGutters maxWidth={false} className="People">
       <Grid className="TitleContainer">
-        <Typography className="Title">Meet your team!</Typography>
         <Typography className="Title">They&apos;re awesome people just like you.</Typography>
       </Grid>
 

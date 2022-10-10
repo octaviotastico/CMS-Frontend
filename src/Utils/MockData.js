@@ -80,7 +80,7 @@ export const LearningFilter = [
 
 export const PeopleData = [
   {
-    category: "New ones",
+    category: "Category 1",
     data: [
       {
         name: "Octavio Percivaldi",
@@ -103,42 +103,6 @@ export const PeopleData = [
       {
         name: "Gaston Aznarez",
         position: "Hack things",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["xD", "xD", "xD"],
-      },
-      {
-        name: "Rakun",
-        position: "CEO of Nothing",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["xD", "xD", "xD"],
-      },
-      {
-        name: "CarusoX",
-        position: "Position 1234",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["xD", "xD", "xD"],
-      },
-      {
-        name: "CarusoX",
-        position: "Position 1234",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["xD", "xD", "xD"],
-      },
-      {
-        name: "CarusoX",
-        position: "Position 1234",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["xD", "xD", "xD"],
-      },
-      {
-        name: "CarusoX",
-        position: "Position 1234",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["xD", "xD", "xD"],
-      },
-      {
-        name: "CarusoX",
-        position: "Position 1234",
         profilePic: "/images/mock/user.jpg",
         skills: ["xD", "xD", "xD"],
       },
@@ -190,12 +154,6 @@ export const PeopleData = [
         skills: ["xD", "xD", "xD"],
       },
       {
-        name: "Rakun",
-        position: "Trolazo",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["xD", "xD", "xD"],
-      },
-      {
         name: "CarusoX",
         position: "Position 1234",
         profilePic: "/images/mock/user.jpg",
@@ -204,59 +162,19 @@ export const PeopleData = [
     ],
   },
   {
-    category: "Designers",
+    category: "Profes",
     data: [
       {
-        name: "Sofia Santucho",
-        position: "UX/UI",
+        name: "Nico wolovicccc",
+        position: "Profe de SO",
         profilePic: "/images/mock/user.jpg",
-        skills: ["Figma", "Sketch", "Adobe XD"],
+        skills: ["skill1", "skill2", "skill3"],
       },
       {
-        name: "Chopis uwuwuwu",
-        position: "UX/UI",
+        name: "Juan fraireee",
+        position: "Profe de tesis :)",
         profilePic: "/images/mock/user.jpg",
-        skills: ["Figma", "Sketch", "Adobe XD"],
-      },
-      {
-        name: "Chopchop 64",
-        position: "UX/UI",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["Figma", "Sketch", "Adobe XD"],
-      },
-      {
-        name: "Chopis Cartucho",
-        position: "UX/UI",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["Figma", "Sketch", "Adobe XD"],
-      },
-    ],
-  },
-  {
-    category: "Medics",
-    data: [
-      {
-        name: "Tefi xD",
-        position: "Medica de la empresa",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["Asd", "Asd", "Asd"],
-      },
-    ],
-  },
-  {
-    category: "Human Resources",
-    data: [
-      {
-        name: "HHRR1",
-        position: "Human Resources",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["Asd", "Asd", "Asd"],
-      },
-      {
-        name: "HHRR2",
-        position: "Human Resources",
-        profilePic: "/images/mock/user.jpg",
-        skills: ["Asd", "Asd", "Asd"],
+        skills: ["skill1", "skill2", "skill55"],
       },
     ],
   },
