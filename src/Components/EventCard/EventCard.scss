@@ -27,14 +27,12 @@
         border-radius: 100px;
       }
       .UserName {
-        @extend .Titles;
         font-size: 1.4rem;
         font-weight: 500;
         margin-left: 5px;
       }
     }
     .UserDesc {
-      @extend .Titles;
       font-size: 1.2rem;
       font-weight: 400;
     }
@@ -133,52 +131,56 @@
 .EventCard-Theme_01 {
   @extend .EventCard;
 
-  .ExpositorInfo-Theme_01 {
-    @extend .ExpositorInfo, .ComponentSurface-Theme_01;
+  .ExpositorInfo {
+    @extend .ExpositorInfo;
+    @extend .ComponentSurface-Theme_01;
   }
-  .EventInfo-Theme_01 {
-    @extend .EventInfo, .ComponentSurface-Theme_01;
+  .EventInfo {
+    @extend .EventInfo;
+    @extend .ComponentSurface-Theme_01;
   }
 
   // User Info
-  .UserName-Theme_01 {
+  .UserName {
+    @extend .Titles;
     @extend .UserName;
     color: lavenderblush;
   }
-  .UserDesc-Theme_01 {
+  .UserDesc {
+    @extend .Titles;
     @extend .UserDesc;
     color: lavenderblush;
   }
 
   // Event Dates
-  .EventDate-Theme_01 {
+  .EventDate {
     @extend .EventDate;
     color: lavenderblush;
   }
-  .EventMonth-Theme_01 {
+  .EventMonth {
     @extend .EventMonth;
     color: lavenderblush;
   }
 
   // Event Info
-  .MainTitle-Theme_01 {
+  .MainTitle {
     color: lavenderblush;
   }
-  .EventTitle-Theme_01 {
+  .EventTitle {
     @extend .EventTitle;
     color: lavenderblush;
   }
-  .EventDesc-Theme_01 {
+  .EventDesc {
     @extend .EventDesc;
     color: lavenderblush;
   }
 
   // Event Actions
-  .SocialMediaButton-Theme_01 {
+  .SocialMediaButton {
     @extend .SocialMediaButton;
     color: lavenderblush;
   }
-  .EventButton-Theme_01 {
+  .EventButton {
     @extend .EventButton;
     color: lavenderblush;
   }
@@ -187,54 +189,56 @@
 .EventCard-Theme_02 {
   @extend .EventCard;
 
-  .ExpositorInfo-Theme_02 {
-    @extend .ExpositorInfo, .ComponentSurface-Theme_02;
-    border: 1px solid rgba(133, 133, 133, 0.5);
+  .ExpositorInfo {
+    @extend .ExpositorInfo;
+    @extend .ComponentSurface-Theme_02;
   }
-  .EventInfo-Theme_02 {
-    @extend .EventInfo, .ComponentSurface-Theme_02;
-    border: 1px solid rgba(133, 133, 133, 0.5);
+  .EventInfo {
+    @extend .EventInfo;
+    @extend .ComponentSurface-Theme_02;
   }
 
   // User Info
-  .UserName-Theme_02 {
+  .UserName {
+    @extend .Titles;
     @extend .UserName;
     color: #323236;
   }
-  .UserDesc-Theme_02 {
+  .UserDesc {
+    @extend .Titles;
     @extend .UserDesc;
     color: #323236;
   }
 
   // Event Dates
-  .EventDate-Theme_02 {
+  .EventDate {
     @extend .EventDate;
     color: #323236;
   }
-  .EventMonth-Theme_02 {
+  .EventMonth {
     @extend .EventMonth;
     color: #323236;
   }
 
   // Event Info
-  .MainTitle-Theme_02 {
+  .MainTitle {
     color: #323236;
   }
-  .EventTitle-Theme_02 {
+  .EventTitle {
     @extend .EventTitle;
     color: #323236;
   }
-  .EventDesc-Theme_02 {
+  .EventDesc {
     @extend .EventDesc;
     color: #323236;
   }
 
   // Event Actions
-  .SocialMediaButton-Theme_02 {
+  .SocialMediaButton {
     @extend .SocialMediaButton;
     color: #323236;
   }
-  .EventButton-Theme_02 {
+  .EventButton {
     @extend .EventButton;
     color: #323236;
   }
@@ -243,52 +247,56 @@
 .EventCard-Theme_03 {
   @extend .EventCard;
 
-  .ExpositorInfo-Theme_03 {
-    @extend .ExpositorInfo, .ComponentSurface-Theme_03_2;
+  .ExpositorInfo {
+    @extend .ExpositorInfo;
+    @extend .ComponentSurface-Theme_03_2;
   }
-  .EventInfo-Theme_03 {
-    @extend .EventInfo, .ComponentSurface-Theme_03_2;
+  .EventInfo {
+    @extend .EventInfo;
+    @extend .ComponentSurface-Theme_03_2;
   }
 
   // User Info
-  .UserName-Theme_03 {
+  .UserName {
+    @extend .Titles;
     @extend .UserName;
     color: lavenderblush;
   }
-  .UserDesc-Theme_03 {
+  .UserDesc {
+    @extend .Titles;
     @extend .UserDesc;
     color: lavenderblush;
   }
 
   // Event Dates
-  .EventDate-Theme_03 {
+  .EventDate {
     @extend .EventDate;
     color: lavenderblush;
   }
-  .EventMonth-Theme_03 {
+  .EventMonth {
     @extend .EventMonth;
     color: lavenderblush;
   }
 
   // Event Info
-  .MainTitle-Theme_03 {
+  .MainTitle {
     color: lavenderblush;
   }
-  .EventTitle-Theme_03 {
+  .EventTitle {
     @extend .EventTitle;
     color: lavenderblush;
   }
-  .EventDesc-Theme_03 {
+  .EventDesc {
     @extend .EventDesc;
     color: lavenderblush;
   }
 
   // Event Actions
-  .SocialMediaButton-Theme_03 {
+  .SocialMediaButton {
     @extend .SocialMediaButton;
     color: lavenderblush;
   }
-  .EventButton-Theme_03 {
+  .EventButton {
     @extend .EventButton;
     color: lavenderblush;
   }

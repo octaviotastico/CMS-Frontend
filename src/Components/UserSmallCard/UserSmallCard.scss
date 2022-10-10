@@ -76,13 +76,17 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      margin: 10px;
+      padding: 10px;
       cursor: pointer;
+    }
+
+    .TitleContainer:hover {
+      background-color: #f2f2f2;
     }
 
     .Icons {
       @extend .NeumorphicSurface;
-      // background-color: orange;
+      color: black;
       box-shadow: 0 0 3px rgba(#060822, 0.25);
       margin-right: 15px;
       border-radius: 10px;

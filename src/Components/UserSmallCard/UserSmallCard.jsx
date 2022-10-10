@@ -6,9 +6,24 @@ import jwt from "jwt-decode";
 
 // Material
 import { ClickAwayListener, Grid, Typography } from "@material-ui/core";
+import { AccountCircleTwoTone, SettingsTwoTone, ExitToAppTwoTone } from "@material-ui/icons";
+
+// Router
+import { navigate } from "../../Router";
 
 // Styles
 import "./UserSmallCard.scss";
+
+const handleProfile = (setOpen) => {
+  setOpen(false);
+  navigate("/profile");
+};
+
+const handleLogout = (setOpen) => {
+  setOpen(false);
+  localStorage.removeItem("token");
+  navigate("/login");
+};
 
 const UserSmallCard = ({ profilePic }) => {
   const [username, setUsername] = useState("");
@@ -28,29 +43,29 @@ const UserSmallCard = ({ profilePic }) => {
     <ClickAwayListener onClickAway={() => setOpen(false)}>
       <Grid className="UserSmallCard">
         <Grid className="Button" onClick={() => setOpen(!open)}>
-          <Grid item xs={8} className="Text">
+          <Grid className="Text">
             <Typography className="UserName">{username}</Typography>
             <Typography className="Subtitle">Profile</Typography>
           </Grid>
-          <Grid item xs={4} className="Picture">
+          <Grid className="Picture">
             <img className="ProfilePic" src={profilePic} alt="ME" />
           </Grid>
         </Grid>
 
         {open && (
           <Grid className="FloatingMenu">
-            <Grid className="TitleContainer">
-              <img src="/icons/profile.svg" className="Icons" alt="Profile" />
+            <Grid className="TitleContainer" onClick={() => handleProfile(setOpen)}>
+              <AccountCircleTwoTone className="Icons" />
               <Typography className="Title">Profile</Typography>
             </Grid>
 
             <Grid className="TitleContainer">
-              <img src="/icons/settings.svg" className="Icons" alt="Settings" />
+              <SettingsTwoTone className="Icons" />
               <Typography className="Title">Settings</Typography>
             </Grid>
 
-            <Grid className="TitleContainer">
-              <img src="/icons/logout.svg" className="Icons" alt="Logout" />
+            <Grid className="TitleContainer" onClick={() => handleLogout(setOpen)}>
+              <ExitToAppTwoTone className="Icons" />
               <Typography className="Title">Log out</Typography>
             </Grid>
           </Grid>

@@ -2,22 +2,39 @@
 @import "../../Utils/ColorVariables.scss";
 
 .PButton {
-  position: relative;
-  // background-color: #323236 !important;
-  text-transform: none !important;
-  border-radius: 3px !important;
-  color: white !important;
-  text-shadow: 0 0 3px #323236;
-  font-size: 15px !important;
-  box-shadow: inset 0 0 0.01px 0 #323236, inset 5px 0 $primary !important;
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
+  @extend .Text;
+  border-radius: 5px;
+  text-transform: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 5px 15px;
 }
 
-.PButton:hover {
-  -webkit-transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
-  -moz-transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
-  transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
-  box-shadow: inset 20vw 0 0 0 $gradient1 !important;
-  font-weight: bold;
+.PButton-Theme_01 {
+  @extend .GenericButton-Theme_01;
+  @extend .ComponentSurface-Theme_01;
+  @extend .PButton;
+  color: white;
 }
+
+.PButton-Theme_02 {
+  @extend .GenericButton-Theme_02;
+  @extend .ComponentSurface-Theme_02;
+  @extend .PButton;
+  color: #2c2d36;
+}
+
+.PButton-Theme_03 {
+  @extend .GenericButton-Theme_03;
+  @extend .ComponentSurface-Theme_03;
+  @extend .PButton;
+  color: white;
+}
+
+// .PButton:hover {
+//   -webkit-transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
+//   -moz-transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
+//   transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
+//   box-shadow: inset 20vw 0 0 0 $gradient1 !important;
+//   font-weight: bold;
+// }

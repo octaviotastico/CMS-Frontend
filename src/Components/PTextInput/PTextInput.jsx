@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 // Styles
 import "./PTextInput.scss";
 
-const PTextInput = ({ fieldName, placeholder, value, setValue }) => {
+const PTextInput = ({ fieldName, placeholder, isMultiline, icon, value, setValue, onBlur }) => {
   const { theme } = useSelector((state) => state);
 
   return (
@@ -18,19 +18,35 @@ const PTextInput = ({ fieldName, placeholder, value, setValue }) => {
       <Typography
         className="Title"
         style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
           textAlign: "left",
           transition: "opacity 0.3s",
         }}
       >
+        {icon}
         {fieldName}
       </Typography>
-      <input
-        type="text"
-        value={value}
-        placeholder={placeholder}
-        className="InputBox"
-        onChange={(e) => setValue(e.target.value)}
-      />
+      {isMultiline && (
+        <textarea
+          value={value}
+          placeholder={placeholder}
+          className="InputBoxMultiline"
+          onChange={(e) => setValue(e.target.value)}
+          onBlur={onBlur}
+        />
+      )}
+      {!isMultiline && (
+        <input
+          type="text"
+          value={value}
+          placeholder={placeholder}
+          className="InputBox"
+          onChange={(e) => setValue(e.target.value)}
+          onBlur={onBlur}
+        />
+      )}
     </Grid>
   );
 };

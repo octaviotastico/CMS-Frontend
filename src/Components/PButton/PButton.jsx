@@ -1,16 +1,13 @@
 // React
 import React from "react";
 
-// Material
-import { Button } from "@material-ui/core";
-
 // Styles
 import "./PButton.scss";
 
-const PButton = ({ text, action, extraStyle }) => (
-  <Button className="GlassButton-01 PButton" onClick={() => action()} style={extraStyle}>
+const PButton = ({ text, action, theme, extraStyle }) => (
+  <button className={`PButton-${theme}`} onClick={() => action()} style={extraStyle}>
     {text}
-  </Button>
+  </button>
 );
 
 export default PButton;
