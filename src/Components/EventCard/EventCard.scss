@@ -4,7 +4,7 @@
 .EventCard {
   color: white;
   display: flex;
-  margin-bottom: 10px;
+  gap: 10px;
 
   .ExpositorInfo {
     display: flex;
@@ -56,7 +56,6 @@
     padding: 10px;
     min-width: min(1000px, 35vw);
     height: 142px;
-    margin: 0 10px;
 
     .EventInfoContainer {
       display: flex;
@@ -79,18 +78,20 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 175px;
+      width: 225px;
       .EventDate {
         @extend .Text;
         font-size: 4rem;
         font-weight: 800;
         line-height: 4rem;
+        text-align: center;
       }
       .EventMonth {
         @extend .Text;
         font-size: 1.3rem;
         font-weight: 700;
         line-height: 1.3rem;
+        text-align: center;
       }
     }
 

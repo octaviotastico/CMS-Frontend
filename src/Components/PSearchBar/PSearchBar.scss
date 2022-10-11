@@ -2,23 +2,44 @@
 @import "../../Utils/ColorVariables.scss";
 
 .PSearchBar {
+  .SearchbarContainer {
+    display: flex;
+  }
+
   .Input {
     width: 400px;
     background-color: #323236;
     border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     height: 30px;
     padding: 0.5rem;
     border: none;
     position: relative;
     display: inline-block;
     color: $textPrimary !important;
-    background-image: url("/Assets/icons/loupe.svg");
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: 13px;
-    background-size: 25px;
-    padding-left: 50px;
+    padding-left: 10px;
     outline: none;
+  }
+
+  .SearchButton {
+    height: 46px;
+    width: 55px;
+    background-color: #323236;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    cursor: pointer;
+  }
+
+  .SearchIcon {
+    font-size: 35px;
+    color: $textPrimary;
   }
 
   .DropdownContent {

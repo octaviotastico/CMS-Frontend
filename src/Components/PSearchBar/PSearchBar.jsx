@@ -1,26 +1,36 @@
 // React
 import React, { useState } from "react";
 
+// Redux
+// import { useSelector } from "react-redux";
+
 // Material
+import { Search } from "@mui/icons-material";
 import { ClickAwayListener, Grid, Typography } from "@material-ui/core";
 
 // Styles
 import "./PSearchBar.scss";
 
 const PSearchBar = ({ textInput, setTextInput, options, placeholder }) => {
+  // const { theme } = useSelector((state) => state);
   const [open, setOpen] = useState(false);
 
   return (
     <ClickAwayListener onClickAway={() => setOpen(false)}>
       <Grid className="PSearchBar">
-        <input
-          type="text"
-          value={textInput}
-          placeholder={placeholder}
-          onClick={() => setOpen(true)}
-          onChange={(e) => setTextInput(e.target.value)}
-          className="Input"
-        />
+        <Grid className="SearchbarContainer">
+          <button className="SearchButton">
+            <Search className="SearchIcon" />
+          </button>
+          <input
+            type="text"
+            value={textInput}
+            placeholder={placeholder}
+            onClick={() => setOpen(true)}
+            onChange={(e) => setTextInput(e.target.value)}
+            className="Input"
+          />
+        </Grid>
         {open && (
           <Grid id="Dropdown" className="DropdownContent">
             {options &&

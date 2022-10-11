@@ -10,6 +10,7 @@ import {
   AddTwoTone,
   EventTwoTone,
   EventNoteTwoTone,
+  EventBusyTwoTone,
   FiberManualRecord,
   HistoryRounded,
   Info,
@@ -59,104 +60,106 @@ const Home = () => {
   const { theme } = useSelector((state) => state);
 
   return (
-    <Container disableGutters maxWidth={false} className={`Home-${theme}`}>
-      <Typography className={`MainTitle-${theme}`}>
+    <Container maxWidth={false} className={`Home-${theme}`}>
+      <Typography className="MainTitle">
         Wellcome again, {userData.firstName} {userData.lastName} :)
       </Typography>
 
-      <Grid className="BodyAndFilters">
-        <Grid className="BodyContainer">
-          <Typography className={`Subtitles-${theme}`}>
-            Current Events{" "}
-            <span className="LiveEvent">
-              <FiberManualRecord />
-              LIVE
-              <Tooltip
-                title='Perhaps these events are not being transmitted at the moment, thanks to the delay that exists due to the long distances, but this is the moment in which the signal is reaching us "live".'
-                placement="right"
-                arrow
-              >
-                <Info className="LiveEvent-Info" />
-              </Tooltip>
-            </span>
-          </Typography>
-          <Grid className="EventList">
-            {!currentEvents.length && (
-              <Grid className="NoEventsContainer">
-                <img src="/icons/404.svg" alt="404" className={`NoEventIcon-${theme}`} />
-                <Typography className={`NoEventText-${theme}`}>No current events</Typography>
-              </Grid>
-            )}
-            {currentEvents.map((event) => (
-              <EventCard
-                key={event.title}
-                theme={theme}
-                title={event.title}
-                description={event.description}
-                startDate={new Date(event.startDate)}
-                endDate={new Date(event.endDate)}
-                tags={event.tags}
-              />
-            ))}
-          </Grid>
-
-          <Typography className={`Subtitles-${theme}`}>
-            Upcoming Events <EventNoteTwoTone className="UpcomingEvent" />
-          </Typography>
-          <Grid className="EventList">
-            {!upcomingEvents.length && (
-              <Grid className="NoEventsContainer">
-                <img src="/icons/404.svg" alt="404" className={`NoEventIcon-${theme}`} />
-                <Typography className={`NoEventText-${theme}`}>No upcoming events</Typography>
-              </Grid>
-            )}
-            {upcomingEvents.map((event) => (
-              <EventCard
-                key={event.title}
-                theme={theme}
-                title={event.title}
-                description={event.description}
-                startDate={new Date(event.startDate)}
-                endDate={new Date(event.endDate)}
-                tags={event.tags}
-              />
-            ))}
-          </Grid>
-
-          <Typography className={`Subtitles-${theme}`}>
-            Past Events <HistoryRounded className="PastEvent" />
-          </Typography>
-          <Grid className="EventList">
-            {!pastEvents.length && (
-              <Grid className="NoEventsContainer">
-                <img src="/icons/404.svg" alt="404" className={`NoEventIcon-${theme}`} />
-                <Typography className={`NoEventText-${theme}`}>No past events</Typography>
-              </Grid>
-            )}
-            {pastEvents.map((event) => (
-              <EventCard
-                key={event.title}
-                theme={theme}
-                title={event.title}
-                description={event.description}
-                startDate={new Date(event.startDate)}
-                endDate={new Date(event.endDate)}
-                tags={event.tags}
-              />
-            ))}
-          </Grid>
-
-          <Typography className={`Subtitles-${theme}`}>
-            Create a new event! <AddTwoTone className="NewEvent" />
-          </Typography>
-          <ButtonGroup onClick={() => navigate("/calendar/create")}>
-            <Button className="CreateButton">
-              <EventTwoTone />
-            </Button>
-            <Button className="CreateButton">Create A New Event</Button>
-          </ButtonGroup>
+      <Grid className="EventSectionContainer">
+        <Typography className="Subtitles">
+          Current Events{" "}
+          <span className="LiveEvent">
+            <FiberManualRecord />
+            LIVE
+            <Tooltip
+              title='Perhaps these events are not being transmitted at the moment, thanks to the delay that exists due to the long distances, but this is the moment in which the signal is reaching us "live".'
+              placement="right"
+              arrow
+            >
+              <Info className="LiveEvent-Info" />
+            </Tooltip>
+          </span>
+        </Typography>
+        <Grid className="EventList">
+          {!currentEvents.length && (
+            <Grid className="NoEventsContainer">
+              <EventBusyTwoTone className="NoEventIcon" />
+              <Typography className="NoEventText">No current events</Typography>
+            </Grid>
+          )}
+          {currentEvents.map((event) => (
+            <EventCard
+              key={event.title}
+              theme={theme}
+              title={event.title}
+              description={event.description}
+              startDate={new Date(event.startDate)}
+              endDate={new Date(event.endDate)}
+              tags={event.tags}
+            />
+          ))}
         </Grid>
       </Grid>
+
+      <Grid className="EventSectionContainer">
+        <Typography className="Subtitles">
+          Upcoming Events <EventNoteTwoTone className="UpcomingEvent" />
+        </Typography>
+        <Grid className="EventList">
+          {!upcomingEvents.length && (
+            <Grid className="NoEventsContainer">
+              <EventBusyTwoTone className="NoEventIcon" />
+              <Typography className="NoEventText">No upcoming events</Typography>
+            </Grid>
+          )}
+          {upcomingEvents.map((event) => (
+            <EventCard
+              key={event.title}
+              theme={theme}
+              title={event.title}
+              description={event.description}
+              startDate={new Date(event.startDate)}
+              endDate={new Date(event.endDate)}
+              tags={event.tags}
+            />
+          ))}
+        </Grid>
+      </Grid>
+
+      <Grid className="EventSectionContainer">
+        <Typography className="Subtitles">
+          Past Events <HistoryRounded className="PastEvent" />
+        </Typography>
+        <Grid className="EventList">
+          {!pastEvents.length && (
+            <Grid className="NoEventsContainer">
+              <EventBusyTwoTone className="NoEventIcon" />
+              <Typography className="NoEventText">No past events</Typography>
+            </Grid>
+          )}
+          {pastEvents.map((event) => (
+            <EventCard
+              key={event.title}
+              theme={theme}
+              title={event.title}
+              description={event.description}
+              startDate={new Date(event.startDate)}
+              endDate={new Date(event.endDate)}
+              tags={event.tags}
+            />
+          ))}
+        </Grid>
+      </Grid>
+
+      <Typography className="Subtitles">
+        Create a new event! <AddTwoTone className="NewEvent" />
+      </Typography>
+      <ButtonGroup onClick={() => navigate("/calendar/create")}>
+        <Button className="CreateButton">
+          <EventTwoTone />
+        </Button>
+        <Button className="CreateButton">Create A New Event</Button>
+      </ButtonGroup>
     </Container>
   );
 };

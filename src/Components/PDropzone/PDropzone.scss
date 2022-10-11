@@ -37,7 +37,7 @@
   }
 
   .Placeholder {
-    width: 100px;
+    width: 250px;
     margin-bottom: 25px;
     user-drag: none;
     -webkit-user-drag: none;
@@ -45,6 +45,14 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+  }
+
+  .HideImg {
+    display: none !important;
+  }
+
+  .PlaceholderIcon {
+    font-size: 250px;
   }
 
   .HelpText {
@@ -68,7 +76,7 @@
 
 .PDropzone-Theme_01 {
   @extend .PDropzone;
-  .HelpText {
+  .HelpText, .PlaceholderIcon {
     color: white;
   }
   .FileSelectionButton {
@@ -80,7 +88,7 @@
 
 .PDropzone-Theme_02 {
   @extend .PDropzone;
-  .HelpText {
+  .HelpText, .PlaceholderIcon {
     color: #2c2d36;
   }
   .FileSelectionButton {
@@ -91,7 +99,7 @@
 
 .PDropzone-Theme_03 {
   @extend .PDropzone;
-  .HelpText {
+  .HelpText, .PlaceholderIcon {
     color: white;
   }
   .FileSelectionButton {

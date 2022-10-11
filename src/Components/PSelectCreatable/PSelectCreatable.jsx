@@ -32,12 +32,20 @@ const PSelectCreatable = ({
       display: "flex",
       backgroundColor: "#FCFCFD",
       boxShadow: "inset 0px 0px 5px rgba(0, 0, 0, 0.5)",
-      background: `linear-gradient(
+      background: ["Theme_01", "Theme_03"].includes(theme)
+        ? `linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.3),
         rgba(0, 0, 0, 0.3) 1px,
         rgba(0, 0, 0, 0.3) 2px,
         rgba(0, 0, 0, 0.3) 3px
+      )`
+        : `linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 1px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 3px
       )`,
       borderRadius: 5,
       borderStyle: "none",
@@ -67,10 +75,10 @@ const PSelectCreatable = ({
       justifySelf: "center",
       borderRadius: 5,
     }),
-    dropdownIndicator: () => ({
-      color: "#35353b",
-      marginRight: 10,
-      marginLeft: 10,
+    dropdownIndicator: (provided) => ({
+      ...provided,
+      color: "#87878e",
+      cursor: "pointer",
     }),
     clearIndicator: () => ({
       color: "#35353b",
@@ -104,6 +112,10 @@ const PSelectCreatable = ({
       color: ["Theme_01", "Theme_03"].includes(theme) ? "white" : "#2c2d36",
       fontFamily: "Montserrat",
       fontWeight: 600,
+    }),
+    indicatorSeparator: (provided) => ({
+      ...provided,
+      backgroundColor: "#87878e",
     }),
   };
 

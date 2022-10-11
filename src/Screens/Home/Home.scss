@@ -4,6 +4,8 @@
 .Home {
   color: white;
   text-align: left;
+  border-radius: 10px;
+  padding: 24px !important;
 
   .MainTitle,
   .Subtitles {
@@ -24,6 +26,11 @@
     align-items: center;
   }
 
+  .EventSectionContainer {
+    padding: 10px 0;
+    margin: 10px 0;
+  }
+
   .PastEvent {
     margin-left: 10px;
     font-size: 2vw;
@@ -39,62 +46,48 @@
     font-size: 2vw;
   }
 
-  .BodyAndFilters {
+  .CreateContainer {
     display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-    position: relative;
+    justify-content: space-around;
+    border-radius: 10px;
+    height: 100px;
+    margin-bottom: 10px;
+    margin-top: 90px;
+    align-items: center;
+  }
 
-    .BodyContainer {
+  .EventList {
+    .NoEventsContainer {
       display: flex;
-      flex-direction: column;
-      margin-right: 5px;
-    }
-
-    .CreateContainer {
-      display: flex;
-      justify-content: space-around;
-      border-radius: 10px;
-      height: 100px;
-      margin-bottom: 10px;
-      margin-top: 90px;
+      margin-top: 20px;
+      margin-bottom: 20px;
       align-items: center;
-    }
-
-    .EventList {
-      margin-bottom: 35px;
-      .NoEventsContainer {
-        display: flex;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        align-items: center;
-        .NoEventText {
-          @extend .Text;
-          font-size: 2rem;
-          font-weight: 500;
-        }
-        .NoEventIcon {
-          width: 50px;
-          height: 50px;
-          margin-left: 30px;
-          margin-right: 20px;
-        }
+      .NoEventText {
+        @extend .Text;
+        font-size: 2rem;
+        font-weight: 500;
+      }
+      .NoEventIcon {
+        width: 50px;
+        height: 50px;
+        margin-left: 30px;
+        margin-right: 20px;
       }
     }
+  }
 
-    .LiveEvent {
-      margin-left: 10px;
-      color: #e44a4a;
-      animation: LiveAnimation 1s infinite alternate;
+  .LiveEvent {
+    margin-left: 10px;
+    color: #e44a4a;
+    animation: LiveAnimation 1s infinite alternate;
+    display: flex;
+    place-items: center;
+
+    .LiveEvent-Info {
       display: flex;
-      place-items: center;
-
-      .LiveEvent-Info {
-        display: flex;
-        align-self: flex-start;
-        color: #e44a4a;
-        width: 15px;
-      }
+      align-self: flex-start;
+      color: #e44a4a;
+      width: 15px;
     }
   }
 }
@@ -111,89 +104,49 @@
 
 .Home-Theme_01 {
   @extend .Home;
+  @extend .ComponentSurface-Theme_01;
 
-  .MainTitle-Theme_01 {
-    @extend .MainTitle;
+  .MainTitle, .Subtitles, .NoEventText, .NoEventIcon {
     color: white;
-  }
-  .Subtitles-Theme_01 {
-    @extend .Subtitles;
-    color: white;
-  }
-  .NoEventText-Theme_01 {
-    @extend .NoEventText;
-    color: white;
-  }
-  .NoEventIcon-Theme_01 {
-    @extend .NoEventIcon;
-    filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(329deg) brightness(107%) contrast(101%);
   }
   .CreateButton {
     @extend .GenericButton-Theme_01;
     @extend .ComponentSurface-Theme_01;
   }
-  .CreateContainer-Theme_01 {
-    @extend .CreateContainer;
+  .CreateContainer {
     @extend .ComponentSurface-Theme_01;
   }
 }
 
 .Home-Theme_02 {
   @extend .Home;
+  @extend .ComponentSurface-Theme_02;
 
-  .MainTitle-Theme_02 {
-    @extend .MainTitle;
+  .MainTitle, .Subtitles, .NoEventText, .NoEventIcon {
     color: #323236;
     text-shadow: none;
-  }
-  .Subtitles-Theme_02 {
-    @extend .Subtitles;
-    color: #323236;
-    text-shadow: none;
-  }
-  .NoEventText-Theme_02 {
-    @extend .NoEventText;
-    color: #323236;
-    text-shadow: none;
-  }
-  .NoEventIcon-Theme_02 {
-    @extend .NoEventIcon;
-    color: #323236;
   }
   .CreateButton {
     @extend .GenericButton-Theme_02;
     @extend .ComponentSurface-Theme_02;
   }
-  .CreateContainer-Theme_02 {
-    @extend .CreateContainer;
+  .CreateContainer {
     @extend .ComponentSurface-Theme_02;
   }
 }
 
 .Home-Theme_03 {
   @extend .Home;
+  @extend .ComponentSurface-Theme_03;
 
-  .MainTitle-Theme_03 {
-    @extend .MainTitle;
+  .MainTitle, .Subtitles, .NoEventText, .NoEventIcon {
     color: white;
-  }
-  .Subtitles-Theme_03 {
-    @extend .Subtitles;
-    color: white;
-  }
-  .NoEventText-Theme_03 {
-    @extend .NoEventText;
-    color: white;
-  }
-  .NoEventIcon-Theme_03 {
-    @extend .NoEventIcon;
-    filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(329deg) brightness(107%) contrast(101%);
   }
   .CreateButton {
     @extend .GenericButton-Theme_03;
     @extend .ComponentSurface-Theme_03;
   }
-  .CreateContainer-Theme_03 {
+  .CreateContainer {
     @extend .CreateContainer;
     @extend .ComponentSurface-Theme_03;
   }

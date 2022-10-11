@@ -2,6 +2,7 @@
 import React, { useState, useRef } from "react";
 
 // Material
+import { InsertPhotoTwoTone } from "@mui/icons-material";
 import { Button, Grid, Typography } from "@material-ui/core";
 
 // Redux
@@ -11,11 +12,11 @@ import { useSelector } from "react-redux";
 import "./PDropzone.scss";
 
 const PDropzone = ({ setSelectedFile = null, validTypes = [], acceptImages = false }) => {
+  const { theme } = useSelector((state) => state);
+  const [imgSelected, setImgSelected] = useState(false);
   const [isInside, setIsInside] = useState(false);
   const [error, setError] = useState(null);
   const fileButton = useRef(null);
-
-  const { theme } = useSelector((state) => state);
 
   if (acceptImages) {
     validTypes = [
@@ -56,10 +57,14 @@ const PDropzone = ({ setSelectedFile = null, validTypes = [], acceptImages = fal
 
       reader.readAsDataURL(f[0]);
       output.src = dataURL;
+
+      setImgSelected(true);
     } else if (f.length > 1) {
       setError("Cannot select multiple files");
+      setImgSelected(false);
     } else if (!validateFile(f[0])) {
       setError("Invalid file type");
+      setImgSelected(false);
     }
   };
 
@@ -84,7 +89,13 @@ const PDropzone = ({ setSelectedFile = null, validTypes = [], acceptImages = fal
         onDragOver={(e) => e.preventDefault()}
         onDrop={fileDrop}
       >
-        <img id="output" src="/icons/image-preview.svg" className="Placeholder" alt="Preview" />
+        <img
+          src=""
+          id="output"
+          className={`Placeholder ${imgSelected ? "" : "HideImg"}`}
+          alt="Preview"
+        />
+        {!imgSelected && <InsertPhotoTwoTone id="output" className="PlaceholderIcon" />}
 
         <Typography className="HelpText">Drag and drop your file here</Typography>
 

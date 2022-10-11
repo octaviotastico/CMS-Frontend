@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 // Material
 import { Button, ButtonGroup, Typography } from "@material-ui/core";
-import { Add } from "@mui/icons-material";
+import { Add, SearchOff } from "@mui/icons-material";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
@@ -56,7 +56,7 @@ const Learning = () => {
 
   // TODO: Add a carousel with all the categories.
   return (
-    <Container disableGutters maxWidth={false} className={`Learning-${theme}`}>
+    <Container maxWidth={false} className={`Learning-${theme}`}>
       <Typography className="LearningTitle">Learn Something New Today!</Typography>
       <Typography className="LearningSubtitle">
         Getting better is always a fun thing to do :)
@@ -86,7 +86,7 @@ const Learning = () => {
           ))}
           {!articles.length && (
             <Grid className="NoArticlesContainer">
-              <img className="NoArticlesIcon" src="/icons/search_off.svg" alt="No articles found" />
+              <SearchOff className="NoArticlesIcon" />
               <Typography className="NoArticles">
                 There are no articles yet.
                 <br />

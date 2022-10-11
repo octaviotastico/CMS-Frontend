@@ -35,7 +35,7 @@
 
         .NoArticlesIcon {
           margin-right: 10px;
-          width: 50px;
+          font-size: 60px;
         }
         .NoArticles {
           @extend .Text;
@@ -87,10 +87,14 @@
 
 .Learning-Theme_01 {
   @extend .Learning;
+  // @extend .ComponentSurface-Theme_01;
+  // padding: 24px;
+  // border-radius: 10px;
+
   .LearningTitle, .LearningSubtitle {
     text-shadow: 0 0 3px #323236;
   }
-  .Category, .NoArticles {
+  .Category, .NoArticles, .NoArticlesIcon {
     color: $textPrimary;
   }
   .CreateButton {
@@ -109,7 +113,7 @@
     text-shadow: 0 0 3px #c3cfe2;
     color: #323236;
   }
-  .Category, .NoArticles {
+  .Category, .NoArticles, .NoArticlesIcon {
     color: #323236;
   }
   .CreateButton {
@@ -128,7 +132,7 @@
     text-shadow: 0 0 3px #323236;
     color: $textPrimary;
   }
-  .Category, .NoArticles {
+  .Category, .NoArticles, .NoArticlesIcon {
     color: $textPrimary;
   }
   .CreateButton {
