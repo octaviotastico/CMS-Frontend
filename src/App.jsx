@@ -4,10 +4,11 @@ import React from "react";
 // Material
 import { Container, Grid } from "@material-ui/core";
 import {
-  HomeTwoTone,
+  AccountCircleTwoTone,
   ChromeReaderModeTwoTone,
-  VideoCallTwoTone,
   CommentTwoTone,
+  HomeTwoTone,
+  // VideoCallTwoTone,
 } from "@mui/icons-material";
 
 // Redux
@@ -58,6 +59,7 @@ const buttonList = [
     tooltipOpen: "News, events, and more!",
     tooltipClosed: "Home Screen",
   },
+
   {
     text: "Learning",
     screen: "/learning",
@@ -66,12 +68,19 @@ const buttonList = [
     tooltipClosed: "Learning Screen",
   },
   {
-    text: "Meetings",
-    screen: "/meetings",
-    icon: () => <VideoCallTwoTone />,
-    tooltipOpen: "Connect with people by making videocalls with them",
-    tooltipClosed: "Meetings Screen",
+    text: "Profile",
+    screen: "/profile",
+    icon: () => <AccountCircleTwoTone />,
+    tooltipOpen: "See and update your profile",
+    tooltipClosed: "Profile Screen",
   },
+  // {
+  //   text: "Meetings",
+  //   screen: "/meetings",
+  //   icon: () => <VideoCallTwoTone />,
+  //   tooltipOpen: "Connect with people by making videocalls with them",
+  //   tooltipClosed: "Meetings Screen",
+  // },
   {
     text: "People",
     screen: "/people",
