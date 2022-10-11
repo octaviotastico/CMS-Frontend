@@ -31,10 +31,10 @@ import { getMyData, updateProfile } from "../../API/user";
 // Components
 import PDropzone from "../../Components/PDropzone/PDropzone";
 import PTextInput from "../../Components/PTextInput/PTextInput";
+import PButton from "../../Components/PButton/PButton";
 
 // Styles
 import "./Profile.scss";
-import PButton from "../../Components/PButton/PButton";
 
 const handleProfilePictureUpdate = async (newProfilePicture, setOpen, setErrors) => {
   if (!newProfilePicture) {
@@ -54,6 +54,16 @@ const handleCloseSnackbar = (event, reason, setSnackbarOpen) => {
   }
 
   setSnackbarOpen(false);
+};
+
+const handleProfileChanges = async (setApiUserData, propName, newValue, setSnackbarOpen) => {
+  const response = await updateProfile({ [propName]: newValue });
+  setApiUserData((prev) => ({ ...prev, [propName]: newValue }));
+  setSnackbarOpen(true);
+
+  if (!response) {
+    console.log("Error updating profile");
+  }
 };
 
 const Profile = () => {
@@ -115,10 +125,10 @@ const Profile = () => {
           icon={<SegmentTwoTone />}
           fieldName="Presentation"
           value={apiUserData.description}
-          setValue={(newDescription) =>
-            setApiUserData((prev) => ({ ...prev, description: newDescription }))
+          setValue={(e) => setApiUserData((prev) => ({ ...prev, description: e }))}
+          onBlur={(e) =>
+            handleProfileChanges(setApiUserData, "description", e.target.value, setSnackbarOpen)
           }
-          onBlur={() => setSnackbarOpen(true)}
         />
       </Grid>
 
@@ -128,32 +138,46 @@ const Profile = () => {
           fieldName="Twitter"
           icon={<Twitter />}
           value={apiUserData.twitter}
-          setValue={(newTwitter) => setApiUserData((prev) => ({ ...prev, twitter: newTwitter }))}
-          onBlur={() => setSnackbarOpen(true)}
+          setValue={(e) => setApiUserData((prev) => ({ ...prev, twitter: e }))}
+          onBlur={(e) =>
+            handleProfileChanges(setApiUserData, "twitter", e.target.value, setSnackbarOpen)
+          }
         />
         <PTextInput
           fieldName="Facebook"
           icon={<Facebook />}
           value={apiUserData.facebook}
-          setValue={(newFacebook) => setApiUserData((prev) => ({ ...prev, facebook: newFacebook }))}
+          setValue={(e) => setApiUserData((prev) => ({ ...prev, facebook: e }))}
+          onBlur={(e) =>
+            handleProfileChanges(setApiUserData, "facebook", e.target.value, setSnackbarOpen)
+          }
         />
         <PTextInput
           fieldName="Github"
           icon={<GitHub />}
           value={apiUserData.github}
-          setValue={(newGitHub) => setApiUserData((prev) => ({ ...prev, github: newGitHub }))}
+          setValue={(e) => setApiUserData((prev) => ({ ...prev, github: e }))}
+          onBlur={(e) =>
+            handleProfileChanges(setApiUserData, "github", e.target.value, setSnackbarOpen)
+          }
         />
         <PTextInput
           fieldName="Linkedin"
           icon={<LinkedIn />}
           value={apiUserData.linkedin}
-          setValue={(newLinkedIn) => setApiUserData((prev) => ({ ...prev, linkedin: newLinkedIn }))}
+          setValue={(e) => setApiUserData((prev) => ({ ...prev, linkedin: e }))}
+          onBlur={(e) =>
+            handleProfileChanges(setApiUserData, "linkedin", e.target.value, setSnackbarOpen)
+          }
         />
         <PTextInput
           fieldName="Website"
           icon={<LanguageTwoTone />}
           value={apiUserData.website}
-          setValue={(newWebsite) => setApiUserData((prev) => ({ ...prev, website: newWebsite }))}
+          setValue={(e) => setApiUserData((prev) => ({ ...prev, website: e }))}
+          onBlur={(e) =>
+            handleProfileChanges(setApiUserData, "website", e.target.value, setSnackbarOpen)
+          }
         />
       </Grid>
 
