@@ -41,14 +41,14 @@ const LearningCard = ({ title, subtitle, content, author, tags, preview, id }) =
           </Grid>
           <Grid container className="TagsContainer">
             {tags.map((tag) => (
-              <Grid item className={`Tag-${theme}`} key={tag}>
+              <Grid item className="Tag" key={tag}>
                 <Typography className="TagText">{tag}</Typography>
               </Grid>
             ))}
           </Grid>
         </Grid>
 
-        <hr className={`LearningCardDivider-${theme}`} />
+        <hr className="LearningCardDivider" />
 
         <Grid item className="LearningCardDescription">
           <Grid>
@@ -56,7 +56,7 @@ const LearningCard = ({ title, subtitle, content, author, tags, preview, id }) =
               {content.replaceAll("#", "")}
               ...
             </Typography>
-            <Typography className={`ReadMore-${theme}`}>Read more</Typography>
+            <Typography className="ReadMore">Read more</Typography>
           </Grid>
         </Grid>
       </Grid>

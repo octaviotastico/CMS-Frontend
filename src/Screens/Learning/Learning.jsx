@@ -61,6 +61,7 @@ const Learning = () => {
       <Typography className="LearningSubtitle">
         Getting better is always a fun thing to do :)
       </Typography>
+
       <Grid className="BodyAndFilters">
         <Grid item xs={8} className="BodyContainer">
           {articles.map((elem) => (
@@ -95,8 +96,9 @@ const Learning = () => {
             </Grid>
           )}
         </Grid>
+
         <Grid item xs={4} className="FiltersContainer">
-          <Grid className={`CreateContainer-${theme}`}>
+          <Grid className="CreateContainer">
             <ButtonGroup onClick={() => navigate("/learning/article/write")}>
               <Button className="CreateButton">
                 <Add />

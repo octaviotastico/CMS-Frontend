@@ -39,7 +39,7 @@ const EventCreation = () => {
   // const [tags, setTags] = useState([]);
 
   return (
-    <Container maxWidth={false} className={`EventCreationScreen-${theme}`}>
+    <Container disableGutters maxWidth={false} className={`EventCreationScreen-${theme}`}>
       <Grid className="EventInfoContainer">
         <PTextInput
           fieldName="Event Title"
@@ -73,7 +73,7 @@ const EventCreation = () => {
         </Grid>
 
         <Grid>
-          <Typography className={`EventPreviewTitle-${theme}`}>Event Preview</Typography>
+          <Typography className="EventPreviewTitle">Event Preview</Typography>
           <PDropzone setSelectedFile={setPreview} acceptImages />
         </Grid>
       </Grid>

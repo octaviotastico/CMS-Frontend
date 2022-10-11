@@ -94,20 +94,14 @@
       margin-left: 0px;
     }
   }
-
 }
 
 .LearningArticleRead-Theme_01 {
   @extend .LearningArticleRead;
   @extend .TextColor-Theme_01;
 
-  .TitlesAndPreviewContainer-Theme_01 {
-    @extend .TitlesAndPreviewContainer;
-    @extend .ComponentSurface-Theme_01;
-  }
-
-  .MarkdownPreviewContainer-Theme_01 {
-    @extend .MarkdownPreviewContainer;
+  .TitlesAndPreviewContainer,
+  .MarkdownPreviewContainer {
     @extend .ComponentSurface-Theme_01;
   }
 }
@@ -116,13 +110,8 @@
   @extend .LearningArticleRead;
   @extend .TextColor-Theme_02;
 
-  .TitlesAndPreviewContainer-Theme_02 {
-    @extend .TitlesAndPreviewContainer;
-    @extend .ComponentSurface-Theme_02;
-  }
-
-  .MarkdownPreviewContainer-Theme_02 {
-    @extend .MarkdownPreviewContainer;
+  .TitlesAndPreviewContainer,
+  .MarkdownPreviewContainer {
     @extend .ComponentSurface-Theme_02;
   }
 }
@@ -131,13 +120,8 @@
   @extend .LearningArticleRead;
   @extend .TextColor-Theme_03;
 
-  .TitlesAndPreviewContainer-Theme_03 {
-    @extend .TitlesAndPreviewContainer;
-    @extend .ComponentSurface-Theme_03;
-  }
-
-  .MarkdownPreviewContainer-Theme_03 {
-    @extend .MarkdownPreviewContainer;
+  .TitlesAndPreviewContainer,
+  .MarkdownPreviewContainer {
     @extend .ComponentSurface-Theme_03;
   }
 }

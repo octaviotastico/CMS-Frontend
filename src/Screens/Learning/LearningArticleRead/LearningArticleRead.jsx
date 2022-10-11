@@ -43,7 +43,7 @@ const LearningArticleRead = () => {
 
   return (
     <Container maxWidth={false} className={`LearningArticleRead-${theme}`}>
-      <Grid className={`TitlesAndPreviewContainer-${theme}`}>
+      <Grid className="TitlesAndPreviewContainer">
         <img
           src={`http://localhost:2424/${article.preview.replaceAll("\\", "/")}`}
           className="Preview"
@@ -95,7 +95,7 @@ const LearningArticleRead = () => {
         </Grid>
       </Grid>
 
-      <Grid className={`MarkdownPreviewContainer-${theme}`}>
+      <Grid className="MarkdownPreviewContainer">
         <div
           dangerouslySetInnerHTML={{ __html: md.render(article.content) }}
           className="MarkdownPreview"

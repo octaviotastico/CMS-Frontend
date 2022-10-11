@@ -95,7 +95,7 @@ const LearningArticleWrite = () => {
         </Grid>
 
         <Grid>
-          <Typography className={`ArticlePreviewTitle-${theme}`}>Article Preview</Typography>
+          <Typography className="ArticlePreviewTitle">Article Preview</Typography>
           <PDropzone setSelectedFile={setPreview} acceptImages />
         </Grid>
       </Grid>

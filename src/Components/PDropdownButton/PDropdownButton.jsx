@@ -14,7 +14,7 @@ const PDropdownButton = ({ id, icon, dropdown }) => {
   const { theme } = useSelector((state) => state);
   const [open, setOpen] = useState(false);
   const IconComponent = React.cloneElement(icon, {
-    className: `DropdownIcon-${theme}`,
+    className: "DropdownIcon",
   });
 
   return (

@@ -1,7 +1,7 @@
 @import "../../Utils/StyleClasses.scss";
 @import "../../Utils/ColorVariables.scss";
 
-$easing: cubic-bezier(.25,1.7,.35,.8);
+$easing: cubic-bezier(0.25, 1.7, 0.35, 0.8);
 $duration: 0.5s;
 
 .Menu {
@@ -17,7 +17,6 @@ $duration: 0.5s;
   margin: 10px !important;
   margin-right: 0 !important;
 
-
   .MenuButtons {
     display: flex;
     flex-direction: column;
@@ -32,7 +31,8 @@ $duration: 0.5s;
     flex-wrap: wrap;
     justify-content: space-between;
 
-    .ArrowButton, .BugButton {
+    .ArrowButton,
+    .BugButton {
       width: 50px;
       height: 50px;
       border-radius: 100px;
@@ -55,29 +55,34 @@ $duration: 0.5s;
         width: 100% !important;
       }
     }
-
-    .ArrowButton-Theme_01, .BugButton-Theme_01 {
-      @extend .ArrowButton, .ButtonSurface-Theme_01;
-    }
-    .ArrowButton-Theme_02, .BugButton-Theme_02 {
-      @extend .ArrowButton, .ButtonSurface-Theme_02;
-    }
-    .ArrowButton-Theme_03, .BugButton-Theme_03 {
-      @extend .ArrowButton, .ButtonSurface-Theme_03;
-    }
   }
 }
 
 .Menu-Theme_01 {
   @extend .Menu, .ComponentSurface-Theme_01;
+
+  .ArrowButton,
+  .BugButton {
+    @extend .ArrowButton, .ButtonSurface-Theme_01;
+  }
 }
 
 .Menu-Theme_02 {
   @extend .Menu, .ComponentSurface-Theme_02;
+
+  .ArrowButton,
+  .BugButton {
+    @extend .ArrowButton, .ButtonSurface-Theme_02;
+  }
 }
 
 .Menu-Theme_03 {
   @extend .Menu, .ComponentSurface-Theme_03;
+
+  .ArrowButton,
+  .BugButton {
+    @extend .ArrowButton, .ButtonSurface-Theme_03;
+  }
 }
 
 .MuiTooltip-tooltip {

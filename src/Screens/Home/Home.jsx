@@ -32,6 +32,7 @@ import { getCurrentEvents, getPastEvents, getUpcomingEvents } from "../../API/ca
 import "./Home.scss";
 
 const Home = () => {
+  const { theme } = useSelector((state) => state);
   const [currentEvents, setCurrentEvents] = useState([]);
   const [pastEvents, setPastEvents] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
@@ -57,10 +58,8 @@ const Home = () => {
     });
   }, []);
 
-  const { theme } = useSelector((state) => state);
-
   return (
-    <Container maxWidth={false} className={`Home-${theme}`}>
+    <Container disableGutters maxWidth={false} className={`Home-${theme}`}>
       <Typography className="MainTitle">
         Wellcome again, {userData.firstName} {userData.lastName} :)
       </Typography>

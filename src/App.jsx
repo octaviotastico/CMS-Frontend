@@ -105,7 +105,7 @@ const App = () => {
   return (
     <Container disableGutters maxWidth={false} className={`App-${theme}`}>
       <Header />
-      <Grid container className={`Body-${theme}`}>
+      <Grid container className="Body">
         <Menu buttonList={buttonList} />
         <Grid item className="Content" xs>
           {match || <NotFound />}

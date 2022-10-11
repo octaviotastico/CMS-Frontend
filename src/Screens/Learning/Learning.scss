@@ -2,17 +2,19 @@
 @import "../../Utils/ColorVariables.scss";
 
 .Learning {
+  padding: 24px;
+  border-radius: 10px;
 
-  .LearningTitle {
-    @extend .Text;
+  .LearningTitle,
+  .LearningSubtitle {
+    @extend .Titles;
     text-align: left;
     font-weight: 600;
     font-size: 3vw;
+    text-shadow: 0 0 3px #323236;
   }
 
   .LearningSubtitle {
-    @extend .Text;
-    text-align: left;
     font-weight: 500;
     font-size: 1.3vw;
   }
@@ -45,7 +47,6 @@
         }
       }
 
-
       .Category {
         width: 100%;
         margin-bottom: 20px;
@@ -56,7 +57,7 @@
           padding-left: 0;
 
           .CategoryTitle {
-            @extend .Text;
+            @extend .Titles;
             font-size: 2rem !important;
             font-weight: 500 !important;
           }
@@ -66,12 +67,13 @@
           display: flex;
           flex-direction: column;
           width: 100%;
+          gap: 10px;
         }
       }
     }
 
     .FiltersContainer {
-      padding-top: 64px;
+      padding-top: 60px;
 
       .CreateContainer {
         display: flex;
@@ -87,60 +89,68 @@
 
 .Learning-Theme_01 {
   @extend .Learning;
-  // @extend .ComponentSurface-Theme_01;
-  // padding: 24px;
-  // border-radius: 10px;
+  @extend .ComponentSurface-Theme_01;
 
-  .LearningTitle, .LearningSubtitle {
+  .LearningTitle,
+  .LearningSubtitle {
     text-shadow: 0 0 3px #323236;
   }
-  .Category, .NoArticles, .NoArticlesIcon {
+  .Category,
+  .NoArticles,
+  .NoArticlesIcon {
     color: $textPrimary;
   }
   .CreateButton {
     @extend .GenericButton-Theme_01;
     @extend .ComponentSurface-Theme_01;
   }
-  .CreateContainer-Theme_01 {
-    @extend .CreateContainer;
+  .CreateContainer {
     @extend .ComponentSurface-Theme_01;
   }
 }
 
 .Learning-Theme_02 {
   @extend .Learning;
-  .LearningTitle, .LearningSubtitle {
+  @extend .ComponentSurface-Theme_02;
+
+  .LearningTitle,
+  .LearningSubtitle {
     text-shadow: 0 0 3px #c3cfe2;
     color: #323236;
   }
-  .Category, .NoArticles, .NoArticlesIcon {
+  .Category,
+  .NoArticles,
+  .NoArticlesIcon {
     color: #323236;
   }
   .CreateButton {
     @extend .GenericButton-Theme_02;
     @extend .ComponentSurface-Theme_02;
   }
-  .CreateContainer-Theme_02 {
-    @extend .CreateContainer;
+  .CreateContainer {
     @extend .ComponentSurface-Theme_02;
   }
 }
 
 .Learning-Theme_03 {
   @extend .Learning;
-  .LearningTitle, .LearningSubtitle {
+  @extend .ComponentSurface-Theme_03;
+
+  .LearningTitle,
+  .LearningSubtitle {
     text-shadow: 0 0 3px #323236;
     color: $textPrimary;
   }
-  .Category, .NoArticles, .NoArticlesIcon {
+  .Category,
+  .NoArticles,
+  .NoArticlesIcon {
     color: $textPrimary;
   }
   .CreateButton {
     @extend .GenericButton-Theme_03;
     @extend .ComponentSurface-Theme_03;
   }
-  .CreateContainer-Theme_03 {
-    @extend .CreateContainer;
+  .CreateContainer {
     @extend .ComponentSurface-Theme_03;
   }
 }

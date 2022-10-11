@@ -43,13 +43,13 @@ const Menu = ({ buttonList }) => {
       </Grid>
       <Grid className="MenuFooter">
         <Tooltip title="Report a bug!" placement="right" arrow>
-          <button type="button" className={`BugButton-${theme}`}>
+          <button type="button" className="BugButton">
             <BugReportTwoTone className="BugIcon" />
           </button>
         </Tooltip>
 
         <Tooltip title={`${open ? "Close" : "Open"} the menu`} placement="right" arrow>
-          <button type="button" className={`ArrowButton-${theme}`} onClick={() => setOpen(!open)}>
+          <button type="button" className="ArrowButton" onClick={() => setOpen(!open)}>
             <ArrowBackIosTwoTone className={`Arrow ${!open && "Rotate"}`} />
           </button>
         </Tooltip>

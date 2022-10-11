@@ -9,7 +9,6 @@
   border-radius: 10px;
   padding: 10px;
   min-height: 180px;
-  margin: 5px 0;
   cursor: pointer;
 
   .CardTextContent {
@@ -31,10 +30,10 @@
     object-fit: cover;
   }
 
-  .LearningCardInfo, .LearningCardDescription {
+  .LearningCardInfo,
+  .LearningCardDescription {
     text-align: left;
   }
-
 
   .LearningCardInfo {
     display: flex;
@@ -65,7 +64,12 @@
     padding-top: 10px;
   }
 
-  .Title, .Subtitle, .Description, .ReadMore, .By, .Author {
+  .Title,
+  .Subtitle,
+  .Description,
+  .ReadMore,
+  .By,
+  .Author {
     @extend .Text;
   }
 
@@ -82,7 +86,8 @@
     line-height: clamp(8px, 1.3vw, 1.5rem);
   }
 
-  .Description, .ReadMore {
+  .Description,
+  .ReadMore {
     font-weight: 500;
     font-size: 0.8vw;
     width: fit-content;
@@ -109,7 +114,8 @@
     }
   }
 
-  .By, .Author {
+  .By,
+  .Author {
     font-weight: 500;
     font-size: 0.8vw;
     text-decoration: underline 1px;
@@ -124,22 +130,23 @@
 
 .LearningCard-Theme_01 {
   @extend .LearningCard, .ComponentSurface-Theme_01;
-  .Title, .Subtitle, .Description, .By, .Author {
+  .Title,
+  .Subtitle,
+  .Description,
+  .By,
+  .Author {
     text-shadow: 0 0 3px #323236;
     color: white;
   }
-  .LearningCardDivider-Theme_01 {
-    @extend .LearningCardDivider;
+  .LearningCardDivider {
     background-color: #b8b8b859;
     box-shadow: 0 0 10px #1c1c1d;
   }
-  .Tag-Theme_01 {
-    @extend .Tag;
+  .Tag {
     @extend .ComponentSurface-Theme_01;
     @extend .GenericButton-Theme_01;
   }
-  .ReadMore-Theme_01 {
-    @extend .ReadMore;
+  .ReadMore {
     color: white;
     &:hover {
       border-bottom: 1px solid white;
@@ -149,21 +156,22 @@
 
 .LearningCard-Theme_02 {
   @extend .LearningCard, .ComponentSurface-Theme_02;
-  .Title, .Subtitle, .Description, .By, .Author {
+  .Title,
+  .Subtitle,
+  .Description,
+  .By,
+  .Author {
     text-shadow: 0 0 3px #c3cfe2;
     color: #323236;
   }
-  .LearningCardDivider-Theme_02 {
-    @extend .LearningCardDivider;
+  .LearningCardDivider {
     background-color: #323236;
   }
-  .Tag-Theme_02 {
-    @extend .Tag;
+  .Tag {
     @extend .ComponentSurface-Theme_02;
     @extend .GenericButton-Theme_02;
   }
-  .ReadMore-Theme_02 {
-    @extend .ReadMore;
+  .ReadMore {
     color: #323236;
     &:hover {
       border-bottom: 1px solid #323236;
@@ -174,22 +182,23 @@
 .LearningCard-Theme_03 {
   @extend .LearningCard, .ComponentSurface-Theme_03;
   border: 1px solid rgba(255, 255, 255, 0.65);
-  .Title, .Subtitle, .Description, .By, .Author {
+  .Title,
+  .Subtitle,
+  .Description,
+  .By,
+  .Author {
     text-shadow: 0 0 2px #000000;
     color: white;
   }
-  .LearningCardDivider-Theme_03 {
-    @extend .LearningCardDivider;
+  .LearningCardDivider {
     background-color: #bbbbbb;
     box-shadow: 0 0 10px #1c1c1d;
   }
-  .Tag-Theme_03 {
-    @extend .Tag;
+  .Tag {
     @extend .ComponentSurface-Theme_03;
     @extend .GenericButton-Theme_03;
   }
-  .ReadMore-Theme_03 {
-    @extend .ReadMore;
+  .ReadMore {
     color: white;
     &:hover {
       border-bottom: 1px solid white;
