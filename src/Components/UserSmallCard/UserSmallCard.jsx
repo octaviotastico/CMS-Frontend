@@ -21,7 +21,7 @@ const handleProfile = (setOpen) => {
 
 const handleLogout = (setOpen) => {
   setOpen(false);
-  localStorage.removeItem("token");
+  sessionStorage.removeItem("token");
   navigate("/login");
 };
 
