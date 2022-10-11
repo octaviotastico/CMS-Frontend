@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 // Material
 import { Button, ButtonGroup, Container, Grid, Typography } from "@material-ui/core";
-import { Cancel, CloudUpload } from "@material-ui/icons";
+import { Cancel, CloudUpload } from "@mui/icons-material";
 
 // Redux
 import { useSelector } from "react-redux";

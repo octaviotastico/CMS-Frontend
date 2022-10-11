@@ -9,7 +9,7 @@ import {
   GitHub,
   Facebook,
   Twitter,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 
 // Utils
 import { monthShort } from "../../Utils/constants";

@@ -6,7 +6,7 @@ import jwt from "jwt-decode";
 
 // Material
 import { ClickAwayListener, Grid, Typography } from "@material-ui/core";
-import { AccountCircleTwoTone, SettingsTwoTone, ExitToAppTwoTone } from "@material-ui/icons";
+import { AccountCircleTwoTone, SettingsTwoTone, ExitToAppTwoTone } from "@mui/icons-material";
 
 // Router
 import { navigate } from "../../Router";

@@ -4,7 +4,7 @@ import React from "react";
 // Material UI
 import { Button, Container, Grid, Typography } from "@material-ui/core";
 
-import { AccountBox, Email, Error, Lock, Person } from "@material-ui/icons";
+import { AccountBox, Email, Error, Lock, Person } from "@mui/icons-material";
 
 // Router
 import { navigate } from "../../Router";

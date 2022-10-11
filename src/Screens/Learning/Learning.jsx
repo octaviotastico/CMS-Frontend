@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 // Material
 import { Button, ButtonGroup, Typography } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
+import { Add } from "@mui/icons-material";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
@@ -99,7 +99,7 @@ const Learning = () => {
           <Grid className={`CreateContainer-${theme}`}>
             <ButtonGroup onClick={() => navigate("/learning/article/write")}>
               <Button className="CreateButton">
-                <AddIcon />
+                <Add />
               </Button>
               <Button className="CreateButton">Create an article!</Button>
             </ButtonGroup>

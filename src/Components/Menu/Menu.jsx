@@ -3,8 +3,7 @@ import React, { useState } from "react";
 
 // Material
 import { Grid, Tooltip } from "@material-ui/core";
-import BugReportTwoToneIcon from "@material-ui/icons/BugReportTwoTone";
-import ArrowBackIosTwoToneIcon from "@material-ui/icons/ArrowBackIosTwoTone";
+import { BugReportTwoTone, ArrowBackIosTwoTone } from "@mui/icons-material";
 
 // Redux
 import { useSelector } from "react-redux";
@@ -45,13 +44,13 @@ const Menu = ({ buttonList }) => {
       <Grid className="MenuFooter">
         <Tooltip title="Report a bug!" placement="right" arrow>
           <button type="button" className={`BugButton-${theme}`}>
-            <BugReportTwoToneIcon className="BugIcon" />
+            <BugReportTwoTone className="BugIcon" />
           </button>
         </Tooltip>
 
         <Tooltip title={`${open ? "Close" : "Open"} the menu`} placement="right" arrow>
           <button type="button" className={`ArrowButton-${theme}`} onClick={() => setOpen(!open)}>
-            <ArrowBackIosTwoToneIcon className={`Arrow ${!open && "Rotate"}`} />
+            <ArrowBackIosTwoTone className={`Arrow ${!open && "Rotate"}`} />
           </button>
         </Tooltip>
       </Grid>

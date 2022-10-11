@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 // Material
 import { Button, Container, Grid, Typography } from "@material-ui/core";
-import PaletteTwoToneIcon from "@material-ui/icons/PaletteTwoTone";
+import { PaletteTwoTone } from "@mui/icons-material";
 
 // Redux
 import { useDispatch } from "react-redux";
@@ -82,7 +82,7 @@ const Header = () => {
         <Grid item xs={4} className="HeaderContainer">
           <PDropdownButton
             id="ThemeSelector"
-            icon={<PaletteTwoToneIcon />}
+            icon={<PaletteTwoTone />}
             dropdown={
               themeList &&
               themeList.map((elem) => (
