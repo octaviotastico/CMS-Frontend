@@ -2,68 +2,53 @@
 import React, { useState, useEffect } from "react";
 
 // Material
-import { Container, Grid, Typography } from "@material-ui/core";
+import Container from "@mui/material/Container";
 
-// Mocked data
-import { PeopleData, PeopleFilter } from "../../Utils/MockData";
+// Redux
+import { useSelector } from "react-redux";
 
 // Components
 import UserCard from "../../Components/UserCard/UserCard";
-import PFilters from "../../Components/PFilters/PFilters";
+
+// API
+import { getAllUsers } from "../../API/user";
 
 // Styles
 import "./People.scss";
 
 const People = () => {
+  const { theme } = useSelector((state) => state);
   const [people, setPeople] = useState([]);
-  const [filters, setFilters] = useState([]);
-
-  const fetchFilters = async () => {
-    setFilters(PeopleFilter);
-  };
 
   const fetchPeople = async () => {
-    setPeople(PeopleData);
+    const response = await getAllUsers();
+    setPeople(response);
   };
 
   useEffect(() => {
     fetchPeople();
-    fetchFilters();
   }, []);
 
   return (
-    <Container disableGutters maxWidth={false} className="People">
-      <Grid className="TitleContainer">
-        <Typography className="Title">They&apos;re awesome people just like you.</Typography>
-      </Grid>
+    <Container disableGutters maxWidth={false} className={`People-${theme}`}>
+      {/* <Typography className="Title">They&apos;re awesome people just like you.</Typography> */}
 
-      <Grid className="BodyAndFilters">
-        <Grid className="BodyContainer">
-          {people &&
-            people.map((elem) => (
-              <Grid container spacing={3} className="Category" key={`People-${elem.category}`}>
-                <Grid item xs={12} className="CategoryTitleContainer">
-                  <Typography className="CategoryTitle">{elem.category}</Typography>
-                </Grid>
-                <Grid className="CardHorizontalList">
-                  {elem.data.map((person) => (
-                    <Grid key={person.name} className="CardContainer">
-                      <UserCard
-                        name={person.name}
-                        position={person.position}
-                        profilePic={person.profilePic}
-                        skills={person.skills}
-                      />
-                    </Grid>
-                  ))}
-                </Grid>
-              </Grid>
-            ))}
-        </Grid>
-        <Grid className="FiltersContainer">
-          <PFilters filters={filters} />
-        </Grid>
-      </Grid>
+      {people &&
+        people.map((person) => (
+          <UserCard
+            key={person.username}
+            name={`${person.firstName} ${person.lastName}`}
+            email={person.email}
+            profilePicture={person.profilePicture}
+            twitter={person.twitter}
+            facebook={person.facebook}
+            github={person.github}
+            linkedin={person.linkedin}
+            website={person.website}
+            skills={person.skills}
+            theme={theme}
+          />
+        ))}
     </Container>
   );
 };

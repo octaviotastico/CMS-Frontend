@@ -2,40 +2,82 @@
 import React from "react";
 
 // Material
-import { Grid, Typography } from "@material-ui/core";
-
-// Components
-import PTilt from "../PTilt/PTilt";
+import { Facebook, GitHub, LanguageTwoTone, LinkedIn, Twitter } from "@mui/icons-material";
+import { Button, Grid, Link, Typography } from "@mui/material";
 
 // Styles
 import "./UserCard.scss";
 
-const UserCard = ({ name, position, profilePic, skills }) => (
-  <PTilt
-    options={{
-      speed: 250,
-      perspective: 500,
-      reverse: true,
-      max: 5,
-    }}
-  >
-    <Grid className="UserCard GlassSurface-01">
-      <Grid item className="Picture">
-        <img className="ProfilePic" src={profilePic} alt={`${name} profile pic`} />
-      </Grid>
-      <Grid item className="Text">
-        <Typography className="UserName">{name}</Typography>
-        <Typography className="Subtitle">{position}</Typography>
-        <Grid className="SkillChipsContainer">
-          {skills.map((skill) => (
-            <Typography className="SkillChip GlassSurface-01" key={skill}>
-              {skill}
-            </Typography>
-          ))}
-        </Grid>
-      </Grid>
+const UserCard = ({
+  name,
+  email,
+  profilePicture,
+  twitter,
+  facebook,
+  github,
+  linkedin,
+  website,
+  skills,
+  theme,
+}) => (
+  <Grid className={`UserCard-${theme}`}>
+    <img
+      className="ProfilePicture"
+      src={`http://localhost:2424/${profilePicture}`}
+      alt={`${name} profile pic`}
+    />
+
+    <Grid>
+      <Typography className="UserName">{name}</Typography>
+      <Typography className="Subtitle">{email}</Typography>
     </Grid>
-  </PTilt>
+
+    <Grid>
+      {twitter && (
+        <Link underline="none" target="_blank" href={`https://www.twitter.com/${twitter}`}>
+          <Button className="SocialMediaButton">
+            <Twitter />
+          </Button>
+        </Link>
+      )}
+      {facebook && (
+        <Link underline="none" target="_blank" href={`https://www.facebook.com/${facebook}`}>
+          <Button className="SocialMediaButton">
+            <Facebook />
+          </Button>
+        </Link>
+      )}
+      {github && (
+        <Link underline="none" target="_blank" href={`https://www.github.com/${github}`}>
+          <Button className="SocialMediaButton">
+            <GitHub />
+          </Button>
+        </Link>
+      )}
+      {linkedin && (
+        <Link underline="none" target="_blank" href={`https://www.linkedin.com/in/${linkedin}`}>
+          <Button className="SocialMediaButton">
+            <LinkedIn />
+          </Button>
+        </Link>
+      )}
+      {website && (
+        <Link underline="none" target="_blank" href={website}>
+          <Button className="SocialMediaButton">
+            <LanguageTwoTone />
+          </Button>
+        </Link>
+      )}
+    </Grid>
+
+    <Grid className="SkillChipsContainer">
+      {skills.map((skill) => (
+        <Typography className="SkillChip" key={skill}>
+          {skill}
+        </Typography>
+      ))}
+    </Grid>
+  </Grid>
 );
 
 export default UserCard;

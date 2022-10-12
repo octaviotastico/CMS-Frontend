@@ -1,12 +1,12 @@
 // React
 import React, { useEffect, useState } from "react";
 
-// Libraries
-import jwt from "jwt-decode";
-
 // Material
 import { ClickAwayListener, Grid, Typography } from "@material-ui/core";
 import { AccountCircleTwoTone, SettingsTwoTone, ExitToAppTwoTone } from "@mui/icons-material";
+
+// API
+import { getMyData } from "../../API/user";
 
 // Router
 import { navigate } from "../../Router";
@@ -25,18 +25,15 @@ const handleLogout = (setOpen) => {
   navigate("/login");
 };
 
-const UserSmallCard = ({ profilePic }) => {
-  const [username, setUsername] = useState("");
+const UserSmallCard = () => {
+  const [userData, setUserData] = useState({});
   const [open, setOpen] = useState(false);
 
+  // Get user data
   useEffect(() => {
-    try {
-      const userData = jwt(sessionStorage.getItem("token"));
-      setUsername(userData.username);
-    } catch (error) {
-      console.log({ error });
-      setUsername("");
-    }
+    getMyData().then((res) => {
+      setUserData(res);
+    });
   }, []);
 
   return (
@@ -44,11 +41,15 @@ const UserSmallCard = ({ profilePic }) => {
       <Grid className="UserSmallCard">
         <Grid className="Button" onClick={() => setOpen(!open)}>
           <Grid className="Text">
-            <Typography className="UserName">{username}</Typography>
+            <Typography className="UserName">{userData.username}</Typography>
             <Typography className="Subtitle">Profile</Typography>
           </Grid>
           <Grid className="Picture">
-            <img className="ProfilePic" src={profilePic} alt="ME" />
+            <img
+              className="ProfilePic"
+              src={`http://localhost:2424/${userData.profilePicture}`}
+              alt="My picture"
+            />
           </Grid>
         </Grid>
 

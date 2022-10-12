@@ -4,19 +4,17 @@
 .UserSmallCard {
   .Button {
     display: flex;
-    cursor: pointer;
-    flex-direction: row;
     text-transform: none;
     align-items: center;
-    border-radius: 8px;
+    justify-content: center;
+    border-radius: 5px;
     min-width: 100px;
     transition: background 1s;
-    position: relative;
-    padding: 0;
+    height: 50px !important;
+    cursor: pointer;
 
     .Text {
-      margin-left: 10px !important;
-      margin-right: 10px !important;
+      margin: 0 15px;
     }
 
     .UserName {
@@ -42,6 +40,11 @@
   }
 
   .Button-Theme_01 {
+    @extend .Button;
+    background-color: #323236;
+  }
+
+  .Button-Theme_02 {
     @extend .Button;
     background-color: #323236;
   }

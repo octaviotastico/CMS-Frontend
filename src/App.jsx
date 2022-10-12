@@ -6,7 +6,7 @@ import { Container, Grid } from "@material-ui/core";
 import {
   AccountCircleTwoTone,
   ChromeReaderModeTwoTone,
-  // CommentTwoTone,
+  CommentTwoTone,
   HomeTwoTone,
   // VideoCallTwoTone,
 } from "@mui/icons-material";
@@ -74,19 +74,19 @@ const buttonList = [
     tooltipOpen: "See and update your profile",
     tooltipClosed: "Profile Screen",
   },
+  {
+    text: "People",
+    screen: "/people",
+    icon: () => <CommentTwoTone />,
+    tooltipOpen: "Discover new people!",
+    tooltipClosed: "People Screen",
+  },
   // {
   //   text: "Meetings",
   //   screen: "/meetings",
   //   icon: () => <VideoCallTwoTone />,
   //   tooltipOpen: "Connect with people by making videocalls with them",
   //   tooltipClosed: "Meetings Screen",
-  // },
-  // {
-  //   text: "People",
-  //   screen: "/people",
-  //   icon: () => <CommentTwoTone />,
-  //   tooltipOpen: "Discover new people!",
-  //   tooltipClosed: "People Screen",
   // },
 ];
 

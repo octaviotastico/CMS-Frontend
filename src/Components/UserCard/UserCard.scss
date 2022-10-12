@@ -3,65 +3,90 @@
 
 .UserCard {
   display: flex;
-  cursor: pointer;
-  flex-direction: column;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  flex-direction: column !important;
+  justify-content: center;
   align-items: center;
   border-radius: 10px;
+  cursor: pointer;
+  width: 300px;
+  height: 400px;
+  gap: 15px;
 
-  .Text {
-    margin-left: 10px !important;
-    margin-right: 10px !important;
-  }
-
-  .UserName {
-    font-size: 20px;
-    font-weight: 500;
-    color: white;
-    width: 100%;
-  }
-
-  .Subtitle {
-    font-size: 14px;
-    color: $textSecondary;
-  }
-
-  .SkillChipsContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 5px;
-    .SkillChip {
-      font-size: 13px;
-      border-radius: 100px;
-      padding: 5px 10px;
-      margin: 0 5px;
-    }
-  }
-
-  .ProfilePic {
-    border: 1px solid rgba(255, 255, 255, 0.15);
+  .ProfilePicture {
     border-radius: 10px;
     width: 200px;
   }
 
-  .arrow-right {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
+  .UserName {
+    @extend .Titles;
+    font-size: 20px;
+    font-weight: 600;
+    width: 100%;
   }
 
-  .arrow-right:hover {
-    transform: scale(110%);
+  .Subtitle {
+    @extend .Titles;
+    font-size: 14px;
+  }
+
+  .SkillChipsContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .SkillChip {
+    font-size: 13px;
+    border-radius: 100px;
+    padding: 5px 10px;
+    margin: 0 5px;
   }
 }
 
 .UserCard:hover {
-  background: rgba(255, 255, 255, 0.20);
-  box-shadow: 0 0 10px 0 rgba(31, 38, 135, 0.2);
-  transform: scale(1.01);
+  transform: scale(1.02);
+}
+
+.UserCard-Theme_01 {
+  @extend .UserCard;
+  @extend .ComponentSurface-Theme_01;
+
+  .ProfilePicture {
+    @extend .ComponentSurface-Theme_01;
+  }
+
+  .UserName,
+  .Subtitle,
+  .SocialMediaButton {
+    @extend .TextColor-Theme_01;
+  }
+}
+
+.UserCard-Theme_02 {
+  @extend .UserCard;
+  @extend .ComponentSurface-Theme_02;
+
+  .ProfilePicture {
+    @extend .ComponentSurface-Theme_02;
+  }
+
+  .UserName,
+  .Subtitle,
+  .SocialMediaButton {
+    @extend .TextColor-Theme_02;
+  }
+}
+
+.UserCard-Theme_03 {
+  @extend .UserCard;
+  @extend .ComponentSurface-Theme_03;
+
+  .ProfilePicture {
+    @extend .ComponentSurface-Theme_03;
+  }
+
+  .UserName,
+  .Subtitle,
+  .SocialMediaButton {
+    @extend .TextColor-Theme_03;
+  }
 }
