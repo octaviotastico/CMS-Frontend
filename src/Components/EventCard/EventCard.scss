@@ -27,12 +27,14 @@
         border-radius: 100px;
       }
       .UserName {
+        @extend .Titles;
         font-size: 1.4rem;
         font-weight: 500;
         margin-left: 5px;
       }
     }
     .UserDesc {
+      @extend .Titles;
       font-size: 1.2rem;
       font-weight: 400;
     }
@@ -93,6 +95,12 @@
         line-height: 1.3rem;
         text-align: center;
       }
+      .EventHour {
+        @extend .Text;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+      }
     }
 
     .EventTextContainer {
@@ -128,177 +136,68 @@
   }
 }
 
-
 .EventCard-Theme_01 {
   @extend .EventCard;
 
-  .ExpositorInfo {
-    @extend .ExpositorInfo;
-    @extend .ComponentSurface-Theme_01;
-  }
+  .ExpositorInfo,
   .EventInfo {
-    @extend .EventInfo;
     @extend .ComponentSurface-Theme_01;
   }
 
-  // User Info
-  .UserName {
-    @extend .Titles;
-    @extend .UserName;
-    color: lavenderblush;
-  }
-  .UserDesc {
-    @extend .Titles;
-    @extend .UserDesc;
-    color: lavenderblush;
-  }
-
-  // Event Dates
-  .EventDate {
-    @extend .EventDate;
-    color: lavenderblush;
-  }
-  .EventMonth {
-    @extend .EventMonth;
-    color: lavenderblush;
-  }
-
-  // Event Info
-  .MainTitle {
-    color: lavenderblush;
-  }
-  .EventTitle {
-    @extend .EventTitle;
-    color: lavenderblush;
-  }
-  .EventDesc {
-    @extend .EventDesc;
-    color: lavenderblush;
-  }
-
-  // Event Actions
-  .SocialMediaButton {
-    @extend .SocialMediaButton;
-    color: lavenderblush;
-  }
+  .UserName,
+  .UserDesc,
+  .EventDate,
+  .EventMonth,
+  .EventHour,
+  .MainTitle,
+  .EventTitle,
+  .EventDesc,
+  .SocialMediaButton,
   .EventButton {
-    @extend .EventButton;
-    color: lavenderblush;
+    @extend .TextColor-Theme_01;
   }
 }
 
 .EventCard-Theme_02 {
   @extend .EventCard;
 
-  .ExpositorInfo {
-    @extend .ExpositorInfo;
-    @extend .ComponentSurface-Theme_02;
-  }
+  .ExpositorInfo,
   .EventInfo {
-    @extend .EventInfo;
     @extend .ComponentSurface-Theme_02;
   }
 
-  // User Info
-  .UserName {
-    @extend .Titles;
-    @extend .UserName;
-    color: #323236;
-  }
-  .UserDesc {
-    @extend .Titles;
-    @extend .UserDesc;
-    color: #323236;
-  }
-
-  // Event Dates
-  .EventDate {
-    @extend .EventDate;
-    color: #323236;
-  }
-  .EventMonth {
-    @extend .EventMonth;
-    color: #323236;
-  }
-
-  // Event Info
-  .MainTitle {
-    color: #323236;
-  }
-  .EventTitle {
-    @extend .EventTitle;
-    color: #323236;
-  }
-  .EventDesc {
-    @extend .EventDesc;
-    color: #323236;
-  }
-
-  // Event Actions
-  .SocialMediaButton {
-    @extend .SocialMediaButton;
-    color: #323236;
-  }
+  .UserName,
+  .UserDesc,
+  .EventDate,
+  .EventMonth,
+  .EventHour,
+  .MainTitle,
+  .EventTitle,
+  .EventDesc,
+  .SocialMediaButton,
   .EventButton {
-    @extend .EventButton;
-    color: #323236;
+    @extend .TextColor-Theme_02;
   }
 }
 
 .EventCard-Theme_03 {
   @extend .EventCard;
 
-  .ExpositorInfo {
-    @extend .ExpositorInfo;
-    @extend .ComponentSurface-Theme_03_2;
-  }
+  .ExpositorInfo,
   .EventInfo {
-    @extend .EventInfo;
     @extend .ComponentSurface-Theme_03_2;
   }
 
-  // User Info
-  .UserName {
-    @extend .Titles;
-    @extend .UserName;
-    color: lavenderblush;
-  }
-  .UserDesc {
-    @extend .Titles;
-    @extend .UserDesc;
-    color: lavenderblush;
-  }
-
-  // Event Dates
-  .EventDate {
-    @extend .EventDate;
-    color: lavenderblush;
-  }
-  .EventMonth {
-    @extend .EventMonth;
-    color: lavenderblush;
-  }
-
-  // Event Info
-  .MainTitle {
-    color: lavenderblush;
-  }
-  .EventTitle {
-    @extend .EventTitle;
-    color: lavenderblush;
-  }
-  .EventDesc {
-    @extend .EventDesc;
-    color: lavenderblush;
-  }
-
-  // Event Actions
-  .SocialMediaButton {
-    @extend .SocialMediaButton;
-    color: lavenderblush;
-  }
+  .UserName,
+  .UserDesc,
+  .EventDate,
+  .EventMonth,
+  .EventHour,
+  .MainTitle,
+  .EventTitle,
+  .EventDesc,
+  .SocialMediaButton,
   .EventButton {
-    @extend .EventButton;
-    color: lavenderblush;
+    @extend .TextColor-Theme_03;
   }
 }
