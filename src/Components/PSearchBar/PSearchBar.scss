@@ -61,6 +61,7 @@
         text-align: left;
         font-weight: 100;
         padding: 0 20px;
+        background-color: #28282c;
       }
 
       .ListItem {
@@ -88,16 +89,33 @@
           flex-direction: column;
           font-weight: 100;
           .Title,
-          .Subtitle,
-          .Description {
+          .Subtitle {
             text-overflow: ellipsis;
           }
         }
-      }
-    }
 
-    .ListItem:hover {
-      background-color: #323236;
+        &:hover {
+          background-color: #48484d;
+        }
+      }
+
+      .EmptyListItem {
+        background-color: #323236;
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+
+        .NoResult {
+          @extend .NoSelect;
+          @extend .Text;
+          font-size: 1rem;
+        }
+        .NoResultIcon {
+          font-size: 1.25rem;
+        }
+      }
     }
   }
 }

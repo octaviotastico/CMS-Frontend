@@ -14,8 +14,8 @@ import UserSmallCard from "../UserSmallCard/UserSmallCard";
 import PSearchBar from "../PSearchBar/PSearchBar";
 import PDropdownButton from "../PDropdownButton/PDropdownButton";
 
-// Mocked Data
-import { SearchBarData } from "../../Utils/MockData";
+// API
+import { search } from "../../API/searchbar";
 
 // Router
 import { navigate } from "../../Router";
@@ -25,17 +25,19 @@ import "./Header.scss";
 
 const Header = () => {
   const [textInput, setTextInput] = useState("");
-  const [searchList, setSearchList] = useState([]);
+  const [apiResults, setApiResults] = useState({});
 
   const dispatch = useDispatch();
 
-  const fetchSearchBarData = () => {
-    setSearchList(SearchBarData);
-  };
-
   useEffect(() => {
-    fetchSearchBarData();
-  }, []);
+    if (textInput.length > 0) {
+      search(textInput).then((res) => {
+        setApiResults(res);
+      });
+    } else {
+      setApiResults({});
+    }
+  }, [textInput]);
 
   const themeList = [
     {
@@ -74,7 +76,7 @@ const Header = () => {
           <PSearchBar
             textInput={textInput}
             setTextInput={setTextInput}
-            options={searchList}
+            options={apiResults}
             placeholder="Search people, documents, articles..."
             className="PSearchBar"
           />
@@ -101,8 +103,5 @@ const Header = () => {
     </Container>
   );
 };
-
-// <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-// <div>Icons made by <a href="https://www.flaticon.com/authors/bomsymbols" title="BomSymbols">BomSymbols</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 export default Header;

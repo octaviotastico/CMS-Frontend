@@ -5,7 +5,7 @@ import React, { useState } from "react";
 // import { useSelector } from "react-redux";
 
 // Material
-import { Search } from "@mui/icons-material";
+import { Search, SearchOffTwoTone } from "@mui/icons-material";
 import { ClickAwayListener, Grid, Typography } from "@material-ui/core";
 
 // Styles
@@ -34,21 +34,36 @@ const PSearchBar = ({ textInput, setTextInput, options, placeholder }) => {
         {open && (
           <Grid id="Dropdown" className="DropdownContent">
             {options &&
-              options.map((elem) => (
-                <Grid className="ListCategory" key={`${elem.category}`}>
-                  <Typography className="ListTitle">{elem.category}</Typography>
-                  {elem.data.map((val) => (
-                    <Grid className="ListItem" key={`${val.title}`}>
-                      <Grid container className="ImageContainer">
-                        <img src={val.image} alt="alt-text" className="Thumbnails" />
+              Object.keys(options).map((category) => (
+                <Grid className="ListCategory" key={`${category}`}>
+                  <Typography className="ListTitle">
+                    {category[0].toUpperCase() + category.substring(1)}
+                  </Typography>
+
+                  {options[category].length > 0 &&
+                    options[category].map((elem) => (
+                      <Grid className="ListItem" key={`${elem.title}`}>
+                        <Grid container className="ImageContainer">
+                          <img
+                            src={`http://localhost:2424/${elem.preview}`}
+                            className="Thumbnails"
+                            alt="preview"
+                          />
+                        </Grid>
+
+                        <Grid container className="TextContainer">
+                          <Typography className="Title">{elem.title}</Typography>
+                          <Typography className="Subtitle">{elem.subtitle}</Typography>
+                        </Grid>
                       </Grid>
-                      <Grid container className="TextContainer">
-                        <Typography className="Title">{val.title}</Typography>
-                        <Typography className="Subtitle">{val.subtitle}</Typography>
-                        <Typography className="Description">{val.description}</Typography>
-                      </Grid>
+                    ))}
+
+                  {options[category].length === 0 && (
+                    <Grid className="EmptyListItem">
+                      <SearchOffTwoTone className="NoResultIcon" />
+                      <Typography className="NoResult">No results</Typography>
                     </Grid>
-                  ))}
+                  )}
                 </Grid>
               ))}
           </Grid>
@@ -57,7 +72,5 @@ const PSearchBar = ({ textInput, setTextInput, options, placeholder }) => {
     </ClickAwayListener>
   );
 };
-
-// Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 
 export default PSearchBar;

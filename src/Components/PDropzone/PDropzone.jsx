@@ -113,23 +113,3 @@ const PDropzone = ({ setSelectedFile = null, validTypes = [], acceptImages = fal
 };
 
 export default PDropzone;
-
-// Image preview
-// <div>Icons made by <a href="https://www.freepik.com" title="Freepik">
-// Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">
-// www.flaticon.com</a></div>
-
-// Document preview
-// <div>Icons made by <a href="https://www.freepik.com" title="Freepik">
-// Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">
-// www.flaticon.com</a></div>
-
-// Videocall
-// <div>Icons made by <a href="https://www.flaticon.com/authors/surang"
-// title="surang">surang</a> from <a href="https://www.flaticon.com/"
-// title="Flaticon">www.flaticon.com</a></div>
-
-// Conference
-// <div>Icons made by <a href="https://www.freepik.com" title="Freepik">
-// Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">
-// www.flaticon.com</a></div>

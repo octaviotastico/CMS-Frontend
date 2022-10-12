@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import "./ColorVariables.scss";
 
 ////////////////////
@@ -7,26 +7,26 @@
 ////////////////////
 
 .GlassSurface-01 {
-  background: rgba(255, 255, 255, 0.10);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20);
-  -webkit-backdrop-filter: blur(10.0px);
-  backdrop-filter: blur(10.0px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .GlassSurface-02 {
-  background: rgba(210, 210, 210, 0.30);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20);
-  -webkit-backdrop-filter: blur(10.0px);
-  backdrop-filter: blur(15.0px);
+  background: rgba(210, 210, 210, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .GlassButton-01 {
-  background: rgba(210, 210, 210, 0.20) !important;
+  background: rgba(210, 210, 210, 0.2) !important;
   //box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20) !important;
-  -webkit-backdrop-filter: blur(10.0px) !important;
-  backdrop-filter: blur(10.0px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
 }
 
@@ -44,7 +44,7 @@
   flex-direction: row;
   text-decoration: none;
   box-shadow: 0 0 10px 0 rgba(black, 0.2);
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: 600;
   display: flex;
 }
@@ -65,7 +65,7 @@
 .GenericButton-Theme_03 {
   @extend .GenericButton;
   color: white;
-  background-image: linear-gradient(-45deg, #8EC5FC, #E0C3FC);
+  background-image: linear-gradient(-45deg, #8ec5fc, #e0c3fc);
 }
 
 /////////////////////
@@ -77,8 +77,9 @@
   text-shadow: 0 0 3px #323236;
   transition: border 10s !important;
   &:hover {
-    background: linear-gradient(to bottom, #3b3b3d, rgba(0, 0, 0, 0.596)), radial-gradient(at top center, rgb(188, 192, 201) 0%, rgba(0, 0, 0, 0.514) 120%) #818286;
-    background-blend-mode: multiply,multiply;
+    background: linear-gradient(to bottom, #3b3b3d, rgba(0, 0, 0, 0.596)),
+      radial-gradient(at top center, rgb(188, 192, 201) 0%, rgba(0, 0, 0, 0.514) 120%) #818286;
+    background-blend-mode: multiply, multiply;
     box-shadow: 0 0 5px rgba(0, 0, 0, 1);
     border: 1px solid rgba(184, 198, 218, 0.9);
     box-sizing: border-box;
@@ -88,7 +89,8 @@
 .ButtonSurface-Theme_02 {
   color: #323236 !important;
   &:hover {
-    background: linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%);
+    background: linear-gradient(-180deg, #bcc5ce 0%, #929ead 98%),
+      radial-gradient(at top left, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
     background-blend-mode: screen;
     background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
     background-image: linear-gradient(45deg, #bccaec 0%, #e4efe9 100%);
@@ -114,14 +116,15 @@
 ////////////////////////
 
 .ComponentSurface-Theme_01 {
-  background: linear-gradient(to bottom, rgb(167, 167, 172), rgba(0, 0, 0, 0.151)), radial-gradient(at top center, rgb(188, 192, 201) 0%, rgba(0, 0, 0, 0.514) 120%) #818286;
-  background-blend-mode: multiply,multiply;
+  background: linear-gradient(to bottom, rgb(167, 167, 172), rgba(0, 0, 0, 0.151)),
+    radial-gradient(at top center, rgb(188, 192, 201) 0%, rgba(0, 0, 0, 0.514) 120%) #818286;
+  background-blend-mode: multiply, multiply;
   box-shadow: 0 0 20px 0 rgba(16, 16, 19, 0.719);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .ComponentSurface-Theme_02 {
-  background-image: linear-gradient(183deg, #e6ebf3, #E9F1F4);
+  background-image: linear-gradient(183deg, #e6ebf3, #e9f1f4);
   box-shadow: 0 0 5px 1px rgba(67, 58, 92, 0.32);
   border: 1px solid rgba(37, 37, 39, 0.58);
 }
@@ -133,13 +136,13 @@
 }
 
 .ComponentSurface-Theme_03 {
-  background: linear-gradient(150deg, #9647F1 -5%, #6D80EF 80%);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20);
+  background: linear-gradient(150deg, #9647f1 -5%, #6d80ef 80%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
   border: 1px solid rgba(#c3cfe2, 1);
 }
 .ComponentSurface-Theme_03_2 {
   background: linear-gradient(150deg, #834fec -5%, #455be9 120%);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
   border: 1px solid rgba(#c3cfe2, 1);
 }
 
@@ -148,15 +151,15 @@
 /////////////////////////
 
 .Titles {
-  font-family: 'Poppins' !important;
+  font-family: "Poppins" !important;
 }
 
 .Text {
-  font-family: 'Montserrat' !important;
+  font-family: "Montserrat" !important;
 }
 
 .FilterCheck:hover {
-  background: rgba(255, 255, 255, 0.20);
+  background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 10px 0 rgba(31, 38, 135, 0.2);
   transform: scale(1.01);
 }
@@ -173,6 +176,15 @@
   color: lavenderblush !important;
 }
 
+.NoSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
 //////////////////////
 // Neumorphic Style //
 //////////////////////
@@ -186,19 +198,12 @@ $inputshade: #353942;
 
 .NeumorphicSurface {
   border-radius: 10px;
-  box-shadow:
-    0.15em 0.15em 0.15em $shade4 inset,
-    -0.15em -0.15em 0.15em $shade1 inset,
-    1em 1em 2em $shade1,
-    -1em -1em 2em $shade4;
+  box-shadow: 0.15em 0.15em 0.15em $shade4 inset, -0.15em -0.15em 0.15em $shade1 inset,
+    1em 1em 2em $shade1, -1em -1em 2em $shade4;
 }
 
 .NaumorphicItem {
   border-radius: 0.5em;
-  box-shadow:
-    0.15em 0.15em 0.15em $shade4 inset,
-    -0.15em -0.15em 0.15em $shade1 inset,
-    0.25em 0.25em 0.5em $shade1,
-    -0.25em -0.25em 0.5em $shade4;
+  box-shadow: 0.15em 0.15em 0.15em $shade4 inset, -0.15em -0.15em 0.15em $shade1 inset,
+    0.25em 0.25em 0.5em $shade1, -0.25em -0.25em 0.5em $shade4;
 }
-
