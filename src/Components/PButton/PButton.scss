@@ -29,12 +29,5 @@
   @extend .ComponentSurface-Theme_03;
   @extend .PButton;
   color: white;
+  text-shadow: 0 0 2px #323236;
 }
-
-// .PButton:hover {
-//   -webkit-transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
-//   -moz-transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
-//   transition: box-shadow ease-out 0.35s, color ease-out 0.35s !important;
-//   box-shadow: inset 20vw 0 0 0 $gradient1 !important;
-//   font-weight: bold;
-// }

@@ -3,70 +3,103 @@
 
 .Header {
   z-index: 1;
-  height: calc(8vh + 5px);
-  min-height: 69px;
-  background: linear-gradient(to right, #303031, #232324);
-  box-shadow: 0px 5px 5px rgba(#323236, 0.2);
-  padding-right: 2rem;
-  padding-left: 6.25rem;
-  position: relative;
   display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  justify-content: center;
-  position: fixed;
-  .HeaderContainer {
+  align-content: center;
+  position: sticky;
+  height: 80px;
+  top: 0;
+
+  border-right: none;
+  border-left: none;
+  border-top: none;
+
+  .TitleContainer, .MenuContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .TitleContainer {
+    padding-left: 55px;
+  }
+
+  .MenuContainer {
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
+
+  .DT_CMS {
+    font-size: 45px;
+    letter-spacing: normal;
+    &:hover {
+      background: none;
+    }
+  }
+
+  .PSearchBar {
+    margin-left: 50px;
+  }
+
+  .ListTitle {
+    font-size: 20px;
+    text-align: left;
+    font-weight: 100;
+    padding: 0 20px;
+  }
+
+  .ListItem {
+    padding: 10px;
+    background-color: #5f636d;
     display: flex;
     flex-direction: row;
     align-items: center;
-    .DT_CMS {
-      font-size: 3rem;
-      text-transform: none;
-      letter-spacing: normal;
-      color: $textPrimary;
-      height: min-content;
-      &:hover {
-        background: none;
-      }
-    }
-    .PSearchBar {
-      margin-left: 7vw;
-    }
-    .ListTitle {
-      font-size: 20px;
-      text-align: left;
-      font-weight: 100;
-      padding: 0 20px;
+
+    .GradientPreview {
+      width: 10px;
+      height: 30px;
+      border-radius: 5px;
+      margin-right: 10px;
+      box-shadow: 0 0 5px rgba(black, 0.5);
     }
 
-    .ListItem {
-      padding: 10px;
-      background-color: #5f636d;
+    .TextContainer {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      .GradientPreview {
-        width: 10px;
-        height: 30px;
-        border-radius: 5px;
-        margin-right: 10px;
-        box-shadow: 0 0 5px rgba(black, 0.5);
-      }
-
-      .TextContainer {
-        display: flex;
-        flex-direction: column;
-        font-weight: 100;
-        .Title {
-          text-overflow: ellipsis;
-          text-shadow: 0 0 3px black;
-        }
+      flex-direction: column;
+      font-weight: 100;
+      .Title {
+        text-overflow: ellipsis;
+        text-shadow: 0 0 3px black;
       }
     }
 
-    .ListItem:hover {
+    &:hover {
       background-color: #323236;
     }
+  }
+}
+
+.Header-Theme_01 {
+  @extend .Header;
+  @extend .ComponentSurface-Theme_01;
+
+  .DT_CMS, .UserName, .Subtitle {
+    @extend .TextColor-Theme_01;
+  }
+}
+
+.Header-Theme_02 {
+  @extend .Header;
+  @extend .ComponentSurface-Theme_02;
+
+  .DT_CMS, .UserName, .Subtitle {
+    @extend .TextColor-Theme_02;
+  }
+}
+
+.Header-Theme_03 {
+  @extend .Header;
+  @extend .ComponentSurface-Theme_03;
+
+  .DT_CMS, .UserName, .Subtitle {
+    @extend .TextColor-Theme_03;
   }
 }

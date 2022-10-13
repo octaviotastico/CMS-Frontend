@@ -105,5 +105,6 @@
   .FileSelectionButton {
     color: white;
     @extend .GenericButton-Theme_03;
+    text-shadow: 0 0 2px #323236;
   }
 }

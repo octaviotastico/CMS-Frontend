@@ -6,7 +6,7 @@ import { Button, Container, Grid, Typography } from "@material-ui/core";
 import { PaletteTwoTone } from "@mui/icons-material";
 
 // Redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeTheme } from "../../Redux/ThemeReducer";
 
 // Components
@@ -24,6 +24,7 @@ import { navigate } from "../../Router";
 import "./Header.scss";
 
 const Header = () => {
+  const { theme } = useSelector((state) => state);
   const [textInput, setTextInput] = useState("");
   const [apiResults, setApiResults] = useState({});
 
@@ -67,9 +68,9 @@ const Header = () => {
   ];
 
   return (
-    <Container disableGutters maxWidth={false} className="Header">
+    <Container disableGutters maxWidth={false} className={`Header-${theme}`}>
       <Grid container className="Header">
-        <Grid item xs={8} className="HeaderContainer">
+        <Grid item xs={8} className="TitleContainer">
           <Button className="DT_CMS" disableRipple onClick={() => navigate("/home")}>
             DT_CMS
           </Button>
@@ -81,7 +82,7 @@ const Header = () => {
             className="PSearchBar"
           />
         </Grid>
-        <Grid item xs={4} className="HeaderContainer">
+        <Grid item xs={4} className="MenuContainer">
           <PDropdownButton
             id="ThemeSelector"
             icon={<PaletteTwoTone />}

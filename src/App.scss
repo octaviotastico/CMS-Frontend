@@ -15,9 +15,8 @@ body {
   .Body {
     flex-direction: row;
     position: relative;
-    min-height: calc(92vh - 5px);
+    padding: 10px;
     display: flex;
-    padding-top: calc(8vh + 5px);
 
     background-attachment: fixed;
     background-size: cover;
@@ -29,7 +28,7 @@ body {
 
   .Content {
     min-width: 50vw;
-    padding: 10px 20px;
+    padding-left: 10px;
   }
 }
 

@@ -51,7 +51,7 @@ const LearningArticleWrite = () => {
   const md = new MarkdownIt();
 
   return (
-    <Container maxWidth={false} className={`LearningArticleWriteScreen-${theme}`}>
+    <Container maxWidth={false} disableGutters className={`LearningArticleWriteScreen-${theme}`}>
       <Grid className="ArticleInfoContainer">
         <Grid style={{ display: "flex", justifyContent: "space-between" }}>
           <Grid className="TextInputContainer">

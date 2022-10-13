@@ -40,7 +40,8 @@
 
 .PDropdownButton-Theme_02 {
   @extend .PDropdownButton;
-  background-image: linear-gradient(-45deg, #eeeef0, #c5c7ce);
+  background-image: linear-gradient(-45deg, #dcdce4, #c5c7ce);
+  box-shadow: inset 0 0 8px 2px rgba(black, 0.25);
   .DropdownIcon {
     color: #323236;
   }
@@ -48,8 +49,9 @@
 
 .PDropdownButton-Theme_03 {
   @extend .PDropdownButton;
-  background-image: linear-gradient(-45deg, #e594f0, #5183ce);
+  background-image: linear-gradient(-45deg, #1b6ae1, #db72e9);
+  box-shadow: inset 0 0 8px 2px rgba(black, 0.35);
   .DropdownIcon {
-    color: #323236;
+    color: white;
   }
 }

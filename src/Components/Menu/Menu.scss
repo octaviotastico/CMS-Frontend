@@ -9,13 +9,11 @@ $duration: 0.5s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(92vh - 25px);
+  height: calc(100vh - 100px);
   border-radius: 10px;
   transition: all 1s;
   position: sticky;
   top: calc(8vh + 15px);
-  margin: 10px !important;
-  margin-right: 0 !important;
 
   .MenuButtons {
     display: flex;
