@@ -79,7 +79,6 @@ const Header = () => {
             setTextInput={setTextInput}
             options={apiResults}
             placeholder="Search people, documents, articles..."
-            className="PSearchBar"
           />
         </Grid>
         <Grid item xs={4} className="MenuContainer">

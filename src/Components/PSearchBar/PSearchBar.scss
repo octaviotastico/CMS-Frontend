@@ -3,12 +3,23 @@
 
 .PSearchBar {
   .SearchbarContainer {
+    box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
     display: flex;
   }
 
-  .Input {
+  .PSearchBarInput {
+    @extend .Text;
     width: 400px;
-    background-color: #323236;
+    font-weight: 500;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3) 1px,
+      rgba(0, 0, 0, 0.3) 2px,
+      rgba(0, 0, 0, 0.3) 3px
+    );
+    z-index: 1;
     border-radius: 10px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -17,7 +28,6 @@
     border: none;
     position: relative;
     display: inline-block;
-    color: $textPrimary !important;
     padding-left: 10px;
     outline: none;
   }
@@ -25,7 +35,14 @@
   .SearchButton {
     height: 46px;
     width: 55px;
-    background-color: #323236;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3) 1px,
+      rgba(0, 0, 0, 0.3) 2px,
+      rgba(0, 0, 0, 0.3) 3px
+    );
+    z-index: 1;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -39,34 +56,28 @@
 
   .SearchIcon {
     font-size: 35px;
-    color: $textPrimary;
   }
 
-  .DropdownContent {
+  .PSearchBarDropdownContent {
     position: absolute;
-    background-color: #323236;
-    min-width: 160px;
-    max-width: 600px;
-    margin-top: 10px;
+    min-width: 473px;
+    max-width: 1000px;
+    margin-top: 5px;
     border-radius: 10px;
     overflow: auto;
-    box-shadow: 0 0 7px 2px #323236;
     z-index: 1;
 
-    .ListCategory {
-      background-color: #323236;
-
-      .ListTitle {
+    .PSearchBarListCategory {
+      .PSearchBarListTitle {
+        @extend .NoSelect;
         font-size: 20px;
         text-align: left;
-        font-weight: 100;
-        padding: 0 20px;
-        background-color: #28282c;
+        font-weight: 800;
+        padding: 5px 20px;
       }
 
-      .ListItem {
-        padding: 10px 20px;
-        background-color: #323236;
+      .MenuItemList {
+        padding: 12px 20px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -84,23 +95,27 @@
         }
 
         .TextContainer {
-          text-align: left;
           display: flex;
           flex-direction: column;
-          font-weight: 100;
-          .Title,
-          .Subtitle {
+          text-align: left;
+          .PSearchBarTitle {
+            font-size: 20px;
+            font-weight: 400;
+            white-space: nowrap;
             text-overflow: ellipsis;
+            line-height: normal;
           }
-        }
-
-        &:hover {
-          background-color: #48484d;
+          .PSearchBarSubtitle {
+            font-size: 15px;
+            font-weight: 200;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            line-height: normal;
+          }
         }
       }
 
       .EmptyListItem {
-        background-color: #323236;
         padding: 10px 20px;
         display: flex;
         flex-direction: row;
@@ -117,5 +132,109 @@
         }
       }
     }
+  }
+}
+
+.PSearchBar-Theme_01 {
+  @extend .PSearchBar;
+
+  .PSearchBarDropdownContent {
+    box-shadow: 0 0 20px 0 rgba(16, 16, 19, 0.719);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .PSearchBarListTitle,
+  .MenuItemList:hover {
+    background-color: #35363b;
+  }
+
+  .MenuItemList {
+    background-color: #404147;
+  }
+
+  .PSearchBarInput,
+  .SearchButton {
+    color: white;
+    &::placeholder {
+      color: #a3a3ac;
+    }
+  }
+
+  .PSearchBarListTitle,
+  .PSearchBarTitle,
+  .PSearchBarSubtitle {
+    color: white;
+  }
+}
+
+.PSearchBar-Theme_02 {
+  @extend .PSearchBar;
+
+  .PSearchBarDropdownContent {
+    box-shadow: 0 0 5px 1px rgb(67 58 92 / 32%);
+    border: 1px solid rgba(37, 37, 39, 0.58);
+  }
+
+  .PSearchBarListTitle,
+  .MenuItemList:hover {
+    background-color: #d9dee6;
+  }
+
+  .MenuItemList {
+    background-color: #e6ecf3;
+  }
+
+  .PSearchBarInput,
+  .SearchButton {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1) 1px,
+      rgba(0, 0, 0, 0.1) 2px,
+      rgba(0, 0, 0, 0.1) 3px
+    );
+
+    color: black;
+    &::placeholder {
+      color: #87878e;
+    }
+  }
+
+  .PSearchBarListTitle,
+  .PSearchBarTitle,
+  .PSearchBarSubtitle {
+    @extend .TextColor-Theme_02;
+  }
+}
+
+.PSearchBar-Theme_03 {
+  @extend .PSearchBar;
+
+  .PSearchBarDropdownContent {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    border: 1px solid rgba(#c3cfe2, 1);
+  }
+
+  .PSearchBarListTitle,
+  .MenuItemList:hover {
+    background-color: #824af1;
+  }
+
+  .MenuItemList {
+    background-color: #9647f1;
+  }
+
+  .PSearchBarInput,
+  .SearchButton {
+    color: white;
+    &::placeholder {
+      color: #a3a3ac;
+    }
+  }
+
+  .PSearchBarListTitle,
+  .PSearchBarTitle,
+  .PSearchBarSubtitle {
+    color: white;
   }
 }

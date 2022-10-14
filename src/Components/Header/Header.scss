@@ -18,25 +18,18 @@
     align-items: center;
   }
 
-  .TitleContainer {
-    padding-left: 55px;
-  }
-
   .MenuContainer {
     justify-content: flex-end;
     padding-right: 10px;
   }
 
   .DT_CMS {
+    padding: 0 60px;
     font-size: 45px;
     letter-spacing: normal;
     &:hover {
       background: none;
     }
-  }
-
-  .PSearchBar {
-    margin-left: 50px;
   }
 
   .ListTitle {

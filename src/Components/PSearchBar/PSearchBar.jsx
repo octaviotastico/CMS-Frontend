@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 // Redux
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 // Material
 import { Search, SearchOffTwoTone } from "@mui/icons-material";
@@ -12,12 +12,12 @@ import { ClickAwayListener, Grid, Typography } from "@material-ui/core";
 import "./PSearchBar.scss";
 
 const PSearchBar = ({ textInput, setTextInput, options, placeholder }) => {
-  // const { theme } = useSelector((state) => state);
+  const { theme } = useSelector((state) => state);
   const [open, setOpen] = useState(false);
 
   return (
     <ClickAwayListener onClickAway={() => setOpen(false)}>
-      <Grid className="PSearchBar">
+      <Grid className={`PSearchBar-${theme}`}>
         <Grid className="SearchbarContainer">
           <button className="SearchButton">
             <Search className="SearchIcon" />
@@ -28,21 +28,21 @@ const PSearchBar = ({ textInput, setTextInput, options, placeholder }) => {
             placeholder={placeholder}
             onClick={() => setOpen(true)}
             onChange={(e) => setTextInput(e.target.value)}
-            className="Input"
+            className="PSearchBarInput"
           />
         </Grid>
-        {open && (
-          <Grid id="Dropdown" className="DropdownContent">
+        {open && textInput.length > 0 && (
+          <Grid id="Dropdown" className="PSearchBarDropdownContent">
             {options &&
               Object.keys(options).map((category) => (
-                <Grid className="ListCategory" key={`${category}`}>
-                  <Typography className="ListTitle">
+                <Grid className="PSearchBarListCategory" key={`${category}`}>
+                  <Typography className="PSearchBarListTitle">
                     {category[0].toUpperCase() + category.substring(1)}
                   </Typography>
 
                   {options[category].length > 0 &&
                     options[category].map((elem) => (
-                      <Grid className="ListItem" key={`${elem.title}`}>
+                      <Grid className="MenuItemList" key={`${elem.title}`}>
                         <Grid container className="ImageContainer">
                           <img
                             src={`http://localhost:2424/${elem.preview}`}
@@ -52,8 +52,8 @@ const PSearchBar = ({ textInput, setTextInput, options, placeholder }) => {
                         </Grid>
 
                         <Grid container className="TextContainer">
-                          <Typography className="Title">{elem.title}</Typography>
-                          <Typography className="Subtitle">{elem.subtitle}</Typography>
+                          <Typography className="PSearchBarTitle">{elem.title}</Typography>
+                          <Typography className="PSearchBarSubtitle">{elem.subtitle}</Typography>
                         </Grid>
                       </Grid>
                     ))}
