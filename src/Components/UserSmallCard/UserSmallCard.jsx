@@ -5,7 +5,11 @@ import React, { useEffect, useState } from "react";
 import { ClickAwayListener, Grid, Typography } from "@material-ui/core";
 import { AccountCircleTwoTone, SettingsTwoTone, ExitToAppTwoTone } from "@mui/icons-material";
 
+// Redux
+import { useSelector } from "react-redux";
+
 // API
+import { API_URL } from "../../Utils/constants";
 import { getMyData } from "../../API/user";
 
 // Router
@@ -26,6 +30,7 @@ const handleLogout = (setOpen) => {
 };
 
 const UserSmallCard = () => {
+  const { theme } = useSelector((state) => state);
   const [userData, setUserData] = useState({});
   const [open, setOpen] = useState(false);
 
@@ -38,18 +43,24 @@ const UserSmallCard = () => {
 
   return (
     <ClickAwayListener onClickAway={() => setOpen(false)}>
-      <Grid className="UserSmallCard">
+      <Grid className={`UserSmallCard-${theme}`}>
         <Grid className="Button" onClick={() => setOpen(!open)}>
           <Grid className="Text">
             <Typography className="UserName">{userData.username}</Typography>
             <Typography className="Subtitle">Profile</Typography>
           </Grid>
           <Grid className="Picture">
-            <img
-              className="ProfilePic"
-              src={`http://localhost:2424/${userData.profilePicture}`}
-              alt="My picture"
-            />
+            {userData.profilePicture && (
+              <img
+                className="ProfilePic"
+                src={`${API_URL}/${userData.profilePicture}`}
+                alt="My picture"
+                onError={(event) => {
+                  event.target.style.display = "none";
+                }}
+              />
+            )}
+            {!userData.profilePicture && <AccountCircleTwoTone className="ProfilePic" />}
           </Grid>
         </Grid>
 

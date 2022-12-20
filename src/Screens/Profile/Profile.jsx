@@ -27,6 +27,7 @@ import { useSelector } from "react-redux";
 
 // Api
 import { getMyData, updateProfile } from "../../API/user";
+import { API_URL } from "../../Utils/constants";
 
 // Components
 import PDropzone from "../../Components/PDropzone/PDropzone";
@@ -73,6 +74,7 @@ const Profile = () => {
   const [errors, setErrors] = useState({});
   const [open, setOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [userHasPicture, setUserHasPicture] = useState(true);
 
   // Get user data
   useEffect(() => {
@@ -80,8 +82,6 @@ const Profile = () => {
       setApiUserData(res);
     });
   }, []);
-
-  console.log({ apiUserData });
 
   return (
     <Container maxWidth={false} className={`ProfileScreen-${theme}`}>
@@ -96,10 +96,15 @@ const Profile = () => {
 
       <Grid className="ProfilePictureContainer">
         <img
-          src={`http://localhost:2424/${apiUserData.profilePicture?.replaceAll("\\", "/")}`}
+          src={`${API_URL}/${apiUserData.profilePicture?.replaceAll("\\", "/")}`}
           className="ProfilePicture"
           alt="profilePicture"
+          onError={(event) => {
+            setUserHasPicture(false);
+            event.target.style.display = "none";
+          }}
         />
+        {!userHasPicture && <AccountCircleTwoTone className="ProfilePicture" />}
         <Grid className="ProfilePictureOverlay" onClick={() => setOpen(true)}>
           <Typography className="ProfileText" style={{ fontSize: 15, color: "white" }}>
             <EditTwoTone /> Change profile picture

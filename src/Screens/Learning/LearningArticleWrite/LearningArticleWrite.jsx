@@ -57,7 +57,7 @@ const LearningArticleWrite = () => {
           <Grid className="TextInputContainer">
             <PTextInput
               fieldName="Article Title"
-              placeholder="A complete guide to CSS Grid"
+              placeholder="Delay Tolerant Networks are fun!"
               value={title}
               setValue={setTitle}
             />
@@ -65,7 +65,7 @@ const LearningArticleWrite = () => {
           <Grid className="TextInputContainer">
             <PTextInput
               fieldName="Article Subtitle"
-              placeholder="Just kidding bro, use display flex on everything"
+              placeholder="A short description of the article"
               value={subtitle}
               setValue={setSubtitle}
             />

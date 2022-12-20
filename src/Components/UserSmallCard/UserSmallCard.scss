@@ -39,21 +39,6 @@
     }
   }
 
-  .Button-Theme_01 {
-    @extend .Button;
-    background-color: #323236;
-  }
-
-  .Button-Theme_02 {
-    @extend .Button;
-    background-color: #323236;
-  }
-
-  .Button-Theme_03 {
-    @extend .Button;
-    background-color: #ffd1ff;
-  }
-
   .Button:hover {
     background: linear-gradient(to bottom right, $glassTopLeft, $glassBotRight);
     .UserName {
@@ -102,5 +87,29 @@
       font-weight: 500;
       color: #060822;
     }
+  }
+}
+
+.UserSmallCard-Theme_01 {
+  @extend .UserSmallCard;
+  .ProfilePic {
+    @extend .ProfilePic;
+    color: white;
+  }
+}
+
+.UserSmallCard-Theme_02 {
+  @extend .UserSmallCard;
+  .ProfilePic {
+    @extend .ProfilePic;
+    color: #2c2d36;
+  }
+}
+
+.UserSmallCard-Theme_03 {
+  @extend .UserSmallCard;
+  .ProfilePic {
+    @extend .ProfilePic;
+    color: white;
   }
 }

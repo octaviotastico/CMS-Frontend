@@ -101,6 +101,7 @@
   .ProfilePicture {
     @extend .ProfilePicture;
     @extend .ComponentSurface-Theme_01;
+    color: white;
   }
 
   .ProfileSection {
@@ -133,6 +134,7 @@
   .ProfilePicture {
     @extend .ProfilePicture;
     @extend .ComponentSurface-Theme_02;
+    color: #2c2d36;
   }
 
   .ProfileSection {
@@ -165,6 +167,7 @@
   .ProfilePicture {
     @extend .ProfilePicture;
     @extend .ComponentSurface-Theme_03;
+    color: white;
   }
 
   .ProfileSection {
