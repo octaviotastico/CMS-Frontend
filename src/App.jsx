@@ -27,7 +27,7 @@ import Learning from "./Screens/Learning/Learning";
 import LearningArticleRead from "./Screens/Learning/LearningArticleRead/LearningArticleRead";
 import LearningArticleWrite from "./Screens/Learning/LearningArticleWrite/LearningArticleWrite";
 import EventCreation from "./Screens/Events/EventCreation";
-import Login from "./Screens/Login/Login";
+import Login from "./Screens/LogIn/Login";
 import Signup from "./Screens/Signup/Signup";
 import Meetings from "./Screens/Meetings/Meetings";
 import NotFound from "./Screens/Errors/404/404";
