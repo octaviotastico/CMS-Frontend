@@ -7,6 +7,9 @@ import { Grid, Typography } from "@material-ui/core";
 // Redux
 import { useSelector } from "react-redux";
 
+// API
+import { API_URL } from "../../Utils/constants";
+
 // Router
 import { navigate } from "../../Router";
 
@@ -23,7 +26,7 @@ const LearningCard = ({ title, subtitle, content, author, tags, preview, id }) =
     >
       {typeof preview === "string" ? (
         <img
-          src={`http://localhost:2424/${preview.replaceAll("\\", "/")}`}
+          src={`${API_URL}/${preview.replaceAll("\\", "/")}`}
           className="LearningCardPreview"
           alt={title}
         />

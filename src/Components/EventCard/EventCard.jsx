@@ -13,7 +13,9 @@ import {
 } from "@mui/icons-material";
 
 // Utils
-import { monthShort } from "../../Utils/constants";
+import { monthShort, API_URL } from "../../Utils/constants";
+
+// API
 
 // Styles
 import "./EventCard.scss";
@@ -31,11 +33,7 @@ const EventCard = ({
   <Grid className={`EventCard-${theme}`} key={key}>
     <Grid className="ExpositorInfo">
       <Grid className="UserPhotoAndName">
-        <img
-          className="UserPhoto"
-          src={`http://localhost:2424/${author.profilePicture}`}
-          alt="User_photo"
-        />
+        <img className="UserPhoto" src={`${API_URL}/${author.profilePicture}`} alt="User_photo" />
         <Typography className="UserName">
           {author.firstName} {author.lastName}
         </Typography>

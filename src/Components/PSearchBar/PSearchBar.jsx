@@ -8,6 +8,9 @@ import { useSelector } from "react-redux";
 import { Search, SearchOffTwoTone } from "@mui/icons-material";
 import { ClickAwayListener, Grid, Typography } from "@material-ui/core";
 
+// API
+import { API_URL } from "../../Utils/constants";
+
 // Styles
 import "./PSearchBar.scss";
 
@@ -45,7 +48,7 @@ const PSearchBar = ({ textInput, setTextInput, options, placeholder }) => {
                       <Grid className="MenuItemList" key={`${elem.title}`}>
                         <Grid container className="ImageContainer">
                           <img
-                            src={`http://localhost:2424/${elem.preview}`}
+                            src={`${API_URL}/${elem.preview}`}
                             className="Thumbnails"
                             alt="preview"
                           />

@@ -5,6 +5,9 @@ import React from "react";
 import { Facebook, GitHub, LanguageTwoTone, LinkedIn, Twitter } from "@mui/icons-material";
 import { Button, Grid, Link, Typography } from "@mui/material";
 
+// API
+import { API_URL } from "../../Utils/constants";
+
 // Styles
 import "./UserCard.scss";
 
@@ -23,7 +26,7 @@ const UserCard = ({
   <Grid className={`UserCard-${theme}`}>
     <img
       className="ProfilePicture"
-      src={`http://localhost:2424/${profilePicture}`}
+      src={`${API_URL}/${profilePicture}`}
       alt={`${name} profile pic`}
     />
 

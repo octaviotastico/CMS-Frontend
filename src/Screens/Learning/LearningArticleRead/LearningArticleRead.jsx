@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 
 // API
 import { getArticle } from "../../../API/learning";
+import { API_URL } from "../../../Utils/constants";
 
 // Router
 import { getQueryParams } from "../../../Router";
@@ -45,7 +46,7 @@ const LearningArticleRead = () => {
     <Container maxWidth={false} className={`LearningArticleRead-${theme}`}>
       <Grid className="TitlesAndPreviewContainer">
         <img
-          src={`http://localhost:2424/${article.preview.replaceAll("\\", "/")}`}
+          src={`${API_URL}/${article.preview.replaceAll("\\", "/")}`}
           className="Preview"
           alt={article.title}
         />
