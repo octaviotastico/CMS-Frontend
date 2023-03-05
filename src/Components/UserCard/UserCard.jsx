@@ -1,8 +1,15 @@
 // React
-import React from "react";
+import React, { useState } from "react";
 
 // Material
-import { Facebook, GitHub, LanguageTwoTone, LinkedIn, Twitter } from "@mui/icons-material";
+import {
+  AccountCircleTwoTone,
+  Facebook,
+  GitHub,
+  LanguageTwoTone,
+  LinkedIn,
+  Twitter,
+} from "@mui/icons-material";
 import { Button, Grid, Link, Typography } from "@mui/material";
 
 // API
@@ -22,65 +29,74 @@ const UserCard = ({
   website,
   skills,
   theme,
-}) => (
-  <Grid className={`UserCard-${theme}`}>
-    <img
-      className="ProfilePicture"
-      src={`${API_URL}/${profilePicture}`}
-      alt={`${name} profile pic`}
-    />
+}) => {
+  const [userHasPicture, setUserHasPicture] = useState(true);
 
-    <Grid>
-      <Typography className="UserName">{name}</Typography>
-      <Typography className="Subtitle">{email}</Typography>
-    </Grid>
+  return (
+    <Grid className={`UserCard-${theme}`}>
+      <img
+        className="ProfilePicture"
+        src={`${API_URL}/${profilePicture}`}
+        alt={`${name} profile pic`}
+        onError={(event) => {
+          setUserHasPicture(false);
+          event.target.style.display = "none";
+        }}
+      />
+      {!userHasPicture && <AccountCircleTwoTone className="ProfilePicture" />}
 
-    <Grid>
-      {twitter && (
-        <Link underline="none" target="_blank" href={`https://www.twitter.com/${twitter}`}>
-          <Button className="SocialMediaButton">
-            <Twitter />
-          </Button>
-        </Link>
-      )}
-      {facebook && (
-        <Link underline="none" target="_blank" href={`https://www.facebook.com/${facebook}`}>
-          <Button className="SocialMediaButton">
-            <Facebook />
-          </Button>
-        </Link>
-      )}
-      {github && (
-        <Link underline="none" target="_blank" href={`https://www.github.com/${github}`}>
-          <Button className="SocialMediaButton">
-            <GitHub />
-          </Button>
-        </Link>
-      )}
-      {linkedin && (
-        <Link underline="none" target="_blank" href={`https://www.linkedin.com/in/${linkedin}`}>
-          <Button className="SocialMediaButton">
-            <LinkedIn />
-          </Button>
-        </Link>
-      )}
-      {website && (
-        <Link underline="none" target="_blank" href={website}>
-          <Button className="SocialMediaButton">
-            <LanguageTwoTone />
-          </Button>
-        </Link>
-      )}
-    </Grid>
+      <Grid>
+        <Typography className="UserName">{name}</Typography>
+        <Typography className="Subtitle">{email}</Typography>
+      </Grid>
 
-    <Grid className="SkillChipsContainer">
-      {skills.map((skill) => (
-        <Typography className="SkillChip" key={skill}>
-          {skill}
-        </Typography>
-      ))}
+      <Grid>
+        {twitter && (
+          <Link underline="none" target="_blank" href={`https://www.twitter.com/${twitter}`}>
+            <Button className="SocialMediaButton">
+              <Twitter />
+            </Button>
+          </Link>
+        )}
+        {facebook && (
+          <Link underline="none" target="_blank" href={`https://www.facebook.com/${facebook}`}>
+            <Button className="SocialMediaButton">
+              <Facebook />
+            </Button>
+          </Link>
+        )}
+        {github && (
+          <Link underline="none" target="_blank" href={`https://www.github.com/${github}`}>
+            <Button className="SocialMediaButton">
+              <GitHub />
+            </Button>
+          </Link>
+        )}
+        {linkedin && (
+          <Link underline="none" target="_blank" href={`https://www.linkedin.com/in/${linkedin}`}>
+            <Button className="SocialMediaButton">
+              <LinkedIn />
+            </Button>
+          </Link>
+        )}
+        {website && (
+          <Link underline="none" target="_blank" href={website}>
+            <Button className="SocialMediaButton">
+              <LanguageTwoTone />
+            </Button>
+          </Link>
+        )}
+      </Grid>
+
+      <Grid className="SkillChipsContainer">
+        {skills.map((skill) => (
+          <Typography className="SkillChip" key={skill}>
+            {skill}
+          </Typography>
+        ))}
+      </Grid>
     </Grid>
-  </Grid>
-);
+  );
+};
 
 export default UserCard;
