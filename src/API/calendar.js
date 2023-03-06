@@ -51,9 +51,11 @@ export const postEvent = async (event) => {
 
   const token = sessionStorage.getItem("token");
   const response = await axios.post(`${API_URL}/calendar/events`, fd, {
-    "Content-Type": "multipart/form-data",
-    Accept: "application/json",
-    Authorization: `Bearer ${token}`,
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
+    },
   });
   return response.data;
 };
