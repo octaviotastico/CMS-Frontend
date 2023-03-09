@@ -87,7 +87,7 @@ const Profile = () => {
     <Container maxWidth={false} className={`ProfileScreen-${theme}`}>
       <Snackbar
         open={snackbarOpen}
-        autoHideDuration={3000}
+        autoHideDuration={1500}
         onClose={(...params) => handleCloseSnackbar(...params, setSnackbarOpen)}
         message="Changes to profile saved!"
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}

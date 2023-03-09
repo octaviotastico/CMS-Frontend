@@ -6,11 +6,17 @@
   flex-direction: column;
   height: 100%;
 
-  .TitlesAndPreviewContainer {
+  .TitlesAndPreviewContainer,
+  .MarkdownPreviewContainer,
+  .ReadModeAboutContainer,
+  .AuthorContainer {
     display: flex;
-    flex-direction: row;
-    padding: 20px;
     border-radius: 10px;
+    padding: 20px;
+  }
+
+  .TitlesAndPreviewContainer {
+    flex-direction: row;
 
     .Preview {
       width: 250px;
@@ -67,19 +73,41 @@
     }
   }
 
-  .MarkdownPreviewContainer {
+  .ActionsContainer {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    .Action {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: fit-content;
+      cursor: pointer;
+      margin-right: 10px;
+      .ActionIcon {
+        margin-right: 10px;
+      }
+      .ActionText {
+        @extend .Text;
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .MarkdownPreviewContainer {
     flex-direction: column;
-    margin-top: 20px;
-    min-height: 60vh;
-    padding: 0 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    // min-height: 60vh;
     font-size: 1.5rem;
-    border-radius: 10px;
     text-align: left;
 
     h1 {
       text-align: center;
       text-decoration: underline;
+      margin-top: 10px;
     }
 
     h2 {
@@ -94,6 +122,11 @@
       margin-left: 0px;
     }
   }
+
+  .ReadModeAboutContainer {
+    margin-top: 10px;
+  }
+
 }
 
 .LearningArticleRead-Theme_01 {
@@ -101,7 +134,9 @@
   @extend .TextColor-Theme_01;
 
   .TitlesAndPreviewContainer,
-  .MarkdownPreviewContainer {
+  .MarkdownPreviewContainer,
+  .ReadModeAboutContainer,
+  .AuthorContainer {
     @extend .ComponentSurface-Theme_01;
   }
 }
@@ -111,7 +146,9 @@
   @extend .TextColor-Theme_02;
 
   .TitlesAndPreviewContainer,
-  .MarkdownPreviewContainer {
+  .MarkdownPreviewContainer,
+  .ReadModeAboutContainer,
+  .AuthorContainer {
     @extend .ComponentSurface-Theme_02;
   }
 }
@@ -121,7 +158,9 @@
   @extend .TextColor-Theme_03;
 
   .TitlesAndPreviewContainer,
-  .MarkdownPreviewContainer {
+  .MarkdownPreviewContainer,
+  .ReadModeAboutContainer,
+  .AuthorContainer {
     @extend .ComponentSurface-Theme_03;
   }
 }

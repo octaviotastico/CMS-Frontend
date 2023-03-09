@@ -35,33 +35,29 @@
     text-align: left;
   }
 
+  // Div 1
   .LearningCardInfo {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: calc(55% - 10px);
+    padding-bottom: 10px;
+    padding-left: 17px;
+    padding-top: 10px;
   }
 
+  // Div 2
   .LearningCardDescription {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: calc(45% - 10px);
+    width: calc(30% - 10px);
 
     .MarkdownPreview {
       font-size: 10px !important;
       font-weight: 400 !important;
       margin: 0;
     }
-  }
-
-  .LearningCardInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 10px;
-    padding-left: 17px;
-    padding-top: 10px;
   }
 
   .Title,

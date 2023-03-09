@@ -2,10 +2,8 @@
 import React, { useState, useEffect } from "react";
 
 // Material
-import { Button, ButtonGroup, Typography } from "@material-ui/core";
+import { Button, ButtonGroup, Container, Grid, Typography } from "@mui/material";
 import { Add, SearchOff } from "@mui/icons-material";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
 
 // Redux
 import { useSelector } from "react-redux";
@@ -64,6 +62,7 @@ const Learning = () => {
 
       <Grid className="BodyAndFilters">
         <Grid item xs={8} className="BodyContainer">
+          {/* All articles */}
           {articles.map((elem) => (
             <Grid container spacing={3} className="Category" key={elem.category}>
               <Grid item xs={12} className="CategoryTitleContainer">
@@ -85,6 +84,8 @@ const Learning = () => {
               </Grid>
             </Grid>
           ))}
+
+          {/* No articles yet */}
           {!articles.length && (
             <Grid className="NoArticlesContainer">
               <SearchOff className="NoArticlesIcon" />

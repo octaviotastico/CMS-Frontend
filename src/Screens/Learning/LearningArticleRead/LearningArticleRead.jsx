@@ -1,8 +1,9 @@
 // React
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 // Material
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Grid, IconButton, Snackbar, Typography } from "@mui/material";
+import { Delete, Edit, Share } from "@mui/icons-material";
 
 // Components
 import MarkdownIt from "markdown-it";
@@ -15,7 +16,7 @@ import { getArticle } from "../../../API/learning";
 import { API_URL } from "../../../Utils/constants";
 
 // Router
-import { getQueryParams } from "../../../Router";
+import { getQueryParams, navigate } from "../../../Router";
 
 // Styles
 import "./LearningArticleRead.scss";
@@ -24,26 +25,61 @@ const LearningArticleRead = () => {
   const { theme } = useSelector((state) => state);
   const { id } = getQueryParams();
   const [article, setArticle] = useState(null);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
-  const md = new MarkdownIt();
+  const md = useMemo(() => new MarkdownIt(), []);
 
-  const handleGetArticle = async (articleID) => {
+  const handleGetArticle = useCallback(async (articleID) => {
     const response = await getArticle(articleID);
     setArticle(response);
-  };
+  }, []);
 
   useEffect(() => {
     handleGetArticle(id);
+  }, [id]);
+
+  const handleShare = useCallback(() => {
+    const url = `localhost:3000/learning/article/read?id=${id}`;
+    navigator.clipboard.writeText(url);
+    setSnackbarOpen(true);
+  }, [id]);
+
+  // Navigate to the write page with the article data
+  // and send props to the component to know that it's
+  // in edit mode
+  const handleEdit = useCallback(() => {
+    navigate("/learning/article/write", {
+      state: {
+        article,
+        edit: true,
+      },
+    });
   }, []);
+
+  const handleCloseSnackbar = useCallback((event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setSnackbarOpen(false);
+  }, []);
+
+  // TODO: Show more info about the author
 
   if (article === null) {
     return <div>Loading...</div>;
   }
 
-  // TODO: Show more info about the author
-
   return (
-    <Container maxWidth={false} className={`LearningArticleRead-${theme}`}>
+    <Container disableGutters maxWidth={false} className={`LearningArticleRead-${theme}`}>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={1500}
+        onClose={(...params) => handleCloseSnackbar(...params, setSnackbarOpen)}
+        message="Link copied!"
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        style={{ fontFamily: "Poppins" }}
+      />
       <Grid className="TitlesAndPreviewContainer">
         <img
           src={`${API_URL}/${article.preview.replaceAll("\\", "/")}`}
@@ -96,6 +132,29 @@ const LearningArticleRead = () => {
         </Grid>
       </Grid>
 
+      <Grid className="ActionsContainer">
+        <Grid className="Action" container alignItems="center">
+          <IconButton onClick={() => handleShare()}>
+            <Share />
+          </IconButton>
+          <Typography className="ActionText">Share</Typography>
+        </Grid>
+
+        <Grid className="Action" container alignItems="center">
+          <IconButton onClick={() => handleEdit(article)}>
+            <Edit />
+          </IconButton>
+          <Typography className="ActionText">Edit</Typography>
+        </Grid>
+
+        <Grid className="Action" container alignItems="center">
+          <IconButton>
+            <Delete />
+          </IconButton>
+          <Typography className="ActionText">Delete</Typography>
+        </Grid>
+      </Grid>
+
       <Grid className="MarkdownPreviewContainer">
         <div
           dangerouslySetInnerHTML={{ __html: md.render(article.content) }}
@@ -103,9 +162,16 @@ const LearningArticleRead = () => {
         />
       </Grid>
 
-      {/* <Grid>
-        <Typography>Read more {article.category} articles</Typography>
-      </Grid> */}
+      <Grid className="AuthorContainer">
+        <Typography className="AuthorTitle">Author:</Typography>
+        <Typography className="Author">{article.author}</Typography>
+      </Grid>
+
+      <Grid className="ReadModeAboutContainer">
+        <Typography>
+          Read more <b>{article.category}</b> articles
+        </Typography>
+      </Grid>
     </Container>
   );
 };

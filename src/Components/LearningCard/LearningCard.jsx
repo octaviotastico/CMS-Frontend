@@ -2,7 +2,7 @@
 import React from "react";
 
 // Material
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@mui/material";
 
 // Redux
 import { useSelector } from "react-redux";
@@ -34,6 +34,7 @@ const LearningCard = ({ title, subtitle, content, author, tags, preview, id }) =
         <img src={preview} className="LearningCardPreview" alt={title} />
       )}
       <Grid container className="CardTextContent">
+        {/* First section */}
         <Grid item className="LearningCardInfo">
           <Grid>
             <Typography className="Title">{title}</Typography>
@@ -43,7 +44,7 @@ const LearningCard = ({ title, subtitle, content, author, tags, preview, id }) =
             </Typography>
           </Grid>
           <Grid container className="TagsContainer">
-            {tags.map((tag) => (
+            {tags?.map((tag) => (
               <Grid item className="Tag" key={tag}>
                 <Typography className="TagText">{tag}</Typography>
               </Grid>
@@ -51,12 +52,14 @@ const LearningCard = ({ title, subtitle, content, author, tags, preview, id }) =
           </Grid>
         </Grid>
 
+        {/* Divider */}
         <hr className="LearningCardDivider" />
 
+        {/* Second section */}
         <Grid item className="LearningCardDescription">
           <Grid>
             <Typography className="Description">
-              {content.replaceAll("#", "")}
+              {content?.replaceAll("#", "")}
               ...
             </Typography>
             <Typography className="ReadMore">Read more</Typography>
