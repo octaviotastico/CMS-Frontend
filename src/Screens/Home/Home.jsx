@@ -88,12 +88,13 @@ const Home = () => {
           )}
           {currentEvents.map((event) => (
             <EventCard
+              author={event.expositor}
               key={event.title}
               theme={theme}
               title={event.title}
               description={event.description}
               startDate={new Date(event.startDate)}
-              endDate={new Date(event.endDate)}
+              duration={new Date(event.duration)}
               tags={event.tags}
             />
           ))}
@@ -120,6 +121,7 @@ const Home = () => {
               description={event.description}
               startDate={new Date(event.startDate)}
               duration={new Date(event.duration)}
+              eventtt={event}
               tags={event.tags}
             />
           ))}
@@ -139,12 +141,14 @@ const Home = () => {
           )}
           {pastEvents.map((event) => (
             <EventCard
+              author={event.expositor}
               key={event.title}
               theme={theme}
               title={event.title}
               description={event.description}
               startDate={new Date(event.startDate)}
-              endDate={new Date(event.endDate)}
+              duration={new Date(event.duration)}
+              eventtt={event}
               tags={event.tags}
             />
           ))}

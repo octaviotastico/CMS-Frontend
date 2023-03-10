@@ -57,6 +57,9 @@
   }
 
   .EventList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     .NoEventsContainer {
       display: flex;
       margin: 20px 0;

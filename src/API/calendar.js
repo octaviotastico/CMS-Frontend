@@ -42,6 +42,8 @@ export const getUpcomingEvents = async () => {
   const response = await axios.get(`${API_URL}/calendar/events/upcoming`, {
     headers: { Authorization: `Bearer ${token}` },
   });
+
+  console.log(response.data);
   return response.data;
 };
 
@@ -68,9 +70,9 @@ export const editEvent = async (id, event) => {
   return response.data;
 };
 
-export const deleteEvent = async (id, event) => {
+export const deleteEvent = async (id) => {
   const token = sessionStorage.getItem("token");
-  const response = await axios.delete(`${API_URL}/calendar/event/${id}`, event, {
+  const response = await axios.delete(`${API_URL}/calendar/event/${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   return response.data;
