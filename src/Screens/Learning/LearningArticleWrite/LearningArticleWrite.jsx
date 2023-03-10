@@ -1,5 +1,5 @@
 // React
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 // Material
 import { Button, ButtonGroup, Container, Grid, Typography } from "@material-ui/core";
@@ -15,16 +15,24 @@ import PDropzone from "../../../Components/PDropzone/PDropzone";
 import PTextInput from "../../../Components/PTextInput/PTextInput";
 
 // Router
-import { navigate } from "../../../Router";
+import { getQueryParams, navigate } from "../../../Router";
 
-// Api
-import { getArticleCategories, getArticleTags, postArticle } from "../../../API/learning";
+// API
+import {
+  editArticle,
+  getArticle,
+  getArticleCategories,
+  getArticleTags,
+  postArticle,
+} from "../../../API/learning";
 
 // Styles
 import "./LearningArticleWrite.scss";
 
 const LearningArticleWrite = () => {
+  const md = useMemo(() => new MarkdownIt(), []);
   const { theme } = useSelector((state) => state);
+  const { id } = getQueryParams();
 
   // Article states
   const [title, setTitle] = useState("");
@@ -38,6 +46,56 @@ const LearningArticleWrite = () => {
   const [categories, setCategories] = useState({});
   const [tags, setTags] = useState([]);
 
+  const handleGetArticle = useCallback(async () => {
+    if (!id) return;
+
+    const response = await getArticle(id);
+
+    console.log({ response, id });
+
+    setTitle(response.title);
+    setSubtitle(response.subtitle);
+    setContent(response.content);
+    setPreview(response.preview);
+
+    const responseTags = [];
+
+    tags.forEach((tag) => {
+      if (response.tags.includes(tag.value)) {
+        responseTags.push(tag);
+      }
+    });
+
+    setSelectedTags(responseTags);
+
+    categories.forEach((elem) => {
+      if (response.category === elem.value) {
+        setSelectedCategory(elem);
+      }
+    });
+  }, [id]);
+
+  const handleUploadArticle = useCallback(async () => {
+    const article = {
+      title,
+      subtitle,
+      content,
+      preview,
+      category: selectedCategory.value,
+      tags: selectedTags.map((tag) => tag.value),
+    };
+
+    if (!id) {
+      await postArticle(article);
+    } else {
+      await editArticle(id, article);
+    }
+
+    setTimeout(() => {
+      navigate("/learning");
+    }, 1000);
+  }, [title, subtitle, content, preview, selectedCategory, selectedTags, id]);
+
   useEffect(() => {
     getArticleTags().then((res) => {
       setTags(res?.map((tag) => ({ label: tag, value: tag })));
@@ -46,9 +104,9 @@ const LearningArticleWrite = () => {
     getArticleCategories().then((res) => {
       setCategories(res?.map((category) => ({ label: category, value: category })));
     });
-  }, []);
 
-  const md = new MarkdownIt();
+    handleGetArticle();
+  }, [id]);
 
   return (
     <Container maxWidth={false} disableGutters className={`LearningArticleWriteScreen-${theme}`}>
@@ -96,7 +154,11 @@ const LearningArticleWrite = () => {
 
         <Grid>
           <Typography className="ArticlePreviewTitle">Article Preview</Typography>
-          <PDropzone setSelectedFile={setPreview} acceptImages />
+          <PDropzone
+            setSelectedFile={setPreview}
+            acceptImages
+            previouslySelectedImage={id && preview}
+          />
         </Grid>
       </Grid>
 
@@ -135,24 +197,8 @@ const LearningArticleWrite = () => {
           <Button className="ControlButton">
             <CloudUpload />
           </Button>
-          <Button
-            className="ControlButtonTxt"
-            onClick={() => {
-              postArticle({
-                title,
-                subtitle,
-                content,
-                preview,
-                category: selectedCategory.value,
-                tags: selectedTags.map((elem) => elem.value),
-              }).then(() => {
-                setTimeout(() => {
-                  navigate("/learning");
-                }, 1000);
-              });
-            }}
-          >
-            Upload Article
+          <Button className="ControlButtonTxt" onClick={() => handleUploadArticle()}>
+            {id ? "Update" : "Upload"} Article
           </Button>
         </ButtonGroup>
       </Grid>
