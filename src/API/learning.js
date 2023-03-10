@@ -58,7 +58,7 @@ export const postArticle = async (article) => {
   Object.keys(article).forEach((key) => fd.append(key, article[key]));
 
   const token = sessionStorage.getItem("token");
-  const response = axios.post(`${API_URL}/learning/articles`, fd, {
+  const response = await axios.post(`${API_URL}/learning/articles`, fd, {
     headers: {
       Accept: "application/json",
       Authorization: `Bearer ${token}`,
@@ -69,9 +69,16 @@ export const postArticle = async (article) => {
 };
 
 export const editArticle = async (id, article) => {
+  const fd = new FormData();
+  Object.keys(article).forEach((key) => fd.append(key, article[key]));
+
   const token = sessionStorage.getItem("token");
-  const response = await axios.patch(`${API_URL}/learning/article/${id}`, article, {
-    headers: { Authorization: `Bearer ${token}` },
+  const response = await axios.patch(`${API_URL}/learning/article/${id}`, fd, {
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
+    },
   });
   return response.data;
 };
