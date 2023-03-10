@@ -1,5 +1,5 @@
 // React
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 // Material
 import { InsertPhotoTwoTone } from "@mui/icons-material";
@@ -8,10 +8,18 @@ import { Button, Grid, Typography } from "@material-ui/core";
 // Redux
 import { useSelector } from "react-redux";
 
+// API
+import { API_URL } from "../../Utils/constants";
+
 // Styles
 import "./PDropzone.scss";
 
-const PDropzone = ({ setSelectedFile = null, validTypes = [], acceptImages = false }) => {
+const PDropzone = ({
+  setSelectedFile = null,
+  validTypes = [],
+  acceptImages = false,
+  previouslySelectedImage = null,
+}) => {
   const { theme } = useSelector((state) => state);
   const [imgSelected, setImgSelected] = useState(false);
   const [isInside, setIsInside] = useState(false);
@@ -80,6 +88,14 @@ const PDropzone = ({ setSelectedFile = null, validTypes = [], acceptImages = fal
     setIsInside(false);
   };
 
+  useEffect(() => {
+    if (previouslySelectedImage !== null) {
+      const output = document.getElementById("output");
+      output.src = `${API_URL}/${previouslySelectedImage}`;
+      setImgSelected(true);
+    }
+  }, [previouslySelectedImage]);
+
   return (
     <Grid className={`PDropzone-${theme}`}>
       <Grid
@@ -95,6 +111,7 @@ const PDropzone = ({ setSelectedFile = null, validTypes = [], acceptImages = fal
           className={`Placeholder ${imgSelected ? "" : "HideImg"}`}
           alt="Preview"
         />
+
         {!imgSelected && <InsertPhotoTwoTone id="output" className="PlaceholderIcon" />}
 
         <Typography className="HelpText">Drag and drop your file here</Typography>
