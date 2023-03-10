@@ -16,7 +16,6 @@
 
   .ActionButtons {
     margin-top: 15px;
-    margin-bottom: 10px;
   }
 
   .TextInputContainer {
@@ -191,8 +190,8 @@
   }
 
   .EditPreviewContainer {
-    border: 1px solid rgba(#969696, 1);
-    background-image: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
+    @extend .ComponentSurface-Theme_02;
+
     .Title {
       @extend .TextColor-Theme_02;
       text-shadow: 0 0 3px #c3cfe2;
@@ -240,6 +239,7 @@
 
   .EditPreviewContainer {
     @extend .ComponentSurface-Theme_03;
+
     .Title {
       @extend .TextColor-Theme_03;
     }
