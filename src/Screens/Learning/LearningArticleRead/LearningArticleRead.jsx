@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 // Material
-import { Container, Grid, IconButton, Snackbar, Typography } from "@mui/material";
+import { Container, Grid, IconButton, Link, Snackbar, Typography } from "@mui/material";
 import { Delete, Edit, Share } from "@mui/icons-material";
 
 // Components
@@ -82,7 +82,7 @@ const LearningArticleRead = () => {
       />
       <Grid className="TitlesAndPreviewContainer">
         <img
-          src={`${API_URL}/${article.preview.replaceAll("\\", "/")}`}
+          src={`${API_URL}/${article.preview?.replaceAll("\\", "/")}`}
           className="Preview"
           alt={article.title}
         />
@@ -169,7 +169,7 @@ const LearningArticleRead = () => {
 
       <Grid className="ReadModeAboutContainer">
         <Typography>
-          Read more <b>{article.category}</b> articles
+          Read more <Link href="#">{article.category}</Link> articles
         </Typography>
       </Grid>
     </Container>
