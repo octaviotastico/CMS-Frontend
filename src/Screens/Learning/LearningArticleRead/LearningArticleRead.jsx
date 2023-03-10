@@ -12,7 +12,7 @@ import MarkdownIt from "markdown-it";
 import { useSelector } from "react-redux";
 
 // API
-import { getArticle } from "../../../API/learning";
+import { getArticle, deleteArticle } from "../../../API/learning";
 import { API_URL } from "../../../Utils/constants";
 
 // Router
@@ -48,12 +48,12 @@ const LearningArticleRead = () => {
   // and send props to the component to know that it's
   // in edit mode
   const handleEdit = useCallback(() => {
-    navigate("/learning/article/write", {
-      state: {
-        article,
-        edit: true,
-      },
-    });
+    navigate(`/learning/article/write?id=${id}`);
+  }, []);
+
+  const handleDelete = useCallback(() => {
+    deleteArticle(id);
+    navigate("/learning");
   }, []);
 
   const handleCloseSnackbar = useCallback((event, reason) => {
@@ -148,7 +148,7 @@ const LearningArticleRead = () => {
         </Grid>
 
         <Grid className="Action" container alignItems="center">
-          <IconButton>
+          <IconButton onClick={() => handleDelete()}>
             <Delete />
           </IconButton>
           <Typography className="ActionText">Delete</Typography>

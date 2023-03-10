@@ -83,9 +83,9 @@ export const editArticle = async (id, article) => {
   return response.data;
 };
 
-export const deleteArticle = async (id, article) => {
+export const deleteArticle = async (id) => {
   const token = sessionStorage.getItem("token");
-  const response = await axios.delete(`${API_URL}/learning/article/${id}`, article, {
+  const response = await axios.delete(`${API_URL}/learning/article/${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   return response.data;
